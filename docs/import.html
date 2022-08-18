@@ -1,0 +1,811 @@
+<!DOCTYPE html>
+<html lang="pt-BR" xml:lang="pt-BR">
+<head>
+
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <title>Capítulo4 Importação | Introdução à Ciência de Dados em R</title>
+  <meta name="description" content="Capítulo4 Importação | Introdução à Ciência de Dados em R" />
+  <meta name="generator" content="bookdown 0.24 and GitBook 2.6.7" />
+
+  <meta property="og:title" content="Capítulo4 Importação | Introdução à Ciência de Dados em R" />
+  <meta property="og:type" content="book" />
+  
+  
+  
+  <meta name="github-repo" content="rstudio/bookdown-demo" />
+
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:title" content="Capítulo4 Importação | Introdução à Ciência de Dados em R" />
+  
+  
+  
+
+<meta name="author" content="Gustavo Jun Yakushiji; Cristian Marcelo Villegas Lobos" />
+
+
+
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black" />
+  
+  
+<link rel="prev" href="noções-básicas-em-r.html"/>
+<link rel="next" href="org.html"/>
+<script src="libs/header-attrs-2.11/header-attrs.js"></script>
+<script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/fuse.js@6.4.6/dist/fuse.min.js"></script>
+<link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-highlight.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-search.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-fontsettings.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-clipboard.css" rel="stylesheet" />
+
+
+
+
+
+
+
+
+<link href="libs/anchor-sections-1.0.1/anchor-sections.css" rel="stylesheet" />
+<script src="libs/anchor-sections-1.0.1/anchor-sections.js"></script>
+<script src="libs/kePrint-0.0.1/kePrint.js"></script>
+<link href="libs/lightable-0.0.1/lightable.css" rel="stylesheet" />
+
+
+<style type="text/css">
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+    color: #aaaaaa;
+  }
+pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+code span.al { color: #ff0000; font-weight: bold; } /* Alert */
+code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+code span.at { color: #7d9029; } /* Attribute */
+code span.bn { color: #40a070; } /* BaseN */
+code span.bu { } /* BuiltIn */
+code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+code span.ch { color: #4070a0; } /* Char */
+code span.cn { color: #880000; } /* Constant */
+code span.co { color: #60a0b0; font-style: italic; } /* Comment */
+code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+code span.do { color: #ba2121; font-style: italic; } /* Documentation */
+code span.dt { color: #902000; } /* DataType */
+code span.dv { color: #40a070; } /* DecVal */
+code span.er { color: #ff0000; font-weight: bold; } /* Error */
+code span.ex { } /* Extension */
+code span.fl { color: #40a070; } /* Float */
+code span.fu { color: #06287e; } /* Function */
+code span.im { } /* Import */
+code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+code span.kw { color: #007020; font-weight: bold; } /* Keyword */
+code span.op { color: #666666; } /* Operator */
+code span.ot { color: #007020; } /* Other */
+code span.pp { color: #bc7a00; } /* Preprocessor */
+code span.sc { color: #4070a0; } /* SpecialChar */
+code span.ss { color: #bb6688; } /* SpecialString */
+code span.st { color: #4070a0; } /* String */
+code span.va { color: #19177c; } /* Variable */
+code span.vs { color: #4070a0; } /* VerbatimString */
+code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+</style>
+
+
+<link rel="stylesheet" href="style.css" type="text/css" />
+</head>
+
+<body>
+
+
+
+  <div class="book without-animation with-summary font-size-2 font-family-1" data-basepath=".">
+
+    <div class="book-summary">
+      <nav role="navigation">
+
+<ul class="summary">
+<li><a href="./">Introdução à Ciência de Dados em R</a></li>
+
+<li class="divider"></li>
+<li class="chapter" data-level="1" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i><b>1</b> Introdução</a></li>
+<li class="chapter" data-level="2" data-path="ciência-de-dados-e-r.html"><a href="ciência-de-dados-e-r.html"><i class="fa fa-check"></i><b>2</b> Ciência de dados e R</a>
+<ul>
+<li class="chapter" data-level="2.1" data-path="ciência-de-dados-e-r.html"><a href="ciência-de-dados-e-r.html#o-que-é-ciência-de-dados"><i class="fa fa-check"></i><b>2.1</b> O que é Ciência de Dados?</a></li>
+<li class="chapter" data-level="2.2" data-path="ciência-de-dados-e-r.html"><a href="ciência-de-dados-e-r.html#r-rstudio"><i class="fa fa-check"></i><b>2.2</b> R / RStudio</a>
+<ul>
+<li class="chapter" data-level="2.2.1" data-path="ciência-de-dados-e-r.html"><a href="ciência-de-dados-e-r.html#instalando-o-r"><i class="fa fa-check"></i><b>2.2.1</b> Instalando o R</a></li>
+<li class="chapter" data-level="2.2.2" data-path="ciência-de-dados-e-r.html"><a href="ciência-de-dados-e-r.html#instalando-o-rstudio"><i class="fa fa-check"></i><b>2.2.2</b> Instalando o RStudio</a></li>
+<li class="chapter" data-level="2.2.3" data-path="ciência-de-dados-e-r.html"><a href="ciência-de-dados-e-r.html#rstudio"><i class="fa fa-check"></i><b>2.2.3</b> Ambiente RStudio</a></li>
+</ul></li>
+<li class="chapter" data-level="2.3" data-path="ciência-de-dados-e-r.html"><a href="ciência-de-dados-e-r.html#etapas-da-ciência-de-dados"><i class="fa fa-check"></i><b>2.3</b> Etapas da Ciência de Dados</a></li>
+<li class="chapter" data-level="2.4" data-path="ciência-de-dados-e-r.html"><a href="ciência-de-dados-e-r.html#pacote"><i class="fa fa-check"></i><b>2.4</b> Pacote <code>tidyverse</code></a></li>
+</ul></li>
+<li class="chapter" data-level="3" data-path="noções-básicas-em-r.html"><a href="noções-básicas-em-r.html"><i class="fa fa-check"></i><b>3</b> Noções básicas em R</a>
+<ul>
+<li class="chapter" data-level="3.1" data-path="noções-básicas-em-r.html"><a href="noções-básicas-em-r.html#proj"><i class="fa fa-check"></i><b>3.1</b> Projetos</a></li>
+<li class="chapter" data-level="3.2" data-path="noções-básicas-em-r.html"><a href="noções-básicas-em-r.html#ajuda"><i class="fa fa-check"></i><b>3.2</b> Ajuda</a></li>
+<li class="chapter" data-level="3.3" data-path="noções-básicas-em-r.html"><a href="noções-básicas-em-r.html#comentários"><i class="fa fa-check"></i><b>3.3</b> Comentários</a></li>
+<li class="chapter" data-level="3.4" data-path="noções-básicas-em-r.html"><a href="noções-básicas-em-r.html#operações-matemáticas"><i class="fa fa-check"></i><b>3.4</b> Operações matemáticas</a></li>
+<li class="chapter" data-level="3.5" data-path="noções-básicas-em-r.html"><a href="noções-básicas-em-r.html#obj"><i class="fa fa-check"></i><b>3.5</b> Objetos</a></li>
+<li class="chapter" data-level="3.6" data-path="noções-básicas-em-r.html"><a href="noções-básicas-em-r.html#funções"><i class="fa fa-check"></i><b>3.6</b> Funções</a></li>
+<li class="chapter" data-level="3.7" data-path="noções-básicas-em-r.html"><a href="noções-básicas-em-r.html#classes"><i class="fa fa-check"></i><b>3.7</b> Classes</a></li>
+<li class="chapter" data-level="3.8" data-path="noções-básicas-em-r.html"><a href="noções-básicas-em-r.html#dataf"><i class="fa fa-check"></i><b>3.8</b> Data frames</a></li>
+<li class="chapter" data-level="3.9" data-path="noções-básicas-em-r.html"><a href="noções-básicas-em-r.html#vetor"><i class="fa fa-check"></i><b>3.9</b> Vetores</a></li>
+<li class="chapter" data-level="3.10" data-path="noções-básicas-em-r.html"><a href="noções-básicas-em-r.html#fator"><i class="fa fa-check"></i><b>3.10</b> Fatores</a>
+<ul>
+<li class="chapter" data-level="3.10.1" data-path="noções-básicas-em-r.html"><a href="noções-básicas-em-r.html#diferenças-entre-fatores-e-caracteres"><i class="fa fa-check"></i><b>3.10.1</b> Diferenças entre fatores e caracteres</a></li>
+</ul></li>
+<li class="chapter" data-level="3.11" data-path="noções-básicas-em-r.html"><a href="noções-básicas-em-r.html#logica"><i class="fa fa-check"></i><b>3.11</b> Operações lógicas</a></li>
+<li class="chapter" data-level="3.12" data-path="noções-básicas-em-r.html"><a href="noções-básicas-em-r.html#especial"><i class="fa fa-check"></i><b>3.12</b> Valores especiais</a>
+<ul>
+<li class="chapter" data-level="3.12.1" data-path="noções-básicas-em-r.html"><a href="noções-básicas-em-r.html#na"><i class="fa fa-check"></i><b>3.12.1</b> NA</a></li>
+<li class="chapter" data-level="3.12.2" data-path="noções-básicas-em-r.html"><a href="noções-básicas-em-r.html#nan"><i class="fa fa-check"></i><b>3.12.2</b> NaN</a></li>
+<li class="chapter" data-level="3.12.3" data-path="noções-básicas-em-r.html"><a href="noções-básicas-em-r.html#inf"><i class="fa fa-check"></i><b>3.12.3</b> Inf</a></li>
+<li class="chapter" data-level="3.12.4" data-path="noções-básicas-em-r.html"><a href="noções-básicas-em-r.html#null"><i class="fa fa-check"></i><b>3.12.4</b> NULL</a></li>
+</ul></li>
+<li class="chapter" data-level="3.13" data-path="noções-básicas-em-r.html"><a href="noções-básicas-em-r.html#list"><i class="fa fa-check"></i><b>3.13</b> Listas</a>
+<ul>
+<li class="chapter" data-level="3.13.1" data-path="noções-básicas-em-r.html"><a href="noções-básicas-em-r.html#df"><i class="fa fa-check"></i><b>3.13.1</b> Data frames e listas</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="4" data-path="import.html"><a href="import.html"><i class="fa fa-check"></i><b>4</b> Importação</a>
+<ul>
+<li class="chapter" data-level="4.1" data-path="import.html"><a href="import.html#pacote-readr"><i class="fa fa-check"></i><b>4.1</b> Pacote <code>readr</code></a>
+<ul>
+<li class="chapter" data-level="4.1.1" data-path="import.html"><a href="import.html#ler-arquivos-texto"><i class="fa fa-check"></i><b>4.1.1</b> Ler arquivos texto</a></li>
+<li class="chapter" data-level="4.1.2" data-path="import.html"><a href="import.html#readrgs"><i class="fa fa-check"></i><b>4.1.2</b> Outros argumentos</a></li>
+<li class="chapter" data-level="4.1.3" data-path="import.html"><a href="import.html#escrever-arquivos-texto"><i class="fa fa-check"></i><b>4.1.3</b> Escrever arquivos texto</a></li>
+</ul></li>
+<li class="chapter" data-level="4.2" data-path="import.html"><a href="import.html#pacote-readxl"><i class="fa fa-check"></i><b>4.2</b> Pacote <code>readxl</code></a>
+<ul>
+<li class="chapter" data-level="4.2.1" data-path="import.html"><a href="import.html#ler-arquivos-excel"><i class="fa fa-check"></i><b>4.2.1</b> Ler arquivos Excel</a></li>
+<li class="chapter" data-level="4.2.2" data-path="import.html"><a href="import.html#escrever-arquivos-excel"><i class="fa fa-check"></i><b>4.2.2</b> Escrever arquivos Excel</a></li>
+</ul></li>
+<li class="chapter" data-level="4.3" data-path="import.html"><a href="import.html#importação-via-url"><i class="fa fa-check"></i><b>4.3</b> Importação via URL</a></li>
+<li class="chapter" data-level="4.4" data-path="import.html"><a href="import.html#banco-de-dados"><i class="fa fa-check"></i><b>4.4</b> Banco de dados</a></li>
+</ul></li>
+<li class="chapter" data-level="5" data-path="org.html"><a href="org.html"><i class="fa fa-check"></i><b>5</b> Organização</a>
+<ul>
+<li class="chapter" data-level="5.1" data-path="org.html"><a href="org.html#tibbles"><i class="fa fa-check"></i><b>5.1</b> Tibbles</a>
+<ul>
+<li class="chapter" data-level="5.1.1" data-path="org.html"><a href="org.html#criando-tibbles"><i class="fa fa-check"></i><b>5.1.1</b> Criando <em>Tibbles</em></a></li>
+<li class="chapter" data-level="5.1.2" data-path="org.html"><a href="org.html#outras-funções"><i class="fa fa-check"></i><b>5.1.2</b> Outras funções</a></li>
+</ul></li>
+<li class="chapter" data-level="5.2" data-path="org.html"><a href="org.html#pacote-tidyr"><i class="fa fa-check"></i><b>5.2</b> Pacote <code>tidyr</code></a>
+<ul>
+<li class="chapter" data-level="5.2.1" data-path="org.html"><a href="org.html#base-de-dados-tidy"><i class="fa fa-check"></i><b>5.2.1</b> Base de dados <em>tidy</em></a></li>
+<li class="chapter" data-level="5.2.2" data-path="org.html"><a href="org.html#pivotagem"><i class="fa fa-check"></i><b>5.2.2</b> Pivotagem</a></li>
+<li class="chapter" data-level="5.2.3" data-path="org.html"><a href="org.html#separar-e-unir"><i class="fa fa-check"></i><b>5.2.3</b> Separar e Unir</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="6" data-path="trans.html"><a href="trans.html"><i class="fa fa-check"></i><b>6</b> Transformação</a>
+<ul>
+<li class="chapter" data-level="6.1" data-path="trans.html"><a href="trans.html#pacote-dplyr"><i class="fa fa-check"></i><b>6.1</b> Pacote <code>dplyr</code></a>
+<ul>
+<li class="chapter" data-level="6.1.1" data-path="trans.html"><a href="trans.html#selecionar"><i class="fa fa-check"></i><b>6.1.1</b> Selecionar</a></li>
+<li class="chapter" data-level="6.1.2" data-path="trans.html"><a href="trans.html#operador-pipe"><i class="fa fa-check"></i><b>6.1.2</b> Operador <em>pipe</em> (%&gt;%)</a></li>
+<li class="chapter" data-level="6.1.3" data-path="trans.html"><a href="trans.html#filtrar"><i class="fa fa-check"></i><b>6.1.3</b> Filtrar</a></li>
+<li class="chapter" data-level="6.1.4" data-path="trans.html"><a href="trans.html#modificar-e-criar-colunas"><i class="fa fa-check"></i><b>6.1.4</b> Modificar e criar colunas</a></li>
+<li class="chapter" data-level="6.1.5" data-path="trans.html"><a href="trans.html#resumo-de-valores"><i class="fa fa-check"></i><b>6.1.5</b> Resumo de valores</a></li>
+<li class="chapter" data-level="6.1.6" data-path="trans.html"><a href="trans.html#ordenar"><i class="fa fa-check"></i><b>6.1.6</b> Ordenar</a></li>
+<li class="chapter" data-level="6.1.7" data-path="trans.html"><a href="trans.html#mudar-nomes-de-colunas"><i class="fa fa-check"></i><b>6.1.7</b> Mudar nomes de colunas</a></li>
+<li class="chapter" data-level="6.1.8" data-path="trans.html"><a href="trans.html#juntar-bases-de-dados"><i class="fa fa-check"></i><b>6.1.8</b> Juntar bases de dados</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="7" data-path="graf.html"><a href="graf.html"><i class="fa fa-check"></i><b>7</b> Visualização</a>
+<ul>
+<li class="chapter" data-level="7.1" data-path="graf.html"><a href="graf.html#gráfico-de-dispersão"><i class="fa fa-check"></i><b>7.1</b> Gráfico de Dispersão</a>
+<ul>
+<li class="chapter" data-level="7.1.1" data-path="graf.html"><a href="graf.html#cores"><i class="fa fa-check"></i><b>7.1.1</b> Cores</a></li>
+<li class="chapter" data-level="7.1.2" data-path="graf.html"><a href="graf.html#formatos"><i class="fa fa-check"></i><b>7.1.2</b> Formatos</a></li>
+<li class="chapter" data-level="7.1.3" data-path="graf.html"><a href="graf.html#tamanho"><i class="fa fa-check"></i><b>7.1.3</b> Tamanho</a></li>
+<li class="chapter" data-level="7.1.4" data-path="graf.html"><a href="graf.html#transparência"><i class="fa fa-check"></i><b>7.1.4</b> Transparência</a></li>
+<li class="chapter" data-level="7.1.5" data-path="graf.html"><a href="graf.html#facetas-facets"><i class="fa fa-check"></i><b>7.1.5</b> Facetas (<em>Facets</em>)</a></li>
+<li class="chapter" data-level="7.1.6" data-path="graf.html"><a href="graf.html#linhas-de-referência"><i class="fa fa-check"></i><b>7.1.6</b> Linhas de referência</a></li>
+<li class="chapter" data-level="7.1.7" data-path="graf.html"><a href="graf.html#linhas-de-regressão"><i class="fa fa-check"></i><b>7.1.7</b> Linhas de regressão</a></li>
+<li class="chapter" data-level="7.1.8" data-path="graf.html"><a href="graf.html#títulos-e-rótulos"><i class="fa fa-check"></i><b>7.1.8</b> Títulos e rótulos</a></li>
+<li class="chapter" data-level="7.1.9" data-path="graf.html"><a href="graf.html#temas"><i class="fa fa-check"></i><b>7.1.9</b> Temas</a></li>
+</ul></li>
+<li class="chapter" data-level="7.2" data-path="graf.html"><a href="graf.html#gráfico-de-barras"><i class="fa fa-check"></i><b>7.2</b> Gráfico de Barras</a>
+<ul>
+<li><a href="graf.html#geom_col"><code>geom_col()</code></a></li>
+<li><a href="graf.html#geom_bar"><code>geom_bar()</code></a></li>
+</ul></li>
+<li class="chapter" data-level="7.3" data-path="graf.html"><a href="graf.html#gráfico-de-setores-pizza"><i class="fa fa-check"></i><b>7.3</b> Gráfico de Setores (Pizza)</a></li>
+<li class="chapter" data-level="7.4" data-path="graf.html"><a href="graf.html#gráfico-de-linhas"><i class="fa fa-check"></i><b>7.4</b> Gráfico de Linhas</a>
+<ul>
+<li class="chapter" data-level="7.4.1" data-path="graf.html"><a href="graf.html#cores-2"><i class="fa fa-check"></i><b>7.4.1</b> Cores</a></li>
+<li class="chapter" data-level="7.4.2" data-path="graf.html"><a href="graf.html#tamanho-1"><i class="fa fa-check"></i><b>7.4.2</b> Tamanho</a></li>
+<li class="chapter" data-level="7.4.3" data-path="graf.html"><a href="graf.html#geometrias"><i class="fa fa-check"></i><b>7.4.3</b> Geometrias</a></li>
+<li class="chapter" data-level="7.4.4" data-path="graf.html"><a href="graf.html#formatos-1"><i class="fa fa-check"></i><b>7.4.4</b> Formatos</a></li>
+<li class="chapter" data-level="7.4.5" data-path="graf.html"><a href="graf.html#escalas"><i class="fa fa-check"></i><b>7.4.5</b> Escalas</a></li>
+</ul></li>
+<li class="chapter" data-level="7.5" data-path="graf.html"><a href="graf.html#gráficos-de-medidas-resumo"><i class="fa fa-check"></i><b>7.5</b> Gráficos de medidas-resumo</a>
+<ul>
+<li class="chapter" data-level="7.5.1" data-path="graf.html"><a href="graf.html#histogramas"><i class="fa fa-check"></i><b>7.5.1</b> Histogramas</a></li>
+<li class="chapter" data-level="7.5.2" data-path="graf.html"><a href="graf.html#gráfico-de-densidade"><i class="fa fa-check"></i><b>7.5.2</b> Gráfico de densidade</a></li>
+<li class="chapter" data-level="7.5.3" data-path="graf.html"><a href="graf.html#boxplot"><i class="fa fa-check"></i><b>7.5.3</b> Boxplot</a></li>
+</ul></li>
+<li class="chapter" data-level="7.6" data-path="graf.html"><a href="graf.html#juntar-gráficos-diferentes"><i class="fa fa-check"></i><b>7.6</b> Juntar gráficos diferentes</a></li>
+</ul></li>
+<li class="chapter" data-level="8" data-path="mapas.html"><a href="mapas.html"><i class="fa fa-check"></i><b>8</b> Mapas</a>
+<ul>
+<li class="chapter" data-level="8.1" data-path="mapas.html"><a href="mapas.html#funções-do-pacote-geobr"><i class="fa fa-check"></i><b>8.1</b> Funções do pacote <code>geobr</code></a></li>
+<li class="chapter" data-level="8.2" data-path="mapas.html"><a href="mapas.html#mapa-do-país"><i class="fa fa-check"></i><b>8.2</b> Mapa do país</a></li>
+<li class="chapter" data-level="8.3" data-path="mapas.html"><a href="mapas.html#estados"><i class="fa fa-check"></i><b>8.3</b> Estados</a>
+<ul>
+<li class="chapter" data-level="8.3.1" data-path="mapas.html"><a href="mapas.html#estad"><i class="fa fa-check"></i><b>8.3.1</b> Selecionando estados</a></li>
+<li class="chapter" data-level="8.3.2" data-path="mapas.html"><a href="mapas.html#leg"><i class="fa fa-check"></i><b>8.3.2</b> Adicionando legendas</a></li>
+<li class="chapter" data-level="8.3.3" data-path="mapas.html"><a href="mapas.html#estado-de-um-cep"><i class="fa fa-check"></i><b>8.3.3</b> Estado de um CEP</a></li>
+</ul></li>
+<li class="chapter" data-level="8.4" data-path="mapas.html"><a href="mapas.html#regiões"><i class="fa fa-check"></i><b>8.4</b> Regiões</a>
+<ul>
+<li class="chapter" data-level="8.4.1" data-path="mapas.html"><a href="mapas.html#regiões-específicas"><i class="fa fa-check"></i><b>8.4.1</b> Regiões específicas</a></li>
+<li class="chapter" data-level="8.4.2" data-path="mapas.html"><a href="mapas.html#regiões-com-os-estados"><i class="fa fa-check"></i><b>8.4.2</b> Regiões com os estados</a></li>
+</ul></li>
+<li class="chapter" data-level="8.5" data-path="mapas.html"><a href="mapas.html#mesorregiões-e-microrregiões"><i class="fa fa-check"></i><b>8.5</b> Mesorregiões e Microrregiões</a>
+<ul>
+<li class="chapter" data-level="8.5.1" data-path="mapas.html"><a href="mapas.html#mesorregiões"><i class="fa fa-check"></i><b>8.5.1</b> Mesorregiões</a></li>
+<li class="chapter" data-level="8.5.2" data-path="mapas.html"><a href="mapas.html#microrregiões"><i class="fa fa-check"></i><b>8.5.2</b> Microrregiões</a></li>
+</ul></li>
+<li class="chapter" data-level="8.6" data-path="mapas.html"><a href="mapas.html#municípios"><i class="fa fa-check"></i><b>8.6</b> Municípios</a>
+<ul>
+<li class="chapter" data-level="8.6.1" data-path="mapas.html"><a href="mapas.html#função-lookup_muni"><i class="fa fa-check"></i><b>8.6.1</b> Função <code>lookup_muni()</code></a></li>
+<li class="chapter" data-level="8.6.2" data-path="mapas.html"><a href="mapas.html#selecionando-municípios"><i class="fa fa-check"></i><b>8.6.2</b> Selecionando Municípios</a></li>
+<li class="chapter" data-level="8.6.3" data-path="mapas.html"><a href="mapas.html#mapa-do-brasil-com-as-capitais"><i class="fa fa-check"></i><b>8.6.3</b> Mapa do Brasil com as capitais</a></li>
+<li class="chapter" data-level="8.6.4" data-path="mapas.html"><a href="mapas.html#sedes-municipais"><i class="fa fa-check"></i><b>8.6.4</b> Sedes municipais</a></li>
+</ul></li>
+<li class="chapter" data-level="8.7" data-path="mapas.html"><a href="mapas.html#bairrossubdistritosdistritos"><i class="fa fa-check"></i><b>8.7</b> Bairros/Subdistritos/Distritos</a></li>
+<li class="chapter" data-level="8.8" data-path="mapas.html"><a href="mapas.html#regiões-metropolitanas"><i class="fa fa-check"></i><b>8.8</b> Regiões Metropolitanas</a></li>
+<li class="chapter" data-level="8.9" data-path="mapas.html"><a href="mapas.html#áreas-urbanas"><i class="fa fa-check"></i><b>8.9</b> Áreas urbanas</a></li>
+<li class="chapter" data-level="8.10" data-path="mapas.html"><a href="mapas.html#áreas-mínimas-comparáveis-amcs"><i class="fa fa-check"></i><b>8.10</b> Áreas mínimas comparáveis (AMCs)</a></li>
+<li class="chapter" data-level="8.11" data-path="mapas.html"><a href="mapas.html#mapas-temáticos"><i class="fa fa-check"></i><b>8.11</b> Mapas temáticos</a>
+<ul>
+<li class="chapter" data-level="8.11.1" data-path="mapas.html"><a href="mapas.html#censo-agropecuário-2006-e-2017"><i class="fa fa-check"></i><b>8.11.1</b> Censo agropecuário 2006 e 2017</a></li>
+</ul></li>
+<li class="chapter" data-level="8.12" data-path="mapas.html"><a href="mapas.html#biomas"><i class="fa fa-check"></i><b>8.12</b> Biomas</a></li>
+<li class="chapter" data-level="8.13" data-path="mapas.html"><a href="mapas.html#amazônia-legal"><i class="fa fa-check"></i><b>8.13</b> Amazônia Legal</a></li>
+<li class="chapter" data-level="8.14" data-path="mapas.html"><a href="mapas.html#semiárido"><i class="fa fa-check"></i><b>8.14</b> Semiárido</a></li>
+<li class="chapter" data-level="8.15" data-path="mapas.html"><a href="mapas.html#áreas-de-conservação"><i class="fa fa-check"></i><b>8.15</b> Áreas de conservação</a></li>
+<li class="chapter" data-level="8.16" data-path="mapas.html"><a href="mapas.html#terras-indígenas"><i class="fa fa-check"></i><b>8.16</b> Terras indígenas</a></li>
+<li class="chapter" data-level="8.17" data-path="mapas.html"><a href="mapas.html#áreas-de-risco-de-desastres-naturais"><i class="fa fa-check"></i><b>8.17</b> Áreas de risco de desastres naturais</a></li>
+<li class="chapter" data-level="8.18" data-path="mapas.html"><a href="mapas.html#estabelecimentos-de-saúde"><i class="fa fa-check"></i><b>8.18</b> Estabelecimentos de saúde</a></li>
+<li class="chapter" data-level="8.19" data-path="mapas.html"><a href="mapas.html#regiões-de-saúde"><i class="fa fa-check"></i><b>8.19</b> Regiões de saúde</a></li>
+<li class="chapter" data-level="8.20" data-path="mapas.html"><a href="mapas.html#escolas"><i class="fa fa-check"></i><b>8.20</b> Escolas</a></li>
+<li class="chapter" data-level="8.21" data-path="mapas.html"><a href="mapas.html#áreas-de-concentração-de-população"><i class="fa fa-check"></i><b>8.21</b> Áreas de Concentração de População</a></li>
+<li class="chapter" data-level="8.22" data-path="mapas.html"><a href="mapas.html#arranjos-populacionais"><i class="fa fa-check"></i><b>8.22</b> Arranjos populacionais</a></li>
+<li class="chapter" data-level="8.23" data-path="mapas.html"><a href="mapas.html#setor-censitário"><i class="fa fa-check"></i><b>8.23</b> Setor censitário</a></li>
+<li class="chapter" data-level="8.24" data-path="mapas.html"><a href="mapas.html#áreas-de-ponderação"><i class="fa fa-check"></i><b>8.24</b> Áreas de ponderação</a></li>
+<li class="chapter" data-level="8.25" data-path="mapas.html"><a href="mapas.html#grade-estatística-do-ibge"><i class="fa fa-check"></i><b>8.25</b> Grade estatística do IBGE</a>
+<ul>
+<li class="chapter" data-level="8.25.1" data-path="mapas.html"><a href="mapas.html#tabela-de-correspondência"><i class="fa fa-check"></i><b>8.25.1</b> Tabela de correspondência</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="" data-path="bibliografia-consultada.html"><a href="bibliografia-consultada.html"><i class="fa fa-check"></i>Bibliografia consultada</a></li>
+<li class="divider"></li>
+<li><a href="https://github.com/rstudio/bookdown" target="blank">Publicado com bookdown</a></li>
+
+</ul>
+
+      </nav>
+    </div>
+
+    <div class="book-body">
+      <div class="body-inner">
+        <div class="book-header" role="navigation">
+          <h1>
+            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./">Introdução à Ciência de Dados em R</a>
+          </h1>
+        </div>
+
+        <div class="page-wrapper" tabindex="-1" role="main">
+          <div class="page-inner">
+
+            <section class="normal" id="section-">
+<div id="import" class="section level1" number="4">
+<h1><span class="header-section-number">Capítulo4</span> Importação</h1>
+<p>Neste capítulo, iniciaremos a primeira etapa para começarmos a aplicar ciência de dados: a importação dos dados para o R. Deve-se ter em mente que um conjunto de dados pode estar em diversos formatos, seja em arquivo de texto, planilha Excel ou extensões de outros programas. Assim, para cada formato, haverá uma maneira específica de importá-los ao R. Nesta apostila, trataremos dos formatos mais usuais a serem importados: os arquivos texto e as planilhas Excel.</p>
+<p>Como citado na seção <a href="noções-básicas-em-r.html#proj">3.1</a>, referente à criação de projetos no RStudio, devemos criar um projeto para cada trabalho realizado, logo, direcionar os arquivos a serem importados para o respectivo diretório, a fim de manter uma organização e facilitar o nosso acesso aos documentos necessários. Portanto, caso ainda não tenha criado um projeto, confira a seção referente ao tema.</p>
+<p>A seguir, mostraremos como importar os dados em formato texto e planilha Excel. Para os exemplos, utilizaremos a base de dados referente a produção de cereais, extraída da FAOSTAT. Faça o <em>download</em> da pasta <a href="https://github.com/gustavojy/ApostilaCD-R/blob/main/dados_zip/dados_importar.zip?raw=true">clicando aqui</a>. Nela, estão presentes as mesmas bases de dados em diversos formatos de arquivos para que você possa acompanhar os exemplos a seguir.</p>
+<p><br></p>
+<div id="pacote-readr" class="section level2" number="4.1">
+<h2><span class="header-section-number">4.1</span> Pacote <code>readr</code></h2>
+<p>Com o pacote <code>readr</code>, podemos ler arquivos em formato de texto, como os <code>.txt</code> e os <code>.csv</code>.</p>
+<div class="sourceCode" id="cb254"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb254-1"><a href="import.html#cb254-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(readr)</span></code></pre></div>
+<p>O <code>readr</code> importa os arquivos no formato de <code>tibbles</code>, análogo aos <em>data frames</em> (seção <a href="noções-básicas-em-r.html#dataf">3.8</a>). No capítulo <a href="org.html#org">5</a> veremos mais detalhes sobre as <code>tibbles</code>. Neste momento, focaremos em como importar os dados para o R, para então, entendermos os diferentes formatos de dados. A seguir, estão apresentadas as funções a serem utilizadas de acordo com o formato do arquivo:</p>
+<ul>
+<li><p><code>read_csv()</code>: arquivos separados por vírgula;</p></li>
+<li><p><code>read_csv2()</code>: arquivos separados por ponto-e-vírgula;</p></li>
+<li><p><code>read_tsv()</code>: arquivos separados por tabulação;</p></li>
+<li><p><code>read_delim()</code>: arquivos separados por um delimitador genérico. Requer o argumento <code>delim =</code> para indicar qual o caractere que separa as colunas do arquivo texto;</p></li>
+<li><p><code>read_table()</code>: arquivos com colunas separadas por espaço.</p></li>
+</ul>
+<p>Para entendermos melhor o que são separadores, basicamente, em um arquivo texto, as colunas do Excel são delimitadas por um operador, ou seja, um separador de colunas, podendo ser vírgulas, ponto-e-vírgulas, espaços, TAB ou um delimitador genérico. Para isso, o <code>readr</code> apresenta diferentes funções para conseguir importar estes arquivos no formato correto, de acordo com o tipo de arquivo e delimitador utilizado.</p>
+<div id="ler-arquivos-texto" class="section level3" number="4.1.1">
+<h3><span class="header-section-number">4.1.1</span> Ler arquivos texto</h3>
+<p>Importaremos arquivos texto nos formatos <code>.csv</code> e <code>.txt</code>.</p>
+<p>Para ler um arquivo em <code>.csv</code>, cujo separador de colunas são as vírgulas, utilizamos a função <code>read_csv()</code>.</p>
+<div class="sourceCode" id="cb255"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb255-1"><a href="import.html#cb255-1" aria-hidden="true" tabindex="-1"></a>cereais_csv <span class="ot">&lt;-</span> <span class="fu">read_csv</span>(<span class="at">file =</span> <span class="st">&quot;cereais.csv&quot;</span>)</span></code></pre></div>
+<pre><code>Rows: 6179 Columns: 14
+-- Column specification --------------------------------------------------------
+Delimiter: &quot;,&quot;
+chr (8): Domain Code, Domain, Area, Element, Item, Unit, Flag, Flag Description
+dbl (6): Area Code, Element Code, Item Code, Year Code, Year, Value
+
+i Use `spec()` to retrieve the full column specification for this data.
+i Specify the column types or set `show_col_types = FALSE` to quiet this message.</code></pre>
+<p>Ao importar o arquivo <code>.csv</code>, a função nos informa as dimensões do banco de dados (<code>Rows</code> e <code>Columns</code>), o delimitador considerado (<code>Delimiter:</code>) e a classe atribuída para cada variável (coluna). Podemos perceber que das 14 variáveis, em 8 foi atribuída a classe do tipo caractere (<code>chr (8)</code>) e em 6, a classe numérica (<code>dbl (6)</code>).</p>
+<p>Devemos nos atentar a este passo, pois em algumas situações, a classificação das variáveis pode estar errada ou imprópria para o uso correto nas análises. Na subseção <a href="import.html#readrgs">4.1.2</a>, apresentaremos o argumento <code>col_types =</code> para reclassificar as variáveis.</p>
+<p>O argumento <code>file =</code> representa o caminho até o arquivo. Perceba que não foi preciso indicar o diretório do arquivo, pois esse se localiza na mesma pasta do projeto em uso. Caso o arquivo esteja em uma outra pasta presente no diretório do projeto em uso, devemos especificá-la dentro do caminho até o arquivo. Exemplificaremos o processo com a pasta de nome <code>dados_importar</code>.</p>
+<div class="sourceCode" id="cb257"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb257-1"><a href="import.html#cb257-1" aria-hidden="true" tabindex="-1"></a>cereais_csv <span class="ot">&lt;-</span> <span class="fu">read_csv</span>(<span class="at">file =</span> <span class="st">&quot;dados_importar/cereais.csv&quot;</span>)</span></code></pre></div>
+<p>Em algumas situações, as colunas dos arquivos <code>.csv</code> são separadas por ponto-e-vírgula. Esse tipo de arquivo costuma ser utilizado quando os separadores decimais são as vírgulas, como é o caso da sintaxe utilizada no Brasil. Nesse caso, deve-se utilizar a função <code>read_csv2()</code>.</p>
+<div class="sourceCode" id="cb258"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb258-1"><a href="import.html#cb258-1" aria-hidden="true" tabindex="-1"></a>cereais_csv2 <span class="ot">&lt;-</span> <span class="fu">read_csv2</span>(<span class="at">file =</span> <span class="st">&quot;cereais2.csv&quot;</span>)</span></code></pre></div>
+<p><br></p>
+<p>Já os arquivos <code>.txt</code> são lidos a partir da função <code>read_delim()</code>, sendo necessário indicar qual caractere é utilizado para separar as colunas do arquivo a ser importado.</p>
+<p>No exemplo a seguir, importaremos um arquivo <code>.txt</code>, separado por tabulação, sendo que o código <code>\t</code> representa a tecla TAB.</p>
+<div class="sourceCode" id="cb259"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb259-1"><a href="import.html#cb259-1" aria-hidden="true" tabindex="-1"></a>cereais_txt <span class="ot">&lt;-</span> <span class="fu">read_delim</span>(<span class="at">file =</span> <span class="st">&quot;cereais.txt&quot;</span>, <span class="at">delim =</span> <span class="st">&quot;</span><span class="sc">\t</span><span class="st">&quot;</span>)</span></code></pre></div>
+<p>Também podemos importar o arquivo anterior a partir da função <code>read_tsv()</code>, pois considera a tabulação como separador. Assim, não precisamos utilizar o argumento <code>delim =</code>.</p>
+<div class="sourceCode" id="cb260"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb260-1"><a href="import.html#cb260-1" aria-hidden="true" tabindex="-1"></a>cereais2_tab <span class="ot">&lt;-</span> <span class="fu">read_tsv</span>(<span class="at">file =</span> <span class="st">&quot;cereais.txt&quot;</span>)</span></code></pre></div>
+<p><br></p>
+</div>
+<div id="readrgs" class="section level3" number="4.1.2">
+<h3><span class="header-section-number">4.1.2</span> Outros argumentos</h3>
+<p>Alguns outros argumento estão presentes na maioria das funções de importação de arquivos do pacote <code>readr</code>. Essas funções auxiliam na organização do banco de dados, pois visam arrumar alguns detalhes antes mesmo de importá-los ao R. A seguir, citaremos alguns desses:</p>
+<div id="skip" class="section level4 unnumbered">
+<h4><code>skip =</code></h4>
+<p>Pula linhas do começo do arquivo antes da importação. Muito útil para evitar possíveis textos presentes no início do arquivo. Indique no argumento a quantidade de linhas a serem puladas;</p>
+<div class="sourceCode" id="cb261"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb261-1"><a href="import.html#cb261-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Exemplo: pular as duas primeiras linhas do banco de dados</span></span>
+<span id="cb261-2"><a href="import.html#cb261-2" aria-hidden="true" tabindex="-1"></a>cereais_csv <span class="ot">&lt;-</span> <span class="fu">read_csv</span>(<span class="at">file =</span> <span class="st">&quot;cereais.csv&quot;</span>,</span>
+<span id="cb261-3"><a href="import.html#cb261-3" aria-hidden="true" tabindex="-1"></a>                        <span class="at">skip =</span> <span class="dv">2</span>)</span></code></pre></div>
+</div>
+<div id="comment" class="section level4 unnumbered">
+<h4><code>comment =</code></h4>
+<p>No caso de arquivos que possuem algum caractere padrão que precede os comentários, usamos esse argumento para indicar qual o caractere utilizado. Por exemplo, caso o caractere <code>#</code> venha antes de todos os comentários presentes em um arquivo, utilizamos o <code>comment = "#"</code> para que o arquivo importado venha sem a parte comentada;</p>
+<div class="sourceCode" id="cb262"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb262-1"><a href="import.html#cb262-1" aria-hidden="true" tabindex="-1"></a>cereais_csv <span class="ot">&lt;-</span> <span class="fu">read_csv</span>(<span class="at">file =</span> <span class="st">&quot;cereais.csv&quot;</span>,</span>
+<span id="cb262-2"><a href="import.html#cb262-2" aria-hidden="true" tabindex="-1"></a>                        <span class="at">comment =</span> <span class="st">&quot;#&quot;</span>)</span></code></pre></div>
+</div>
+<div id="na-1" class="section level4 unnumbered">
+<h4><code>na =</code></h4>
+<p>Atribui valor <code>NA</code> a determinado caractere especificado no argumento. Aceita um vetor como objeto do argumento. Como exemplo, atribuiremos valor <code>NA</code> ao texto <code>Brazil</code>, presente na coluna <code>Area</code>, a fim de ilustrar o argumento.</p>
+<div class="sourceCode" id="cb263"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb263-1"><a href="import.html#cb263-1" aria-hidden="true" tabindex="-1"></a>cereais_csv <span class="ot">&lt;-</span> <span class="fu">read_csv</span>(<span class="at">file =</span> <span class="st">&quot;cereais.csv&quot;</span>,</span>
+<span id="cb263-2"><a href="import.html#cb263-2" aria-hidden="true" tabindex="-1"></a>                        <span class="at">na =</span> <span class="st">&quot;Brazil&quot;</span>)</span>
+<span id="cb263-3"><a href="import.html#cb263-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb263-4"><a href="import.html#cb263-4" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span>(cereais_csv)</span></code></pre></div>
+<pre><code># A tibble: 6 x 14
+  `Domain Code` Domain `Area Code` Area  `Element Code` Element      `Item Code`
+  &lt;chr&gt;         &lt;chr&gt;        &lt;dbl&gt; &lt;chr&gt;          &lt;dbl&gt; &lt;chr&gt;              &lt;dbl&gt;
+1 QC            Crops           21 &lt;NA&gt;            5312 Area harves~          44
+2 QC            Crops           21 &lt;NA&gt;            5312 Area harves~          44
+3 QC            Crops           21 &lt;NA&gt;            5312 Area harves~          44
+4 QC            Crops           21 &lt;NA&gt;            5312 Area harves~          44
+5 QC            Crops           21 &lt;NA&gt;            5312 Area harves~          44
+6 QC            Crops           21 &lt;NA&gt;            5312 Area harves~          44
+# ... with 7 more variables: Item &lt;chr&gt;, `Year Code` &lt;dbl&gt;, Year &lt;dbl&gt;,
+#   Unit &lt;chr&gt;, Value &lt;dbl&gt;, Flag &lt;chr&gt;, `Flag Description` &lt;chr&gt;</code></pre>
+</div>
+<div id="col_names" class="section level4 unnumbered">
+<h4><code>col_names =</code></h4>
+<p>Por padrão, a função assume que a primeira linha da base de dados é o nome das colunas. Caso a base de dados não venha com os nomes das colunas, utilizamos o argumento <code>col_names = FALSE</code>.</p>
+<div class="sourceCode" id="cb265"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb265-1"><a href="import.html#cb265-1" aria-hidden="true" tabindex="-1"></a>cereais_csv <span class="ot">&lt;-</span> <span class="fu">read_csv</span>(<span class="at">file =</span> <span class="st">&quot;cereais.csv&quot;</span>,</span>
+<span id="cb265-2"><a href="import.html#cb265-2" aria-hidden="true" tabindex="-1"></a>                        <span class="at">col_names =</span> F,</span>
+<span id="cb265-3"><a href="import.html#cb265-3" aria-hidden="true" tabindex="-1"></a>                        <span class="at">skip =</span> <span class="dv">1</span>)</span>
+<span id="cb265-4"><a href="import.html#cb265-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb265-5"><a href="import.html#cb265-5" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span>(cereais_csv)</span></code></pre></div>
+<pre><code># A tibble: 6 x 14
+  X1    X2       X3 X4        X5 X6       X7 X8       X9   X10 X11     X12 X13  
+  &lt;chr&gt; &lt;chr&gt; &lt;dbl&gt; &lt;chr&gt;  &lt;dbl&gt; &lt;chr&gt; &lt;dbl&gt; &lt;chr&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;chr&gt; &lt;dbl&gt; &lt;chr&gt;
+1 QC    Crops    21 Brazil  5312 Area~    44 Barl~  1961  1961 ha    31511 &lt;NA&gt; 
+2 QC    Crops    21 Brazil  5312 Area~    44 Barl~  1962  1962 ha    28454 &lt;NA&gt; 
+3 QC    Crops    21 Brazil  5312 Area~    44 Barl~  1963  1963 ha    30443 &lt;NA&gt; 
+4 QC    Crops    21 Brazil  5312 Area~    44 Barl~  1964  1964 ha    31164 &lt;NA&gt; 
+5 QC    Crops    21 Brazil  5312 Area~    44 Barl~  1965  1965 ha    33550 &lt;NA&gt; 
+6 QC    Crops    21 Brazil  5312 Area~    44 Barl~  1966  1966 ha    41175 &lt;NA&gt; 
+# ... with 1 more variable: X14 &lt;chr&gt;</code></pre>
+<p>Perceba que a função atribui nomes genéricos para as colunas, o que dificulta a identificação das variáveis presentes no banco de dados. Para isso, com o mesmo argumento <code>col_names =</code>, podemos (re)nomear as colunas.</p>
+<div class="sourceCode" id="cb267"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb267-1"><a href="import.html#cb267-1" aria-hidden="true" tabindex="-1"></a>cereais_csv <span class="ot">&lt;-</span> <span class="fu">read_csv</span>(<span class="at">file =</span> <span class="st">&quot;cereais.csv&quot;</span>,</span>
+<span id="cb267-2"><a href="import.html#cb267-2" aria-hidden="true" tabindex="-1"></a>                        <span class="at">col_names =</span> <span class="fu">c</span>(<span class="st">&quot;cd&quot;</span>, <span class="st">&quot;cod&quot;</span>,<span class="st">&quot;ac&quot;</span>, <span class="st">&quot;pais&quot;</span>, <span class="st">&quot;ec&quot;</span>,</span>
+<span id="cb267-3"><a href="import.html#cb267-3" aria-hidden="true" tabindex="-1"></a>                                      <span class="st">&quot;elemento&quot;</span>, <span class="st">&quot;ic&quot;</span>, <span class="st">&quot;cultura&quot;</span>, <span class="st">&quot;yc&quot;</span>,</span>
+<span id="cb267-4"><a href="import.html#cb267-4" aria-hidden="true" tabindex="-1"></a>                                      <span class="st">&quot;ano&quot;</span>, <span class="st">&quot;unidade&quot;</span>, <span class="st">&quot;valor&quot;</span>, <span class="st">&quot;flag&quot;</span>,</span>
+<span id="cb267-5"><a href="import.html#cb267-5" aria-hidden="true" tabindex="-1"></a>                                      <span class="st">&quot;descricao&quot;</span>),</span>
+<span id="cb267-6"><a href="import.html#cb267-6" aria-hidden="true" tabindex="-1"></a>                        <span class="at">skip =</span> <span class="dv">1</span>)</span>
+<span id="cb267-7"><a href="import.html#cb267-7" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb267-8"><a href="import.html#cb267-8" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span>(cereais_csv)</span></code></pre></div>
+<pre><code># A tibble: 6 x 14
+  cd    cod      ac pais     ec elemento    ic cultura    yc   ano unidade valor
+  &lt;chr&gt; &lt;chr&gt; &lt;dbl&gt; &lt;chr&gt; &lt;dbl&gt; &lt;chr&gt;    &lt;dbl&gt; &lt;chr&gt;   &lt;dbl&gt; &lt;dbl&gt; &lt;chr&gt;   &lt;dbl&gt;
+1 QC    Crops    21 Braz~  5312 Area ha~    44 Barley   1961  1961 ha      31511
+2 QC    Crops    21 Braz~  5312 Area ha~    44 Barley   1962  1962 ha      28454
+3 QC    Crops    21 Braz~  5312 Area ha~    44 Barley   1963  1963 ha      30443
+4 QC    Crops    21 Braz~  5312 Area ha~    44 Barley   1964  1964 ha      31164
+5 QC    Crops    21 Braz~  5312 Area ha~    44 Barley   1965  1965 ha      33550
+6 QC    Crops    21 Braz~  5312 Area ha~    44 Barley   1966  1966 ha      41175
+# ... with 2 more variables: flag &lt;chr&gt;, descricao &lt;chr&gt;</code></pre>
+<p>Como exemplo, renomeamos as colunas com o argumento <code>col_names = c()</code>, sendo que cada coluna deve ser, obrigatoriamente, renomeada ou conter o mesmo nome anterior, porém reescrito dentro do vetor, na ordem correta. Perceba que temos que pular a primeira linha (<code>skip = 1</code>), pois após a renomeação, a primeira linha do <em>data frame</em> será o antigo nome das colunas. Por outro lado, caso a base da dados tenha vindo sem nome, o argumento <code>skip</code> não precisa estar presente.</p>
+</div>
+<div id="col_types" class="section level4 unnumbered">
+<h4><code>col_types =</code></h4>
+<p>No caso de alguma coluna ser importada com a classe errada ou imprópria, utiliza-se tal argumento para alterar a classe. Será exemplificada a transformação da variável <code>Element</code> em fator e da variável <code>Year</code> em números inteiros.</p>
+<div class="sourceCode" id="cb269"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb269-1"><a href="import.html#cb269-1" aria-hidden="true" tabindex="-1"></a>cereais_csv <span class="ot">&lt;-</span> <span class="fu">read_csv</span>(<span class="at">file =</span> <span class="st">&quot;cereais.csv&quot;</span>,</span>
+<span id="cb269-2"><a href="import.html#cb269-2" aria-hidden="true" tabindex="-1"></a>                        <span class="at">col_types =</span> <span class="fu">cols</span>(</span>
+<span id="cb269-3"><a href="import.html#cb269-3" aria-hidden="true" tabindex="-1"></a>                          <span class="at">Element =</span> <span class="fu">col_factor</span>(),</span>
+<span id="cb269-4"><a href="import.html#cb269-4" aria-hidden="true" tabindex="-1"></a>                          <span class="at">Year =</span> <span class="fu">col_integer</span>()))</span>
+<span id="cb269-5"><a href="import.html#cb269-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb269-6"><a href="import.html#cb269-6" aria-hidden="true" tabindex="-1"></a><span class="fu">class</span>(cereais_csv<span class="sc">$</span>Element)</span>
+<span id="cb269-7"><a href="import.html#cb269-7" aria-hidden="true" tabindex="-1"></a><span class="fu">class</span>(cereais_csv<span class="sc">$</span>Year)</span></code></pre></div>
+<pre><code>[1] &quot;factor&quot;</code></pre>
+<pre><code>[1] &quot;integer&quot;</code></pre>
+</div>
+<div id="locale" class="section level4 unnumbered">
+<h4><code>locale =</code></h4>
+<p>Esse argumento define opções de formatações de certas localidades, como o idioma, formato de datas e horas, separador decimal e <em>encoding</em>. É utilizada dentro da função <code>read_</code>, tendo como objeto a função de mesmo nome, <code>locale()</code>. A seguir, veremos alguns exemplos de aplicações desse argumento.</p>
+<div class="sourceCode" id="cb272"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb272-1"><a href="import.html#cb272-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Função locale() - verifica quais padrões estão sendo utilizados</span></span>
+<span id="cb272-2"><a href="import.html#cb272-2" aria-hidden="true" tabindex="-1"></a><span class="fu">locale</span>()</span></code></pre></div>
+<pre><code>&lt;locale&gt;
+Numbers:  123,456.78
+Formats:  %AD / %AT
+Timezone: UTC
+Encoding: UTF-8
+&lt;date_names&gt;
+Days:   Sunday (Sun), Monday (Mon), Tuesday (Tue), Wednesday (Wed), Thursday
+        (Thu), Friday (Fri), Saturday (Sat)
+Months: January (Jan), February (Feb), March (Mar), April (Apr), May (May),
+        June (Jun), July (Jul), August (Aug), September (Sep), October
+        (Oct), November (Nov), December (Dec)
+AM/PM:  AM/PM</code></pre>
+<div class="sourceCode" id="cb274"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb274-1"><a href="import.html#cb274-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Troca os dias e meses para o padrão português</span></span>
+<span id="cb274-2"><a href="import.html#cb274-2" aria-hidden="true" tabindex="-1"></a><span class="fu">locale</span>(<span class="at">date_names =</span> <span class="st">&quot;pt&quot;</span>)</span></code></pre></div>
+<pre><code>&lt;locale&gt;
+Numbers:  123,456.78
+Formats:  %AD / %AT
+Timezone: UTC
+Encoding: UTF-8
+&lt;date_names&gt;
+Days:   domingo (dom), segunda-feira (seg), terça-feira (ter), quarta-feira
+        (qua), quinta-feira (qui), sexta-feira (sex), sábado (sáb)
+Months: janeiro (jan), fevereiro (fev), março (mar), abril (abr), maio (mai),
+        junho (jun), julho (jul), agosto (ago), setembro (set), outubro
+        (out), novembro (nov), dezembro (dez)
+AM/PM:  AM/PM</code></pre>
+<div class="sourceCode" id="cb276"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb276-1"><a href="import.html#cb276-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Troca o separador decimal de ponto para vírgula</span></span>
+<span id="cb276-2"><a href="import.html#cb276-2" aria-hidden="true" tabindex="-1"></a><span class="fu">locale</span>(<span class="at">decimal_mark =</span> <span class="st">&quot;,&quot;</span>)</span></code></pre></div>
+<pre><code>&lt;locale&gt;
+Numbers:  123.456,78
+Formats:  %AD / %AT
+Timezone: UTC
+Encoding: UTF-8
+&lt;date_names&gt;
+Days:   Sunday (Sun), Monday (Mon), Tuesday (Tue), Wednesday (Wed), Thursday
+        (Thu), Friday (Fri), Saturday (Sat)
+Months: January (Jan), February (Feb), March (Mar), April (Apr), May (May),
+        June (Jun), July (Jul), August (Aug), September (Sep), October
+        (Oct), November (Nov), December (Dec)
+AM/PM:  AM/PM</code></pre>
+<p>Outro problema que podemos resolver com o argumento é o <em>encoding</em> de arquivos. <em>Encoding</em> é a forma como o computador traduz os caracteres replicados no R para valores binários. Há diversos tipos de <em>encoding</em>, sendo que o Windows utiliza um diferente em relação ao Linux e Mac. Com isso, é comum termos problemas de <em>encoding</em> no Windows quando um arquivo é criado em um desses sistemas operacionais, havendo a desconfiguração de letras com acentos e outros caracteres especiais após a importação para o R. A seguir, demonstraremos o que são os problemas de <em>encoding</em> no Windows.</p>
+<div class="sourceCode" id="cb278"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb278-1"><a href="import.html#cb278-1" aria-hidden="true" tabindex="-1"></a>poema_drummond <span class="ot">&lt;-</span> <span class="st">&quot;E agora, José? A festa acabou, a luz apagou, o povo sumiu, a noite esfriou, e agora, José? (...)&quot;</span></span>
+<span id="cb278-2"><a href="import.html#cb278-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb278-3"><a href="import.html#cb278-3" aria-hidden="true" tabindex="-1"></a><span class="co"># Verificando encoding no Windows</span></span>
+<span id="cb278-4"><a href="import.html#cb278-4" aria-hidden="true" tabindex="-1"></a><span class="fu">Encoding</span>(poema_drummond)</span></code></pre></div>
+<pre><code>[1] &quot;latin1&quot;</code></pre>
+<div class="sourceCode" id="cb280"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb280-1"><a href="import.html#cb280-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Forçando problema de encoding no Windows</span></span>
+<span id="cb280-2"><a href="import.html#cb280-2" aria-hidden="true" tabindex="-1"></a><span class="fu">Encoding</span>(poema_drummond) <span class="ot">&lt;-</span> <span class="st">&quot;UTF-8&quot;</span></span>
+<span id="cb280-3"><a href="import.html#cb280-3" aria-hidden="true" tabindex="-1"></a>poema_drummond</span></code></pre></div>
+<pre><code>[1] &quot;E agora, Jos&lt;e9&gt;? A festa acabou, a luz apagou, o povo sumiu, a noite esfriou, e agora, Jos&lt;e9&gt;? (...)&quot;</code></pre>
+<p>Para corrigir o <em>encoding</em> no Windows, devemos atribuir o <em>encoding</em> <code>latin1</code>.</p>
+<p>Assim, dependendo de qual sistema operacional um arquivo foi executado, devemos converter para diferentes <em>encoding</em>.</p>
+<div class="sourceCode" id="cb282"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb282-1"><a href="import.html#cb282-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Dados via Windows: usuário de Windows, converter para &quot;latin1&quot;</span></span>
+<span id="cb282-2"><a href="import.html#cb282-2" aria-hidden="true" tabindex="-1"></a><span class="fu">read_csv</span>(<span class="st">&quot;dados_via_Windows.csv&quot;</span>, <span class="at">locale =</span> <span class="fu">locale</span>(<span class="at">encoding =</span> <span class="st">&quot;latin1&quot;</span>))</span>
+<span id="cb282-3"><a href="import.html#cb282-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb282-4"><a href="import.html#cb282-4" aria-hidden="true" tabindex="-1"></a><span class="co"># Dados via Linux/Mac: usuário de Windows, converter para &quot;UFT-8&quot;</span></span>
+<span id="cb282-5"><a href="import.html#cb282-5" aria-hidden="true" tabindex="-1"></a><span class="fu">read_csv</span>(<span class="st">&quot;dados_via_linux_mac.csv&quot;</span>, <span class="at">locale =</span> <span class="fu">locale</span>(<span class="at">encoding =</span> <span class="st">&quot;UFT-8&quot;</span>))</span></code></pre></div>
+<p><br></p>
+<p>Outra funcionalidade do argumento <code>locale =</code> é o de <em>parsear</em> valores. Esse termo, comum no meio da programação, significa arrumar ou formatar um “valor A” para um “valor B”, a partir das similaridades entre ambos.</p>
+<p>Como exemplo, podemos converter números que estão em formato de caractere para o formato de números, efetivamente:</p>
+<div class="sourceCode" id="cb283"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb283-1"><a href="import.html#cb283-1" aria-hidden="true" tabindex="-1"></a><span class="fu">parse_number</span>(<span class="fu">c</span>(<span class="st">&quot;5&quot;</span>, <span class="st">&quot;5.0&quot;</span>, <span class="st">&quot;5,0&quot;</span>, <span class="st">&quot;R$5.00&quot;</span>, <span class="st">&quot;5 a&quot;</span>))</span></code></pre></div>
+<pre><code>[1]  5  5 50  5  5</code></pre>
+<p>Podemos realizar o mesmo procedimento especificando o <em>parseamento</em>:</p>
+<div class="sourceCode" id="cb285"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb285-1"><a href="import.html#cb285-1" aria-hidden="true" tabindex="-1"></a><span class="fu">parse_number</span>(<span class="st">&quot;5,0&quot;</span>, <span class="at">locale =</span> <span class="fu">locale</span>(<span class="at">decimal_mark =</span> <span class="st">&quot;,&quot;</span>))</span></code></pre></div>
+<pre><code>[1] 5</code></pre>
+<p>Ainda, podemos <em>parsear</em> datas, de acordo com o idioma:</p>
+<div class="sourceCode" id="cb287"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb287-1"><a href="import.html#cb287-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Inglês</span></span>
+<span id="cb287-2"><a href="import.html#cb287-2" aria-hidden="true" tabindex="-1"></a><span class="fu">parse_date</span>(<span class="st">&quot;08/July/2021&quot;</span>,</span>
+<span id="cb287-3"><a href="import.html#cb287-3" aria-hidden="true" tabindex="-1"></a>           <span class="at">format =</span> <span class="st">&quot;%d/%B/%Y&quot;</span>)</span></code></pre></div>
+<pre><code>[1] &quot;2021-07-08&quot;</code></pre>
+<div class="sourceCode" id="cb289"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb289-1"><a href="import.html#cb289-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Português</span></span>
+<span id="cb289-2"><a href="import.html#cb289-2" aria-hidden="true" tabindex="-1"></a><span class="fu">parse_date</span>(<span class="st">&quot;08/Julho/2021&quot;</span>,</span>
+<span id="cb289-3"><a href="import.html#cb289-3" aria-hidden="true" tabindex="-1"></a>           <span class="at">format =</span> <span class="st">&quot;%d/%B/%Y&quot;</span>,</span>
+<span id="cb289-4"><a href="import.html#cb289-4" aria-hidden="true" tabindex="-1"></a>           <span class="at">locale =</span> <span class="fu">locale</span>(<span class="at">date_names =</span> <span class="st">&quot;pt&quot;</span>))</span></code></pre></div>
+<pre><code>[1] &quot;2021-07-08&quot;</code></pre>
+<p><br></p>
+<p>Para conferir todos os argumentos presentes nas funções do pacote <code>readr</code>, podemos utilizar a função <code>args(nome_da_função)</code>. Exemplificaremos com a função <code>read_csv()</code>.</p>
+<div class="sourceCode" id="cb291"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb291-1"><a href="import.html#cb291-1" aria-hidden="true" tabindex="-1"></a><span class="fu">args</span>(read_csv)</span></code></pre></div>
+<pre><code>function (file, col_names = TRUE, col_types = NULL, col_select = NULL, 
+    id = NULL, locale = default_locale(), na = c(&quot;&quot;, &quot;NA&quot;), quoted_na = TRUE, 
+    quote = &quot;\&quot;&quot;, comment = &quot;&quot;, trim_ws = TRUE, skip = 0, n_max = Inf, 
+    guess_max = min(1000, n_max), name_repair = &quot;unique&quot;, num_threads = readr_threads(), 
+    progress = show_progress(), show_col_types = should_show_types(), 
+    skip_empty_rows = TRUE, lazy = should_read_lazy()) 
+NULL</code></pre>
+<p><br></p>
+</div>
+</div>
+<div id="escrever-arquivos-texto" class="section level3" number="4.1.3">
+<h3><span class="header-section-number">4.1.3</span> Escrever arquivos texto</h3>
+<p>Também temos a opção de salvar uma base de dados contida no R para um formato específico de arquivo. Para tanto, utilizamos a função <code>write_</code>, acompanhada dos argumentos <code>x =</code> e <code>file =</code>, referentes, respectivamente, ao objeto a ser escrito e ao nome do arquivo a ser criado.</p>
+<p>Nos exemplos a seguir, escreveremos dados para os formatos <code>.csv</code> e <code>.txt</code>. Utilizaremos os dados do <code>mtcars</code>, presente no banco de dados nativo do R.</p>
+<div class="sourceCode" id="cb293"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb293-1"><a href="import.html#cb293-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Arquivo .csv separado por vírgula</span></span>
+<span id="cb293-2"><a href="import.html#cb293-2" aria-hidden="true" tabindex="-1"></a><span class="fu">write_csv</span>(<span class="at">x =</span> mtcars, <span class="at">file =</span> <span class="st">&quot;mtcars.csv&quot;</span>)</span>
+<span id="cb293-3"><a href="import.html#cb293-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb293-4"><a href="import.html#cb293-4" aria-hidden="true" tabindex="-1"></a><span class="co"># Arquivo .csv separado por ponto-e-vírgula</span></span>
+<span id="cb293-5"><a href="import.html#cb293-5" aria-hidden="true" tabindex="-1"></a><span class="fu">write_csv2</span>(<span class="at">x =</span> mtcars, <span class="at">file =</span> <span class="st">&quot;mtcars.csv&quot;</span>)</span>
+<span id="cb293-6"><a href="import.html#cb293-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb293-7"><a href="import.html#cb293-7" aria-hidden="true" tabindex="-1"></a><span class="co"># Arquivo .txt, separado por tabulação</span></span>
+<span id="cb293-8"><a href="import.html#cb293-8" aria-hidden="true" tabindex="-1"></a><span class="fu">write_delim</span>(<span class="at">x =</span> mtcars, <span class="at">file =</span> <span class="st">&quot;mtcars.txt&quot;</span>, <span class="at">delim =</span> <span class="st">&quot;</span><span class="sc">\t</span><span class="st">&quot;</span>)</span></code></pre></div>
+<p>O arquivo escrito estará localizado no diretório referente ao projeto em atividade. Caso queira definir outro local para armazenar o arquivo, especifique-o no argumento <code>file =</code>. Por exemplo, caso deseje salvar o arquivo em uma pasta chamada <code>banco_de_dados</code>, localizada no diretório do projeto em uso, devemos prosseguir da seguinte maneira:</p>
+<div class="sourceCode" id="cb294"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb294-1"><a href="import.html#cb294-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Arquivo .csv separado por vírgula</span></span>
+<span id="cb294-2"><a href="import.html#cb294-2" aria-hidden="true" tabindex="-1"></a><span class="fu">write_csv</span>(<span class="at">x =</span> mtcars, <span class="at">file =</span> <span class="st">&quot;banco_de_dados/mtcars.csv&quot;</span>)</span>
+<span id="cb294-3"><a href="import.html#cb294-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb294-4"><a href="import.html#cb294-4" aria-hidden="true" tabindex="-1"></a><span class="co"># Arquivo .csv separado por ponto-e-vírgula</span></span>
+<span id="cb294-5"><a href="import.html#cb294-5" aria-hidden="true" tabindex="-1"></a><span class="fu">write_csv2</span>(<span class="at">x =</span> mtcars, <span class="at">file =</span> <span class="st">&quot;banco_de_dados/mtcars.csv&quot;</span>)</span>
+<span id="cb294-6"><a href="import.html#cb294-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb294-7"><a href="import.html#cb294-7" aria-hidden="true" tabindex="-1"></a><span class="co"># Arquivo .txt, separado por tabulação</span></span>
+<span id="cb294-8"><a href="import.html#cb294-8" aria-hidden="true" tabindex="-1"></a><span class="fu">write_delim</span>(<span class="at">x =</span> mtcars, <span class="at">file =</span> <span class="st">&quot;banco_de_dados/mtcars.txt&quot;</span>, <span class="at">delim =</span> <span class="st">&quot;</span><span class="sc">\t</span><span class="st">&quot;</span>)</span></code></pre></div>
+<p><br></p>
+</div>
+</div>
+<div id="pacote-readxl" class="section level2" number="4.2">
+<h2><span class="header-section-number">4.2</span> Pacote <code>readxl</code></h2>
+<div id="ler-arquivos-excel" class="section level3" number="4.2.1">
+<h3><span class="header-section-number">4.2.1</span> Ler arquivos Excel</h3>
+<p>O pacote <code>readxl</code> lê e importa planilhas Excel em formato <code>.xlsx</code> e <code>.xls</code>. Para tanto, utilizamos a função <code>read_excel()</code>. Esta função identifica automaticamente qual a extensão do arquivo, seja <code>.xlsx</code> ou <code>.xls</code>.</p>
+<div class="sourceCode" id="cb295"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb295-1"><a href="import.html#cb295-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(readxl)</span>
+<span id="cb295-2"><a href="import.html#cb295-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb295-3"><a href="import.html#cb295-3" aria-hidden="true" tabindex="-1"></a>cereais_xlsx <span class="ot">&lt;-</span> <span class="fu">read_excel</span>(<span class="st">&quot;cereais.xlsx&quot;</span>)</span></code></pre></div>
+<p>Neste mesmo pacote, estão presentes alguns exemplos de arquivos nos formatos <code>.xlsx</code> e <code>.xls</code>. Para conferi-los, utilizamos a função <code>readxl_example()</code>.</p>
+<div class="sourceCode" id="cb296"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb296-1"><a href="import.html#cb296-1" aria-hidden="true" tabindex="-1"></a><span class="fu">readxl_example</span>()</span></code></pre></div>
+<pre><code> [1] &quot;clippy.xls&quot;    &quot;clippy.xlsx&quot;   &quot;datasets.xls&quot;  &quot;datasets.xlsx&quot;
+ [5] &quot;deaths.xls&quot;    &quot;deaths.xlsx&quot;   &quot;geometry.xls&quot;  &quot;geometry.xlsx&quot;
+ [9] &quot;type-me.xls&quot;   &quot;type-me.xlsx&quot; </code></pre>
+<p>Para utilizar um destes dados, devemos verificar em qual diretório estão localizados. Vamos exemplificar com o arquivo <code>"deaths.xlsx"</code>, salvando sua localização no objeto <code>local_arquivo</code>.</p>
+<div class="sourceCode" id="cb298"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb298-1"><a href="import.html#cb298-1" aria-hidden="true" tabindex="-1"></a>local_arquivo <span class="ot">&lt;-</span> <span class="fu">readxl_example</span>(<span class="st">&quot;deaths.xlsx&quot;</span>)</span>
+<span id="cb298-2"><a href="import.html#cb298-2" aria-hidden="true" tabindex="-1"></a>local_arquivo</span></code></pre></div>
+<pre><code>[1] &quot;C:/Users/Gustavo Jun/Documents/R/win-library/4.1/readxl/extdata/deaths.xlsx&quot;</code></pre>
+<p>Em alguns casos, um arquivo Excel pode conter diversas planilhas. Para verificar quais planilhas estão presentes, utilizamos a função <code>excel_sheets()</code>.</p>
+<div class="sourceCode" id="cb300"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb300-1"><a href="import.html#cb300-1" aria-hidden="true" tabindex="-1"></a><span class="fu">excel_sheets</span>(local_arquivo)</span></code></pre></div>
+<pre><code>[1] &quot;arts&quot;  &quot;other&quot;</code></pre>
+<p>Perceba que o arquivo Excel <code>deaths</code> apresenta duas planilhas: “arts” e “other”. Para selecionar a planilha desejada, devemos utilizar o argumento <code>sheet =</code> dentro da função <code>read_excel()</code>. Caso não seja utilizado o argumento, por padrão, será selecionada a primeira planilha contida no arquivo.</p>
+<div class="sourceCode" id="cb302"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb302-1"><a href="import.html#cb302-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Primeira planilha</span></span>
+<span id="cb302-2"><a href="import.html#cb302-2" aria-hidden="true" tabindex="-1"></a><span class="fu">read_excel</span>(local_arquivo)</span></code></pre></div>
+<pre><code># A tibble: 18 x 6
+   `Lots of people`             ...2                     ...3  ...4  ...5  ...6 
+   &lt;chr&gt;                        &lt;chr&gt;                    &lt;chr&gt; &lt;chr&gt; &lt;chr&gt; &lt;chr&gt;
+ 1 simply cannot resist writing &lt;NA&gt;                     &lt;NA&gt;  &lt;NA&gt;  &lt;NA&gt;  some~
+ 2 at                           the                      top   &lt;NA&gt;  of    thei~
+ 3 or                           merging                  &lt;NA&gt;  &lt;NA&gt;  &lt;NA&gt;  cells
+ 4 Name                         Profession               Age   Has ~ Date~ Date~
+ 5 David Bowie                  musician                 69    TRUE  17175 42379
+ 6 Carrie Fisher                actor                    60    TRUE  20749 42731
+ 7 Chuck Berry                  musician                 90    TRUE  9788  42812
+ 8 Bill Paxton                  actor                    61    TRUE  20226 42791
+ 9 Prince                       musician                 57    TRUE  21343 42481
+10 Alan Rickman                 actor                    69    FALSE 16854 42383
+11 Florence Henderson           actor                    82    TRUE  12464 42698
+12 Harper Lee                   author                   89    FALSE 9615  42419
+13 Zsa Zsa Gábor                actor                    99    TRUE  6247  42722
+14 George Michael               musician                 53    FALSE 23187 42729
+15 Some                         &lt;NA&gt;                     &lt;NA&gt;  &lt;NA&gt;  &lt;NA&gt;  &lt;NA&gt; 
+16 &lt;NA&gt;                         also like to write stuff &lt;NA&gt;  &lt;NA&gt;  &lt;NA&gt;  &lt;NA&gt; 
+17 &lt;NA&gt;                         &lt;NA&gt;                     at t~ bott~ &lt;NA&gt;  &lt;NA&gt; 
+18 &lt;NA&gt;                         &lt;NA&gt;                     &lt;NA&gt;  &lt;NA&gt;  &lt;NA&gt;  too! </code></pre>
+<div class="sourceCode" id="cb304"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb304-1"><a href="import.html#cb304-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Segunda planilha</span></span>
+<span id="cb304-2"><a href="import.html#cb304-2" aria-hidden="true" tabindex="-1"></a><span class="fu">read_excel</span>(local_arquivo, <span class="at">sheet =</span> <span class="dv">2</span>)</span></code></pre></div>
+<pre><code># A tibble: 18 x 6
+   `For the sake`  ...2                     ...3  ...4     ...5          ...6   
+   &lt;chr&gt;           &lt;chr&gt;                    &lt;chr&gt; &lt;chr&gt;    &lt;chr&gt;         &lt;chr&gt;  
+ 1 &lt;NA&gt;            of consistency           &lt;NA&gt;  &lt;NA&gt;     in the        data l~
+ 2 which is really &lt;NA&gt;                     &lt;NA&gt;  &lt;NA&gt;     a             beauti~
+ 3 I will          keep making notes        &lt;NA&gt;  &lt;NA&gt;     &lt;NA&gt;          up her~
+ 4 Name            Profession               Age   Has kids Date of birth Date o~
+ 5 Vera Rubin      scientist                88    TRUE     10432         42729  
+ 6 Mohamed Ali     athlete                  74    TRUE     15358         42524  
+ 7 Morley Safer    journalist               84    TRUE     11635         42509  
+ 8 Fidel Castro    politician               90    TRUE     9722          42699  
+ 9 Antonin Scalia  lawyer                   79    TRUE     13220         42413  
+10 Jo Cox          politician               41    TRUE     27202         42537  
+11 Janet Reno      lawyer                   78    FALSE    14082         42681  
+12 Gwen Ifill      journalist               61    FALSE    20361         42688  
+13 John Glenn      astronaut                95    TRUE     7880          42712  
+14 Pat Summit      coach                    64    TRUE     19159         42549  
+15 This            &lt;NA&gt;                     &lt;NA&gt;  &lt;NA&gt;     &lt;NA&gt;          &lt;NA&gt;   
+16 &lt;NA&gt;            has been really fun, but &lt;NA&gt;  &lt;NA&gt;     &lt;NA&gt;          &lt;NA&gt;   
+17 we&#39;re signing   &lt;NA&gt;                     &lt;NA&gt;  &lt;NA&gt;     &lt;NA&gt;          &lt;NA&gt;   
+18 &lt;NA&gt;            &lt;NA&gt;                     off   &lt;NA&gt;     now!          &lt;NA&gt;   </code></pre>
+<div class="sourceCode" id="cb306"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb306-1"><a href="import.html#cb306-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Seleciona a segunda planilha, agora pelo seu nome</span></span>
+<span id="cb306-2"><a href="import.html#cb306-2" aria-hidden="true" tabindex="-1"></a><span class="fu">read_excel</span>(local_arquivo, <span class="at">sheet =</span> <span class="st">&quot;other&quot;</span>)</span></code></pre></div>
+<pre><code># A tibble: 18 x 6
+   `For the sake`  ...2                     ...3  ...4     ...5          ...6   
+   &lt;chr&gt;           &lt;chr&gt;                    &lt;chr&gt; &lt;chr&gt;    &lt;chr&gt;         &lt;chr&gt;  
+ 1 &lt;NA&gt;            of consistency           &lt;NA&gt;  &lt;NA&gt;     in the        data l~
+ 2 which is really &lt;NA&gt;                     &lt;NA&gt;  &lt;NA&gt;     a             beauti~
+ 3 I will          keep making notes        &lt;NA&gt;  &lt;NA&gt;     &lt;NA&gt;          up her~
+ 4 Name            Profession               Age   Has kids Date of birth Date o~
+ 5 Vera Rubin      scientist                88    TRUE     10432         42729  
+ 6 Mohamed Ali     athlete                  74    TRUE     15358         42524  
+ 7 Morley Safer    journalist               84    TRUE     11635         42509  
+ 8 Fidel Castro    politician               90    TRUE     9722          42699  
+ 9 Antonin Scalia  lawyer                   79    TRUE     13220         42413  
+10 Jo Cox          politician               41    TRUE     27202         42537  
+11 Janet Reno      lawyer                   78    FALSE    14082         42681  
+12 Gwen Ifill      journalist               61    FALSE    20361         42688  
+13 John Glenn      astronaut                95    TRUE     7880          42712  
+14 Pat Summit      coach                    64    TRUE     19159         42549  
+15 This            &lt;NA&gt;                     &lt;NA&gt;  &lt;NA&gt;     &lt;NA&gt;          &lt;NA&gt;   
+16 &lt;NA&gt;            has been really fun, but &lt;NA&gt;  &lt;NA&gt;     &lt;NA&gt;          &lt;NA&gt;   
+17 we&#39;re signing   &lt;NA&gt;                     &lt;NA&gt;  &lt;NA&gt;     &lt;NA&gt;          &lt;NA&gt;   
+18 &lt;NA&gt;            &lt;NA&gt;                     off   &lt;NA&gt;     now!          &lt;NA&gt;   </code></pre>
+<p>Podemos verificar outros argumentos presentes nas funções do pacote <code>readxl</code> com a função <code>args(nome_da_função)</code>. Exemplificaremos com a função <code>read_excel()</code>.</p>
+<div class="sourceCode" id="cb308"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb308-1"><a href="import.html#cb308-1" aria-hidden="true" tabindex="-1"></a><span class="fu">args</span>(read_excel)</span></code></pre></div>
+<pre><code>function (path, sheet = NULL, range = NULL, col_names = TRUE, 
+    col_types = NULL, na = &quot;&quot;, trim_ws = TRUE, skip = 0, n_max = Inf, 
+    guess_max = min(1000, n_max), progress = readxl_progress(), 
+    .name_repair = &quot;unique&quot;) 
+NULL</code></pre>
+<p>Como se pode notar, há diversos argumentos idênticos aos demonstrados na subseção <a href="import.html#readrgs">4.1.2</a>, referente ao pacote <code>readr</code>. Contudo, na função <code>read_excel()</code> não temos o argumento <code>locale</code>, sendo uma falta relevante para que possamos resolver problemas relacionados à temática. Como alternativa, podemos priorizar a importação de arquivos texto ao R, ao invés de planilhas Excel, sendo facilmente resolvido salvando o Excel em formato texto, seja em <code>.csv</code> ou <code>.txt</code>.</p>
+<p><br></p>
+</div>
+<div id="escrever-arquivos-excel" class="section level3" number="4.2.2">
+<h3><span class="header-section-number">4.2.2</span> Escrever arquivos Excel</h3>
+<p>Também podemos escrever um arquivo Excel em formato <code>.xlsx</code> utilizando a função <code>write_xlsx</code>, contida no pacote <code>writexl</code>. Utilizaremos novamente os dados <code>mtcars</code> para demonstração.</p>
+<div class="sourceCode" id="cb310"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb310-1"><a href="import.html#cb310-1" aria-hidden="true" tabindex="-1"></a><span class="fu">install.packages</span>(<span class="st">&quot;writexl&quot;</span>)</span>
+<span id="cb310-2"><a href="import.html#cb310-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(writexl)</span>
+<span id="cb310-3"><a href="import.html#cb310-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb310-4"><a href="import.html#cb310-4" aria-hidden="true" tabindex="-1"></a><span class="fu">write_xlsx</span>(mtcars, <span class="st">&quot;mtcars.xlsx&quot;</span>)</span></code></pre></div>
+<p><br></p>
+</div>
+</div>
+<div id="importação-via-url" class="section level2" number="4.3">
+<h2><span class="header-section-number">4.3</span> Importação via URL</h2>
+<p>Uma opção prática para importar dados presentes na internet, diretamente do ambiente do RStudio, se dá via URL, ou seja, a partir do endereço <em>web</em> em que se localiza o banco de dados para <em>download</em>. Esse método permite a importação direta do banco de dados para o R, sem a necessidade de realizar o <em>download</em> de um arquivo para o seu computador.</p>
+<p>Como exemplo, importaremos os dados sobre preços praticados por revendedores de combustíveis automotivos e de gás liquefeito de petróleo, no 2º semestre de 2021, coletados do <a href="https://dados.gov.br/dataset/serie-historica-de-precos-de-combustiveis-por-revenda/resource/baf0fa4d-488a-45b4-8ba4-d0c9f447f843">Portal Brasileiro de Dados Abertos</a>.</p>
+<div class="sourceCode" id="cb311"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb311-1"><a href="import.html#cb311-1" aria-hidden="true" tabindex="-1"></a>url <span class="ot">&lt;-</span> <span class="st">&quot;https://www.gov.br/anp/pt-br/centrais-de-conteudo/dados-abertos/arquivos/shpc/dsas/ca/ca-2021-02.csv&quot;</span></span>
+<span id="cb311-2"><a href="import.html#cb311-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb311-3"><a href="import.html#cb311-3" aria-hidden="true" tabindex="-1"></a>dados_comb <span class="ot">&lt;-</span> <span class="fu">read_csv2</span>(<span class="at">file =</span> url)</span>
+<span id="cb311-4"><a href="import.html#cb311-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb311-5"><a href="import.html#cb311-5" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span>(dados_comb)</span></code></pre></div>
+<pre><code># A tibble: 6 x 16
+  `Regiao - Sigla` `Estado - Sigla` Municipio Revenda           `CNPJ da Reven~`
+  &lt;chr&gt;            &lt;chr&gt;            &lt;chr&gt;     &lt;chr&gt;             &lt;chr&gt;           
+1 NE               CE               MARACANAU &quot;BEZERRA &amp; MENDE~ 05.397.086/0001~
+2 NE               CE               MARACANAU &quot;BEZERRA &amp; MENDE~ 05.397.086/0001~
+3 NE               CE               MARACANAU &quot;BEZERRA &amp; MENDE~ 05.397.086/0001~
+4 NE               CE               MARACANAU &quot;BEZERRA &amp; MENDE~ 05.397.086/0001~
+5 NE               CE               MARACANAU &quot;LUIZA GLAURIA R~ 03.602.329/0001~
+6 NE               CE               MARACANAU &quot;LUIZA GLAURIA R~ 03.602.329/0001~
+# ... with 11 more variables: `Nome da Rua` &lt;chr&gt;, `Numero Rua` &lt;chr&gt;,
+#   Complemento &lt;chr&gt;, Bairro &lt;chr&gt;, Cep &lt;chr&gt;, Produto &lt;chr&gt;,
+#   `Data da Coleta` &lt;chr&gt;, `Valor de Venda` &lt;dbl&gt;, `Valor de Compra` &lt;lgl&gt;,
+#   `Unidade de Medida` &lt;chr&gt;, Bandeira &lt;chr&gt;</code></pre>
+<p>Para isso, o primeiro passo é salvar a URL em um objeto; no caso, denominamos o objeto de <code>url</code>. Por se tratar de um arquivo <code>.csv</code>, delimitado por <code>;</code>, utilizamos a função <code>read_csv2()</code> para importar o arquivo, tendo como argumento <code>file =</code> a URL salva no objeto <code>url</code>.</p>
+<p><br></p>
+</div>
+<div id="banco-de-dados" class="section level2" number="4.4">
+<h2><span class="header-section-number">4.4</span> Banco de dados</h2>
+<p>A seguir, listaremos alguns sites que fornecem uma grande variedade de base de dados públicas. Confira algum que apresente dados de seu interesse, para que você possa aplicá-los futuramente no R.</p>
+<ul>
+<li><p>FAOSTAT: <a href="https://www.fao.org/faostat/en/#data" class="uri">https://www.fao.org/faostat/en/#data</a></p></li>
+<li><p>IBGE: <a href="https://sidra.ibge.gov.br/acervo#/A/Q" class="uri">https://sidra.ibge.gov.br/acervo#/A/Q</a></p></li>
+<li><p>USDA: <a href="https://apps.fas.usda.gov/psdonline/app/index.html#/app/advQuery" class="uri">https://apps.fas.usda.gov/psdonline/app/index.html#/app/advQuery</a></p></li>
+<li><p>DataBank: <a href="https://databank.worldbank.org/home.aspx" class="uri">https://databank.worldbank.org/home.aspx</a></p></li>
+<li><p>Kaggle: <a href="https://www.kaggle.com/datasets" class="uri">https://www.kaggle.com/datasets</a>;</p></li>
+<li><p>Dados do Agro: <a href="https://dados.agr.br/fonte-de-dados/" class="uri">https://dados.agr.br/fonte-de-dados/</a></p></li>
+</ul>
+<p><br></p>
+<p>Como pudemos perceber, a importação de dados para o R não é uma tarefa difícil. Devemos nos atentar ao formato em que o arquivo está, a fim de utilizarmos a função de importação correta. Dependendo da fonte dos dados, esses podem vir com algumas configurações indesejadas, o que pode ser resolvido antes mesmo de importarmos os dados, utilizando funções e argumentos específicos para cada necessidade. Por fim, também conhecemos funções que escrevem os dados do R para diversos formatos, seja arquivos texto ou planilhas Excel.</p>
+<p>No próximo capítulo, trataremos da etapa de <strong>arrumar</strong> os dados. Serão apresentadas as <code>tibbles</code>, um tipo de <em>data frame</em> que utilizaremos muito, além de explorarmos as funcionalidades presentes no pacote <code>tidyr</code>, a fim de obtermos uma base de dados organizada e fácil de se trabalhar.</p>
+
+</div>
+</div>
+            </section>
+
+          </div>
+        </div>
+      </div>
+<a href="noções-básicas-em-r.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="org.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+    </div>
+  </div>
+<script src="libs/gitbook-2.6.7/js/app.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/clipboard.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-search.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-sharing.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-fontsettings.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-bookdown.js"></script>
+<script src="libs/gitbook-2.6.7/js/jquery.highlight.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-clipboard.js"></script>
+<script>
+gitbook.require(["gitbook"], function(gitbook) {
+gitbook.start({
+"sharing": {
+"github": false,
+"facebook": true,
+"twitter": true,
+"linkedin": false,
+"weibo": false,
+"instapaper": false,
+"vk": false,
+"whatsapp": false,
+"all": ["facebook", "twitter", "linkedin", "weibo", "instapaper"]
+},
+"fontsettings": {
+"theme": "white",
+"family": "sans",
+"size": 2
+},
+"edit": null,
+"history": {
+"link": null,
+"text": null
+},
+"view": {
+"link": null,
+"text": null
+},
+"download": ["_main.pdf", "_main.epub"],
+"search": {
+"engine": "fuse",
+"options": null
+},
+"toc": {
+"collapse": "subsection"
+}
+});
+});
+</script>
+
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+  (function () {
+    var script = document.createElement("script");
+    script.type = "text/javascript";
+    var src = "true";
+    if (src === "" || src === "true") src = "https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-MML-AM_CHTML";
+    if (location.protocol !== "file:")
+      if (/^https?:/.test(src))
+        src = src.replace(/^https?:/, '');
+    script.src = src;
+    document.getElementsByTagName("head")[0].appendChild(script);
+  })();
+</script>
+</body>
+
+</html>

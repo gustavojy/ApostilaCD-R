@@ -1,0 +1,1279 @@
+<!DOCTYPE html>
+<html lang="pt-BR" xml:lang="pt-BR">
+<head>
+
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <title>Capítulo6 Transformação | Introdução à Ciência de Dados em R</title>
+  <meta name="description" content="Capítulo6 Transformação | Introdução à Ciência de Dados em R" />
+  <meta name="generator" content="bookdown 0.24 and GitBook 2.6.7" />
+
+  <meta property="og:title" content="Capítulo6 Transformação | Introdução à Ciência de Dados em R" />
+  <meta property="og:type" content="book" />
+  
+  
+  
+  <meta name="github-repo" content="rstudio/bookdown-demo" />
+
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:title" content="Capítulo6 Transformação | Introdução à Ciência de Dados em R" />
+  
+  
+  
+
+<meta name="author" content="Gustavo Jun Yakushiji; Cristian Marcelo Villegas Lobos" />
+
+
+
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black" />
+  
+  
+<link rel="prev" href="org.html"/>
+<link rel="next" href="graf.html"/>
+<script src="libs/header-attrs-2.11/header-attrs.js"></script>
+<script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/fuse.js@6.4.6/dist/fuse.min.js"></script>
+<link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-highlight.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-search.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-fontsettings.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-clipboard.css" rel="stylesheet" />
+
+
+
+
+
+
+
+
+<link href="libs/anchor-sections-1.0.1/anchor-sections.css" rel="stylesheet" />
+<script src="libs/anchor-sections-1.0.1/anchor-sections.js"></script>
+<script src="libs/kePrint-0.0.1/kePrint.js"></script>
+<link href="libs/lightable-0.0.1/lightable.css" rel="stylesheet" />
+
+
+<style type="text/css">
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+    color: #aaaaaa;
+  }
+pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+code span.al { color: #ff0000; font-weight: bold; } /* Alert */
+code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+code span.at { color: #7d9029; } /* Attribute */
+code span.bn { color: #40a070; } /* BaseN */
+code span.bu { } /* BuiltIn */
+code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+code span.ch { color: #4070a0; } /* Char */
+code span.cn { color: #880000; } /* Constant */
+code span.co { color: #60a0b0; font-style: italic; } /* Comment */
+code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+code span.do { color: #ba2121; font-style: italic; } /* Documentation */
+code span.dt { color: #902000; } /* DataType */
+code span.dv { color: #40a070; } /* DecVal */
+code span.er { color: #ff0000; font-weight: bold; } /* Error */
+code span.ex { } /* Extension */
+code span.fl { color: #40a070; } /* Float */
+code span.fu { color: #06287e; } /* Function */
+code span.im { } /* Import */
+code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+code span.kw { color: #007020; font-weight: bold; } /* Keyword */
+code span.op { color: #666666; } /* Operator */
+code span.ot { color: #007020; } /* Other */
+code span.pp { color: #bc7a00; } /* Preprocessor */
+code span.sc { color: #4070a0; } /* SpecialChar */
+code span.ss { color: #bb6688; } /* SpecialString */
+code span.st { color: #4070a0; } /* String */
+code span.va { color: #19177c; } /* Variable */
+code span.vs { color: #4070a0; } /* VerbatimString */
+code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+</style>
+
+
+<link rel="stylesheet" href="style.css" type="text/css" />
+</head>
+
+<body>
+
+
+
+  <div class="book without-animation with-summary font-size-2 font-family-1" data-basepath=".">
+
+    <div class="book-summary">
+      <nav role="navigation">
+
+<ul class="summary">
+<li><a href="./">Introdução à Ciência de Dados em R</a></li>
+
+<li class="divider"></li>
+<li class="chapter" data-level="1" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i><b>1</b> Introdução</a></li>
+<li class="chapter" data-level="2" data-path="ciência-de-dados-e-r.html"><a href="ciência-de-dados-e-r.html"><i class="fa fa-check"></i><b>2</b> Ciência de dados e R</a>
+<ul>
+<li class="chapter" data-level="2.1" data-path="ciência-de-dados-e-r.html"><a href="ciência-de-dados-e-r.html#o-que-é-ciência-de-dados"><i class="fa fa-check"></i><b>2.1</b> O que é Ciência de Dados?</a></li>
+<li class="chapter" data-level="2.2" data-path="ciência-de-dados-e-r.html"><a href="ciência-de-dados-e-r.html#r-rstudio"><i class="fa fa-check"></i><b>2.2</b> R / RStudio</a>
+<ul>
+<li class="chapter" data-level="2.2.1" data-path="ciência-de-dados-e-r.html"><a href="ciência-de-dados-e-r.html#instalando-o-r"><i class="fa fa-check"></i><b>2.2.1</b> Instalando o R</a></li>
+<li class="chapter" data-level="2.2.2" data-path="ciência-de-dados-e-r.html"><a href="ciência-de-dados-e-r.html#instalando-o-rstudio"><i class="fa fa-check"></i><b>2.2.2</b> Instalando o RStudio</a></li>
+<li class="chapter" data-level="2.2.3" data-path="ciência-de-dados-e-r.html"><a href="ciência-de-dados-e-r.html#rstudio"><i class="fa fa-check"></i><b>2.2.3</b> Ambiente RStudio</a></li>
+</ul></li>
+<li class="chapter" data-level="2.3" data-path="ciência-de-dados-e-r.html"><a href="ciência-de-dados-e-r.html#etapas-da-ciência-de-dados"><i class="fa fa-check"></i><b>2.3</b> Etapas da Ciência de Dados</a></li>
+<li class="chapter" data-level="2.4" data-path="ciência-de-dados-e-r.html"><a href="ciência-de-dados-e-r.html#pacote"><i class="fa fa-check"></i><b>2.4</b> Pacote <code>tidyverse</code></a></li>
+</ul></li>
+<li class="chapter" data-level="3" data-path="noções-básicas-em-r.html"><a href="noções-básicas-em-r.html"><i class="fa fa-check"></i><b>3</b> Noções básicas em R</a>
+<ul>
+<li class="chapter" data-level="3.1" data-path="noções-básicas-em-r.html"><a href="noções-básicas-em-r.html#proj"><i class="fa fa-check"></i><b>3.1</b> Projetos</a></li>
+<li class="chapter" data-level="3.2" data-path="noções-básicas-em-r.html"><a href="noções-básicas-em-r.html#ajuda"><i class="fa fa-check"></i><b>3.2</b> Ajuda</a></li>
+<li class="chapter" data-level="3.3" data-path="noções-básicas-em-r.html"><a href="noções-básicas-em-r.html#comentários"><i class="fa fa-check"></i><b>3.3</b> Comentários</a></li>
+<li class="chapter" data-level="3.4" data-path="noções-básicas-em-r.html"><a href="noções-básicas-em-r.html#operações-matemáticas"><i class="fa fa-check"></i><b>3.4</b> Operações matemáticas</a></li>
+<li class="chapter" data-level="3.5" data-path="noções-básicas-em-r.html"><a href="noções-básicas-em-r.html#obj"><i class="fa fa-check"></i><b>3.5</b> Objetos</a></li>
+<li class="chapter" data-level="3.6" data-path="noções-básicas-em-r.html"><a href="noções-básicas-em-r.html#funções"><i class="fa fa-check"></i><b>3.6</b> Funções</a></li>
+<li class="chapter" data-level="3.7" data-path="noções-básicas-em-r.html"><a href="noções-básicas-em-r.html#classes"><i class="fa fa-check"></i><b>3.7</b> Classes</a></li>
+<li class="chapter" data-level="3.8" data-path="noções-básicas-em-r.html"><a href="noções-básicas-em-r.html#dataf"><i class="fa fa-check"></i><b>3.8</b> Data frames</a></li>
+<li class="chapter" data-level="3.9" data-path="noções-básicas-em-r.html"><a href="noções-básicas-em-r.html#vetor"><i class="fa fa-check"></i><b>3.9</b> Vetores</a></li>
+<li class="chapter" data-level="3.10" data-path="noções-básicas-em-r.html"><a href="noções-básicas-em-r.html#fator"><i class="fa fa-check"></i><b>3.10</b> Fatores</a>
+<ul>
+<li class="chapter" data-level="3.10.1" data-path="noções-básicas-em-r.html"><a href="noções-básicas-em-r.html#diferenças-entre-fatores-e-caracteres"><i class="fa fa-check"></i><b>3.10.1</b> Diferenças entre fatores e caracteres</a></li>
+</ul></li>
+<li class="chapter" data-level="3.11" data-path="noções-básicas-em-r.html"><a href="noções-básicas-em-r.html#logica"><i class="fa fa-check"></i><b>3.11</b> Operações lógicas</a></li>
+<li class="chapter" data-level="3.12" data-path="noções-básicas-em-r.html"><a href="noções-básicas-em-r.html#especial"><i class="fa fa-check"></i><b>3.12</b> Valores especiais</a>
+<ul>
+<li class="chapter" data-level="3.12.1" data-path="noções-básicas-em-r.html"><a href="noções-básicas-em-r.html#na"><i class="fa fa-check"></i><b>3.12.1</b> NA</a></li>
+<li class="chapter" data-level="3.12.2" data-path="noções-básicas-em-r.html"><a href="noções-básicas-em-r.html#nan"><i class="fa fa-check"></i><b>3.12.2</b> NaN</a></li>
+<li class="chapter" data-level="3.12.3" data-path="noções-básicas-em-r.html"><a href="noções-básicas-em-r.html#inf"><i class="fa fa-check"></i><b>3.12.3</b> Inf</a></li>
+<li class="chapter" data-level="3.12.4" data-path="noções-básicas-em-r.html"><a href="noções-básicas-em-r.html#null"><i class="fa fa-check"></i><b>3.12.4</b> NULL</a></li>
+</ul></li>
+<li class="chapter" data-level="3.13" data-path="noções-básicas-em-r.html"><a href="noções-básicas-em-r.html#list"><i class="fa fa-check"></i><b>3.13</b> Listas</a>
+<ul>
+<li class="chapter" data-level="3.13.1" data-path="noções-básicas-em-r.html"><a href="noções-básicas-em-r.html#df"><i class="fa fa-check"></i><b>3.13.1</b> Data frames e listas</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="4" data-path="import.html"><a href="import.html"><i class="fa fa-check"></i><b>4</b> Importação</a>
+<ul>
+<li class="chapter" data-level="4.1" data-path="import.html"><a href="import.html#pacote-readr"><i class="fa fa-check"></i><b>4.1</b> Pacote <code>readr</code></a>
+<ul>
+<li class="chapter" data-level="4.1.1" data-path="import.html"><a href="import.html#ler-arquivos-texto"><i class="fa fa-check"></i><b>4.1.1</b> Ler arquivos texto</a></li>
+<li class="chapter" data-level="4.1.2" data-path="import.html"><a href="import.html#readrgs"><i class="fa fa-check"></i><b>4.1.2</b> Outros argumentos</a></li>
+<li class="chapter" data-level="4.1.3" data-path="import.html"><a href="import.html#escrever-arquivos-texto"><i class="fa fa-check"></i><b>4.1.3</b> Escrever arquivos texto</a></li>
+</ul></li>
+<li class="chapter" data-level="4.2" data-path="import.html"><a href="import.html#pacote-readxl"><i class="fa fa-check"></i><b>4.2</b> Pacote <code>readxl</code></a>
+<ul>
+<li class="chapter" data-level="4.2.1" data-path="import.html"><a href="import.html#ler-arquivos-excel"><i class="fa fa-check"></i><b>4.2.1</b> Ler arquivos Excel</a></li>
+<li class="chapter" data-level="4.2.2" data-path="import.html"><a href="import.html#escrever-arquivos-excel"><i class="fa fa-check"></i><b>4.2.2</b> Escrever arquivos Excel</a></li>
+</ul></li>
+<li class="chapter" data-level="4.3" data-path="import.html"><a href="import.html#importação-via-url"><i class="fa fa-check"></i><b>4.3</b> Importação via URL</a></li>
+<li class="chapter" data-level="4.4" data-path="import.html"><a href="import.html#banco-de-dados"><i class="fa fa-check"></i><b>4.4</b> Banco de dados</a></li>
+</ul></li>
+<li class="chapter" data-level="5" data-path="org.html"><a href="org.html"><i class="fa fa-check"></i><b>5</b> Organização</a>
+<ul>
+<li class="chapter" data-level="5.1" data-path="org.html"><a href="org.html#tibbles"><i class="fa fa-check"></i><b>5.1</b> Tibbles</a>
+<ul>
+<li class="chapter" data-level="5.1.1" data-path="org.html"><a href="org.html#criando-tibbles"><i class="fa fa-check"></i><b>5.1.1</b> Criando <em>Tibbles</em></a></li>
+<li class="chapter" data-level="5.1.2" data-path="org.html"><a href="org.html#outras-funções"><i class="fa fa-check"></i><b>5.1.2</b> Outras funções</a></li>
+</ul></li>
+<li class="chapter" data-level="5.2" data-path="org.html"><a href="org.html#pacote-tidyr"><i class="fa fa-check"></i><b>5.2</b> Pacote <code>tidyr</code></a>
+<ul>
+<li class="chapter" data-level="5.2.1" data-path="org.html"><a href="org.html#base-de-dados-tidy"><i class="fa fa-check"></i><b>5.2.1</b> Base de dados <em>tidy</em></a></li>
+<li class="chapter" data-level="5.2.2" data-path="org.html"><a href="org.html#pivotagem"><i class="fa fa-check"></i><b>5.2.2</b> Pivotagem</a></li>
+<li class="chapter" data-level="5.2.3" data-path="org.html"><a href="org.html#separar-e-unir"><i class="fa fa-check"></i><b>5.2.3</b> Separar e Unir</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="6" data-path="trans.html"><a href="trans.html"><i class="fa fa-check"></i><b>6</b> Transformação</a>
+<ul>
+<li class="chapter" data-level="6.1" data-path="trans.html"><a href="trans.html#pacote-dplyr"><i class="fa fa-check"></i><b>6.1</b> Pacote <code>dplyr</code></a>
+<ul>
+<li class="chapter" data-level="6.1.1" data-path="trans.html"><a href="trans.html#selecionar"><i class="fa fa-check"></i><b>6.1.1</b> Selecionar</a></li>
+<li class="chapter" data-level="6.1.2" data-path="trans.html"><a href="trans.html#operador-pipe"><i class="fa fa-check"></i><b>6.1.2</b> Operador <em>pipe</em> (%&gt;%)</a></li>
+<li class="chapter" data-level="6.1.3" data-path="trans.html"><a href="trans.html#filtrar"><i class="fa fa-check"></i><b>6.1.3</b> Filtrar</a></li>
+<li class="chapter" data-level="6.1.4" data-path="trans.html"><a href="trans.html#modificar-e-criar-colunas"><i class="fa fa-check"></i><b>6.1.4</b> Modificar e criar colunas</a></li>
+<li class="chapter" data-level="6.1.5" data-path="trans.html"><a href="trans.html#resumo-de-valores"><i class="fa fa-check"></i><b>6.1.5</b> Resumo de valores</a></li>
+<li class="chapter" data-level="6.1.6" data-path="trans.html"><a href="trans.html#ordenar"><i class="fa fa-check"></i><b>6.1.6</b> Ordenar</a></li>
+<li class="chapter" data-level="6.1.7" data-path="trans.html"><a href="trans.html#mudar-nomes-de-colunas"><i class="fa fa-check"></i><b>6.1.7</b> Mudar nomes de colunas</a></li>
+<li class="chapter" data-level="6.1.8" data-path="trans.html"><a href="trans.html#juntar-bases-de-dados"><i class="fa fa-check"></i><b>6.1.8</b> Juntar bases de dados</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="7" data-path="graf.html"><a href="graf.html"><i class="fa fa-check"></i><b>7</b> Visualização</a>
+<ul>
+<li class="chapter" data-level="7.1" data-path="graf.html"><a href="graf.html#gráfico-de-dispersão"><i class="fa fa-check"></i><b>7.1</b> Gráfico de Dispersão</a>
+<ul>
+<li class="chapter" data-level="7.1.1" data-path="graf.html"><a href="graf.html#cores"><i class="fa fa-check"></i><b>7.1.1</b> Cores</a></li>
+<li class="chapter" data-level="7.1.2" data-path="graf.html"><a href="graf.html#formatos"><i class="fa fa-check"></i><b>7.1.2</b> Formatos</a></li>
+<li class="chapter" data-level="7.1.3" data-path="graf.html"><a href="graf.html#tamanho"><i class="fa fa-check"></i><b>7.1.3</b> Tamanho</a></li>
+<li class="chapter" data-level="7.1.4" data-path="graf.html"><a href="graf.html#transparência"><i class="fa fa-check"></i><b>7.1.4</b> Transparência</a></li>
+<li class="chapter" data-level="7.1.5" data-path="graf.html"><a href="graf.html#facetas-facets"><i class="fa fa-check"></i><b>7.1.5</b> Facetas (<em>Facets</em>)</a></li>
+<li class="chapter" data-level="7.1.6" data-path="graf.html"><a href="graf.html#linhas-de-referência"><i class="fa fa-check"></i><b>7.1.6</b> Linhas de referência</a></li>
+<li class="chapter" data-level="7.1.7" data-path="graf.html"><a href="graf.html#linhas-de-regressão"><i class="fa fa-check"></i><b>7.1.7</b> Linhas de regressão</a></li>
+<li class="chapter" data-level="7.1.8" data-path="graf.html"><a href="graf.html#títulos-e-rótulos"><i class="fa fa-check"></i><b>7.1.8</b> Títulos e rótulos</a></li>
+<li class="chapter" data-level="7.1.9" data-path="graf.html"><a href="graf.html#temas"><i class="fa fa-check"></i><b>7.1.9</b> Temas</a></li>
+</ul></li>
+<li class="chapter" data-level="7.2" data-path="graf.html"><a href="graf.html#gráfico-de-barras"><i class="fa fa-check"></i><b>7.2</b> Gráfico de Barras</a>
+<ul>
+<li><a href="graf.html#geom_col"><code>geom_col()</code></a></li>
+<li><a href="graf.html#geom_bar"><code>geom_bar()</code></a></li>
+</ul></li>
+<li class="chapter" data-level="7.3" data-path="graf.html"><a href="graf.html#gráfico-de-setores-pizza"><i class="fa fa-check"></i><b>7.3</b> Gráfico de Setores (Pizza)</a></li>
+<li class="chapter" data-level="7.4" data-path="graf.html"><a href="graf.html#gráfico-de-linhas"><i class="fa fa-check"></i><b>7.4</b> Gráfico de Linhas</a>
+<ul>
+<li class="chapter" data-level="7.4.1" data-path="graf.html"><a href="graf.html#cores-2"><i class="fa fa-check"></i><b>7.4.1</b> Cores</a></li>
+<li class="chapter" data-level="7.4.2" data-path="graf.html"><a href="graf.html#tamanho-1"><i class="fa fa-check"></i><b>7.4.2</b> Tamanho</a></li>
+<li class="chapter" data-level="7.4.3" data-path="graf.html"><a href="graf.html#geometrias"><i class="fa fa-check"></i><b>7.4.3</b> Geometrias</a></li>
+<li class="chapter" data-level="7.4.4" data-path="graf.html"><a href="graf.html#formatos-1"><i class="fa fa-check"></i><b>7.4.4</b> Formatos</a></li>
+<li class="chapter" data-level="7.4.5" data-path="graf.html"><a href="graf.html#escalas"><i class="fa fa-check"></i><b>7.4.5</b> Escalas</a></li>
+</ul></li>
+<li class="chapter" data-level="7.5" data-path="graf.html"><a href="graf.html#gráficos-de-medidas-resumo"><i class="fa fa-check"></i><b>7.5</b> Gráficos de medidas-resumo</a>
+<ul>
+<li class="chapter" data-level="7.5.1" data-path="graf.html"><a href="graf.html#histogramas"><i class="fa fa-check"></i><b>7.5.1</b> Histogramas</a></li>
+<li class="chapter" data-level="7.5.2" data-path="graf.html"><a href="graf.html#gráfico-de-densidade"><i class="fa fa-check"></i><b>7.5.2</b> Gráfico de densidade</a></li>
+<li class="chapter" data-level="7.5.3" data-path="graf.html"><a href="graf.html#boxplot"><i class="fa fa-check"></i><b>7.5.3</b> Boxplot</a></li>
+</ul></li>
+<li class="chapter" data-level="7.6" data-path="graf.html"><a href="graf.html#juntar-gráficos-diferentes"><i class="fa fa-check"></i><b>7.6</b> Juntar gráficos diferentes</a></li>
+</ul></li>
+<li class="chapter" data-level="8" data-path="mapas.html"><a href="mapas.html"><i class="fa fa-check"></i><b>8</b> Mapas</a>
+<ul>
+<li class="chapter" data-level="8.1" data-path="mapas.html"><a href="mapas.html#funções-do-pacote-geobr"><i class="fa fa-check"></i><b>8.1</b> Funções do pacote <code>geobr</code></a></li>
+<li class="chapter" data-level="8.2" data-path="mapas.html"><a href="mapas.html#mapa-do-país"><i class="fa fa-check"></i><b>8.2</b> Mapa do país</a></li>
+<li class="chapter" data-level="8.3" data-path="mapas.html"><a href="mapas.html#estados"><i class="fa fa-check"></i><b>8.3</b> Estados</a>
+<ul>
+<li class="chapter" data-level="8.3.1" data-path="mapas.html"><a href="mapas.html#estad"><i class="fa fa-check"></i><b>8.3.1</b> Selecionando estados</a></li>
+<li class="chapter" data-level="8.3.2" data-path="mapas.html"><a href="mapas.html#leg"><i class="fa fa-check"></i><b>8.3.2</b> Adicionando legendas</a></li>
+<li class="chapter" data-level="8.3.3" data-path="mapas.html"><a href="mapas.html#estado-de-um-cep"><i class="fa fa-check"></i><b>8.3.3</b> Estado de um CEP</a></li>
+</ul></li>
+<li class="chapter" data-level="8.4" data-path="mapas.html"><a href="mapas.html#regiões"><i class="fa fa-check"></i><b>8.4</b> Regiões</a>
+<ul>
+<li class="chapter" data-level="8.4.1" data-path="mapas.html"><a href="mapas.html#regiões-específicas"><i class="fa fa-check"></i><b>8.4.1</b> Regiões específicas</a></li>
+<li class="chapter" data-level="8.4.2" data-path="mapas.html"><a href="mapas.html#regiões-com-os-estados"><i class="fa fa-check"></i><b>8.4.2</b> Regiões com os estados</a></li>
+</ul></li>
+<li class="chapter" data-level="8.5" data-path="mapas.html"><a href="mapas.html#mesorregiões-e-microrregiões"><i class="fa fa-check"></i><b>8.5</b> Mesorregiões e Microrregiões</a>
+<ul>
+<li class="chapter" data-level="8.5.1" data-path="mapas.html"><a href="mapas.html#mesorregiões"><i class="fa fa-check"></i><b>8.5.1</b> Mesorregiões</a></li>
+<li class="chapter" data-level="8.5.2" data-path="mapas.html"><a href="mapas.html#microrregiões"><i class="fa fa-check"></i><b>8.5.2</b> Microrregiões</a></li>
+</ul></li>
+<li class="chapter" data-level="8.6" data-path="mapas.html"><a href="mapas.html#municípios"><i class="fa fa-check"></i><b>8.6</b> Municípios</a>
+<ul>
+<li class="chapter" data-level="8.6.1" data-path="mapas.html"><a href="mapas.html#função-lookup_muni"><i class="fa fa-check"></i><b>8.6.1</b> Função <code>lookup_muni()</code></a></li>
+<li class="chapter" data-level="8.6.2" data-path="mapas.html"><a href="mapas.html#selecionando-municípios"><i class="fa fa-check"></i><b>8.6.2</b> Selecionando Municípios</a></li>
+<li class="chapter" data-level="8.6.3" data-path="mapas.html"><a href="mapas.html#mapa-do-brasil-com-as-capitais"><i class="fa fa-check"></i><b>8.6.3</b> Mapa do Brasil com as capitais</a></li>
+<li class="chapter" data-level="8.6.4" data-path="mapas.html"><a href="mapas.html#sedes-municipais"><i class="fa fa-check"></i><b>8.6.4</b> Sedes municipais</a></li>
+</ul></li>
+<li class="chapter" data-level="8.7" data-path="mapas.html"><a href="mapas.html#bairrossubdistritosdistritos"><i class="fa fa-check"></i><b>8.7</b> Bairros/Subdistritos/Distritos</a></li>
+<li class="chapter" data-level="8.8" data-path="mapas.html"><a href="mapas.html#regiões-metropolitanas"><i class="fa fa-check"></i><b>8.8</b> Regiões Metropolitanas</a></li>
+<li class="chapter" data-level="8.9" data-path="mapas.html"><a href="mapas.html#áreas-urbanas"><i class="fa fa-check"></i><b>8.9</b> Áreas urbanas</a></li>
+<li class="chapter" data-level="8.10" data-path="mapas.html"><a href="mapas.html#áreas-mínimas-comparáveis-amcs"><i class="fa fa-check"></i><b>8.10</b> Áreas mínimas comparáveis (AMCs)</a></li>
+<li class="chapter" data-level="8.11" data-path="mapas.html"><a href="mapas.html#mapas-temáticos"><i class="fa fa-check"></i><b>8.11</b> Mapas temáticos</a>
+<ul>
+<li class="chapter" data-level="8.11.1" data-path="mapas.html"><a href="mapas.html#censo-agropecuário-2006-e-2017"><i class="fa fa-check"></i><b>8.11.1</b> Censo agropecuário 2006 e 2017</a></li>
+</ul></li>
+<li class="chapter" data-level="8.12" data-path="mapas.html"><a href="mapas.html#biomas"><i class="fa fa-check"></i><b>8.12</b> Biomas</a></li>
+<li class="chapter" data-level="8.13" data-path="mapas.html"><a href="mapas.html#amazônia-legal"><i class="fa fa-check"></i><b>8.13</b> Amazônia Legal</a></li>
+<li class="chapter" data-level="8.14" data-path="mapas.html"><a href="mapas.html#semiárido"><i class="fa fa-check"></i><b>8.14</b> Semiárido</a></li>
+<li class="chapter" data-level="8.15" data-path="mapas.html"><a href="mapas.html#áreas-de-conservação"><i class="fa fa-check"></i><b>8.15</b> Áreas de conservação</a></li>
+<li class="chapter" data-level="8.16" data-path="mapas.html"><a href="mapas.html#terras-indígenas"><i class="fa fa-check"></i><b>8.16</b> Terras indígenas</a></li>
+<li class="chapter" data-level="8.17" data-path="mapas.html"><a href="mapas.html#áreas-de-risco-de-desastres-naturais"><i class="fa fa-check"></i><b>8.17</b> Áreas de risco de desastres naturais</a></li>
+<li class="chapter" data-level="8.18" data-path="mapas.html"><a href="mapas.html#estabelecimentos-de-saúde"><i class="fa fa-check"></i><b>8.18</b> Estabelecimentos de saúde</a></li>
+<li class="chapter" data-level="8.19" data-path="mapas.html"><a href="mapas.html#regiões-de-saúde"><i class="fa fa-check"></i><b>8.19</b> Regiões de saúde</a></li>
+<li class="chapter" data-level="8.20" data-path="mapas.html"><a href="mapas.html#escolas"><i class="fa fa-check"></i><b>8.20</b> Escolas</a></li>
+<li class="chapter" data-level="8.21" data-path="mapas.html"><a href="mapas.html#áreas-de-concentração-de-população"><i class="fa fa-check"></i><b>8.21</b> Áreas de Concentração de População</a></li>
+<li class="chapter" data-level="8.22" data-path="mapas.html"><a href="mapas.html#arranjos-populacionais"><i class="fa fa-check"></i><b>8.22</b> Arranjos populacionais</a></li>
+<li class="chapter" data-level="8.23" data-path="mapas.html"><a href="mapas.html#setor-censitário"><i class="fa fa-check"></i><b>8.23</b> Setor censitário</a></li>
+<li class="chapter" data-level="8.24" data-path="mapas.html"><a href="mapas.html#áreas-de-ponderação"><i class="fa fa-check"></i><b>8.24</b> Áreas de ponderação</a></li>
+<li class="chapter" data-level="8.25" data-path="mapas.html"><a href="mapas.html#grade-estatística-do-ibge"><i class="fa fa-check"></i><b>8.25</b> Grade estatística do IBGE</a>
+<ul>
+<li class="chapter" data-level="8.25.1" data-path="mapas.html"><a href="mapas.html#tabela-de-correspondência"><i class="fa fa-check"></i><b>8.25.1</b> Tabela de correspondência</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="" data-path="bibliografia-consultada.html"><a href="bibliografia-consultada.html"><i class="fa fa-check"></i>Bibliografia consultada</a></li>
+<li class="divider"></li>
+<li><a href="https://github.com/rstudio/bookdown" target="blank">Publicado com bookdown</a></li>
+
+</ul>
+
+      </nav>
+    </div>
+
+    <div class="book-body">
+      <div class="body-inner">
+        <div class="book-header" role="navigation">
+          <h1>
+            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./">Introdução à Ciência de Dados em R</a>
+          </h1>
+        </div>
+
+        <div class="page-wrapper" tabindex="-1" role="main">
+          <div class="page-inner">
+
+            <section class="normal" id="section-">
+<div id="trans" class="section level1" number="6">
+<h1><span class="header-section-number">Capítulo6</span> Transformação</h1>
+<p>A etapa de transformação dos dados consiste em selecionar as variáveis e observações de interesse no nosso banco de dados, a fim de gerar medidas úteis para a análise. Podemos realizar operações entre colunas de acordo com determinada variável, calcular a média, mediana, contagem e porcentagens, além de selecionar, filtrar e criar novas variáveis.</p>
+<p>Os principais pacotes relacionados ao tema, presentes no <code>tidyverse</code>, são o <code>dplyr</code>, <code>stringr</code>, <code>forcats</code> e <code>lubridate</code>, cada qual apresentando funções particulares e específicas para trabalhar com os dados. Nesta apostila, abordaremos apenas o pacote <code>dplyr</code>, cujas funções conseguem resolver a maioria dos problemas relacionados a essa etapa.</p>
+<p>Os demais pacotes tratam de assuntos específicos na transformação de dados. Caso você precise tratar de algum problema que o <code>dplyr</code> não consiga resolver, descreveremos, brevemente, as características desses pacotes para facilitar suas pesquisas.</p>
+<ul>
+<li><p><code>stringr</code>: manipula as variáveis categóricas a partir de <strong>expressões regulares (REGEX)</strong>;</p></li>
+<li><p><code>forcats</code>: apresenta funções que lidam com variáveis do tipo fator (<em>factor</em>). Caso queira entender melhor sobre esse tipo de classe, confira a seção <a href="noções-básicas-em-r.html#fator">3.10</a>;</p></li>
+<li><p><code>lubridate</code>: pacote específico para trabalhar com variáveis do tipo data e tempo.</p></li>
+</ul>
+<p>A seguir, trataremos com detalhes as funcionalidades presentes no pacote <code>dplyr</code>. Para tanto, precisamos rodar o pacote.</p>
+<div class="sourceCode" id="cb361"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb361-1"><a href="trans.html#cb361-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(dplyr)</span></code></pre></div>
+<p>Para verificar todas as funcionalidades presentes no pacote, rode o seguinte comando:</p>
+<div class="sourceCode" id="cb362"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb362-1"><a href="trans.html#cb362-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ls</span>(<span class="st">&quot;package:dplyr&quot;</span>)</span></code></pre></div>
+<p><br></p>
+<div id="pacote-dplyr" class="section level2" number="6.1">
+<h2><span class="header-section-number">6.1</span> Pacote <code>dplyr</code></h2>
+<p>O pacote <code>dplyr</code> possui ferramentas simples, porém muito importantes para realizar as devidas transformações na base de dados. A seguir, apresentaremos as principais funções do pacote, que nos permitem resolver a maioria dos problemas relacionados à etapa de transformação dos dados.</p>
+<p>A base de dados utilizada para os exemplos é referente à produção de milho, soja, trigo e arroz, nos países da América do Sul, entre 1961 e 2019, obtidos da FAOSTAT. Para fazer o <em>download</em> dos dados, <a href="https://github.com/gustavojy/ApostilaCD-R/blob/main/dados_zip/dados_transf.zip?raw=true">clique aqui</a>.</p>
+<div class="sourceCode" id="cb363"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb363-1"><a href="trans.html#cb363-1" aria-hidden="true" tabindex="-1"></a>graos <span class="ot">&lt;-</span> <span class="fu">read_csv</span>(<span class="st">&quot;dados_transf/prod_graos.csv&quot;</span>)</span>
+<span id="cb363-2"><a href="trans.html#cb363-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb363-3"><a href="trans.html#cb363-3" aria-hidden="true" tabindex="-1"></a>graos</span></code></pre></div>
+<pre><code># A tibble: 5,510 x 14
+   `Domain Code` Domain            `Area Code (FA~` Area  `Element Code` Element
+   &lt;chr&gt;         &lt;chr&gt;                        &lt;dbl&gt; &lt;chr&gt;          &lt;dbl&gt; &lt;chr&gt;  
+ 1 QCL           Crops and livest~                9 Arge~           5312 Area h~
+ 2 QCL           Crops and livest~                9 Arge~           5312 Area h~
+ 3 QCL           Crops and livest~                9 Arge~           5312 Area h~
+ 4 QCL           Crops and livest~                9 Arge~           5312 Area h~
+ 5 QCL           Crops and livest~                9 Arge~           5312 Area h~
+ 6 QCL           Crops and livest~                9 Arge~           5312 Area h~
+ 7 QCL           Crops and livest~                9 Arge~           5312 Area h~
+ 8 QCL           Crops and livest~                9 Arge~           5312 Area h~
+ 9 QCL           Crops and livest~                9 Arge~           5312 Area h~
+10 QCL           Crops and livest~                9 Arge~           5312 Area h~
+# ... with 5,500 more rows, and 8 more variables: `Item Code (FAO)` &lt;dbl&gt;,
+#   Item &lt;chr&gt;, `Year Code` &lt;dbl&gt;, Year &lt;dbl&gt;, Unit &lt;chr&gt;, Value &lt;dbl&gt;,
+#   Flag &lt;chr&gt;, `Flag Description` &lt;chr&gt;</code></pre>
+<p>O banco de dados possui 5510 observações e 14 variáveis. Como podemos observar, muitas das variáveis são referentes à códigos de identificação, os quais não nos interessam para a realização das análises. Assim, a seguir, veremos como selecionar somente as variáveis de interesse.</p>
+<div id="selecionar" class="section level3" number="6.1.1">
+<h3><span class="header-section-number">6.1.1</span> Selecionar</h3>
+<p>Para selecionar colunas, utilizamos a função <code>select()</code>, tendo como primeiro argumento a base de dados utilizada, sendo os demais argumentos referentes aos nomes das colunas que se deseja selecionar.</p>
+<p>Nos dois exemplos a seguir, perceba que podemos selecionar uma ou mais de uma coluna.</p>
+<div class="sourceCode" id="cb365"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb365-1"><a href="trans.html#cb365-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Selecionando somente a coluna &quot;Item&quot;</span></span>
+<span id="cb365-2"><a href="trans.html#cb365-2" aria-hidden="true" tabindex="-1"></a><span class="fu">select</span>(graos,</span>
+<span id="cb365-3"><a href="trans.html#cb365-3" aria-hidden="true" tabindex="-1"></a>       Item)</span></code></pre></div>
+<pre><code># A tibble: 5,510 x 1
+   Item 
+   &lt;chr&gt;
+ 1 Maize
+ 2 Maize
+ 3 Maize
+ 4 Maize
+ 5 Maize
+ 6 Maize
+ 7 Maize
+ 8 Maize
+ 9 Maize
+10 Maize
+# ... with 5,500 more rows</code></pre>
+<div class="sourceCode" id="cb367"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb367-1"><a href="trans.html#cb367-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Selecionando mais de uma coluna</span></span>
+<span id="cb367-2"><a href="trans.html#cb367-2" aria-hidden="true" tabindex="-1"></a><span class="fu">select</span>(graos,</span>
+<span id="cb367-3"><a href="trans.html#cb367-3" aria-hidden="true" tabindex="-1"></a>       Area, Item, Value)</span></code></pre></div>
+<pre><code># A tibble: 5,510 x 3
+   Area      Item    Value
+   &lt;chr&gt;     &lt;chr&gt;   &lt;dbl&gt;
+ 1 Argentina Maize 2744400
+ 2 Argentina Maize 2756670
+ 3 Argentina Maize 2645400
+ 4 Argentina Maize 2970500
+ 5 Argentina Maize 3062300
+ 6 Argentina Maize 3274500
+ 7 Argentina Maize 3450500
+ 8 Argentina Maize 3377700
+ 9 Argentina Maize 3556000
+10 Argentina Maize 4017330
+# ... with 5,500 more rows</code></pre>
+<p>Podemos selecionar várias colunas consecutivas com o operador <code>:</code>. Basta informar os nomes ou as posições da primeira e da última coluna que se deseja selecionar.</p>
+<div class="sourceCode" id="cb369"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb369-1"><a href="trans.html#cb369-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Selecionando colunas consecutivas a partir dos nomes</span></span>
+<span id="cb369-2"><a href="trans.html#cb369-2" aria-hidden="true" tabindex="-1"></a><span class="fu">select</span>(graos,</span>
+<span id="cb369-3"><a href="trans.html#cb369-3" aria-hidden="true" tabindex="-1"></a>       Area<span class="sc">:</span>Year)</span></code></pre></div>
+<pre><code># A tibble: 5,510 x 7
+   Area      `Element Code` Element     `Item Code (FA~` Item  `Year Code`  Year
+   &lt;chr&gt;              &lt;dbl&gt; &lt;chr&gt;                  &lt;dbl&gt; &lt;chr&gt;       &lt;dbl&gt; &lt;dbl&gt;
+ 1 Argentina           5312 Area harve~               56 Maize        1961  1961
+ 2 Argentina           5312 Area harve~               56 Maize        1962  1962
+ 3 Argentina           5312 Area harve~               56 Maize        1963  1963
+ 4 Argentina           5312 Area harve~               56 Maize        1964  1964
+ 5 Argentina           5312 Area harve~               56 Maize        1965  1965
+ 6 Argentina           5312 Area harve~               56 Maize        1966  1966
+ 7 Argentina           5312 Area harve~               56 Maize        1967  1967
+ 8 Argentina           5312 Area harve~               56 Maize        1968  1968
+ 9 Argentina           5312 Area harve~               56 Maize        1969  1969
+10 Argentina           5312 Area harve~               56 Maize        1970  1970
+# ... with 5,500 more rows</code></pre>
+<div class="sourceCode" id="cb371"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb371-1"><a href="trans.html#cb371-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Selecionando colunas consecutivas a partir das posições</span></span>
+<span id="cb371-2"><a href="trans.html#cb371-2" aria-hidden="true" tabindex="-1"></a><span class="fu">select</span>(graos, <span class="dv">4</span><span class="sc">:</span><span class="dv">10</span>)</span></code></pre></div>
+<pre><code># A tibble: 5,510 x 7
+   Area      `Element Code` Element     `Item Code (FA~` Item  `Year Code`  Year
+   &lt;chr&gt;              &lt;dbl&gt; &lt;chr&gt;                  &lt;dbl&gt; &lt;chr&gt;       &lt;dbl&gt; &lt;dbl&gt;
+ 1 Argentina           5312 Area harve~               56 Maize        1961  1961
+ 2 Argentina           5312 Area harve~               56 Maize        1962  1962
+ 3 Argentina           5312 Area harve~               56 Maize        1963  1963
+ 4 Argentina           5312 Area harve~               56 Maize        1964  1964
+ 5 Argentina           5312 Area harve~               56 Maize        1965  1965
+ 6 Argentina           5312 Area harve~               56 Maize        1966  1966
+ 7 Argentina           5312 Area harve~               56 Maize        1967  1967
+ 8 Argentina           5312 Area harve~               56 Maize        1968  1968
+ 9 Argentina           5312 Area harve~               56 Maize        1969  1969
+10 Argentina           5312 Area harve~               56 Maize        1970  1970
+# ... with 5,500 more rows</code></pre>
+<p>A função <code>select()</code> possui outras funções que auxiliam na seleção de colunas, sendo elas:</p>
+<ul>
+<li><p><code>starts_with()</code>: seleciona colunas que começam com um texto padrão;</p></li>
+<li><p><code>ends_with()</code>: seleciona colunas que terminam com um texto padrão;</p></li>
+<li><p><code>contains()</code>: seleciona colunas que possuem um texto padrão.</p></li>
+</ul>
+<div class="sourceCode" id="cb373"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb373-1"><a href="trans.html#cb373-1" aria-hidden="true" tabindex="-1"></a><span class="co"># starts_with() - Começa com tal palavra</span></span>
+<span id="cb373-2"><a href="trans.html#cb373-2" aria-hidden="true" tabindex="-1"></a><span class="fu">select</span>(graos, <span class="fu">starts_with</span>(<span class="st">&quot;Year&quot;</span>))</span></code></pre></div>
+<pre><code># A tibble: 5,510 x 2
+   `Year Code`  Year
+         &lt;dbl&gt; &lt;dbl&gt;
+ 1        1961  1961
+ 2        1962  1962
+ 3        1963  1963
+ 4        1964  1964
+ 5        1965  1965
+ 6        1966  1966
+ 7        1967  1967
+ 8        1968  1968
+ 9        1969  1969
+10        1970  1970
+# ... with 5,500 more rows</code></pre>
+<div class="sourceCode" id="cb375"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb375-1"><a href="trans.html#cb375-1" aria-hidden="true" tabindex="-1"></a><span class="co"># ends_with() - Termina com tal palavra</span></span>
+<span id="cb375-2"><a href="trans.html#cb375-2" aria-hidden="true" tabindex="-1"></a><span class="fu">select</span>(graos, <span class="fu">ends_with</span>(<span class="st">&quot;Code&quot;</span>))</span></code></pre></div>
+<pre><code># A tibble: 5,510 x 3
+   `Domain Code` `Element Code` `Year Code`
+   &lt;chr&gt;                  &lt;dbl&gt;       &lt;dbl&gt;
+ 1 QCL                     5312        1961
+ 2 QCL                     5312        1962
+ 3 QCL                     5312        1963
+ 4 QCL                     5312        1964
+ 5 QCL                     5312        1965
+ 6 QCL                     5312        1966
+ 7 QCL                     5312        1967
+ 8 QCL                     5312        1968
+ 9 QCL                     5312        1969
+10 QCL                     5312        1970
+# ... with 5,500 more rows</code></pre>
+<div class="sourceCode" id="cb377"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb377-1"><a href="trans.html#cb377-1" aria-hidden="true" tabindex="-1"></a><span class="co"># contains() - Contém tal palavra</span></span>
+<span id="cb377-2"><a href="trans.html#cb377-2" aria-hidden="true" tabindex="-1"></a><span class="fu">select</span>(graos, <span class="fu">contains</span>(<span class="st">&quot;FAO&quot;</span>))</span></code></pre></div>
+<pre><code># A tibble: 5,510 x 2
+   `Area Code (FAO)` `Item Code (FAO)`
+               &lt;dbl&gt;             &lt;dbl&gt;
+ 1                 9                56
+ 2                 9                56
+ 3                 9                56
+ 4                 9                56
+ 5                 9                56
+ 6                 9                56
+ 7                 9                56
+ 8                 9                56
+ 9                 9                56
+10                 9                56
+# ... with 5,500 more rows</code></pre>
+<p>Também podemos retirar uma coluna inserindo um sinal de menos (<code>-</code>) antes do nome da variável ou das funções auxiliares.</p>
+<div class="sourceCode" id="cb379"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb379-1"><a href="trans.html#cb379-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Nome das colunas do banco de dados bruto:</span></span>
+<span id="cb379-2"><a href="trans.html#cb379-2" aria-hidden="true" tabindex="-1"></a><span class="fu">names</span>(graos)</span></code></pre></div>
+<pre><code> [1] &quot;Domain Code&quot;      &quot;Domain&quot;           &quot;Area Code (FAO)&quot;  &quot;Area&quot;            
+ [5] &quot;Element Code&quot;     &quot;Element&quot;          &quot;Item Code (FAO)&quot;  &quot;Item&quot;            
+ [9] &quot;Year Code&quot;        &quot;Year&quot;             &quot;Unit&quot;             &quot;Value&quot;           
+[13] &quot;Flag&quot;             &quot;Flag Description&quot;</code></pre>
+<div class="sourceCode" id="cb381"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb381-1"><a href="trans.html#cb381-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Dados sem as respectivas colunas:</span></span>
+<span id="cb381-2"><a href="trans.html#cb381-2" aria-hidden="true" tabindex="-1"></a><span class="fu">select</span>(graos,</span>
+<span id="cb381-3"><a href="trans.html#cb381-3" aria-hidden="true" tabindex="-1"></a>       <span class="sc">-</span><span class="fu">contains</span>(<span class="st">&quot;Code&quot;</span>), <span class="sc">-</span><span class="fu">contains</span>(<span class="st">&quot;Flag&quot;</span>), <span class="sc">-</span>Domain)</span></code></pre></div>
+<pre><code># A tibble: 5,510 x 6
+   Area      Element        Item   Year Unit    Value
+   &lt;chr&gt;     &lt;chr&gt;          &lt;chr&gt; &lt;dbl&gt; &lt;chr&gt;   &lt;dbl&gt;
+ 1 Argentina Area harvested Maize  1961 ha    2744400
+ 2 Argentina Area harvested Maize  1962 ha    2756670
+ 3 Argentina Area harvested Maize  1963 ha    2645400
+ 4 Argentina Area harvested Maize  1964 ha    2970500
+ 5 Argentina Area harvested Maize  1965 ha    3062300
+ 6 Argentina Area harvested Maize  1966 ha    3274500
+ 7 Argentina Area harvested Maize  1967 ha    3450500
+ 8 Argentina Area harvested Maize  1968 ha    3377700
+ 9 Argentina Area harvested Maize  1969 ha    3556000
+10 Argentina Area harvested Maize  1970 ha    4017330
+# ... with 5,500 more rows</code></pre>
+<p>Por último, temos a função <code>everything()</code>, utilizada na função <code>select()</code> para arrastar determinadas colunas para o início da base de dados.</p>
+<div class="sourceCode" id="cb383"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb383-1"><a href="trans.html#cb383-1" aria-hidden="true" tabindex="-1"></a><span class="fu">select</span>(graos, </span>
+<span id="cb383-2"><a href="trans.html#cb383-2" aria-hidden="true" tabindex="-1"></a>       Value, Unit, <span class="fu">everything</span>())</span></code></pre></div>
+<pre><code># A tibble: 5,510 x 14
+     Value Unit  `Domain Code` Domain      `Area Code (FA~` Area  `Element Code`
+     &lt;dbl&gt; &lt;chr&gt; &lt;chr&gt;         &lt;chr&gt;                  &lt;dbl&gt; &lt;chr&gt;          &lt;dbl&gt;
+ 1 2744400 ha    QCL           Crops and ~                9 Arge~           5312
+ 2 2756670 ha    QCL           Crops and ~                9 Arge~           5312
+ 3 2645400 ha    QCL           Crops and ~                9 Arge~           5312
+ 4 2970500 ha    QCL           Crops and ~                9 Arge~           5312
+ 5 3062300 ha    QCL           Crops and ~                9 Arge~           5312
+ 6 3274500 ha    QCL           Crops and ~                9 Arge~           5312
+ 7 3450500 ha    QCL           Crops and ~                9 Arge~           5312
+ 8 3377700 ha    QCL           Crops and ~                9 Arge~           5312
+ 9 3556000 ha    QCL           Crops and ~                9 Arge~           5312
+10 4017330 ha    QCL           Crops and ~                9 Arge~           5312
+# ... with 5,500 more rows, and 7 more variables: Element &lt;chr&gt;,
+#   `Item Code (FAO)` &lt;dbl&gt;, Item &lt;chr&gt;, `Year Code` &lt;dbl&gt;, Year &lt;dbl&gt;,
+#   Flag &lt;chr&gt;, `Flag Description` &lt;chr&gt;</code></pre>
+</div>
+<div id="operador-pipe" class="section level3" number="6.1.2">
+<h3><span class="header-section-number">6.1.2</span> Operador <em>pipe</em> (%&gt;%)</h3>
+<p>Na maior parte dos casos, utilizaremos mais de uma função para manipular os nossos dados. Com isso, entra em cena o <em>pipe</em> (<code>%&gt;%</code>). O <em>pipe</em> está presente no pacote <code>magrittr</code>, que está contido no <code>tidyverse</code>. Portanto, antes de aprofundarmos na ideia central do <em>pipe</em>, devemos carregar o pacote <code>magrittr</code>.</p>
+<div class="sourceCode" id="cb385"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb385-1"><a href="trans.html#cb385-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(magrittr)</span></code></pre></div>
+<p>A principal função do <em>pipe</em> é conectar linhas de códigos que se relacionam, executando-as em sequência, de uma só vez. A essa estrutura de código chamamos de <em>pipelines</em>. Como exemplo hipotético, calcularemos a média final de um aluno na disciplina de cálculo II, arredondando-a com uma casa decimal.</p>
+<div class="sourceCode" id="cb386"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb386-1"><a href="trans.html#cb386-1" aria-hidden="true" tabindex="-1"></a>notas <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="fl">8.88</span>, <span class="fl">6.84</span>, <span class="fl">7.51</span>)</span>
+<span id="cb386-2"><a href="trans.html#cb386-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb386-3"><a href="trans.html#cb386-3" aria-hidden="true" tabindex="-1"></a><span class="co"># Sem pipe</span></span>
+<span id="cb386-4"><a href="trans.html#cb386-4" aria-hidden="true" tabindex="-1"></a><span class="fu">round</span>(<span class="fu">mean</span>(notas),<span class="dv">1</span>)</span></code></pre></div>
+<pre><code>[1] 7.7</code></pre>
+<div class="sourceCode" id="cb388"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb388-1"><a href="trans.html#cb388-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Com pipe</span></span>
+<span id="cb388-2"><a href="trans.html#cb388-2" aria-hidden="true" tabindex="-1"></a>notas <span class="sc">%&gt;%</span> <span class="fu">mean</span>() <span class="sc">%&gt;%</span> <span class="fu">round</span>(<span class="dv">1</span>)</span></code></pre></div>
+<pre><code>[1] 7.7</code></pre>
+<p>Utilizando o <em>pipe</em>, evitamos de escrever funções dentro de funções, ordenando-as de acordo com a ordem em que desejamos realizar as operações. No exemplo, calculamos primeiro a média das notas e, posteriormente, arrendondamos.</p>
+<p>Quando utilizamos o <em>pipe</em>, obtemos um código mais legível, claro e compacto, principalmente quando trabalhamos com diversas funções. Isso facilita não somente a leitura, mas também na manutenção do código, caso seja preciso realizar alterações ou consertar possíveis problemas.</p>
+<p>Tendo essa noção básica do que é o <em>pipe</em>, começaremos a aplicá-lo na manipulação dos dados. Caso queira saber mais sobre o <em>pipe</em>, confira o capítulo 18 do livro <a href="https://r4ds.had.co.nz/pipes.html"><em>R for Data Science</em></a>.</p>
+</div>
+<div id="filtrar" class="section level3" number="6.1.3">
+<h3><span class="header-section-number">6.1.3</span> Filtrar</h3>
+<p>Podemos filtrar determinados valores que estão contidos nas linhas de cada coluna, sejam eles quantitativos ou categóricos. Para isso, utilizamos testes lógicos dentro da função <code>filter()</code>.</p>
+<div class="sourceCode" id="cb390"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb390-1"><a href="trans.html#cb390-1" aria-hidden="true" tabindex="-1"></a><span class="fu">filter</span>(graos,</span>
+<span id="cb390-2"><a href="trans.html#cb390-2" aria-hidden="true" tabindex="-1"></a>       Area <span class="sc">==</span> <span class="st">&quot;Chile&quot;</span>)</span></code></pre></div>
+<pre><code># A tibble: 459 x 14
+   `Domain Code` Domain            `Area Code (FA~` Area  `Element Code` Element
+   &lt;chr&gt;         &lt;chr&gt;                        &lt;dbl&gt; &lt;chr&gt;          &lt;dbl&gt; &lt;chr&gt;  
+ 1 QCL           Crops and livest~               40 Chile           5312 Area h~
+ 2 QCL           Crops and livest~               40 Chile           5312 Area h~
+ 3 QCL           Crops and livest~               40 Chile           5312 Area h~
+ 4 QCL           Crops and livest~               40 Chile           5312 Area h~
+ 5 QCL           Crops and livest~               40 Chile           5312 Area h~
+ 6 QCL           Crops and livest~               40 Chile           5312 Area h~
+ 7 QCL           Crops and livest~               40 Chile           5312 Area h~
+ 8 QCL           Crops and livest~               40 Chile           5312 Area h~
+ 9 QCL           Crops and livest~               40 Chile           5312 Area h~
+10 QCL           Crops and livest~               40 Chile           5312 Area h~
+# ... with 449 more rows, and 8 more variables: `Item Code (FAO)` &lt;dbl&gt;,
+#   Item &lt;chr&gt;, `Year Code` &lt;dbl&gt;, Year &lt;dbl&gt;, Unit &lt;chr&gt;, Value &lt;dbl&gt;,
+#   Flag &lt;chr&gt;, `Flag Description` &lt;chr&gt;</code></pre>
+<p>No exemplo anterior, filtramos a coluna <code>Area</code> para que nos retornasse somente as observações referentes ao país <code>Chile</code>. Para isso, utilizamos o teste lógico <code>==</code>, ou seja, pedimos para que nos retornasse somente as observações que apresentem o valor igual a <code>Chile</code> na coluna <code>Area</code>.</p>
+<p>Lembre que a função <code>filter()</code> segue a lógica demontrada na seção <a href="noções-básicas-em-r.html#logica">3.11</a>. Mas perceba que, diferentemente do que fora exposto na referente seção, a <code>filter()</code> é muito mais simples e intuitiva de ser utilizada.</p>
+<p>Também podemos selecionar um conjunto de valores contidos em uma coluna. Para isso, criamos um vetor com os valores desejados e aplicamos o teste <code>%in%</code>, ou seja, dentro da coluna <code>Area</code>, pedimos para que nos retorne somente os valores que estão contidos no vetor.</p>
+<div class="sourceCode" id="cb392"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb392-1"><a href="trans.html#cb392-1" aria-hidden="true" tabindex="-1"></a>conjunto_paises <span class="ot">&lt;-</span> <span class="fu">filter</span>(graos,</span>
+<span id="cb392-2"><a href="trans.html#cb392-2" aria-hidden="true" tabindex="-1"></a>                          Area <span class="sc">%in%</span> <span class="fu">c</span>(<span class="st">&quot;Brazil&quot;</span>, <span class="st">&quot;Argentina&quot;</span>, <span class="st">&quot;Chile&quot;</span>))</span>
+<span id="cb392-3"><a href="trans.html#cb392-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb392-4"><a href="trans.html#cb392-4" aria-hidden="true" tabindex="-1"></a><span class="fu">unique</span>(conjunto_paises<span class="sc">$</span>Area)</span></code></pre></div>
+<pre><code>[1] &quot;Argentina&quot; &quot;Brazil&quot;    &quot;Chile&quot;    </code></pre>
+<p>A função <code>unique()</code> comprova a seleção dos respectivos países filtrados, nos retornando todos os valores únicos contidos na coluna <code>Area</code> após a utilização do filtro.</p>
+<p>Por outro lado, podemos retirar valores com o operador <code>!</code>.</p>
+<div class="sourceCode" id="cb394"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb394-1"><a href="trans.html#cb394-1" aria-hidden="true" tabindex="-1"></a>retirando_paises <span class="ot">&lt;-</span> <span class="fu">filter</span>(graos,</span>
+<span id="cb394-2"><a href="trans.html#cb394-2" aria-hidden="true" tabindex="-1"></a>                           <span class="sc">!</span>(Area <span class="sc">%in%</span> <span class="fu">c</span>(<span class="st">&quot;Brazil&quot;</span>, <span class="st">&quot;Argentina&quot;</span>, <span class="st">&quot;Chile&quot;</span>)))</span>
+<span id="cb394-3"><a href="trans.html#cb394-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb394-4"><a href="trans.html#cb394-4" aria-hidden="true" tabindex="-1"></a><span class="fu">unique</span>(retirando_paises<span class="sc">$</span>Area)</span></code></pre></div>
+<pre><code> [1] &quot;Bolivia (Plurinational State of)&quot;   &quot;Colombia&quot;                          
+ [3] &quot;Ecuador&quot;                            &quot;French Guyana&quot;                     
+ [5] &quot;Guyana&quot;                             &quot;Paraguay&quot;                          
+ [7] &quot;Peru&quot;                               &quot;Suriname&quot;                          
+ [9] &quot;Uruguay&quot;                            &quot;Venezuela (Bolivarian Republic of)&quot;</code></pre>
+<p>Da mesma forma, podemos aplicar os filtros para variáveis quantitativas. Note no exemplo a seguir que aplicamos 3 filtros. O primeiro referente à variável categórica <code>Element</code>, sendo os outros dois, às variáveis quantitativas <code>Year</code> e <code>Value</code>.</p>
+<div class="sourceCode" id="cb396"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb396-1"><a href="trans.html#cb396-1" aria-hidden="true" tabindex="-1"></a><span class="fu">filter</span>(graos,</span>
+<span id="cb396-2"><a href="trans.html#cb396-2" aria-hidden="true" tabindex="-1"></a>       Element <span class="sc">==</span> <span class="st">&quot;Production&quot;</span>,</span>
+<span id="cb396-3"><a href="trans.html#cb396-3" aria-hidden="true" tabindex="-1"></a>       Year <span class="sc">&gt;</span> <span class="dv">2010</span>,</span>
+<span id="cb396-4"><a href="trans.html#cb396-4" aria-hidden="true" tabindex="-1"></a>       Value <span class="sc">&gt;</span> <span class="dv">10</span><span class="sc">^</span><span class="dv">7</span>)</span></code></pre></div>
+<pre><code># A tibble: 54 x 14
+   `Domain Code` Domain            `Area Code (FA~` Area  `Element Code` Element
+   &lt;chr&gt;         &lt;chr&gt;                        &lt;dbl&gt; &lt;chr&gt;          &lt;dbl&gt; &lt;chr&gt;  
+ 1 QCL           Crops and livest~                9 Arge~           5510 Produc~
+ 2 QCL           Crops and livest~                9 Arge~           5510 Produc~
+ 3 QCL           Crops and livest~                9 Arge~           5510 Produc~
+ 4 QCL           Crops and livest~                9 Arge~           5510 Produc~
+ 5 QCL           Crops and livest~                9 Arge~           5510 Produc~
+ 6 QCL           Crops and livest~                9 Arge~           5510 Produc~
+ 7 QCL           Crops and livest~                9 Arge~           5510 Produc~
+ 8 QCL           Crops and livest~                9 Arge~           5510 Produc~
+ 9 QCL           Crops and livest~                9 Arge~           5510 Produc~
+10 QCL           Crops and livest~                9 Arge~           5510 Produc~
+# ... with 44 more rows, and 8 more variables: `Item Code (FAO)` &lt;dbl&gt;,
+#   Item &lt;chr&gt;, `Year Code` &lt;dbl&gt;, Year &lt;dbl&gt;, Unit &lt;chr&gt;, Value &lt;dbl&gt;,
+#   Flag &lt;chr&gt;, `Flag Description` &lt;chr&gt;</code></pre>
+<p>Para melhorar a organização e a apresentação da base de dados, podemos aplicar as funções <code>filter()</code> e <code>select()</code> juntas. Para tanto, utilizaremos o <em>pipe</em> para mesclar ambas as funções em uma <em>pipeline</em>.</p>
+<div class="sourceCode" id="cb398"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb398-1"><a href="trans.html#cb398-1" aria-hidden="true" tabindex="-1"></a>graos <span class="sc">%&gt;%</span> </span>
+<span id="cb398-2"><a href="trans.html#cb398-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(Element <span class="sc">==</span> <span class="st">&quot;Production&quot;</span>,</span>
+<span id="cb398-3"><a href="trans.html#cb398-3" aria-hidden="true" tabindex="-1"></a>         Area <span class="sc">%in%</span> <span class="fu">c</span>(<span class="st">&quot;Brazil&quot;</span>, <span class="st">&quot;Argentina&quot;</span>),</span>
+<span id="cb398-4"><a href="trans.html#cb398-4" aria-hidden="true" tabindex="-1"></a>         Year <span class="sc">&gt;</span> <span class="dv">2010</span>) <span class="sc">%&gt;%</span> </span>
+<span id="cb398-5"><a href="trans.html#cb398-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">select</span>(Area, Element, Item, Year, Unit, Value)</span></code></pre></div>
+<pre><code># A tibble: 72 x 6
+   Area      Element    Item         Year Unit      Value
+   &lt;chr&gt;     &lt;chr&gt;      &lt;chr&gt;       &lt;dbl&gt; &lt;chr&gt;     &lt;dbl&gt;
+ 1 Argentina Production Maize        2011 tonnes 23799830
+ 2 Argentina Production Maize        2012 tonnes 21196637
+ 3 Argentina Production Maize        2013 tonnes 32119211
+ 4 Argentina Production Maize        2014 tonnes 33087165
+ 5 Argentina Production Maize        2015 tonnes 33817744
+ 6 Argentina Production Maize        2016 tonnes 39792854
+ 7 Argentina Production Maize        2017 tonnes 49475895
+ 8 Argentina Production Maize        2018 tonnes 43462323
+ 9 Argentina Production Maize        2019 tonnes 56860704
+10 Argentina Production Rice, paddy  2011 tonnes  1748075
+# ... with 62 more rows</code></pre>
+<p>Perceba que a aplicação do <em>pipe</em> é bem simples e intuitiva. Primeiramente, indicamos a base de dados a ser utilizada para realizar a filtragem e seleção - no caso, a base <code>graos</code>. Em seguida, escrevemos o <code>%&gt;%</code> para conectar o banco de dados com a função <code>filter()</code>; nesse caso, filtramos apenas os valores iguais a <code>"Production"</code> na coluna <code>Element</code>, os países <code>Brazil</code> e <code>Argentina</code> na variável <code>Area</code> e os anos maiores que 2010. Novamente, escrevemos o <code>%&gt;%</code> para aplicar a <code>select()</code> e selecionar as variáveis desejadas.</p>
+<p>Note que não foi preciso indicar, como primeiro argumento das funções, qual a base de dados utilizada, pois essa foi especificada na primeira parte da <em>pipeline</em>. Além disso, a execução do código é realizada na ordem em que são escritos os comandos. Assim, caso desejarmos filtrar uma coluna e, posteriomente, retirá-la da seleção, devemos nos atentar à ordem dos comandos.</p>
+<div class="sourceCode" id="cb400"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb400-1"><a href="trans.html#cb400-1" aria-hidden="true" tabindex="-1"></a>graos <span class="sc">%&gt;%</span> </span>
+<span id="cb400-2"><a href="trans.html#cb400-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(Area <span class="sc">==</span> <span class="st">&quot;Brazil&quot;</span>,</span>
+<span id="cb400-3"><a href="trans.html#cb400-3" aria-hidden="true" tabindex="-1"></a>         Element <span class="sc">==</span> <span class="st">&quot;Production&quot;</span>,</span>
+<span id="cb400-4"><a href="trans.html#cb400-4" aria-hidden="true" tabindex="-1"></a>         Year <span class="sc">%in%</span> <span class="fu">c</span>(<span class="dv">2015</span><span class="sc">:</span><span class="dv">2019</span>)) <span class="sc">%&gt;%</span> </span>
+<span id="cb400-5"><a href="trans.html#cb400-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">select</span>(Item, Year, Value)</span></code></pre></div>
+<pre><code># A tibble: 20 x 3
+   Item         Year     Value
+   &lt;chr&gt;       &lt;dbl&gt;     &lt;dbl&gt;
+ 1 Maize        2015  85283074
+ 2 Maize        2016  64188314
+ 3 Maize        2017  97910658
+ 4 Maize        2018  82366531
+ 5 Maize        2019 101138617
+ 6 Rice, paddy  2015  12301201
+ 7 Rice, paddy  2016  10622189
+ 8 Rice, paddy  2017  12464766
+ 9 Rice, paddy  2018  11808412
+10 Rice, paddy  2019  10368611
+11 Soybeans     2015  97464936
+12 Soybeans     2016  96394820
+13 Soybeans     2017 114732101
+14 Soybeans     2018 117912450
+15 Soybeans     2019 114269392
+16 Wheat        2015   5508451
+17 Wheat        2016   6834421
+18 Wheat        2017   4342812
+19 Wheat        2018   5469236
+20 Wheat        2019   5604158</code></pre>
+<p>No exemplo acima, perceba que filtramos as colunas <code>Area</code> e <code>Element</code>, mas não às selecionamos posteriormente. Caso fosse realizada a seleção antes da filtragem, não seria possível filtrar as devidas variáveis, uma vez que não selecionamos suas colunas para, posteriormente, serem filtradas.</p>
+</div>
+<div id="modificar-e-criar-colunas" class="section level3" number="6.1.4">
+<h3><span class="header-section-number">6.1.4</span> Modificar e criar colunas</h3>
+<p>Para modificar ou criar novas colunas, utilizamos a função <code>mutate()</code>. No exemplo a seguir, transformaremos os valores de produção, em toneladas, para quilogramas.</p>
+<div class="sourceCode" id="cb402"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb402-1"><a href="trans.html#cb402-1" aria-hidden="true" tabindex="-1"></a>graos <span class="sc">%&gt;%</span> </span>
+<span id="cb402-2"><a href="trans.html#cb402-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(Element <span class="sc">==</span> <span class="st">&quot;Production&quot;</span>) <span class="sc">%&gt;%</span> </span>
+<span id="cb402-3"><a href="trans.html#cb402-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">select</span>(Area, Element, Item, Year, Value) <span class="sc">%&gt;%</span> </span>
+<span id="cb402-4"><a href="trans.html#cb402-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">Value =</span> Value<span class="sc">*</span><span class="dv">1000</span>)</span></code></pre></div>
+<pre><code># A tibble: 2,756 x 5
+   Area      Element    Item   Year      Value
+   &lt;chr&gt;     &lt;chr&gt;      &lt;chr&gt; &lt;dbl&gt;      &lt;dbl&gt;
+ 1 Argentina Production Maize  1961 4850000000
+ 2 Argentina Production Maize  1962 5220000000
+ 3 Argentina Production Maize  1963 4360000000
+ 4 Argentina Production Maize  1964 5350000000
+ 5 Argentina Production Maize  1965 5140000000
+ 6 Argentina Production Maize  1966 7040000000
+ 7 Argentina Production Maize  1967 8510000000
+ 8 Argentina Production Maize  1968 6560000000
+ 9 Argentina Production Maize  1969 6860000000
+10 Argentina Production Maize  1970 9360000000
+# ... with 2,746 more rows</code></pre>
+<p>No código acima, transformamos os valores da coluna <code>Value</code>. Contudo, também podemos manter a coluna original e criar uma nova coluna com a variável calculada. Basta designar um novo nome à coluna, nesse caso, criamos a <code>Value(kg)</code>.</p>
+<div class="sourceCode" id="cb404"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb404-1"><a href="trans.html#cb404-1" aria-hidden="true" tabindex="-1"></a>graos <span class="sc">%&gt;%</span> </span>
+<span id="cb404-2"><a href="trans.html#cb404-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(Element <span class="sc">==</span> <span class="st">&quot;Production&quot;</span>) <span class="sc">%&gt;%</span> </span>
+<span id="cb404-3"><a href="trans.html#cb404-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">select</span>(Area, Element, Item, Year, Value) <span class="sc">%&gt;%</span> </span>
+<span id="cb404-4"><a href="trans.html#cb404-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">Value_kg =</span> Value<span class="sc">*</span><span class="dv">1000</span>)</span></code></pre></div>
+<pre><code># A tibble: 2,756 x 6
+   Area      Element    Item   Year   Value   Value_kg
+   &lt;chr&gt;     &lt;chr&gt;      &lt;chr&gt; &lt;dbl&gt;   &lt;dbl&gt;      &lt;dbl&gt;
+ 1 Argentina Production Maize  1961 4850000 4850000000
+ 2 Argentina Production Maize  1962 5220000 5220000000
+ 3 Argentina Production Maize  1963 4360000 4360000000
+ 4 Argentina Production Maize  1964 5350000 5350000000
+ 5 Argentina Production Maize  1965 5140000 5140000000
+ 6 Argentina Production Maize  1966 7040000 7040000000
+ 7 Argentina Production Maize  1967 8510000 8510000000
+ 8 Argentina Production Maize  1968 6560000 6560000000
+ 9 Argentina Production Maize  1969 6860000 6860000000
+10 Argentina Production Maize  1970 9360000 9360000000
+# ... with 2,746 more rows</code></pre>
+<p>Podemos realizar qualquer operação com a quantidade de colunas que desejarmos. Porém, deve ser retornado um vetor com comprimento igual à quantidade de linhas da base de dados ou com comprimento igual a 1, sendo assim realizado o processo de reciclagem do valor.</p>
+<div class="sourceCode" id="cb406"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb406-1"><a href="trans.html#cb406-1" aria-hidden="true" tabindex="-1"></a>graos <span class="sc">%&gt;%</span> </span>
+<span id="cb406-2"><a href="trans.html#cb406-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(Element <span class="sc">==</span> <span class="st">&quot;Production&quot;</span>) <span class="sc">%&gt;%</span> </span>
+<span id="cb406-3"><a href="trans.html#cb406-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">select</span>(Area, Element, Item, Year, Value) <span class="sc">%&gt;%</span> </span>
+<span id="cb406-4"><a href="trans.html#cb406-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">Value =</span> Value<span class="sc">*</span><span class="dv">1000</span>,</span>
+<span id="cb406-5"><a href="trans.html#cb406-5" aria-hidden="true" tabindex="-1"></a>         <span class="at">Unit =</span> <span class="st">&quot;kg&quot;</span>)</span></code></pre></div>
+<pre><code># A tibble: 2,756 x 6
+   Area      Element    Item   Year      Value Unit 
+   &lt;chr&gt;     &lt;chr&gt;      &lt;chr&gt; &lt;dbl&gt;      &lt;dbl&gt; &lt;chr&gt;
+ 1 Argentina Production Maize  1961 4850000000 kg   
+ 2 Argentina Production Maize  1962 5220000000 kg   
+ 3 Argentina Production Maize  1963 4360000000 kg   
+ 4 Argentina Production Maize  1964 5350000000 kg   
+ 5 Argentina Production Maize  1965 5140000000 kg   
+ 6 Argentina Production Maize  1966 7040000000 kg   
+ 7 Argentina Production Maize  1967 8510000000 kg   
+ 8 Argentina Production Maize  1968 6560000000 kg   
+ 9 Argentina Production Maize  1969 6860000000 kg   
+10 Argentina Production Maize  1970 9360000000 kg   
+# ... with 2,746 more rows</code></pre>
+</div>
+<div id="resumo-de-valores" class="section level3" number="6.1.5">
+<h3><span class="header-section-number">6.1.5</span> Resumo de valores</h3>
+<p>O processo de sumarizar consiste em resumir um conjunto de dados a partir de uma medida de interesse. Como exemplo, podemos tirar a média, mediana, frequência e proporção dos valores desejados. Para isso, utilizamos a função <code>summarise()</code>. A seguir, faremos a média da produção de milho no Brasil.</p>
+<div class="sourceCode" id="cb408"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb408-1"><a href="trans.html#cb408-1" aria-hidden="true" tabindex="-1"></a>graos <span class="sc">%&gt;%</span> </span>
+<span id="cb408-2"><a href="trans.html#cb408-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(Area <span class="sc">==</span> <span class="st">&quot;Brazil&quot;</span>,</span>
+<span id="cb408-3"><a href="trans.html#cb408-3" aria-hidden="true" tabindex="-1"></a>         Element <span class="sc">==</span> <span class="st">&quot;Production&quot;</span>,</span>
+<span id="cb408-4"><a href="trans.html#cb408-4" aria-hidden="true" tabindex="-1"></a>         Item <span class="sc">==</span> <span class="st">&quot;Maize&quot;</span>) <span class="sc">%&gt;%</span> </span>
+<span id="cb408-5"><a href="trans.html#cb408-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">select</span>(Area, Item, Year, Value) <span class="sc">%&gt;%</span> </span>
+<span id="cb408-6"><a href="trans.html#cb408-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">summarise</span>(<span class="at">media =</span> <span class="fu">mean</span>(Value, <span class="at">na.rm =</span> <span class="cn">TRUE</span>))</span></code></pre></div>
+<pre><code># A tibble: 1 x 1
+      media
+      &lt;dbl&gt;
+1 33776948.</code></pre>
+<p>Podemos calcular várias medidas diferentes na função <code>summarise()</code>.</p>
+<div class="sourceCode" id="cb410"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb410-1"><a href="trans.html#cb410-1" aria-hidden="true" tabindex="-1"></a>graos <span class="sc">%&gt;%</span> </span>
+<span id="cb410-2"><a href="trans.html#cb410-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(Area <span class="sc">==</span> <span class="st">&quot;Brazil&quot;</span>,</span>
+<span id="cb410-3"><a href="trans.html#cb410-3" aria-hidden="true" tabindex="-1"></a>         Element <span class="sc">==</span> <span class="st">&quot;Production&quot;</span>,</span>
+<span id="cb410-4"><a href="trans.html#cb410-4" aria-hidden="true" tabindex="-1"></a>         Item <span class="sc">==</span> <span class="st">&quot;Maize&quot;</span>) <span class="sc">%&gt;%</span> </span>
+<span id="cb410-5"><a href="trans.html#cb410-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">select</span>(Area, Item, Year, Value) <span class="sc">%&gt;%</span> </span>
+<span id="cb410-6"><a href="trans.html#cb410-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">summarise</span>(<span class="at">media =</span> <span class="fu">mean</span>(Value),</span>
+<span id="cb410-7"><a href="trans.html#cb410-7" aria-hidden="true" tabindex="-1"></a>            <span class="at">mediana =</span> <span class="fu">median</span>(Value),</span>
+<span id="cb410-8"><a href="trans.html#cb410-8" aria-hidden="true" tabindex="-1"></a>            <span class="at">variancia =</span> <span class="fu">var</span>(Value))</span></code></pre></div>
+<pre><code># A tibble: 1 x 3
+      media  mediana variancia
+      &lt;dbl&gt;    &lt;dbl&gt;     &lt;dbl&gt;
+1 33776948. 26589870   5.61e14</code></pre>
+<p>Há casos em que queremos sumarizar uma coluna de acordo com alguma variável categórica de uma outra coluna. Para isso, utilizamos a função <code>group_by()</code> para indicar qual coluna desejamos agrupar para realizar a <code>summarise()</code>. No exemplo a seguir, agruparemos a variável <code>Element</code> para calcular a média da produção (<code>Production</code>) e da área colhida (<code>Area harvested</code>) de soja, na América do Sul.</p>
+<div class="sourceCode" id="cb412"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb412-1"><a href="trans.html#cb412-1" aria-hidden="true" tabindex="-1"></a>graos <span class="sc">%&gt;%</span> </span>
+<span id="cb412-2"><a href="trans.html#cb412-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(Item <span class="sc">==</span> <span class="st">&quot;Soybeans&quot;</span>) <span class="sc">%&gt;%</span> </span>
+<span id="cb412-3"><a href="trans.html#cb412-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">group_by</span>(Element) <span class="sc">%&gt;%</span> </span>
+<span id="cb412-4"><a href="trans.html#cb412-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">summarise</span>(<span class="at">media =</span> <span class="fu">mean</span>(Value, <span class="at">na.rm =</span> <span class="cn">TRUE</span>))</span></code></pre></div>
+<pre><code># A tibble: 2 x 2
+  Element           media
+  &lt;chr&gt;             &lt;dbl&gt;
+1 Area harvested 2132705.
+2 Production     5335899.</code></pre>
+<p>Podemos agrupar mais de duas variáveis para sumarizar. A seguir, agruparemos as colunas <code>Area</code> e <code>Element</code> para calcular, novamente, a média da produção e da área colhida, mas agora, por país sul-americano.</p>
+<div class="sourceCode" id="cb414"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb414-1"><a href="trans.html#cb414-1" aria-hidden="true" tabindex="-1"></a>graos <span class="sc">%&gt;%</span> </span>
+<span id="cb414-2"><a href="trans.html#cb414-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(Item <span class="sc">==</span> <span class="st">&quot;Soybeans&quot;</span>) <span class="sc">%&gt;%</span></span>
+<span id="cb414-3"><a href="trans.html#cb414-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">group_by</span>(Area, Element) <span class="sc">%&gt;%</span> </span>
+<span id="cb414-4"><a href="trans.html#cb414-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">summarise</span>(<span class="at">media =</span> <span class="fu">mean</span>(Value, <span class="at">na.rm =</span> <span class="cn">TRUE</span>))</span></code></pre></div>
+<pre><code># A tibble: 26 x 3
+# Groups:   Area [13]
+   Area                             Element            media
+   &lt;chr&gt;                            &lt;chr&gt;              &lt;dbl&gt;
+ 1 Argentina                        Area harvested  6967484.
+ 2 Argentina                        Production     17941231.
+ 3 Bolivia (Plurinational State of) Area harvested   472537.
+ 4 Bolivia (Plurinational State of) Production       922200.
+ 5 Brazil                           Area harvested 12772243.
+ 6 Brazil                           Production     32075459.
+ 7 Chile                            Area harvested      984 
+ 8 Chile                            Production         1043.
+ 9 Colombia                         Area harvested    45942.
+10 Colombia                         Production        93380.
+# ... with 16 more rows</code></pre>
+</div>
+<div id="ordenar" class="section level3" number="6.1.6">
+<h3><span class="header-section-number">6.1.6</span> Ordenar</h3>
+<p>Podemos ordenar as linhas da base de dados de acordo com algum parâmetro referente aos valores de uma ou mais colunas. Para tanto, utilizamos a função <code>arrange()</code>.</p>
+<div class="sourceCode" id="cb416"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb416-1"><a href="trans.html#cb416-1" aria-hidden="true" tabindex="-1"></a>graos <span class="sc">%&gt;%</span> </span>
+<span id="cb416-2"><a href="trans.html#cb416-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(Element <span class="sc">==</span> <span class="st">&quot;Production&quot;</span>) <span class="sc">%&gt;%</span> </span>
+<span id="cb416-3"><a href="trans.html#cb416-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">select</span>(Area, Item, Year, Value) <span class="sc">%&gt;%</span> </span>
+<span id="cb416-4"><a href="trans.html#cb416-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">arrange</span>(Value)</span></code></pre></div>
+<pre><code># A tibble: 2,756 x 4
+   Area          Item      Year Value
+   &lt;chr&gt;         &lt;chr&gt;    &lt;dbl&gt; &lt;dbl&gt;
+ 1 Chile         Soybeans  1988     0
+ 2 Chile         Soybeans  1990     0
+ 3 Chile         Soybeans  1991     0
+ 4 Chile         Soybeans  1992     0
+ 5 French Guyana Maize     1990     0
+ 6 French Guyana Soybeans  1990     0
+ 7 French Guyana Soybeans  1991     0
+ 8 French Guyana Soybeans  1992     0
+ 9 Guyana        Soybeans  1990     0
+10 Guyana        Soybeans  1991     0
+# ... with 2,746 more rows</code></pre>
+<p>Por padrão, a função <code>arrange()</code> ordena os valores em ordem crescente. Para ordená-las em ordem decrescente, utilizamos a função <code>desc()</code> dentro da própria <code>arrange()</code>.</p>
+<div class="sourceCode" id="cb418"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb418-1"><a href="trans.html#cb418-1" aria-hidden="true" tabindex="-1"></a>graos <span class="sc">%&gt;%</span> </span>
+<span id="cb418-2"><a href="trans.html#cb418-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(Element <span class="sc">==</span> <span class="st">&quot;Production&quot;</span>) <span class="sc">%&gt;%</span> </span>
+<span id="cb418-3"><a href="trans.html#cb418-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">select</span>(Area, Item, Year, Value) <span class="sc">%&gt;%</span> </span>
+<span id="cb418-4"><a href="trans.html#cb418-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">arrange</span>(<span class="fu">desc</span>(Value))</span></code></pre></div>
+<pre><code># A tibble: 2,756 x 4
+   Area   Item      Year     Value
+   &lt;chr&gt;  &lt;chr&gt;    &lt;dbl&gt;     &lt;dbl&gt;
+ 1 Brazil Soybeans  2018 117912450
+ 2 Brazil Soybeans  2017 114732101
+ 3 Brazil Soybeans  2019 114269392
+ 4 Brazil Maize     2019 101138617
+ 5 Brazil Maize     2017  97910658
+ 6 Brazil Soybeans  2015  97464936
+ 7 Brazil Soybeans  2016  96394820
+ 8 Brazil Soybeans  2014  86760520
+ 9 Brazil Maize     2015  85283074
+10 Brazil Maize     2018  82366531
+# ... with 2,746 more rows</code></pre>
+<p>Além disso, podemos ordenar a base de dados de acordo com duas variáveis.</p>
+<div class="sourceCode" id="cb420"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb420-1"><a href="trans.html#cb420-1" aria-hidden="true" tabindex="-1"></a>graos <span class="sc">%&gt;%</span> </span>
+<span id="cb420-2"><a href="trans.html#cb420-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(Element <span class="sc">==</span> <span class="st">&quot;Production&quot;</span>,</span>
+<span id="cb420-3"><a href="trans.html#cb420-3" aria-hidden="true" tabindex="-1"></a>         Item <span class="sc">==</span> <span class="st">&quot;Rice, paddy&quot;</span>) <span class="sc">%&gt;%</span> </span>
+<span id="cb420-4"><a href="trans.html#cb420-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">select</span>(Area, Year, Value) <span class="sc">%&gt;%</span> </span>
+<span id="cb420-5"><a href="trans.html#cb420-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">arrange</span>(Year, <span class="fu">desc</span>(Value))</span></code></pre></div>
+<pre><code># A tibble: 754 x 3
+   Area                                Year   Value
+   &lt;chr&gt;                              &lt;dbl&gt;   &lt;dbl&gt;
+ 1 Brazil                              1961 5392477
+ 2 Colombia                            1961  473600
+ 3 Peru                                1961  331877
+ 4 Guyana                              1961  215103
+ 5 Ecuador                             1961  203000
+ 6 Argentina                           1961  149000
+ 7 Chile                               1961  104720
+ 8 Venezuela (Bolivarian Republic of)  1961   80658
+ 9 Suriname                            1961   71562
+10 Uruguay                             1961   60866
+# ... with 744 more rows</code></pre>
+<p>Perceba que a ordem da declaração das variáveis na função <code>arrange()</code> altera a prioridade da ordenação.</p>
+<div class="sourceCode" id="cb422"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb422-1"><a href="trans.html#cb422-1" aria-hidden="true" tabindex="-1"></a>graos <span class="sc">%&gt;%</span> </span>
+<span id="cb422-2"><a href="trans.html#cb422-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(Element <span class="sc">==</span> <span class="st">&quot;Production&quot;</span>,</span>
+<span id="cb422-3"><a href="trans.html#cb422-3" aria-hidden="true" tabindex="-1"></a>         Item <span class="sc">==</span> <span class="st">&quot;Rice, paddy&quot;</span>) <span class="sc">%&gt;%</span> </span>
+<span id="cb422-4"><a href="trans.html#cb422-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">select</span>(Area, Year, Value) <span class="sc">%&gt;%</span> </span>
+<span id="cb422-5"><a href="trans.html#cb422-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">arrange</span>(<span class="fu">desc</span>(Value), Year)</span></code></pre></div>
+<pre><code># A tibble: 754 x 3
+   Area    Year    Value
+   &lt;chr&gt;  &lt;dbl&gt;    &lt;dbl&gt;
+ 1 Brazil  2011 13476994
+ 2 Brazil  2004 13277008
+ 3 Brazil  2005 13192863
+ 4 Brazil  2009 12651144
+ 5 Brazil  2017 12464766
+ 6 Brazil  2015 12301201
+ 7 Brazil  2014 12175602
+ 8 Brazil  2008 12061465
+ 9 Brazil  2018 11808412
+10 Brazil  1988 11806450
+# ... with 744 more rows</code></pre>
+<p>Nesse último exemplo, priorizamos a ordenação pelos valores de produção, em quanto que no outro, ordenamos a base a partir dos anos e, posteriormente, dos valores de produção.</p>
+</div>
+<div id="mudar-nomes-de-colunas" class="section level3" number="6.1.7">
+<h3><span class="header-section-number">6.1.7</span> Mudar nomes de colunas</h3>
+<p>Podemos alterar os nomes das colunas com a função <code>rename()</code>. Basta inserir o nome desejado e indicar, após o sinal de <code>=</code>, qual coluna da base de dados se deseja alterar o nome.</p>
+<div class="sourceCode" id="cb424"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb424-1"><a href="trans.html#cb424-1" aria-hidden="true" tabindex="-1"></a>graos <span class="sc">%&gt;%</span> </span>
+<span id="cb424-2"><a href="trans.html#cb424-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">select</span>(Area, Element, Item, Year, Unit, Value) <span class="sc">%&gt;%</span> </span>
+<span id="cb424-3"><a href="trans.html#cb424-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">rename</span>(<span class="st">`</span><span class="at">país</span><span class="st">`</span> <span class="ot">=</span> Area, <span class="at">tipo =</span> Element, <span class="at">cultura =</span> Item, <span class="at">ano =</span> Year, </span>
+<span id="cb424-4"><a href="trans.html#cb424-4" aria-hidden="true" tabindex="-1"></a>         <span class="at">unidade =</span> Unit, <span class="at">valor =</span> Value)</span></code></pre></div>
+<pre><code># A tibble: 5,510 x 6
+   país      tipo           cultura   ano unidade   valor
+   &lt;chr&gt;     &lt;chr&gt;          &lt;chr&gt;   &lt;dbl&gt; &lt;chr&gt;     &lt;dbl&gt;
+ 1 Argentina Area harvested Maize    1961 ha      2744400
+ 2 Argentina Area harvested Maize    1962 ha      2756670
+ 3 Argentina Area harvested Maize    1963 ha      2645400
+ 4 Argentina Area harvested Maize    1964 ha      2970500
+ 5 Argentina Area harvested Maize    1965 ha      3062300
+ 6 Argentina Area harvested Maize    1966 ha      3274500
+ 7 Argentina Area harvested Maize    1967 ha      3450500
+ 8 Argentina Area harvested Maize    1968 ha      3377700
+ 9 Argentina Area harvested Maize    1969 ha      3556000
+10 Argentina Area harvested Maize    1970 ha      4017330
+# ... with 5,500 more rows</code></pre>
+</div>
+<div id="juntar-bases-de-dados" class="section level3" number="6.1.8">
+<h3><span class="header-section-number">6.1.8</span> Juntar bases de dados</h3>
+<p>Em alguns casos, precisamos utilizar informações presentes em diferentes bases de dados, como por exemplo em planilhas Excel distintas ou em diferentes abas de uma mesma planilha. Nesse caso, é necessário juntar todas as informações em um único <em>data frame</em>.</p>
+<p>Para isso, podemos utilizar algumas funções presentes no pacote <code>dplyr</code>. A seguir, apresentaremos as funções do tipo <code>bind_</code> e <code>_join</code>, usando como exemplo a planilha <code>dados_juntar.xlsx</code>, presente no mesmo <em>link</em> para <em>download</em> apresentado no início desse capítulo.</p>
+<div class="sourceCode" id="cb426"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb426-1"><a href="trans.html#cb426-1" aria-hidden="true" tabindex="-1"></a><span class="fu">excel_sheets</span>(<span class="st">&quot;dados_transf/dados_juntar.xlsx&quot;</span>)</span></code></pre></div>
+<pre><code>[1] &quot;dados1&quot; &quot;dados2&quot; &quot;dados3&quot; &quot;dados4&quot; &quot;dados5&quot;</code></pre>
+<p>Com a função <code>readxl::excel_sheets()</code>, verificamos que a planilha contém 5 abas. Essas abas tratam de um mesmo tema, as quais precisaremos juntar em um único <em>data frame</em>. Assim, devemos salvar cada aba da planilha em um objeto.</p>
+<div class="sourceCode" id="cb428"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb428-1"><a href="trans.html#cb428-1" aria-hidden="true" tabindex="-1"></a>d1 <span class="ot">&lt;-</span> <span class="fu">read_excel</span>(<span class="st">&quot;dados_transf/dados_juntar.xlsx&quot;</span>, <span class="at">sheet =</span> <span class="st">&quot;dados1&quot;</span>)</span>
+<span id="cb428-2"><a href="trans.html#cb428-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb428-3"><a href="trans.html#cb428-3" aria-hidden="true" tabindex="-1"></a>d2 <span class="ot">&lt;-</span> <span class="fu">read_excel</span>(<span class="st">&quot;dados_transf/dados_juntar.xlsx&quot;</span>, <span class="at">sheet =</span> <span class="st">&quot;dados2&quot;</span>)</span>
+<span id="cb428-4"><a href="trans.html#cb428-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb428-5"><a href="trans.html#cb428-5" aria-hidden="true" tabindex="-1"></a>d3 <span class="ot">&lt;-</span> <span class="fu">read_excel</span>(<span class="st">&quot;dados_transf/dados_juntar.xlsx&quot;</span>, <span class="at">sheet =</span> <span class="st">&quot;dados3&quot;</span>)</span>
+<span id="cb428-6"><a href="trans.html#cb428-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb428-7"><a href="trans.html#cb428-7" aria-hidden="true" tabindex="-1"></a>d4 <span class="ot">&lt;-</span> <span class="fu">read_excel</span>(<span class="st">&quot;dados_transf/dados_juntar.xlsx&quot;</span>, <span class="at">sheet =</span> <span class="st">&quot;dados4&quot;</span>)</span>
+<span id="cb428-8"><a href="trans.html#cb428-8" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb428-9"><a href="trans.html#cb428-9" aria-hidden="true" tabindex="-1"></a>d5 <span class="ot">&lt;-</span> <span class="fu">read_excel</span>(<span class="st">&quot;dados_transf/dados_juntar.xlsx&quot;</span>, <span class="at">sheet =</span> <span class="st">&quot;dados5&quot;</span>)</span></code></pre></div>
+<div id="funções-bind_" class="section level4 unnumbered">
+<h4>Funções <code>bind_</code></h4>
+<p>As funções do tipo <code>bind_</code> são as mais simples para juntarmos os bancos de dados. A função <code>bind_rows()</code> junta as observações (linhas) de dois ou mais bancos de dados com base nas colunas. Com essa função, podemos realizar a união dos <em>data frames</em> <code>d1</code>, <code>d2</code>, <code>d3</code> e <code>d4</code>, que possuem as mesmas variáveis (colunas), porém tratando de diferentes observações.</p>
+<div class="sourceCode" id="cb429"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb429-1"><a href="trans.html#cb429-1" aria-hidden="true" tabindex="-1"></a>d1</span></code></pre></div>
+<pre><code># A tibble: 2 x 4
+  nome   sexo  idade  peso
+  &lt;chr&gt;  &lt;chr&gt; &lt;dbl&gt; &lt;dbl&gt;
+1 Amanda F        25    63
+2 Maria  F        30    65</code></pre>
+<div class="sourceCode" id="cb431"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb431-1"><a href="trans.html#cb431-1" aria-hidden="true" tabindex="-1"></a>d2</span></code></pre></div>
+<pre><code># A tibble: 2 x 4
+  nome    sexo  idade  peso
+  &lt;chr&gt;   &lt;chr&gt; &lt;dbl&gt; &lt;dbl&gt;
+1 Vitor   M        24    73
+2 Leticia F        23    52</code></pre>
+<div class="sourceCode" id="cb433"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb433-1"><a href="trans.html#cb433-1" aria-hidden="true" tabindex="-1"></a>d3</span></code></pre></div>
+<pre><code># A tibble: 2 x 4
+  sexo  nome     peso idade
+  &lt;chr&gt; &lt;chr&gt;   &lt;dbl&gt; &lt;dbl&gt;
+1 F     Vitoria    51    21
+2 M     Marcos     68    18</code></pre>
+<div class="sourceCode" id="cb435"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb435-1"><a href="trans.html#cb435-1" aria-hidden="true" tabindex="-1"></a>d4</span></code></pre></div>
+<pre><code># A tibble: 2 x 4
+  nomes sexo  idade  peso
+  &lt;chr&gt; &lt;chr&gt; &lt;dbl&gt; &lt;dbl&gt;
+1 Julio M        25    72
+2 Fabio M        35    81</code></pre>
+<p>Primeiramente, uniremos as bases <code>d1</code> e <code>d2</code>. Dentro da função <code>bind_rows()</code> declaramos os <em>data frames</em> que desejamos juntar, separados por vírgula.</p>
+<div class="sourceCode" id="cb437"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb437-1"><a href="trans.html#cb437-1" aria-hidden="true" tabindex="-1"></a>juntar.linhas.d1.d2 <span class="ot">&lt;-</span> <span class="fu">bind_rows</span>(d1, d2)</span>
+<span id="cb437-2"><a href="trans.html#cb437-2" aria-hidden="true" tabindex="-1"></a>juntar.linhas.d1.d2</span></code></pre></div>
+<pre><code># A tibble: 4 x 4
+  nome    sexo  idade  peso
+  &lt;chr&gt;   &lt;chr&gt; &lt;dbl&gt; &lt;dbl&gt;
+1 Amanda  F        25    63
+2 Maria   F        30    65
+3 Vitor   M        24    73
+4 Leticia F        23    52</code></pre>
+<p>Uma vez unidos os dados de <code>d1</code> e <code>d2</code>, juntaremos com o <code>d3</code>. Porém, note que as colunas da base <code>d3</code> apresentam uma ordem diferente em relação ao <code>d1</code> e ao <code>d2</code>. Mesmo com a ordem diferente, a função consegue combinar as linhas de maneira adequada, desde que os nomes das colunas dos bancos de dados sejam iguais.</p>
+<div class="sourceCode" id="cb439"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb439-1"><a href="trans.html#cb439-1" aria-hidden="true" tabindex="-1"></a>juntar.linhas.d1.d2.d3 <span class="ot">&lt;-</span> <span class="fu">bind_rows</span>(juntar.linhas.d1.d2, d3)</span>
+<span id="cb439-2"><a href="trans.html#cb439-2" aria-hidden="true" tabindex="-1"></a>juntar.linhas.d1.d2.d3</span></code></pre></div>
+<pre><code># A tibble: 6 x 4
+  nome    sexo  idade  peso
+  &lt;chr&gt;   &lt;chr&gt; &lt;dbl&gt; &lt;dbl&gt;
+1 Amanda  F        25    63
+2 Maria   F        30    65
+3 Vitor   M        24    73
+4 Leticia F        23    52
+5 Vitoria F        21    51
+6 Marcos  M        18    68</code></pre>
+<p>A função <code>bind_rows()</code> consegue juntar mais de dois bancos de dados em um só comando. Basta declararmos as bases que desejamos juntar.</p>
+<div class="sourceCode" id="cb441"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb441-1"><a href="trans.html#cb441-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Juntando d1, d2 e d3 em um só comando</span></span>
+<span id="cb441-2"><a href="trans.html#cb441-2" aria-hidden="true" tabindex="-1"></a>juntar.linhas.direto <span class="ot">&lt;-</span> <span class="fu">bind_rows</span>(d1, d2, d3)</span>
+<span id="cb441-3"><a href="trans.html#cb441-3" aria-hidden="true" tabindex="-1"></a>juntar.linhas.direto</span></code></pre></div>
+<pre><code># A tibble: 6 x 4
+  nome    sexo  idade  peso
+  &lt;chr&gt;   &lt;chr&gt; &lt;dbl&gt; &lt;dbl&gt;
+1 Amanda  F        25    63
+2 Maria   F        30    65
+3 Vitor   M        24    73
+4 Leticia F        23    52
+5 Vitoria F        21    51
+6 Marcos  M        18    68</code></pre>
+<p>Por último, precisamos unir o <code>d4</code> aos demais dados.</p>
+<div class="sourceCode" id="cb443"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb443-1"><a href="trans.html#cb443-1" aria-hidden="true" tabindex="-1"></a>juntar.linhas.d1.d2.d3.d4 <span class="ot">&lt;-</span> <span class="fu">bind_rows</span>(d1, d2, d3, d4)</span>
+<span id="cb443-2"><a href="trans.html#cb443-2" aria-hidden="true" tabindex="-1"></a>juntar.linhas.d1.d2.d3.d4</span></code></pre></div>
+<pre><code># A tibble: 8 x 5
+  nome    sexo  idade  peso nomes
+  &lt;chr&gt;   &lt;chr&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;chr&gt;
+1 Amanda  F        25    63 &lt;NA&gt; 
+2 Maria   F        30    65 &lt;NA&gt; 
+3 Vitor   M        24    73 &lt;NA&gt; 
+4 Leticia F        23    52 &lt;NA&gt; 
+5 Vitoria F        21    51 &lt;NA&gt; 
+6 Marcos  M        18    68 &lt;NA&gt; 
+7 &lt;NA&gt;    M        25    72 Julio
+8 &lt;NA&gt;    M        35    81 Fabio</code></pre>
+<p>Juntando a base de dados <code>d4</code> ao <code>d1</code>, <code>d2</code> e <code>d3</code>, percebemos que foi criada uma nova coluna. Isso ocorre, pois a nomenclatura atribuída à variável <code>nome</code> no <code>d4</code> está no plural, sendo assim, precisamos padronizar o nome dessa variável antes de juntá-la às demais bases.</p>
+<div class="sourceCode" id="cb445"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb445-1"><a href="trans.html#cb445-1" aria-hidden="true" tabindex="-1"></a>d4_corrigido <span class="ot">&lt;-</span> d4 <span class="sc">%&gt;%</span> </span>
+<span id="cb445-2"><a href="trans.html#cb445-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">rename</span>(<span class="st">&quot;nome&quot;</span> <span class="ot">=</span> nomes)</span>
+<span id="cb445-3"><a href="trans.html#cb445-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb445-4"><a href="trans.html#cb445-4" aria-hidden="true" tabindex="-1"></a><span class="fu">names</span>(d4_corrigido)</span></code></pre></div>
+<pre><code>[1] &quot;nome&quot;  &quot;sexo&quot;  &quot;idade&quot; &quot;peso&quot; </code></pre>
+<div class="sourceCode" id="cb447"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb447-1"><a href="trans.html#cb447-1" aria-hidden="true" tabindex="-1"></a>juntar.linhas <span class="ot">&lt;-</span> <span class="fu">bind_rows</span>(d1, d2, d3, d4_corrigido)</span>
+<span id="cb447-2"><a href="trans.html#cb447-2" aria-hidden="true" tabindex="-1"></a>juntar.linhas</span></code></pre></div>
+<pre><code># A tibble: 8 x 4
+  nome    sexo  idade  peso
+  &lt;chr&gt;   &lt;chr&gt; &lt;dbl&gt; &lt;dbl&gt;
+1 Amanda  F        25    63
+2 Maria   F        30    65
+3 Vitor   M        24    73
+4 Leticia F        23    52
+5 Vitoria F        21    51
+6 Marcos  M        18    68
+7 Julio   M        25    72
+8 Fabio   M        35    81</code></pre>
+<p>Com a função <code>rename()</code>, renomeamos a coluna <code>nomes</code> para o singular (<code>nome</code>). Assim, ao realizar a junção dos quatro bancos de dados, os nomes são alocados em uma única coluna (<code>nome</code>).</p>
+<p><br></p>
+<p>Já a função <code>bind_cols()</code> une colunas de dois ou mais bancos de dados. A seguir, juntaremos as colunas das bases <code>juntar.linhas</code> e <code>d5</code>.</p>
+<div class="sourceCode" id="cb449"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb449-1"><a href="trans.html#cb449-1" aria-hidden="true" tabindex="-1"></a>juntar.linhas</span></code></pre></div>
+<pre><code># A tibble: 8 x 4
+  nome    sexo  idade  peso
+  &lt;chr&gt;   &lt;chr&gt; &lt;dbl&gt; &lt;dbl&gt;
+1 Amanda  F        25    63
+2 Maria   F        30    65
+3 Vitor   M        24    73
+4 Leticia F        23    52
+5 Vitoria F        21    51
+6 Marcos  M        18    68
+7 Julio   M        25    72
+8 Fabio   M        35    81</code></pre>
+<div class="sourceCode" id="cb451"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb451-1"><a href="trans.html#cb451-1" aria-hidden="true" tabindex="-1"></a>d5</span></code></pre></div>
+<pre><code># A tibble: 8 x 2
+  nome      profissao  
+  &lt;chr&gt;     &lt;chr&gt;      
+1 Fabio     Medico     
+2 Gabriel   Estudante  
+3 Guilherme Cozinheiro 
+4 Jose      Biologo    
+5 Julio     Zootecnista
+6 Marcos    Professor  
+7 Vitor     Agronomo   
+8 Getulio   Musico     </code></pre>
+<div class="sourceCode" id="cb453"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb453-1"><a href="trans.html#cb453-1" aria-hidden="true" tabindex="-1"></a>juntar.colunas <span class="ot">&lt;-</span> <span class="fu">bind_cols</span>(juntar.linhas, d5)</span>
+<span id="cb453-2"><a href="trans.html#cb453-2" aria-hidden="true" tabindex="-1"></a>juntar.colunas</span></code></pre></div>
+<pre><code># A tibble: 8 x 6
+  nome...1 sexo  idade  peso nome...5  profissao  
+  &lt;chr&gt;    &lt;chr&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;chr&gt;     &lt;chr&gt;      
+1 Amanda   F        25    63 Fabio     Medico     
+2 Maria    F        30    65 Gabriel   Estudante  
+3 Vitor    M        24    73 Guilherme Cozinheiro 
+4 Leticia  F        23    52 Jose      Biologo    
+5 Vitoria  F        21    51 Julio     Zootecnista
+6 Marcos   M        18    68 Marcos    Professor  
+7 Julio    M        25    72 Vitor     Agronomo   
+8 Fabio    M        35    81 Getulio   Musico     </code></pre>
+<p>Note que a função juntou as colunas, preservando todas as variáveis, bem como a ordem original das linhas das bases de dados. Porém, nesse caso, seria conveniente unir as colunas com base na variável em comum entre os conjuntos, no caso, a variável <code>nome</code>. Para isso, utilizamos um outro conjunto de funções, as do tipo <code>_join</code>.</p>
+</div>
+<div id="funções-_join" class="section level4 unnumbered">
+<h4>Funções <code>_join</code></h4>
+<p>Para juntar dois conjuntos de dados com base em uma ou mais colunas em comum, utilizamos as funções do tipo <code>_join</code> (conhecidas também por <em>merge</em>). Você deve ter notado que a base <code>d5</code> possui indivíduos em comum com a base <code>juntar.linhas</code>; mas também, diferentes.</p>
+<p>Nesse caso, de acordo com o que se deseja para a análise, podemos selecionar todas as observações dos conjuntos; apenas as observações exclusivas de um dos conjuntos de dados; ou aquelas que estão presentes em ambas as bases de dados. A figura <a href="trans.html#fig:join">6.1</a> ilustra tais possibilidades e as respectivas funções.</p>
+<div class="figure" style="text-align: center"><span style="display:block;" id="fig:join"></span>
+<img src="imagens/join-venn.png" alt="Diagrama de Venn com os tipos de joins. Fonte: R for Data Science, 2017." width="70%" />
+<p class="caption">
+Figure 6.1: Diagrama de Venn com os tipos de joins. Fonte: R for Data Science, 2017.
+</p>
+</div>
+<p>A função <code>inner_join()</code> retorna as observações em comum entre os dois conjuntos, de acordo com certa variável.</p>
+<div class="sourceCode" id="cb455"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb455-1"><a href="trans.html#cb455-1" aria-hidden="true" tabindex="-1"></a>inner.join <span class="ot">&lt;-</span> <span class="fu">inner_join</span>(juntar.linhas, d5,</span>
+<span id="cb455-2"><a href="trans.html#cb455-2" aria-hidden="true" tabindex="-1"></a>                         <span class="at">by =</span> <span class="st">&quot;nome&quot;</span>)</span>
+<span id="cb455-3"><a href="trans.html#cb455-3" aria-hidden="true" tabindex="-1"></a>inner.join</span></code></pre></div>
+<pre><code># A tibble: 4 x 5
+  nome   sexo  idade  peso profissao  
+  &lt;chr&gt;  &lt;chr&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;chr&gt;      
+1 Vitor  M        24    73 Agronomo   
+2 Marcos M        18    68 Professor  
+3 Julio  M        25    72 Zootecnista
+4 Fabio  M        35    81 Medico     </code></pre>
+<p>Na função acima, declaramos as duas bases de dados a serem unidas, junto ao argumento <code>by = "nome"</code>, sendo essa a variável em comum. Como resultado, a <code>inner_join()</code> nos retornou apenas a observações em comum entre o conjunto.</p>
+<div class="figure" style="text-align: center"><span style="display:block;" id="fig:unnamed-chunk-173"></span>
+<img src="imagens/join-inner.png" alt="Esquematização da função $inner_join$. Fonte: R for Data Science, 2017." width="50%" />
+<p class="caption">
+Figure 6.2: Esquematização da função <span class="math inline">\(inner_join\)</span>. Fonte: R for Data Science, 2017.
+</p>
+</div>
+<p>Caso haja mais de uma variável em comum, bastaria declarar um vetor com as variáveis no argumento <code>by =</code> (<code>by = c("var_1", "var_2", ..., "var_n")</code>). Atente-se ao fato que as variáveis devem estar entre aspas.</p>
+<p><br></p>
+<p>A função <code>full_join()</code> nos retorna todas as observações de ambos os conjuntos, atribuindo valor <code>NA</code> para os valores ausentes.</p>
+<div class="sourceCode" id="cb457"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb457-1"><a href="trans.html#cb457-1" aria-hidden="true" tabindex="-1"></a>full.join <span class="ot">&lt;-</span> <span class="fu">full_join</span>(juntar.linhas, d5, <span class="at">by =</span> <span class="st">&quot;nome&quot;</span>)</span>
+<span id="cb457-2"><a href="trans.html#cb457-2" aria-hidden="true" tabindex="-1"></a>full.join</span></code></pre></div>
+<pre><code># A tibble: 12 x 5
+   nome      sexo  idade  peso profissao  
+   &lt;chr&gt;     &lt;chr&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;chr&gt;      
+ 1 Amanda    F        25    63 &lt;NA&gt;       
+ 2 Maria     F        30    65 &lt;NA&gt;       
+ 3 Vitor     M        24    73 Agronomo   
+ 4 Leticia   F        23    52 &lt;NA&gt;       
+ 5 Vitoria   F        21    51 &lt;NA&gt;       
+ 6 Marcos    M        18    68 Professor  
+ 7 Julio     M        25    72 Zootecnista
+ 8 Fabio     M        35    81 Medico     
+ 9 Gabriel   &lt;NA&gt;     NA    NA Estudante  
+10 Guilherme &lt;NA&gt;     NA    NA Cozinheiro 
+11 Jose      &lt;NA&gt;     NA    NA Biologo    
+12 Getulio   &lt;NA&gt;     NA    NA Musico     </code></pre>
+<div class="figure" style="text-align: center"><span style="display:block;" id="fig:unnamed-chunk-175"></span>
+<img src="imagens/join-full.png" alt="Esquematização da função $full_join$. Fonte: R for Data Science, 2017." width="50%" />
+<p class="caption">
+Figure 6.3: Esquematização da função <span class="math inline">\(full_join\)</span>. Fonte: R for Data Science, 2017.
+</p>
+</div>
+<p><br></p>
+<p>A função <code>left_join()</code> retorna todas as observações presentes no primeiro conjunto declarado, além dos valores em comum do segundo conjunto em relação ao primeiro. Por outro lado, a <code>right_join()</code> retorna todas as observações do segundo conjunto declarado e os valores em comum do primeiro conjunto em relação ao segundo.</p>
+<div class="sourceCode" id="cb459"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb459-1"><a href="trans.html#cb459-1" aria-hidden="true" tabindex="-1"></a>left.join <span class="ot">&lt;-</span> <span class="fu">left_join</span>(juntar.linhas, d5, <span class="at">by =</span> <span class="st">&quot;nome&quot;</span>)</span>
+<span id="cb459-2"><a href="trans.html#cb459-2" aria-hidden="true" tabindex="-1"></a>left.join</span></code></pre></div>
+<pre><code># A tibble: 8 x 5
+  nome    sexo  idade  peso profissao  
+  &lt;chr&gt;   &lt;chr&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;chr&gt;      
+1 Amanda  F        25    63 &lt;NA&gt;       
+2 Maria   F        30    65 &lt;NA&gt;       
+3 Vitor   M        24    73 Agronomo   
+4 Leticia F        23    52 &lt;NA&gt;       
+5 Vitoria F        21    51 &lt;NA&gt;       
+6 Marcos  M        18    68 Professor  
+7 Julio   M        25    72 Zootecnista
+8 Fabio   M        35    81 Medico     </code></pre>
+<div class="sourceCode" id="cb461"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb461-1"><a href="trans.html#cb461-1" aria-hidden="true" tabindex="-1"></a>right.join <span class="ot">&lt;-</span> <span class="fu">right_join</span>(juntar.linhas, d5, <span class="at">by =</span> <span class="st">&quot;nome&quot;</span>)</span>
+<span id="cb461-2"><a href="trans.html#cb461-2" aria-hidden="true" tabindex="-1"></a>right.join</span></code></pre></div>
+<pre><code># A tibble: 8 x 5
+  nome      sexo  idade  peso profissao  
+  &lt;chr&gt;     &lt;chr&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;chr&gt;      
+1 Vitor     M        24    73 Agronomo   
+2 Marcos    M        18    68 Professor  
+3 Julio     M        25    72 Zootecnista
+4 Fabio     M        35    81 Medico     
+5 Gabriel   &lt;NA&gt;     NA    NA Estudante  
+6 Guilherme &lt;NA&gt;     NA    NA Cozinheiro 
+7 Jose      &lt;NA&gt;     NA    NA Biologo    
+8 Getulio   &lt;NA&gt;     NA    NA Musico     </code></pre>
+<p>Note que em ambas as funções, o primeiro conjunto declarado é o <code>juntar.linhas</code>, sendo o segundo, o <code>d5</code>.</p>
+<div class="figure" style="text-align: center"><span style="display:block;" id="fig:unnamed-chunk-177"></span>
+<img src="imagens/join-rl.png" alt="Esquematização das funções $left_join$ e $right_join$. Fonte: R for Data Science, 2017." width="50%" />
+<p class="caption">
+Figure 6.4: Esquematização das funções <span class="math inline">\(left_join\)</span> e <span class="math inline">\(right_join\)</span>. Fonte: R for Data Science, 2017.
+</p>
+</div>
+<p><br></p>
+<p>Por fim, temos o <code>semi_join()</code> e o <code>anti_join()</code>.</p>
+<p>O <code>semi_join()</code> nos retorna todas as observações do primeiro conjunto que também estão presentes no segundo.</p>
+<div class="sourceCode" id="cb463"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb463-1"><a href="trans.html#cb463-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Tendo como primeiro conjunto o `juntar.linhas`</span></span>
+<span id="cb463-2"><a href="trans.html#cb463-2" aria-hidden="true" tabindex="-1"></a>semi.join1 <span class="ot">&lt;-</span> <span class="fu">semi_join</span>(juntar.linhas, d5, <span class="at">by =</span> <span class="st">&quot;nome&quot;</span>)</span>
+<span id="cb463-3"><a href="trans.html#cb463-3" aria-hidden="true" tabindex="-1"></a>semi.join1</span></code></pre></div>
+<pre><code># A tibble: 4 x 4
+  nome   sexo  idade  peso
+  &lt;chr&gt;  &lt;chr&gt; &lt;dbl&gt; &lt;dbl&gt;
+1 Vitor  M        24    73
+2 Marcos M        18    68
+3 Julio  M        25    72
+4 Fabio  M        35    81</code></pre>
+<div class="sourceCode" id="cb465"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb465-1"><a href="trans.html#cb465-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Tendo como primeiro conjunto o `d5`</span></span>
+<span id="cb465-2"><a href="trans.html#cb465-2" aria-hidden="true" tabindex="-1"></a>semi.join2 <span class="ot">&lt;-</span> <span class="fu">semi_join</span>(d5, juntar.linhas, <span class="at">by =</span> <span class="st">&quot;nome&quot;</span>)</span>
+<span id="cb465-3"><a href="trans.html#cb465-3" aria-hidden="true" tabindex="-1"></a>semi.join2</span></code></pre></div>
+<pre><code># A tibble: 4 x 2
+  nome   profissao  
+  &lt;chr&gt;  &lt;chr&gt;      
+1 Fabio  Medico     
+2 Julio  Zootecnista
+3 Marcos Professor  
+4 Vitor  Agronomo   </code></pre>
+<div class="figure" style="text-align: center"><span style="display:block;" id="fig:unnamed-chunk-179"></span>
+<img src="imagens/join-semi.png" alt="Esquematização da função $semi_join$. Fonte: R for Data Science, 2017." width="50%" />
+<p class="caption">
+Figure 6.5: Esquematização da função <span class="math inline">\(semi_join\)</span>. Fonte: R for Data Science, 2017.
+</p>
+</div>
+<p><br></p>
+<p>Já o <code>anti_join()</code>, retorna as observações do primeiro conjunto que não estão presentes no segundo.</p>
+<div class="sourceCode" id="cb467"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb467-1"><a href="trans.html#cb467-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Tendo como primeiro conjunto o `juntar.linhas`</span></span>
+<span id="cb467-2"><a href="trans.html#cb467-2" aria-hidden="true" tabindex="-1"></a>anti.join1 <span class="ot">&lt;-</span> <span class="fu">anti_join</span>(juntar.linhas, d5, <span class="at">by =</span> <span class="st">&quot;nome&quot;</span>)</span>
+<span id="cb467-3"><a href="trans.html#cb467-3" aria-hidden="true" tabindex="-1"></a>anti.join1</span></code></pre></div>
+<pre><code># A tibble: 4 x 4
+  nome    sexo  idade  peso
+  &lt;chr&gt;   &lt;chr&gt; &lt;dbl&gt; &lt;dbl&gt;
+1 Amanda  F        25    63
+2 Maria   F        30    65
+3 Leticia F        23    52
+4 Vitoria F        21    51</code></pre>
+<div class="sourceCode" id="cb469"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb469-1"><a href="trans.html#cb469-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Tendo como primeiro conjunto o `d5`</span></span>
+<span id="cb469-2"><a href="trans.html#cb469-2" aria-hidden="true" tabindex="-1"></a>anti.join2 <span class="ot">&lt;-</span> <span class="fu">anti_join</span>(d5, juntar.linhas, <span class="at">by =</span> <span class="st">&quot;nome&quot;</span>)</span>
+<span id="cb469-3"><a href="trans.html#cb469-3" aria-hidden="true" tabindex="-1"></a>anti.join2</span></code></pre></div>
+<pre><code># A tibble: 4 x 2
+  nome      profissao 
+  &lt;chr&gt;     &lt;chr&gt;     
+1 Gabriel   Estudante 
+2 Guilherme Cozinheiro
+3 Jose      Biologo   
+4 Getulio   Musico    </code></pre>
+<div class="figure" style="text-align: center"><span style="display:block;" id="fig:unnamed-chunk-181"></span>
+<img src="imagens/join-anti.png" alt="Esquematização da função $anti_join$. Fonte: R for Data Science, 2017." width="50%" />
+<p class="caption">
+Figure 6.6: Esquematização da função <span class="math inline">\(anti_join\)</span>. Fonte: R for Data Science, 2017.
+</p>
+</div>
+<p>Tanto no <code>semi_join()</code>, como no <code>anti_join()</code>, mantêm-se apenas as colunas presentes no primeiro conjunto.</p>
+<p><br></p>
+<p>Pode-se notar que o <code>inner_join()</code>, <code>full_join()</code>, <code>left_join()</code> e <code>right_join()</code> adicionam novas variáveis a um conjunto de dados a partir de observações correspondentes em outro, ou seja, são <em>mutating joins</em> (atuam de maneira semelhante à função <code>mutate()</code>). Já o <code>semi_join()</code> e o <code>anti_join()</code>, filtram observações de um conjunto de dados com base na correspondência - ou não - a uma observação no outro conjunto, ou seja, são <em>filtering joins</em> (atuam de maneira semelhante à função <code>filter()</code>).</p>
+<p><br></p>
+<p>Partindo de uma base de dados cujas medidas de interesse foram selecionadas, filtradas, criadas, calculadas e unidas, podemos representá-las em gráficos, de acordo com o tipo de dado a ser representado. Com isso, no próximo capítulo, veremos como fazer gráficos a partir do pacote <code>ggplot2</code>, com o intuito de enxergarmos os nossos dados a partir de uma outra perspectiva.</p>
+
+</div>
+</div>
+</div>
+</div>
+            </section>
+
+          </div>
+        </div>
+      </div>
+<a href="org.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="graf.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+    </div>
+  </div>
+<script src="libs/gitbook-2.6.7/js/app.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/clipboard.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-search.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-sharing.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-fontsettings.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-bookdown.js"></script>
+<script src="libs/gitbook-2.6.7/js/jquery.highlight.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-clipboard.js"></script>
+<script>
+gitbook.require(["gitbook"], function(gitbook) {
+gitbook.start({
+"sharing": {
+"github": false,
+"facebook": true,
+"twitter": true,
+"linkedin": false,
+"weibo": false,
+"instapaper": false,
+"vk": false,
+"whatsapp": false,
+"all": ["facebook", "twitter", "linkedin", "weibo", "instapaper"]
+},
+"fontsettings": {
+"theme": "white",
+"family": "sans",
+"size": 2
+},
+"edit": null,
+"history": {
+"link": null,
+"text": null
+},
+"view": {
+"link": null,
+"text": null
+},
+"download": ["_main.pdf", "_main.epub"],
+"search": {
+"engine": "fuse",
+"options": null
+},
+"toc": {
+"collapse": "subsection"
+}
+});
+});
+</script>
+
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+  (function () {
+    var script = document.createElement("script");
+    script.type = "text/javascript";
+    var src = "true";
+    if (src === "" || src === "true") src = "https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-MML-AM_CHTML";
+    if (location.protocol !== "file:")
+      if (/^https?:/.test(src))
+        src = src.replace(/^https?:/, '');
+    script.src = src;
+    document.getElementsByTagName("head")[0].appendChild(script);
+  })();
+</script>
+</body>
+
+</html>

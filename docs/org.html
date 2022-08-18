@@ -1,0 +1,946 @@
+<!DOCTYPE html>
+<html lang="pt-BR" xml:lang="pt-BR">
+<head>
+
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <title>Capítulo5 Organização | Introdução à Ciência de Dados em R</title>
+  <meta name="description" content="Capítulo5 Organização | Introdução à Ciência de Dados em R" />
+  <meta name="generator" content="bookdown 0.24 and GitBook 2.6.7" />
+
+  <meta property="og:title" content="Capítulo5 Organização | Introdução à Ciência de Dados em R" />
+  <meta property="og:type" content="book" />
+  
+  
+  
+  <meta name="github-repo" content="rstudio/bookdown-demo" />
+
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:title" content="Capítulo5 Organização | Introdução à Ciência de Dados em R" />
+  
+  
+  
+
+<meta name="author" content="Gustavo Jun Yakushiji; Cristian Marcelo Villegas Lobos" />
+
+
+
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black" />
+  
+  
+<link rel="prev" href="import.html"/>
+<link rel="next" href="trans.html"/>
+<script src="libs/header-attrs-2.11/header-attrs.js"></script>
+<script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/fuse.js@6.4.6/dist/fuse.min.js"></script>
+<link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-highlight.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-search.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-fontsettings.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-clipboard.css" rel="stylesheet" />
+
+
+
+
+
+
+
+
+<link href="libs/anchor-sections-1.0.1/anchor-sections.css" rel="stylesheet" />
+<script src="libs/anchor-sections-1.0.1/anchor-sections.js"></script>
+<script src="libs/kePrint-0.0.1/kePrint.js"></script>
+<link href="libs/lightable-0.0.1/lightable.css" rel="stylesheet" />
+
+
+<style type="text/css">
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+    color: #aaaaaa;
+  }
+pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+code span.al { color: #ff0000; font-weight: bold; } /* Alert */
+code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+code span.at { color: #7d9029; } /* Attribute */
+code span.bn { color: #40a070; } /* BaseN */
+code span.bu { } /* BuiltIn */
+code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+code span.ch { color: #4070a0; } /* Char */
+code span.cn { color: #880000; } /* Constant */
+code span.co { color: #60a0b0; font-style: italic; } /* Comment */
+code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+code span.do { color: #ba2121; font-style: italic; } /* Documentation */
+code span.dt { color: #902000; } /* DataType */
+code span.dv { color: #40a070; } /* DecVal */
+code span.er { color: #ff0000; font-weight: bold; } /* Error */
+code span.ex { } /* Extension */
+code span.fl { color: #40a070; } /* Float */
+code span.fu { color: #06287e; } /* Function */
+code span.im { } /* Import */
+code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+code span.kw { color: #007020; font-weight: bold; } /* Keyword */
+code span.op { color: #666666; } /* Operator */
+code span.ot { color: #007020; } /* Other */
+code span.pp { color: #bc7a00; } /* Preprocessor */
+code span.sc { color: #4070a0; } /* SpecialChar */
+code span.ss { color: #bb6688; } /* SpecialString */
+code span.st { color: #4070a0; } /* String */
+code span.va { color: #19177c; } /* Variable */
+code span.vs { color: #4070a0; } /* VerbatimString */
+code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+</style>
+
+
+<link rel="stylesheet" href="style.css" type="text/css" />
+</head>
+
+<body>
+
+
+
+  <div class="book without-animation with-summary font-size-2 font-family-1" data-basepath=".">
+
+    <div class="book-summary">
+      <nav role="navigation">
+
+<ul class="summary">
+<li><a href="./">Introdução à Ciência de Dados em R</a></li>
+
+<li class="divider"></li>
+<li class="chapter" data-level="1" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i><b>1</b> Introdução</a></li>
+<li class="chapter" data-level="2" data-path="ciência-de-dados-e-r.html"><a href="ciência-de-dados-e-r.html"><i class="fa fa-check"></i><b>2</b> Ciência de dados e R</a>
+<ul>
+<li class="chapter" data-level="2.1" data-path="ciência-de-dados-e-r.html"><a href="ciência-de-dados-e-r.html#o-que-é-ciência-de-dados"><i class="fa fa-check"></i><b>2.1</b> O que é Ciência de Dados?</a></li>
+<li class="chapter" data-level="2.2" data-path="ciência-de-dados-e-r.html"><a href="ciência-de-dados-e-r.html#r-rstudio"><i class="fa fa-check"></i><b>2.2</b> R / RStudio</a>
+<ul>
+<li class="chapter" data-level="2.2.1" data-path="ciência-de-dados-e-r.html"><a href="ciência-de-dados-e-r.html#instalando-o-r"><i class="fa fa-check"></i><b>2.2.1</b> Instalando o R</a></li>
+<li class="chapter" data-level="2.2.2" data-path="ciência-de-dados-e-r.html"><a href="ciência-de-dados-e-r.html#instalando-o-rstudio"><i class="fa fa-check"></i><b>2.2.2</b> Instalando o RStudio</a></li>
+<li class="chapter" data-level="2.2.3" data-path="ciência-de-dados-e-r.html"><a href="ciência-de-dados-e-r.html#rstudio"><i class="fa fa-check"></i><b>2.2.3</b> Ambiente RStudio</a></li>
+</ul></li>
+<li class="chapter" data-level="2.3" data-path="ciência-de-dados-e-r.html"><a href="ciência-de-dados-e-r.html#etapas-da-ciência-de-dados"><i class="fa fa-check"></i><b>2.3</b> Etapas da Ciência de Dados</a></li>
+<li class="chapter" data-level="2.4" data-path="ciência-de-dados-e-r.html"><a href="ciência-de-dados-e-r.html#pacote"><i class="fa fa-check"></i><b>2.4</b> Pacote <code>tidyverse</code></a></li>
+</ul></li>
+<li class="chapter" data-level="3" data-path="noções-básicas-em-r.html"><a href="noções-básicas-em-r.html"><i class="fa fa-check"></i><b>3</b> Noções básicas em R</a>
+<ul>
+<li class="chapter" data-level="3.1" data-path="noções-básicas-em-r.html"><a href="noções-básicas-em-r.html#proj"><i class="fa fa-check"></i><b>3.1</b> Projetos</a></li>
+<li class="chapter" data-level="3.2" data-path="noções-básicas-em-r.html"><a href="noções-básicas-em-r.html#ajuda"><i class="fa fa-check"></i><b>3.2</b> Ajuda</a></li>
+<li class="chapter" data-level="3.3" data-path="noções-básicas-em-r.html"><a href="noções-básicas-em-r.html#comentários"><i class="fa fa-check"></i><b>3.3</b> Comentários</a></li>
+<li class="chapter" data-level="3.4" data-path="noções-básicas-em-r.html"><a href="noções-básicas-em-r.html#operações-matemáticas"><i class="fa fa-check"></i><b>3.4</b> Operações matemáticas</a></li>
+<li class="chapter" data-level="3.5" data-path="noções-básicas-em-r.html"><a href="noções-básicas-em-r.html#obj"><i class="fa fa-check"></i><b>3.5</b> Objetos</a></li>
+<li class="chapter" data-level="3.6" data-path="noções-básicas-em-r.html"><a href="noções-básicas-em-r.html#funções"><i class="fa fa-check"></i><b>3.6</b> Funções</a></li>
+<li class="chapter" data-level="3.7" data-path="noções-básicas-em-r.html"><a href="noções-básicas-em-r.html#classes"><i class="fa fa-check"></i><b>3.7</b> Classes</a></li>
+<li class="chapter" data-level="3.8" data-path="noções-básicas-em-r.html"><a href="noções-básicas-em-r.html#dataf"><i class="fa fa-check"></i><b>3.8</b> Data frames</a></li>
+<li class="chapter" data-level="3.9" data-path="noções-básicas-em-r.html"><a href="noções-básicas-em-r.html#vetor"><i class="fa fa-check"></i><b>3.9</b> Vetores</a></li>
+<li class="chapter" data-level="3.10" data-path="noções-básicas-em-r.html"><a href="noções-básicas-em-r.html#fator"><i class="fa fa-check"></i><b>3.10</b> Fatores</a>
+<ul>
+<li class="chapter" data-level="3.10.1" data-path="noções-básicas-em-r.html"><a href="noções-básicas-em-r.html#diferenças-entre-fatores-e-caracteres"><i class="fa fa-check"></i><b>3.10.1</b> Diferenças entre fatores e caracteres</a></li>
+</ul></li>
+<li class="chapter" data-level="3.11" data-path="noções-básicas-em-r.html"><a href="noções-básicas-em-r.html#logica"><i class="fa fa-check"></i><b>3.11</b> Operações lógicas</a></li>
+<li class="chapter" data-level="3.12" data-path="noções-básicas-em-r.html"><a href="noções-básicas-em-r.html#especial"><i class="fa fa-check"></i><b>3.12</b> Valores especiais</a>
+<ul>
+<li class="chapter" data-level="3.12.1" data-path="noções-básicas-em-r.html"><a href="noções-básicas-em-r.html#na"><i class="fa fa-check"></i><b>3.12.1</b> NA</a></li>
+<li class="chapter" data-level="3.12.2" data-path="noções-básicas-em-r.html"><a href="noções-básicas-em-r.html#nan"><i class="fa fa-check"></i><b>3.12.2</b> NaN</a></li>
+<li class="chapter" data-level="3.12.3" data-path="noções-básicas-em-r.html"><a href="noções-básicas-em-r.html#inf"><i class="fa fa-check"></i><b>3.12.3</b> Inf</a></li>
+<li class="chapter" data-level="3.12.4" data-path="noções-básicas-em-r.html"><a href="noções-básicas-em-r.html#null"><i class="fa fa-check"></i><b>3.12.4</b> NULL</a></li>
+</ul></li>
+<li class="chapter" data-level="3.13" data-path="noções-básicas-em-r.html"><a href="noções-básicas-em-r.html#list"><i class="fa fa-check"></i><b>3.13</b> Listas</a>
+<ul>
+<li class="chapter" data-level="3.13.1" data-path="noções-básicas-em-r.html"><a href="noções-básicas-em-r.html#df"><i class="fa fa-check"></i><b>3.13.1</b> Data frames e listas</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="4" data-path="import.html"><a href="import.html"><i class="fa fa-check"></i><b>4</b> Importação</a>
+<ul>
+<li class="chapter" data-level="4.1" data-path="import.html"><a href="import.html#pacote-readr"><i class="fa fa-check"></i><b>4.1</b> Pacote <code>readr</code></a>
+<ul>
+<li class="chapter" data-level="4.1.1" data-path="import.html"><a href="import.html#ler-arquivos-texto"><i class="fa fa-check"></i><b>4.1.1</b> Ler arquivos texto</a></li>
+<li class="chapter" data-level="4.1.2" data-path="import.html"><a href="import.html#readrgs"><i class="fa fa-check"></i><b>4.1.2</b> Outros argumentos</a></li>
+<li class="chapter" data-level="4.1.3" data-path="import.html"><a href="import.html#escrever-arquivos-texto"><i class="fa fa-check"></i><b>4.1.3</b> Escrever arquivos texto</a></li>
+</ul></li>
+<li class="chapter" data-level="4.2" data-path="import.html"><a href="import.html#pacote-readxl"><i class="fa fa-check"></i><b>4.2</b> Pacote <code>readxl</code></a>
+<ul>
+<li class="chapter" data-level="4.2.1" data-path="import.html"><a href="import.html#ler-arquivos-excel"><i class="fa fa-check"></i><b>4.2.1</b> Ler arquivos Excel</a></li>
+<li class="chapter" data-level="4.2.2" data-path="import.html"><a href="import.html#escrever-arquivos-excel"><i class="fa fa-check"></i><b>4.2.2</b> Escrever arquivos Excel</a></li>
+</ul></li>
+<li class="chapter" data-level="4.3" data-path="import.html"><a href="import.html#importação-via-url"><i class="fa fa-check"></i><b>4.3</b> Importação via URL</a></li>
+<li class="chapter" data-level="4.4" data-path="import.html"><a href="import.html#banco-de-dados"><i class="fa fa-check"></i><b>4.4</b> Banco de dados</a></li>
+</ul></li>
+<li class="chapter" data-level="5" data-path="org.html"><a href="org.html"><i class="fa fa-check"></i><b>5</b> Organização</a>
+<ul>
+<li class="chapter" data-level="5.1" data-path="org.html"><a href="org.html#tibbles"><i class="fa fa-check"></i><b>5.1</b> Tibbles</a>
+<ul>
+<li class="chapter" data-level="5.1.1" data-path="org.html"><a href="org.html#criando-tibbles"><i class="fa fa-check"></i><b>5.1.1</b> Criando <em>Tibbles</em></a></li>
+<li class="chapter" data-level="5.1.2" data-path="org.html"><a href="org.html#outras-funções"><i class="fa fa-check"></i><b>5.1.2</b> Outras funções</a></li>
+</ul></li>
+<li class="chapter" data-level="5.2" data-path="org.html"><a href="org.html#pacote-tidyr"><i class="fa fa-check"></i><b>5.2</b> Pacote <code>tidyr</code></a>
+<ul>
+<li class="chapter" data-level="5.2.1" data-path="org.html"><a href="org.html#base-de-dados-tidy"><i class="fa fa-check"></i><b>5.2.1</b> Base de dados <em>tidy</em></a></li>
+<li class="chapter" data-level="5.2.2" data-path="org.html"><a href="org.html#pivotagem"><i class="fa fa-check"></i><b>5.2.2</b> Pivotagem</a></li>
+<li class="chapter" data-level="5.2.3" data-path="org.html"><a href="org.html#separar-e-unir"><i class="fa fa-check"></i><b>5.2.3</b> Separar e Unir</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="6" data-path="trans.html"><a href="trans.html"><i class="fa fa-check"></i><b>6</b> Transformação</a>
+<ul>
+<li class="chapter" data-level="6.1" data-path="trans.html"><a href="trans.html#pacote-dplyr"><i class="fa fa-check"></i><b>6.1</b> Pacote <code>dplyr</code></a>
+<ul>
+<li class="chapter" data-level="6.1.1" data-path="trans.html"><a href="trans.html#selecionar"><i class="fa fa-check"></i><b>6.1.1</b> Selecionar</a></li>
+<li class="chapter" data-level="6.1.2" data-path="trans.html"><a href="trans.html#operador-pipe"><i class="fa fa-check"></i><b>6.1.2</b> Operador <em>pipe</em> (%&gt;%)</a></li>
+<li class="chapter" data-level="6.1.3" data-path="trans.html"><a href="trans.html#filtrar"><i class="fa fa-check"></i><b>6.1.3</b> Filtrar</a></li>
+<li class="chapter" data-level="6.1.4" data-path="trans.html"><a href="trans.html#modificar-e-criar-colunas"><i class="fa fa-check"></i><b>6.1.4</b> Modificar e criar colunas</a></li>
+<li class="chapter" data-level="6.1.5" data-path="trans.html"><a href="trans.html#resumo-de-valores"><i class="fa fa-check"></i><b>6.1.5</b> Resumo de valores</a></li>
+<li class="chapter" data-level="6.1.6" data-path="trans.html"><a href="trans.html#ordenar"><i class="fa fa-check"></i><b>6.1.6</b> Ordenar</a></li>
+<li class="chapter" data-level="6.1.7" data-path="trans.html"><a href="trans.html#mudar-nomes-de-colunas"><i class="fa fa-check"></i><b>6.1.7</b> Mudar nomes de colunas</a></li>
+<li class="chapter" data-level="6.1.8" data-path="trans.html"><a href="trans.html#juntar-bases-de-dados"><i class="fa fa-check"></i><b>6.1.8</b> Juntar bases de dados</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="7" data-path="graf.html"><a href="graf.html"><i class="fa fa-check"></i><b>7</b> Visualização</a>
+<ul>
+<li class="chapter" data-level="7.1" data-path="graf.html"><a href="graf.html#gráfico-de-dispersão"><i class="fa fa-check"></i><b>7.1</b> Gráfico de Dispersão</a>
+<ul>
+<li class="chapter" data-level="7.1.1" data-path="graf.html"><a href="graf.html#cores"><i class="fa fa-check"></i><b>7.1.1</b> Cores</a></li>
+<li class="chapter" data-level="7.1.2" data-path="graf.html"><a href="graf.html#formatos"><i class="fa fa-check"></i><b>7.1.2</b> Formatos</a></li>
+<li class="chapter" data-level="7.1.3" data-path="graf.html"><a href="graf.html#tamanho"><i class="fa fa-check"></i><b>7.1.3</b> Tamanho</a></li>
+<li class="chapter" data-level="7.1.4" data-path="graf.html"><a href="graf.html#transparência"><i class="fa fa-check"></i><b>7.1.4</b> Transparência</a></li>
+<li class="chapter" data-level="7.1.5" data-path="graf.html"><a href="graf.html#facetas-facets"><i class="fa fa-check"></i><b>7.1.5</b> Facetas (<em>Facets</em>)</a></li>
+<li class="chapter" data-level="7.1.6" data-path="graf.html"><a href="graf.html#linhas-de-referência"><i class="fa fa-check"></i><b>7.1.6</b> Linhas de referência</a></li>
+<li class="chapter" data-level="7.1.7" data-path="graf.html"><a href="graf.html#linhas-de-regressão"><i class="fa fa-check"></i><b>7.1.7</b> Linhas de regressão</a></li>
+<li class="chapter" data-level="7.1.8" data-path="graf.html"><a href="graf.html#títulos-e-rótulos"><i class="fa fa-check"></i><b>7.1.8</b> Títulos e rótulos</a></li>
+<li class="chapter" data-level="7.1.9" data-path="graf.html"><a href="graf.html#temas"><i class="fa fa-check"></i><b>7.1.9</b> Temas</a></li>
+</ul></li>
+<li class="chapter" data-level="7.2" data-path="graf.html"><a href="graf.html#gráfico-de-barras"><i class="fa fa-check"></i><b>7.2</b> Gráfico de Barras</a>
+<ul>
+<li><a href="graf.html#geom_col"><code>geom_col()</code></a></li>
+<li><a href="graf.html#geom_bar"><code>geom_bar()</code></a></li>
+</ul></li>
+<li class="chapter" data-level="7.3" data-path="graf.html"><a href="graf.html#gráfico-de-setores-pizza"><i class="fa fa-check"></i><b>7.3</b> Gráfico de Setores (Pizza)</a></li>
+<li class="chapter" data-level="7.4" data-path="graf.html"><a href="graf.html#gráfico-de-linhas"><i class="fa fa-check"></i><b>7.4</b> Gráfico de Linhas</a>
+<ul>
+<li class="chapter" data-level="7.4.1" data-path="graf.html"><a href="graf.html#cores-2"><i class="fa fa-check"></i><b>7.4.1</b> Cores</a></li>
+<li class="chapter" data-level="7.4.2" data-path="graf.html"><a href="graf.html#tamanho-1"><i class="fa fa-check"></i><b>7.4.2</b> Tamanho</a></li>
+<li class="chapter" data-level="7.4.3" data-path="graf.html"><a href="graf.html#geometrias"><i class="fa fa-check"></i><b>7.4.3</b> Geometrias</a></li>
+<li class="chapter" data-level="7.4.4" data-path="graf.html"><a href="graf.html#formatos-1"><i class="fa fa-check"></i><b>7.4.4</b> Formatos</a></li>
+<li class="chapter" data-level="7.4.5" data-path="graf.html"><a href="graf.html#escalas"><i class="fa fa-check"></i><b>7.4.5</b> Escalas</a></li>
+</ul></li>
+<li class="chapter" data-level="7.5" data-path="graf.html"><a href="graf.html#gráficos-de-medidas-resumo"><i class="fa fa-check"></i><b>7.5</b> Gráficos de medidas-resumo</a>
+<ul>
+<li class="chapter" data-level="7.5.1" data-path="graf.html"><a href="graf.html#histogramas"><i class="fa fa-check"></i><b>7.5.1</b> Histogramas</a></li>
+<li class="chapter" data-level="7.5.2" data-path="graf.html"><a href="graf.html#gráfico-de-densidade"><i class="fa fa-check"></i><b>7.5.2</b> Gráfico de densidade</a></li>
+<li class="chapter" data-level="7.5.3" data-path="graf.html"><a href="graf.html#boxplot"><i class="fa fa-check"></i><b>7.5.3</b> Boxplot</a></li>
+</ul></li>
+<li class="chapter" data-level="7.6" data-path="graf.html"><a href="graf.html#juntar-gráficos-diferentes"><i class="fa fa-check"></i><b>7.6</b> Juntar gráficos diferentes</a></li>
+</ul></li>
+<li class="chapter" data-level="8" data-path="mapas.html"><a href="mapas.html"><i class="fa fa-check"></i><b>8</b> Mapas</a>
+<ul>
+<li class="chapter" data-level="8.1" data-path="mapas.html"><a href="mapas.html#funções-do-pacote-geobr"><i class="fa fa-check"></i><b>8.1</b> Funções do pacote <code>geobr</code></a></li>
+<li class="chapter" data-level="8.2" data-path="mapas.html"><a href="mapas.html#mapa-do-país"><i class="fa fa-check"></i><b>8.2</b> Mapa do país</a></li>
+<li class="chapter" data-level="8.3" data-path="mapas.html"><a href="mapas.html#estados"><i class="fa fa-check"></i><b>8.3</b> Estados</a>
+<ul>
+<li class="chapter" data-level="8.3.1" data-path="mapas.html"><a href="mapas.html#estad"><i class="fa fa-check"></i><b>8.3.1</b> Selecionando estados</a></li>
+<li class="chapter" data-level="8.3.2" data-path="mapas.html"><a href="mapas.html#leg"><i class="fa fa-check"></i><b>8.3.2</b> Adicionando legendas</a></li>
+<li class="chapter" data-level="8.3.3" data-path="mapas.html"><a href="mapas.html#estado-de-um-cep"><i class="fa fa-check"></i><b>8.3.3</b> Estado de um CEP</a></li>
+</ul></li>
+<li class="chapter" data-level="8.4" data-path="mapas.html"><a href="mapas.html#regiões"><i class="fa fa-check"></i><b>8.4</b> Regiões</a>
+<ul>
+<li class="chapter" data-level="8.4.1" data-path="mapas.html"><a href="mapas.html#regiões-específicas"><i class="fa fa-check"></i><b>8.4.1</b> Regiões específicas</a></li>
+<li class="chapter" data-level="8.4.2" data-path="mapas.html"><a href="mapas.html#regiões-com-os-estados"><i class="fa fa-check"></i><b>8.4.2</b> Regiões com os estados</a></li>
+</ul></li>
+<li class="chapter" data-level="8.5" data-path="mapas.html"><a href="mapas.html#mesorregiões-e-microrregiões"><i class="fa fa-check"></i><b>8.5</b> Mesorregiões e Microrregiões</a>
+<ul>
+<li class="chapter" data-level="8.5.1" data-path="mapas.html"><a href="mapas.html#mesorregiões"><i class="fa fa-check"></i><b>8.5.1</b> Mesorregiões</a></li>
+<li class="chapter" data-level="8.5.2" data-path="mapas.html"><a href="mapas.html#microrregiões"><i class="fa fa-check"></i><b>8.5.2</b> Microrregiões</a></li>
+</ul></li>
+<li class="chapter" data-level="8.6" data-path="mapas.html"><a href="mapas.html#municípios"><i class="fa fa-check"></i><b>8.6</b> Municípios</a>
+<ul>
+<li class="chapter" data-level="8.6.1" data-path="mapas.html"><a href="mapas.html#função-lookup_muni"><i class="fa fa-check"></i><b>8.6.1</b> Função <code>lookup_muni()</code></a></li>
+<li class="chapter" data-level="8.6.2" data-path="mapas.html"><a href="mapas.html#selecionando-municípios"><i class="fa fa-check"></i><b>8.6.2</b> Selecionando Municípios</a></li>
+<li class="chapter" data-level="8.6.3" data-path="mapas.html"><a href="mapas.html#mapa-do-brasil-com-as-capitais"><i class="fa fa-check"></i><b>8.6.3</b> Mapa do Brasil com as capitais</a></li>
+<li class="chapter" data-level="8.6.4" data-path="mapas.html"><a href="mapas.html#sedes-municipais"><i class="fa fa-check"></i><b>8.6.4</b> Sedes municipais</a></li>
+</ul></li>
+<li class="chapter" data-level="8.7" data-path="mapas.html"><a href="mapas.html#bairrossubdistritosdistritos"><i class="fa fa-check"></i><b>8.7</b> Bairros/Subdistritos/Distritos</a></li>
+<li class="chapter" data-level="8.8" data-path="mapas.html"><a href="mapas.html#regiões-metropolitanas"><i class="fa fa-check"></i><b>8.8</b> Regiões Metropolitanas</a></li>
+<li class="chapter" data-level="8.9" data-path="mapas.html"><a href="mapas.html#áreas-urbanas"><i class="fa fa-check"></i><b>8.9</b> Áreas urbanas</a></li>
+<li class="chapter" data-level="8.10" data-path="mapas.html"><a href="mapas.html#áreas-mínimas-comparáveis-amcs"><i class="fa fa-check"></i><b>8.10</b> Áreas mínimas comparáveis (AMCs)</a></li>
+<li class="chapter" data-level="8.11" data-path="mapas.html"><a href="mapas.html#mapas-temáticos"><i class="fa fa-check"></i><b>8.11</b> Mapas temáticos</a>
+<ul>
+<li class="chapter" data-level="8.11.1" data-path="mapas.html"><a href="mapas.html#censo-agropecuário-2006-e-2017"><i class="fa fa-check"></i><b>8.11.1</b> Censo agropecuário 2006 e 2017</a></li>
+</ul></li>
+<li class="chapter" data-level="8.12" data-path="mapas.html"><a href="mapas.html#biomas"><i class="fa fa-check"></i><b>8.12</b> Biomas</a></li>
+<li class="chapter" data-level="8.13" data-path="mapas.html"><a href="mapas.html#amazônia-legal"><i class="fa fa-check"></i><b>8.13</b> Amazônia Legal</a></li>
+<li class="chapter" data-level="8.14" data-path="mapas.html"><a href="mapas.html#semiárido"><i class="fa fa-check"></i><b>8.14</b> Semiárido</a></li>
+<li class="chapter" data-level="8.15" data-path="mapas.html"><a href="mapas.html#áreas-de-conservação"><i class="fa fa-check"></i><b>8.15</b> Áreas de conservação</a></li>
+<li class="chapter" data-level="8.16" data-path="mapas.html"><a href="mapas.html#terras-indígenas"><i class="fa fa-check"></i><b>8.16</b> Terras indígenas</a></li>
+<li class="chapter" data-level="8.17" data-path="mapas.html"><a href="mapas.html#áreas-de-risco-de-desastres-naturais"><i class="fa fa-check"></i><b>8.17</b> Áreas de risco de desastres naturais</a></li>
+<li class="chapter" data-level="8.18" data-path="mapas.html"><a href="mapas.html#estabelecimentos-de-saúde"><i class="fa fa-check"></i><b>8.18</b> Estabelecimentos de saúde</a></li>
+<li class="chapter" data-level="8.19" data-path="mapas.html"><a href="mapas.html#regiões-de-saúde"><i class="fa fa-check"></i><b>8.19</b> Regiões de saúde</a></li>
+<li class="chapter" data-level="8.20" data-path="mapas.html"><a href="mapas.html#escolas"><i class="fa fa-check"></i><b>8.20</b> Escolas</a></li>
+<li class="chapter" data-level="8.21" data-path="mapas.html"><a href="mapas.html#áreas-de-concentração-de-população"><i class="fa fa-check"></i><b>8.21</b> Áreas de Concentração de População</a></li>
+<li class="chapter" data-level="8.22" data-path="mapas.html"><a href="mapas.html#arranjos-populacionais"><i class="fa fa-check"></i><b>8.22</b> Arranjos populacionais</a></li>
+<li class="chapter" data-level="8.23" data-path="mapas.html"><a href="mapas.html#setor-censitário"><i class="fa fa-check"></i><b>8.23</b> Setor censitário</a></li>
+<li class="chapter" data-level="8.24" data-path="mapas.html"><a href="mapas.html#áreas-de-ponderação"><i class="fa fa-check"></i><b>8.24</b> Áreas de ponderação</a></li>
+<li class="chapter" data-level="8.25" data-path="mapas.html"><a href="mapas.html#grade-estatística-do-ibge"><i class="fa fa-check"></i><b>8.25</b> Grade estatística do IBGE</a>
+<ul>
+<li class="chapter" data-level="8.25.1" data-path="mapas.html"><a href="mapas.html#tabela-de-correspondência"><i class="fa fa-check"></i><b>8.25.1</b> Tabela de correspondência</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="" data-path="bibliografia-consultada.html"><a href="bibliografia-consultada.html"><i class="fa fa-check"></i>Bibliografia consultada</a></li>
+<li class="divider"></li>
+<li><a href="https://github.com/rstudio/bookdown" target="blank">Publicado com bookdown</a></li>
+
+</ul>
+
+      </nav>
+    </div>
+
+    <div class="book-body">
+      <div class="body-inner">
+        <div class="book-header" role="navigation">
+          <h1>
+            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./">Introdução à Ciência de Dados em R</a>
+          </h1>
+        </div>
+
+        <div class="page-wrapper" tabindex="-1" role="main">
+          <div class="page-inner">
+
+            <section class="normal" id="section-">
+<div id="org" class="section level1" number="5">
+<h1><span class="header-section-number">Capítulo5</span> Organização</h1>
+<p>Neste capítulo, trataremos sobre a manipulação dos dados. Esse processo tem como base o conceito de <em>tidy data</em>, no qual devemos ajustar os nossos dados em uma estrutura consistente e padronizada. Isso nos permite visualizar, analisar e modelar os dados de maneira mais fácil e rápida. Normalmente, costuma ser trabalhoso o processo de organizar a base de dados, mas, com o auxílio das ferramentas presentes no <code>tidyverse</code>, conseguimos obter bons resultados que, em longo prazo, faz o esforço valer a pena.</p>
+<p>Como o próprio nome do pacote sugere, o <code>tidyverse</code> é baseado nos princípios de uma <em>tidy data</em>. Por isso, seus pacotes foram desenvolvidos para funcionarem seguindo tal princípio e serem complementares entre si.</p>
+<p>No capítulo <a href="import.html#import">4</a>, demos início ao processo de manipulação dos dados quando alteramos a classe das variáveis, renomeamos as colunas, corrigimos problemas de <em>encoding</em>, além de outras ações demonstradas a partir das diversas funções e argumentos.</p>
+<p>Neste capítulo, veremos como começar a arrumar uma base de dados já importada para o R e, posteriormente, transformar variáveis de acordo com os interesses de uma análise (capítulo <a href="trans.html#trans">6</a>) e visualizar os dados de forma gráfica (capítulo <a href="graf.html#graf">7</a>).</p>
+<p>Para mais detalhes sobre <em>tidy data</em>, recomendo dois documentos que abordam o tema. Ambos são da autoria de Hadley Wickham, o idealizador do pacote <code>tidyverse</code>. O primeiro é o <a href="https://cran.r-project.org/web/packages/tidyverse/vignettes/manifesto.html"><em>The tidy tools manifesto</em></a>, que aborda os princípios que norteiam o <em>tidyverse</em>. O outro documento é o artigo <a href="https://www.jstatsoft.org/article/view/v059i10"><em>Tidy Data</em></a>, que trata de maneira teórica os conceitos de dados arrumados.</p>
+<p>Assim sendo, vamos começar a organizar os nossos dados. A seguir, apresentaremos os pacotes <code>tibble</code> e <code>tidyr</code>.</p>
+<p><br></p>
+<div id="tibbles" class="section level2" number="5.1">
+<h2><span class="header-section-number">5.1</span> Tibbles</h2>
+<p>Nesta seção, veremos o que são as <em>tibbles</em> e suas funcionalidades. No capítulo <a href="import.html#import">4</a> vimos que o pacote <code>readr</code> apresenta funções que convertem diretamente os arquivos importados para o formato <em>tibble</em>. Isso se deve ao fato de que os pacotes presentes no <code>tidyverse</code> utilizam como padrão esse formato, ao invés do formato tradicional de <em>data frame</em>. Porém, a maioria dos outros pacotes que não estão no <code>tidyverse</code> ainda utilizam o formato de <em>data frame</em>.</p>
+<p><em>Tibbles</em> nada mais são do que uma versão mais atualizada dos <em>data frames</em>, apresentando ajustes importantes que facilitam o trabalho do cientista de dados. Dessa forma, os conceitos que vimos nas seções <a href="noções-básicas-em-r.html#dataf">3.8</a> e <a href="noções-básicas-em-r.html#df">3.13.1</a> são válidos para as <em>tibbles</em>. Elas fazem parte do pacote <code>tibble</code>, assim, devemos carregar o seu pacote.</p>
+<div class="sourceCode" id="cb313"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb313-1"><a href="org.html#cb313-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(tibble)</span></code></pre></div>
+<p><br></p>
+<div id="criando-tibbles" class="section level3" number="5.1.1">
+<h3><span class="header-section-number">5.1.1</span> Criando <em>Tibbles</em></h3>
+<p>Para converter <em>data frames</em> em <em>tibbles</em>, utilizamos a função <code>as_tibble()</code>. Como exemplo, transformaremos a base de dados nativa do R <code>iris</code> para o formato <em>tibble</em>.</p>
+<div class="sourceCode" id="cb314"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb314-1"><a href="org.html#cb314-1" aria-hidden="true" tabindex="-1"></a><span class="fu">as_tibble</span>(iris)</span></code></pre></div>
+<pre><code># A tibble: 150 x 5
+   Sepal.Length Sepal.Width Petal.Length Petal.Width Species
+          &lt;dbl&gt;       &lt;dbl&gt;        &lt;dbl&gt;       &lt;dbl&gt; &lt;fct&gt;  
+ 1          5.1         3.5          1.4         0.2 setosa 
+ 2          4.9         3            1.4         0.2 setosa 
+ 3          4.7         3.2          1.3         0.2 setosa 
+ 4          4.6         3.1          1.5         0.2 setosa 
+ 5          5           3.6          1.4         0.2 setosa 
+ 6          5.4         3.9          1.7         0.4 setosa 
+ 7          4.6         3.4          1.4         0.3 setosa 
+ 8          5           3.4          1.5         0.2 setosa 
+ 9          4.4         2.9          1.4         0.2 setosa 
+10          4.9         3.1          1.5         0.1 setosa 
+# ... with 140 more rows</code></pre>
+<p>Perceba que, por padrão, apenas as 10 primeiras linhas são apresentadas. Caso o número de colunas não couber na largura da tela, essas serão ocultadas da apresentação. Além disso, as <em>tibbles</em> mostram as dimensões da tabela (no caso, <code>150 x 5</code>) e a classe de todas as colunas (entre <code>&lt; &gt;</code>).</p>
+<p>Já os <em>data frames</em>, não apresentam as dimensões da tabela e nem as respectivas classes das colunas. Além disso, sua saída não é a muito boa quando trabalhamos com bases de dados extensas, como podemos ver e comparar a seguir.</p>
+<div class="sourceCode" id="cb316"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb316-1"><a href="org.html#cb316-1" aria-hidden="true" tabindex="-1"></a><span class="fu">class</span>(iris)</span></code></pre></div>
+<pre><code>[1] &quot;data.frame&quot;</code></pre>
+<div class="sourceCode" id="cb318"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb318-1"><a href="org.html#cb318-1" aria-hidden="true" tabindex="-1"></a>iris</span></code></pre></div>
+<pre><code>    Sepal.Length Sepal.Width Petal.Length Petal.Width    Species
+1            5.1         3.5          1.4         0.2     setosa
+2            4.9         3.0          1.4         0.2     setosa
+3            4.7         3.2          1.3         0.2     setosa
+4            4.6         3.1          1.5         0.2     setosa
+5            5.0         3.6          1.4         0.2     setosa
+6            5.4         3.9          1.7         0.4     setosa
+7            4.6         3.4          1.4         0.3     setosa
+8            5.0         3.4          1.5         0.2     setosa
+9            4.4         2.9          1.4         0.2     setosa
+10           4.9         3.1          1.5         0.1     setosa
+11           5.4         3.7          1.5         0.2     setosa
+12           4.8         3.4          1.6         0.2     setosa
+13           4.8         3.0          1.4         0.1     setosa
+14           4.3         3.0          1.1         0.1     setosa
+15           5.8         4.0          1.2         0.2     setosa
+16           5.7         4.4          1.5         0.4     setosa
+17           5.4         3.9          1.3         0.4     setosa
+18           5.1         3.5          1.4         0.3     setosa
+19           5.7         3.8          1.7         0.3     setosa
+20           5.1         3.8          1.5         0.3     setosa
+21           5.4         3.4          1.7         0.2     setosa
+22           5.1         3.7          1.5         0.4     setosa
+23           4.6         3.6          1.0         0.2     setosa
+24           5.1         3.3          1.7         0.5     setosa
+25           4.8         3.4          1.9         0.2     setosa
+26           5.0         3.0          1.6         0.2     setosa
+27           5.0         3.4          1.6         0.4     setosa
+28           5.2         3.5          1.5         0.2     setosa
+29           5.2         3.4          1.4         0.2     setosa
+30           4.7         3.2          1.6         0.2     setosa
+31           4.8         3.1          1.6         0.2     setosa
+32           5.4         3.4          1.5         0.4     setosa
+33           5.2         4.1          1.5         0.1     setosa
+34           5.5         4.2          1.4         0.2     setosa
+35           4.9         3.1          1.5         0.2     setosa
+36           5.0         3.2          1.2         0.2     setosa
+37           5.5         3.5          1.3         0.2     setosa
+38           4.9         3.6          1.4         0.1     setosa
+39           4.4         3.0          1.3         0.2     setosa
+40           5.1         3.4          1.5         0.2     setosa
+41           5.0         3.5          1.3         0.3     setosa
+42           4.5         2.3          1.3         0.3     setosa
+43           4.4         3.2          1.3         0.2     setosa
+44           5.0         3.5          1.6         0.6     setosa
+45           5.1         3.8          1.9         0.4     setosa
+46           4.8         3.0          1.4         0.3     setosa
+47           5.1         3.8          1.6         0.2     setosa
+48           4.6         3.2          1.4         0.2     setosa
+49           5.3         3.7          1.5         0.2     setosa
+50           5.0         3.3          1.4         0.2     setosa
+51           7.0         3.2          4.7         1.4 versicolor
+52           6.4         3.2          4.5         1.5 versicolor
+53           6.9         3.1          4.9         1.5 versicolor
+54           5.5         2.3          4.0         1.3 versicolor
+55           6.5         2.8          4.6         1.5 versicolor
+56           5.7         2.8          4.5         1.3 versicolor
+57           6.3         3.3          4.7         1.6 versicolor
+58           4.9         2.4          3.3         1.0 versicolor
+59           6.6         2.9          4.6         1.3 versicolor
+60           5.2         2.7          3.9         1.4 versicolor
+61           5.0         2.0          3.5         1.0 versicolor
+62           5.9         3.0          4.2         1.5 versicolor
+63           6.0         2.2          4.0         1.0 versicolor
+64           6.1         2.9          4.7         1.4 versicolor
+65           5.6         2.9          3.6         1.3 versicolor
+66           6.7         3.1          4.4         1.4 versicolor
+67           5.6         3.0          4.5         1.5 versicolor
+68           5.8         2.7          4.1         1.0 versicolor
+69           6.2         2.2          4.5         1.5 versicolor
+70           5.6         2.5          3.9         1.1 versicolor
+71           5.9         3.2          4.8         1.8 versicolor
+72           6.1         2.8          4.0         1.3 versicolor
+73           6.3         2.5          4.9         1.5 versicolor
+74           6.1         2.8          4.7         1.2 versicolor
+75           6.4         2.9          4.3         1.3 versicolor
+76           6.6         3.0          4.4         1.4 versicolor
+77           6.8         2.8          4.8         1.4 versicolor
+78           6.7         3.0          5.0         1.7 versicolor
+79           6.0         2.9          4.5         1.5 versicolor
+80           5.7         2.6          3.5         1.0 versicolor
+81           5.5         2.4          3.8         1.1 versicolor
+82           5.5         2.4          3.7         1.0 versicolor
+83           5.8         2.7          3.9         1.2 versicolor
+84           6.0         2.7          5.1         1.6 versicolor
+85           5.4         3.0          4.5         1.5 versicolor
+86           6.0         3.4          4.5         1.6 versicolor
+87           6.7         3.1          4.7         1.5 versicolor
+88           6.3         2.3          4.4         1.3 versicolor
+89           5.6         3.0          4.1         1.3 versicolor
+90           5.5         2.5          4.0         1.3 versicolor
+91           5.5         2.6          4.4         1.2 versicolor
+92           6.1         3.0          4.6         1.4 versicolor
+93           5.8         2.6          4.0         1.2 versicolor
+94           5.0         2.3          3.3         1.0 versicolor
+95           5.6         2.7          4.2         1.3 versicolor
+96           5.7         3.0          4.2         1.2 versicolor
+97           5.7         2.9          4.2         1.3 versicolor
+98           6.2         2.9          4.3         1.3 versicolor
+99           5.1         2.5          3.0         1.1 versicolor
+100          5.7         2.8          4.1         1.3 versicolor
+101          6.3         3.3          6.0         2.5  virginica
+102          5.8         2.7          5.1         1.9  virginica
+103          7.1         3.0          5.9         2.1  virginica
+104          6.3         2.9          5.6         1.8  virginica
+105          6.5         3.0          5.8         2.2  virginica
+106          7.6         3.0          6.6         2.1  virginica
+107          4.9         2.5          4.5         1.7  virginica
+108          7.3         2.9          6.3         1.8  virginica
+109          6.7         2.5          5.8         1.8  virginica
+110          7.2         3.6          6.1         2.5  virginica
+111          6.5         3.2          5.1         2.0  virginica
+112          6.4         2.7          5.3         1.9  virginica
+113          6.8         3.0          5.5         2.1  virginica
+114          5.7         2.5          5.0         2.0  virginica
+115          5.8         2.8          5.1         2.4  virginica
+116          6.4         3.2          5.3         2.3  virginica
+117          6.5         3.0          5.5         1.8  virginica
+118          7.7         3.8          6.7         2.2  virginica
+119          7.7         2.6          6.9         2.3  virginica
+120          6.0         2.2          5.0         1.5  virginica
+121          6.9         3.2          5.7         2.3  virginica
+122          5.6         2.8          4.9         2.0  virginica
+123          7.7         2.8          6.7         2.0  virginica
+124          6.3         2.7          4.9         1.8  virginica
+125          6.7         3.3          5.7         2.1  virginica
+126          7.2         3.2          6.0         1.8  virginica
+127          6.2         2.8          4.8         1.8  virginica
+128          6.1         3.0          4.9         1.8  virginica
+129          6.4         2.8          5.6         2.1  virginica
+130          7.2         3.0          5.8         1.6  virginica
+131          7.4         2.8          6.1         1.9  virginica
+132          7.9         3.8          6.4         2.0  virginica
+133          6.4         2.8          5.6         2.2  virginica
+134          6.3         2.8          5.1         1.5  virginica
+135          6.1         2.6          5.6         1.4  virginica
+136          7.7         3.0          6.1         2.3  virginica
+137          6.3         3.4          5.6         2.4  virginica
+138          6.4         3.1          5.5         1.8  virginica
+139          6.0         3.0          4.8         1.8  virginica
+140          6.9         3.1          5.4         2.1  virginica
+141          6.7         3.1          5.6         2.4  virginica
+142          6.9         3.1          5.1         2.3  virginica
+143          5.8         2.7          5.1         1.9  virginica
+144          6.8         3.2          5.9         2.3  virginica
+145          6.7         3.3          5.7         2.5  virginica
+146          6.7         3.0          5.2         2.3  virginica
+147          6.3         2.5          5.0         1.9  virginica
+148          6.5         3.0          5.2         2.0  virginica
+149          6.2         3.4          5.4         2.3  virginica
+150          5.9         3.0          5.1         1.8  virginica</code></pre>
+<p>Caso queira ter uma visão completa dos dados, a melhor forma de fazê-la é utilizando a função <code>view()</code>. Teste o seguinte comando:</p>
+<div class="sourceCode" id="cb320"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb320-1"><a href="org.html#cb320-1" aria-hidden="true" tabindex="-1"></a><span class="fu">View</span>(iris)</span></code></pre></div>
+<p>Também podemos criar uma <em>tibble</em> do zero, a partir de vetores individuais, com a função <code>tibble()</code>.</p>
+<div class="sourceCode" id="cb321"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb321-1"><a href="org.html#cb321-1" aria-hidden="true" tabindex="-1"></a><span class="fu">tibble</span>(</span>
+<span id="cb321-2"><a href="org.html#cb321-2" aria-hidden="true" tabindex="-1"></a>  <span class="at">nomes =</span> <span class="fu">c</span>(<span class="st">&quot;José&quot;</span>, <span class="st">&quot;João&quot;</span>, <span class="st">&quot;Maria&quot;</span>, <span class="st">&quot;Ana&quot;</span>),</span>
+<span id="cb321-3"><a href="org.html#cb321-3" aria-hidden="true" tabindex="-1"></a>  <span class="at">sexo =</span> <span class="fu">c</span>(<span class="st">&quot;M&quot;</span>, <span class="st">&quot;M&quot;</span>, <span class="st">&quot;F&quot;</span>, <span class="st">&quot;F&quot;</span>),</span>
+<span id="cb321-4"><a href="org.html#cb321-4" aria-hidden="true" tabindex="-1"></a>  <span class="at">idade =</span> <span class="dv">21</span><span class="sc">:</span><span class="dv">24</span>,</span>
+<span id="cb321-5"><a href="org.html#cb321-5" aria-hidden="true" tabindex="-1"></a>  <span class="at">idade_ao_quadrado =</span> idade <span class="sc">^</span> <span class="dv">2</span>,</span>
+<span id="cb321-6"><a href="org.html#cb321-6" aria-hidden="true" tabindex="-1"></a>  <span class="at">filhos =</span> <span class="dv">0</span>)</span></code></pre></div>
+<pre><code># A tibble: 4 x 5
+  nomes sexo  idade idade_ao_quadrado filhos
+  &lt;chr&gt; &lt;chr&gt; &lt;int&gt;             &lt;dbl&gt;  &lt;dbl&gt;
+1 José  M        21               441      0
+2 João  M        22               484      0
+3 Maria F        23               529      0
+4 Ana   F        24               576      0</code></pre>
+<p>No exemplo acima, veja que foi possível criar a coluna <code>idade_ao_quadrado</code> em função de outra coluna, a <code>idade</code>. Na coluna <code>filhos</code>, passamos um vetor de tamanho 1, ocorrendo o processo de reciclagem do vetor (tema tratado na seção <a href="noções-básicas-em-r.html#vetor">3.9</a>), ou seja, foi atribuído o valor <code>0</code> para todas as demais observações até que se igualasse o número de linhas da <em>tibble</em>.</p>
+<p>É possível colocar nomes de colunas com caracteres de sintaxe inválida (tema tratado na seção <a href="noções-básicas-em-r.html#obj">3.5</a>), desde que os nomes estejam entre acentos graves (`). No caso dos <em>data frames</em>, teríamos dificuldades em trabalhar com esse tipo de sintaxe, pois os nomes seriam convertidos para um formato que se enquadre na sintaxe válida, portanto, ocorreria uma alteração dos nomes designados originalmente.</p>
+<p>A seguir, criaremos um exemplo de <em>tibble</em> (puramente a título de demonstração) com nomes que contêm espaços, começam com números e possuem caracteres especiais.</p>
+<div class="sourceCode" id="cb323"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb323-1"><a href="org.html#cb323-1" aria-hidden="true" tabindex="-1"></a><span class="fu">tibble</span>(</span>
+<span id="cb323-2"><a href="org.html#cb323-2" aria-hidden="true" tabindex="-1"></a>  <span class="st">`</span><span class="at">nomes dos estudantes</span><span class="st">`</span> <span class="ot">=</span> <span class="fu">c</span>(<span class="st">&quot;José&quot;</span>, <span class="st">&quot;João&quot;</span>, <span class="st">&quot;Maria&quot;</span>, <span class="st">&quot;Ana&quot;</span>),</span>
+<span id="cb323-3"><a href="org.html#cb323-3" aria-hidden="true" tabindex="-1"></a>  <span class="st">`</span><span class="at">2sexo</span><span class="st">`</span> <span class="ot">=</span> <span class="fu">c</span>(<span class="st">&quot;M&quot;</span>, <span class="st">&quot;M&quot;</span>, <span class="st">&quot;F&quot;</span>, <span class="st">&quot;F&quot;</span>),</span>
+<span id="cb323-4"><a href="org.html#cb323-4" aria-hidden="true" tabindex="-1"></a>  <span class="st">`</span><span class="at">:)idade</span><span class="st">`</span> <span class="ot">=</span> <span class="dv">21</span><span class="sc">:</span><span class="dv">24</span>,</span>
+<span id="cb323-5"><a href="org.html#cb323-5" aria-hidden="true" tabindex="-1"></a>  <span class="st">`</span><span class="at">idade²</span><span class="st">`</span> <span class="ot">=</span> <span class="st">`</span><span class="at">:)idade</span><span class="st">`</span> <span class="sc">^</span> <span class="dv">2</span>,</span>
+<span id="cb323-6"><a href="org.html#cb323-6" aria-hidden="true" tabindex="-1"></a>  <span class="st">`</span><span class="at">nº filhos</span><span class="st">`</span> <span class="ot">=</span> <span class="dv">0</span>)</span></code></pre></div>
+<pre><code># A tibble: 4 x 5
+  `nomes dos estudantes` `2sexo` `:)idade` idade² `nº filhos`
+  &lt;chr&gt;                  &lt;chr&gt;       &lt;int&gt;  &lt;dbl&gt;       &lt;dbl&gt;
+1 José                   M              21    441           0
+2 João                   M              22    484           0
+3 Maria                  F              23    529           0
+4 Ana                    F              24    576           0</code></pre>
+<p>Por consequência, quando trabalharmos com as variáveis nomeadas dessa forma, precisaremos colocá-las sempre entre acentos graves, como foi o caso da construção da coluna <code>idade²</code>, em que tivemos que colocar a coluna <code>:)idade</code> entre acentos graves para que conseguíssemos elevar seus valores ao quadrado.</p>
+<p>Por último, podemos criar <em>tibbles</em> com a função <code>tribble()</code>. A <code>tribble()</code> é construída definindo os nomes das colunas por fórmulas (começando com <code>~</code>), cujos valores são separados por vírgulas, sendo uma forma mais visual e intuitiva para construir pequenas <em>tibbles</em>.</p>
+<div class="sourceCode" id="cb325"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb325-1"><a href="org.html#cb325-1" aria-hidden="true" tabindex="-1"></a><span class="fu">tribble</span>(</span>
+<span id="cb325-2"><a href="org.html#cb325-2" aria-hidden="true" tabindex="-1"></a>  <span class="sc">~</span>nome, <span class="sc">~</span>id, <span class="sc">~</span>sexo,</span>
+<span id="cb325-3"><a href="org.html#cb325-3" aria-hidden="true" tabindex="-1"></a>  <span class="co">#-----|---|------</span></span>
+<span id="cb325-4"><a href="org.html#cb325-4" aria-hidden="true" tabindex="-1"></a>  <span class="st">&quot;João&quot;</span>, <span class="dv">25</span>, <span class="st">&quot;M&quot;</span>,</span>
+<span id="cb325-5"><a href="org.html#cb325-5" aria-hidden="true" tabindex="-1"></a>  <span class="st">&quot;José&quot;</span>, <span class="dv">30</span>, <span class="st">&quot;M&quot;</span>,</span>
+<span id="cb325-6"><a href="org.html#cb325-6" aria-hidden="true" tabindex="-1"></a>  <span class="st">&quot;Ana&quot;</span>, <span class="dv">23</span>, <span class="st">&quot;F&quot;</span></span>
+<span id="cb325-7"><a href="org.html#cb325-7" aria-hidden="true" tabindex="-1"></a>)</span></code></pre></div>
+<pre><code># A tibble: 3 x 3
+  nome     id sexo 
+  &lt;chr&gt; &lt;dbl&gt; &lt;chr&gt;
+1 João     25 M    
+2 José     30 M    
+3 Ana      23 F    </code></pre>
+<p>Veja que é possível até mesmo adicionar um comentário (<code>#</code>) para criar uma delimitação entre o cabeçalho e os valores, tornando o código ainda mais visual.</p>
+<p><br></p>
+</div>
+<div id="outras-funções" class="section level3" number="5.1.2">
+<h3><span class="header-section-number">5.1.2</span> Outras funções</h3>
+<p>Podemos adicionar novas linhas e colunas à <em>tibble</em> com as funções <code>add_row()</code> e <code>add_column()</code>, respectivamente.</p>
+<div class="sourceCode" id="cb327"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb327-1"><a href="org.html#cb327-1" aria-hidden="true" tabindex="-1"></a>tib <span class="ot">&lt;-</span> <span class="fu">tibble</span>(</span>
+<span id="cb327-2"><a href="org.html#cb327-2" aria-hidden="true" tabindex="-1"></a>  <span class="at">nomes =</span> <span class="fu">c</span>(<span class="st">&quot;José&quot;</span>, <span class="st">&quot;João&quot;</span>, <span class="st">&quot;Maria&quot;</span>),</span>
+<span id="cb327-3"><a href="org.html#cb327-3" aria-hidden="true" tabindex="-1"></a>  <span class="at">sexo =</span> <span class="fu">c</span>(<span class="st">&quot;M&quot;</span>, <span class="st">&quot;M&quot;</span>, <span class="st">&quot;F&quot;</span>)</span>
+<span id="cb327-4"><a href="org.html#cb327-4" aria-hidden="true" tabindex="-1"></a>)</span>
+<span id="cb327-5"><a href="org.html#cb327-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb327-6"><a href="org.html#cb327-6" aria-hidden="true" tabindex="-1"></a>tib_col <span class="ot">&lt;-</span> <span class="fu">add_column</span>(tib, <span class="at">idade =</span> <span class="fu">c</span>(<span class="dv">26</span>, <span class="dv">30</span>, <span class="dv">19</span>))</span>
+<span id="cb327-7"><a href="org.html#cb327-7" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb327-8"><a href="org.html#cb327-8" aria-hidden="true" tabindex="-1"></a>tib_col</span></code></pre></div>
+<pre><code># A tibble: 3 x 3
+  nomes sexo  idade
+  &lt;chr&gt; &lt;chr&gt; &lt;dbl&gt;
+1 José  M        26
+2 João  M        30
+3 Maria F        19</code></pre>
+<div class="sourceCode" id="cb329"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb329-1"><a href="org.html#cb329-1" aria-hidden="true" tabindex="-1"></a>tib_row <span class="ot">&lt;-</span> <span class="fu">add_row</span>(tib_col,</span>
+<span id="cb329-2"><a href="org.html#cb329-2" aria-hidden="true" tabindex="-1"></a>                   <span class="at">nomes =</span> <span class="fu">c</span>(<span class="st">&quot;Ana&quot;</span>, <span class="st">&quot;Beatriz&quot;</span>),</span>
+<span id="cb329-3"><a href="org.html#cb329-3" aria-hidden="true" tabindex="-1"></a>                   <span class="at">sexo =</span> <span class="st">&quot;F&quot;</span>,</span>
+<span id="cb329-4"><a href="org.html#cb329-4" aria-hidden="true" tabindex="-1"></a>                   <span class="at">idade =</span> <span class="fu">c</span>(<span class="dv">20</span>, <span class="dv">23</span>))</span>
+<span id="cb329-5"><a href="org.html#cb329-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb329-6"><a href="org.html#cb329-6" aria-hidden="true" tabindex="-1"></a>tib_row</span></code></pre></div>
+<pre><code># A tibble: 5 x 3
+  nomes   sexo  idade
+  &lt;chr&gt;   &lt;chr&gt; &lt;dbl&gt;
+1 José    M        26
+2 João    M        30
+3 Maria   F        19
+4 Ana     F        20
+5 Beatriz F        23</code></pre>
+<p><br></p>
+</div>
+</div>
+<div id="pacote-tidyr" class="section level2" number="5.2">
+<h2><span class="header-section-number">5.2</span> Pacote <code>tidyr</code></h2>
+<p>Nesta seção, abordaremos as principais ferramentas de organização de dados presentes no pacote <code>tidyr</code>. Portanto, precisamos rodá-lo no R.</p>
+<div class="sourceCode" id="cb331"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb331-1"><a href="org.html#cb331-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(tidyr)</span></code></pre></div>
+<p>A seguir, aplicaremos as ferramentas do <code>tidyr</code> em uma mesma base de dados, porém em diversas versões desarrumadas<a href="#fn4" class="footnote-ref" id="fnref4"><sup>4</sup></a> . Os dados são referentes a produção (em toneladas) e a área colhida (em hectares) da cultura do milho, no Brasil, China e Índia, nos anos de 2000 e 2019. Para fazer o <em>download</em> da pasta contendo as bases de dados, <a href="https://github.com/gustavojy/ApostilaCD-R/blob/main/dados_zip/dados_tidy.zip">clique aqui</a>.</p>
+<p><br></p>
+<div id="base-de-dados-tidy" class="section level3" number="5.2.1">
+<h3><span class="header-section-number">5.2.1</span> Base de dados <em>tidy</em></h3>
+<p>Antes de abordarmos as bases desarrumadas, vamos tratar da base de dados arrumadas.</p>
+<p>Para alcançarmos a tão desejada base de dados arrumada, devemos ter em mente as três principais propriedades de uma <em>tidy data</em>:</p>
+<ul>
+<li><p>Cada variável possui sua própria coluna;</p></li>
+<li><p>Cada observação possui sua própria linha;</p></li>
+<li><p>Cada célula contém somente um único valor.</p></li>
+</ul>
+<div class="figure" style="text-align: center"><span style="display:block;" id="fig:unnamed-chunk-115"></span>
+<img src="imagens/tidy_data.png" alt="Seguindo os princípios da tidy data, cada variável possui uma coluna, cada observação está em uma linha e cada célula contém somente um valor." width="90%" />
+<p class="caption">
+Figure 5.1: Seguindo os princípios da tidy data, cada variável possui uma coluna, cada observação está em uma linha e cada célula contém somente um valor.
+</p>
+</div>
+<p>Como citamos em capítulos anteriores, cada coluna de um <em>data frame</em> (ou <em>tibble</em>) é um vetor. Ao designar uma variável à uma única coluna, podemos trabalhar com as informações a partir de vetores individualizados. Portanto, os conceitos vistos na seção <a href="noções-básicas-em-r.html#vetor">3.9</a>, referente aos vetores, são aplicáveis a cada uma das colunas de uma base de dados organizada. E é dessa maneira que os pacotes do <code>tidyverse</code> trabalham.</p>
+<div class="sourceCode" id="cb332"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb332-1"><a href="org.html#cb332-1" aria-hidden="true" tabindex="-1"></a>tidy <span class="ot">&lt;-</span> <span class="fu">read_csv</span>(<span class="st">&quot;dados_tidy/tidy.csv&quot;</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb333"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb333-1"><a href="org.html#cb333-1" aria-hidden="true" tabindex="-1"></a>tidy</span></code></pre></div>
+<pre><code># A tibble: 6 x 4
+  pais     ano colheita  producao
+  &lt;chr&gt;  &lt;dbl&gt;    &lt;dbl&gt;     &lt;dbl&gt;
+1 Brasil  2000 11890376  32321000
+2 Brasil  2019 17518054 101138617
+3 China   2000 23086228 106178315
+4 China   2019 41309740 260957662
+5 India   2000  6611300  12043200
+6 India   2019  9027130  27715100</code></pre>
+<p>Portanto, esse é um exemplo de uma base de dados organizada. Cada coluna é uma variável, cada observação está em uma linha e cada célula contém um único valor. Assim, sempre que se deparar com uma nova base de dados, observe primeiro quais elementos são variáveis e quais são observações, e se uma célula contém um ou mais valores.</p>
+<p>Nos próximos capítulos, veremos como utilizar uma <em>tidy data</em> para realizar transformações e gráficos. Mas antes, temos que tratar dos dados desarrumados.</p>
+<p><br></p>
+</div>
+<div id="pivotagem" class="section level3" number="5.2.2">
+<h3><span class="header-section-number">5.2.2</span> Pivotagem</h3>
+<p>Uma forma de organizarmos os nossos dados é realizando a pivotagem. Este método converte as observações que estão como nome de colunas, para linhas; e variáveis que estão em linhas, para as colunas.</p>
+<div id="pivot-longer" class="section level4 unnumbered">
+<h4>Pivot longer</h4>
+<p>A função <code>pivot_longer()</code> converte as observações que estão como nome das colunas, para linhas. Aplicaremos sua função no arquivo <code>tidy1a_prod.csv</code>.</p>
+<div class="sourceCode" id="cb335"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb335-1"><a href="org.html#cb335-1" aria-hidden="true" tabindex="-1"></a>plonger1 <span class="ot">&lt;-</span> <span class="fu">read_csv</span>(<span class="st">&quot;dados_tidy/tidy1a_prod.csv&quot;</span>)</span>
+<span id="cb335-2"><a href="org.html#cb335-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb335-3"><a href="org.html#cb335-3" aria-hidden="true" tabindex="-1"></a>plonger1</span></code></pre></div>
+<pre><code># A tibble: 3 x 3
+  pais      `2000`    `2019`
+  &lt;chr&gt;      &lt;dbl&gt;     &lt;dbl&gt;
+1 Brasil  32321000 101138617
+2 China  106178315 260957662
+3 India   12043200  27715100</code></pre>
+<p>Veja que as observações referentes aos anos (<code>2000</code> e <code>2019</code>) estão como nome das colunas, cada qual com os valores referentes a produção de milho nos respectivos anos. Para arrumá-las, devemos criar duas novas colunas, uma para alocar os anos e outra, para os valores de produção de milho.</p>
+<div class="sourceCode" id="cb337"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb337-1"><a href="org.html#cb337-1" aria-hidden="true" tabindex="-1"></a>plonger1_tidy <span class="ot">&lt;-</span> <span class="fu">pivot_longer</span>(<span class="at">data =</span> plonger1,</span>
+<span id="cb337-2"><a href="org.html#cb337-2" aria-hidden="true" tabindex="-1"></a>                              <span class="at">col =</span> <span class="fu">c</span>(<span class="st">`</span><span class="at">2000</span><span class="st">`</span>, <span class="st">`</span><span class="at">2019</span><span class="st">`</span>),</span>
+<span id="cb337-3"><a href="org.html#cb337-3" aria-hidden="true" tabindex="-1"></a>                              <span class="at">names_to =</span> <span class="st">&quot;ano&quot;</span>, </span>
+<span id="cb337-4"><a href="org.html#cb337-4" aria-hidden="true" tabindex="-1"></a>                              <span class="at">values_to =</span> <span class="st">&quot;producao&quot;</span>)</span>
+<span id="cb337-5"><a href="org.html#cb337-5" aria-hidden="true" tabindex="-1"></a>plonger1_tidy</span></code></pre></div>
+<pre><code># A tibble: 6 x 3
+  pais   ano    producao
+  &lt;chr&gt;  &lt;chr&gt;     &lt;dbl&gt;
+1 Brasil 2000   32321000
+2 Brasil 2019  101138617
+3 China  2000  106178315
+4 China  2019  260957662
+5 India  2000   12043200
+6 India  2019   27715100</code></pre>
+<p>Assim, na função <code>pivot_longer()</code>, utilizamos o argumento <code>data =</code> para indicar qual a base de dados desejamos arrumar - no caso o objeto <code>plonger1</code>. Em seguida, utilizamos o argumento <code>col</code> para selecionar as colunas que desejamos pivotar. Já no argumento <code>names_to</code> devemos dizer para qual coluna os nomes selecionados devem ir (no caso, os nomes <code>2000</code> e <code>2019</code>), portanto, são direcionados para a nova coluna <code>ano</code>. Por fim, no argumento <code>values_to</code>, dizemos que os valores contidos nas colunas <code>2000</code> e <code>2019</code> devem ir para uma única coluna, denominada <code>producao</code>.</p>
+<p>Perceba que os valores se mantém associados às antigas colunas <code>2000</code> e <code>2019</code>, agora como valores de uma observação.</p>
+<p>Podemos fazer o mesmo com os dados referentes à área colhida - presente no arquivo <code>tidy1b_col.csv</code> - somente alterando o atributo do argumento <code>values_to</code> para <code>colheita</code>:</p>
+<div class="sourceCode" id="cb339"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb339-1"><a href="org.html#cb339-1" aria-hidden="true" tabindex="-1"></a>plonger2 <span class="ot">&lt;-</span> <span class="fu">read_csv</span>(<span class="st">&quot;dados_tidy/tidy1b_col.csv&quot;</span>)</span>
+<span id="cb339-2"><a href="org.html#cb339-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb339-3"><a href="org.html#cb339-3" aria-hidden="true" tabindex="-1"></a>plonger2</span></code></pre></div>
+<pre><code># A tibble: 3 x 3
+  pais     `2000`   `2019`
+  &lt;chr&gt;     &lt;dbl&gt;    &lt;dbl&gt;
+1 Brasil 11890376 17518054
+2 China  23086228 41309740
+3 India   6611300  9027130</code></pre>
+<div class="sourceCode" id="cb341"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb341-1"><a href="org.html#cb341-1" aria-hidden="true" tabindex="-1"></a>plonger2_tidy <span class="ot">&lt;-</span> <span class="fu">pivot_longer</span>(<span class="at">data =</span> plonger2,</span>
+<span id="cb341-2"><a href="org.html#cb341-2" aria-hidden="true" tabindex="-1"></a>                              <span class="at">col =</span> <span class="fu">c</span>(<span class="st">`</span><span class="at">2000</span><span class="st">`</span>, <span class="st">`</span><span class="at">2019</span><span class="st">`</span>),</span>
+<span id="cb341-3"><a href="org.html#cb341-3" aria-hidden="true" tabindex="-1"></a>                              <span class="at">names_to =</span> <span class="st">&quot;ano&quot;</span>, </span>
+<span id="cb341-4"><a href="org.html#cb341-4" aria-hidden="true" tabindex="-1"></a>                              <span class="at">values_to =</span> <span class="st">&quot;colheita&quot;</span>)</span>
+<span id="cb341-5"><a href="org.html#cb341-5" aria-hidden="true" tabindex="-1"></a>plonger2_tidy</span></code></pre></div>
+<pre><code># A tibble: 6 x 3
+  pais   ano   colheita
+  &lt;chr&gt;  &lt;chr&gt;    &lt;dbl&gt;
+1 Brasil 2000  11890376
+2 Brasil 2019  17518054
+3 China  2000  23086228
+4 China  2019  41309740
+5 India  2000   6611300
+6 India  2019   9027130</code></pre>
+<p>Para juntar ambas as tabelas, utilizamos a <code>dplyr::full_join()</code>, presente no pacote <code>dplyr</code>, a qual veremos com mais detalhes no capítulo <a href="trans.html#trans">6</a>.</p>
+<div class="sourceCode" id="cb343"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb343-1"><a href="org.html#cb343-1" aria-hidden="true" tabindex="-1"></a>plonger <span class="ot">&lt;-</span> <span class="fu">full_join</span>(plonger1_tidy, plonger2_tidy)</span>
+<span id="cb343-2"><a href="org.html#cb343-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb343-3"><a href="org.html#cb343-3" aria-hidden="true" tabindex="-1"></a>plonger</span></code></pre></div>
+<pre><code># A tibble: 6 x 4
+  pais   ano    producao colheita
+  &lt;chr&gt;  &lt;chr&gt;     &lt;dbl&gt;    &lt;dbl&gt;
+1 Brasil 2000   32321000 11890376
+2 Brasil 2019  101138617 17518054
+3 China  2000  106178315 23086228
+4 China  2019  260957662 41309740
+5 India  2000   12043200  6611300
+6 India  2019   27715100  9027130</code></pre>
+</div>
+<div id="pivot-wider" class="section level4 unnumbered">
+<h4>Pivot wider</h4>
+<p>A função <code>pivot_wider()</code> é a oposta da <code>pivot_longer()</code>. Ela é usada para converter as variáveis que estão nas linhas, para o nome das colunas. Como exemplo, utilizaremos o arquivo <code>tidy2.csv</code>.</p>
+<div class="sourceCode" id="cb345"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb345-1"><a href="org.html#cb345-1" aria-hidden="true" tabindex="-1"></a>pwider <span class="ot">&lt;-</span> <span class="fu">read_csv</span>(<span class="at">file =</span> <span class="st">&quot;dados_tidy/tidy2.csv&quot;</span>)</span>
+<span id="cb345-2"><a href="org.html#cb345-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb345-3"><a href="org.html#cb345-3" aria-hidden="true" tabindex="-1"></a>pwider</span></code></pre></div>
+<pre><code># A tibble: 12 x 4
+   pais     ano tipo         valor
+   &lt;chr&gt;  &lt;dbl&gt; &lt;chr&gt;        &lt;dbl&gt;
+ 1 Brasil  2000 colheita  11890376
+ 2 Brasil  2019 colheita  17518054
+ 3 Brasil  2000 producao  32321000
+ 4 Brasil  2019 producao 101138617
+ 5 China   2000 colheita  23086228
+ 6 China   2019 colheita  41309740
+ 7 China   2000 producao 106178315
+ 8 China   2019 producao 260957662
+ 9 India   2000 colheita   6611300
+10 India   2019 colheita   9027130
+11 India   2000 producao  12043200
+12 India   2019 producao  27715100</code></pre>
+<p>Como podemos observar, as variáveis <code>colheita</code> e <code>producao</code> estão como valores de observações. Portanto, devemos transformá-las em nomes de colunas, recebendo os respectivos valores associados à coluna <code>valor</code>.</p>
+<div class="sourceCode" id="cb347"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb347-1"><a href="org.html#cb347-1" aria-hidden="true" tabindex="-1"></a>pwider_tidy <span class="ot">&lt;-</span> <span class="fu">pivot_wider</span>(<span class="at">data =</span> pwider,</span>
+<span id="cb347-2"><a href="org.html#cb347-2" aria-hidden="true" tabindex="-1"></a>                           <span class="at">names_from =</span> tipo,</span>
+<span id="cb347-3"><a href="org.html#cb347-3" aria-hidden="true" tabindex="-1"></a>                           <span class="at">values_from =</span> valor)</span>
+<span id="cb347-4"><a href="org.html#cb347-4" aria-hidden="true" tabindex="-1"></a>pwider_tidy</span></code></pre></div>
+<pre><code># A tibble: 6 x 4
+  pais     ano colheita  producao
+  &lt;chr&gt;  &lt;dbl&gt;    &lt;dbl&gt;     &lt;dbl&gt;
+1 Brasil  2000 11890376  32321000
+2 Brasil  2019 17518054 101138617
+3 China   2000 23086228 106178315
+4 China   2019 41309740 260957662
+5 India   2000  6611300  12043200
+6 India   2019  9027130  27715100</code></pre>
+<p>Assim, na função <code>pivot_wider()</code>, utilizamos o argumento <code>names_from</code> para dizer em qual coluna (<code>tipo</code>) estão os nomes das novas variáveis (<code>producao</code> e <code>colheita</code>) e o <code>values_from</code> para indicar em qual coluna estão localizados os respectivos valores das novas colunas criadas.</p>
+<p><br></p>
+<p>Portanto, podemos dizer que a <code>pivot_longer()</code> torna a base de dados mais longa (reduz o número de colunas e aumenta o número de linhas) e a <code>pivot_wider()</code>, deixa mais larga (aumenta o número de colunas e diminui o número de linhas).</p>
+<p>Para conferir todos os argumentos das funções <code>pivot_longer()</code> e <code>pivot_wider()</code>, utilize as funções <code>args(pivot_longer)</code> e <code>args(pivot_wider)</code>, respectivamente.</p>
+<p><br></p>
+</div>
+</div>
+<div id="separar-e-unir" class="section level3" number="5.2.3">
+<h3><span class="header-section-number">5.2.3</span> Separar e Unir</h3>
+<p>Para tratar das funções de separar e unir, exemplificaremos com os dados do arquivo <code>tidy3.csv</code>.</p>
+<div class="sourceCode" id="cb349"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb349-1"><a href="org.html#cb349-1" aria-hidden="true" tabindex="-1"></a>sep_unir <span class="ot">&lt;-</span> <span class="fu">read_csv</span>(<span class="at">file =</span> <span class="st">&quot;dados_tidy/tidy3.csv&quot;</span>)</span>
+<span id="cb349-2"><a href="org.html#cb349-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb349-3"><a href="org.html#cb349-3" aria-hidden="true" tabindex="-1"></a>sep_unir</span></code></pre></div>
+<pre><code># A tibble: 6 x 3
+  pais     ano produtividade     
+  &lt;chr&gt;  &lt;dbl&gt; &lt;chr&gt;             
+1 Brasil  2000 32321000/11890376 
+2 Brasil  2019 101138617/17518054
+3 China   2000 106178315/23086228
+4 China   2019 260957662/41309740
+5 India   2000 12043200/6611300  
+6 India   2019 27715100/9027130  </code></pre>
+<div id="separar" class="section level4 unnumbered">
+<h4>Separar</h4>
+<p>O banco de dados apresentado acima apresenta a coluna <code>produtividade</code>, cujos valores são representados como <code>produção/área colhida</code>. Portanto, precisamos separá-los em duas colunas, pois temos duas variáveis em uma mesma coluna e dois valores em uma mesma célula. Para isso utilizaremos a função <code>separate()</code>.</p>
+<div class="sourceCode" id="cb351"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb351-1"><a href="org.html#cb351-1" aria-hidden="true" tabindex="-1"></a>sep_unir_tidy <span class="ot">&lt;-</span> <span class="fu">separate</span>(<span class="at">data =</span> sep_unir,</span>
+<span id="cb351-2"><a href="org.html#cb351-2" aria-hidden="true" tabindex="-1"></a>                          <span class="at">col =</span> produtividade,</span>
+<span id="cb351-3"><a href="org.html#cb351-3" aria-hidden="true" tabindex="-1"></a>                          <span class="at">into =</span> <span class="fu">c</span>(<span class="st">&quot;producao&quot;</span>, <span class="st">&quot;colheita&quot;</span>))</span>
+<span id="cb351-4"><a href="org.html#cb351-4" aria-hidden="true" tabindex="-1"></a>sep_unir_tidy</span></code></pre></div>
+<pre><code># A tibble: 6 x 4
+  pais     ano producao  colheita
+  &lt;chr&gt;  &lt;dbl&gt; &lt;chr&gt;     &lt;chr&gt;   
+1 Brasil  2000 32321000  11890376
+2 Brasil  2019 101138617 17518054
+3 China   2000 106178315 23086228
+4 China   2019 260957662 41309740
+5 India   2000 12043200  6611300 
+6 India   2019 27715100  9027130 </code></pre>
+<p>Na função <code>separate()</code>, indicamos a base de dados a ser processada no argumento <code>data =</code>; posteriormente, declaramos no argumento <code>col =</code> o nome da coluna a ser separada - no caso, a <code>produtividade</code> -, e com o argumento <code>into =</code>, dizemos o nome das novas colunas que direcionaremos os valores da coluna separada (<code>producao</code> e <code>"colheita</code>).</p>
+<p>Por padrão, a função <code>separate()</code> irá quebrar os valores quando perceber que entre eles há um operador não numérico ou não textual, como foi o caso do exemplo acima, que apresentava uma <code>/</code> separando os valores. Caso for necessário especificar qual o separador utilizado, devemos utilizar o argumento <code>sep</code>.</p>
+<div class="sourceCode" id="cb353"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb353-1"><a href="org.html#cb353-1" aria-hidden="true" tabindex="-1"></a>sep_unir_tidy <span class="ot">&lt;-</span> <span class="fu">separate</span>(<span class="at">data =</span> sep_unir,</span>
+<span id="cb353-2"><a href="org.html#cb353-2" aria-hidden="true" tabindex="-1"></a>                          <span class="at">col =</span> produtividade,</span>
+<span id="cb353-3"><a href="org.html#cb353-3" aria-hidden="true" tabindex="-1"></a>                          <span class="at">into =</span> <span class="fu">c</span>(<span class="st">&quot;producao&quot;</span>, <span class="st">&quot;colheita&quot;</span>),</span>
+<span id="cb353-4"><a href="org.html#cb353-4" aria-hidden="true" tabindex="-1"></a>                          <span class="at">sep =</span> <span class="st">&quot;/&quot;</span>)</span>
+<span id="cb353-5"><a href="org.html#cb353-5" aria-hidden="true" tabindex="-1"></a>sep_unir_tidy</span></code></pre></div>
+<pre><code># A tibble: 6 x 4
+  pais     ano producao  colheita
+  &lt;chr&gt;  &lt;dbl&gt; &lt;chr&gt;     &lt;chr&gt;   
+1 Brasil  2000 32321000  11890376
+2 Brasil  2019 101138617 17518054
+3 China   2000 106178315 23086228
+4 China   2019 260957662 41309740
+5 India   2000 12043200  6611300 
+6 India   2019 27715100  9027130 </code></pre>
+<p>Perceba que a classe das novas colunas vieram como tipo caractere. Por padrão, a função <code>separate()</code> sempre adotará essa classe. Para corrigirmos a classe, podemos utilizar o argumento <code>convert = TRUE</code>, ou seja, pedir para função adotar uma classe mais apropriada aos valores contidos nas colunas.</p>
+<div class="sourceCode" id="cb355"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb355-1"><a href="org.html#cb355-1" aria-hidden="true" tabindex="-1"></a>sep_unir_tidy <span class="ot">&lt;-</span> <span class="fu">separate</span>(<span class="at">data =</span> sep_unir,</span>
+<span id="cb355-2"><a href="org.html#cb355-2" aria-hidden="true" tabindex="-1"></a>                          <span class="at">col =</span> produtividade,</span>
+<span id="cb355-3"><a href="org.html#cb355-3" aria-hidden="true" tabindex="-1"></a>                          <span class="at">into =</span> <span class="fu">c</span>(<span class="st">&quot;producao&quot;</span>, <span class="st">&quot;colheita&quot;</span>),</span>
+<span id="cb355-4"><a href="org.html#cb355-4" aria-hidden="true" tabindex="-1"></a>                          <span class="at">sep =</span> <span class="st">&quot;/&quot;</span>,</span>
+<span id="cb355-5"><a href="org.html#cb355-5" aria-hidden="true" tabindex="-1"></a>                          <span class="at">convert =</span> <span class="cn">TRUE</span>)</span>
+<span id="cb355-6"><a href="org.html#cb355-6" aria-hidden="true" tabindex="-1"></a>sep_unir_tidy</span></code></pre></div>
+<pre><code># A tibble: 6 x 4
+  pais     ano  producao colheita
+  &lt;chr&gt;  &lt;dbl&gt;     &lt;int&gt;    &lt;int&gt;
+1 Brasil  2000  32321000 11890376
+2 Brasil  2019 101138617 17518054
+3 China   2000 106178315 23086228
+4 China   2019 260957662 41309740
+5 India   2000  12043200  6611300
+6 India   2019  27715100  9027130</code></pre>
+<p>Feito isso, temos a classe <code>int</code> (números inteiros) para as colunas <code>producao</code> e <code>colheita</code>.</p>
+<p>Também podemos separar valores informando uma quantidade de caracteres a serem considerados na separação. Para isso, informamos no argumento <code>sep</code> a quantidade dos primeiros caracteres que desejamos quebrar. Por exemplo, para separar os valores da coluna <code>ano</code> em <code>seculo</code> e <code>decada</code>, podemos passar o argumento <code>sep = 2</code>, ou seja, o argumento selecionará os dois primeiros caracteres dos valores contidos na coluna <code>ano</code> e os separará dos demais, formando as novas colunas <code>seculo</code> e <code>decada</code>.</p>
+<div class="sourceCode" id="cb357"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb357-1"><a href="org.html#cb357-1" aria-hidden="true" tabindex="-1"></a>separar <span class="ot">&lt;-</span><span class="fu">separate</span>(<span class="at">data =</span> sep_unir_tidy,</span>
+<span id="cb357-2"><a href="org.html#cb357-2" aria-hidden="true" tabindex="-1"></a>                   <span class="at">col =</span> ano,</span>
+<span id="cb357-3"><a href="org.html#cb357-3" aria-hidden="true" tabindex="-1"></a>                   <span class="at">into =</span> <span class="fu">c</span>(<span class="st">&quot;seculo&quot;</span>, <span class="st">&quot;decada&quot;</span>),</span>
+<span id="cb357-4"><a href="org.html#cb357-4" aria-hidden="true" tabindex="-1"></a>                   <span class="at">sep =</span> <span class="dv">2</span>)</span>
+<span id="cb357-5"><a href="org.html#cb357-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb357-6"><a href="org.html#cb357-6" aria-hidden="true" tabindex="-1"></a>separar</span></code></pre></div>
+<pre><code># A tibble: 6 x 5
+  pais   seculo decada  producao colheita
+  &lt;chr&gt;  &lt;chr&gt;  &lt;chr&gt;      &lt;int&gt;    &lt;int&gt;
+1 Brasil 20     00      32321000 11890376
+2 Brasil 20     19     101138617 17518054
+3 China  20     00     106178315 23086228
+4 China  20     19     260957662 41309740
+5 India  20     00      12043200  6611300
+6 India  20     19      27715100  9027130</code></pre>
+<p>Nesse caso, o argumento <code>sep = 2</code> pegou os dois primneiros número e os separou dos demais. Caso houver um número negativo, o argumento considera o sinal de negativo como o primeiro caractere informado no argumento.</p>
+</div>
+<div id="unir" class="section level4 unnumbered">
+<h4>Unir</h4>
+<p>A função <code>unite()</code> é a inversa de <code>separate()</code>. Portanto, combina múltiplas colunas em uma única. Usaremos a <code>unite()</code> para juntar novamente as colunas <code>seculo</code> e <code>decada</code> para apenas a coluna <code>novamente_ano</code>.</p>
+<div class="sourceCode" id="cb359"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb359-1"><a href="org.html#cb359-1" aria-hidden="true" tabindex="-1"></a>unir <span class="ot">&lt;-</span> <span class="fu">unite</span>(<span class="at">data =</span> separar,</span>
+<span id="cb359-2"><a href="org.html#cb359-2" aria-hidden="true" tabindex="-1"></a>              <span class="at">col =</span> <span class="st">&quot;novamente_ano&quot;</span>,</span>
+<span id="cb359-3"><a href="org.html#cb359-3" aria-hidden="true" tabindex="-1"></a>              seculo, decada,</span>
+<span id="cb359-4"><a href="org.html#cb359-4" aria-hidden="true" tabindex="-1"></a>              <span class="at">sep =</span> <span class="st">&quot;&quot;</span>)</span>
+<span id="cb359-5"><a href="org.html#cb359-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb359-6"><a href="org.html#cb359-6" aria-hidden="true" tabindex="-1"></a>unir</span></code></pre></div>
+<pre><code># A tibble: 6 x 4
+  pais   novamente_ano  producao colheita
+  &lt;chr&gt;  &lt;chr&gt;             &lt;int&gt;    &lt;int&gt;
+1 Brasil 2000           32321000 11890376
+2 Brasil 2019          101138617 17518054
+3 China  2000          106178315 23086228
+4 China  2019          260957662 41309740
+5 India  2000           12043200  6611300
+6 India  2019           27715100  9027130</code></pre>
+<p>No argumento <code>col =</code> dizemos qual o nome da nova coluna, em seguida, as colunas a serem juntadas (<code>seculo</code> e <code>decada</code>), e o <code>sep =</code>, para informar qual o separador utilizado. Nesse caso, precisavamos juntar os valores sem qualquer caractere ou espaço, portanto, nosso argumento recebe apenas duas aspas <code>""</code>. Caso não fosse informado o argumento <code>sep</code>, por padrão, a função adota o <em>underline</em> (<code>_</code>) como separador.</p>
+<p>Para conferir todos os argumentos das funções <code>separate()</code> e <code>unite()</code>, utilize as funções <code>args(separate)</code> e <code>args(unite)</code>, respectivamente.</p>
+<p><br></p>
+<p>De maneira geral, essas são as principais ferramentas quando o tema é arrumar os dados. A seguir, agora com os dados arrumados, iremos transformar as nossas bases de dados para que contenha apenas as variáveis de nosso interesse e também criar novas variáveis, de acordo com as existentes.</p>
+
+</div>
+</div>
+</div>
+</div>
+<div class="footnotes">
+<hr />
+<ol start="4">
+<li id="fn4"><p>O termo <em>desarrumada</em> não é o mais apropriado para nos referirmos aos demais formatos de dados, pois o formato <em>tidy</em> é um dos possíveis para se trabalhar com dados - principalmente quando trabalhamos com dados retangulares - utilizando o pacote <code>tidyverse</code>. Portanto, quando nos referirmos a dados <em>desarrumados</em>, entenda como dados fora do padrão <em>tidy data</em> ou <em>não-tidy</em>. Para entender mais sobre os dados <em>não-tidy</em>, recomendo o post do <a href="https://simplystatistics.org/posts/2016-02-17-non-tidy-data/">Jeff Leek</a> sobre o assunto.<a href="org.html#fnref4" class="footnote-back">↩︎</a></p></li>
+</ol>
+</div>
+            </section>
+
+          </div>
+        </div>
+      </div>
+<a href="import.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="trans.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+    </div>
+  </div>
+<script src="libs/gitbook-2.6.7/js/app.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/clipboard.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-search.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-sharing.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-fontsettings.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-bookdown.js"></script>
+<script src="libs/gitbook-2.6.7/js/jquery.highlight.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-clipboard.js"></script>
+<script>
+gitbook.require(["gitbook"], function(gitbook) {
+gitbook.start({
+"sharing": {
+"github": false,
+"facebook": true,
+"twitter": true,
+"linkedin": false,
+"weibo": false,
+"instapaper": false,
+"vk": false,
+"whatsapp": false,
+"all": ["facebook", "twitter", "linkedin", "weibo", "instapaper"]
+},
+"fontsettings": {
+"theme": "white",
+"family": "sans",
+"size": 2
+},
+"edit": null,
+"history": {
+"link": null,
+"text": null
+},
+"view": {
+"link": null,
+"text": null
+},
+"download": ["_main.pdf", "_main.epub"],
+"search": {
+"engine": "fuse",
+"options": null
+},
+"toc": {
+"collapse": "subsection"
+}
+});
+});
+</script>
+
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+  (function () {
+    var script = document.createElement("script");
+    script.type = "text/javascript";
+    var src = "true";
+    if (src === "" || src === "true") src = "https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-MML-AM_CHTML";
+    if (location.protocol !== "file:")
+      if (/^https?:/.test(src))
+        src = src.replace(/^https?:/, '');
+    script.src = src;
+    document.getElementsByTagName("head")[0].appendChild(script);
+  })();
+</script>
+</body>
+
+</html>
