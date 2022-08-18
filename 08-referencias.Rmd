@@ -1,0 +1,9 @@
+# Bibliografia consultada {-}
+
+Chang, Winston. 2021. R Graphics Cookbook. 2nd ed. Beijing: O’Reilly Media. https://r-graphics.org/.  
+
+Damiani, Athos; Lente, Caio; Milz, Beatriz; Falbel, Daniel; Correa, Fernando; Trecenti, Julio; Luduvice, Nicole; Amorim, William. 2021. Ciência de Dados em R. Curso-R. https://livro.curso-r.com/index.html.  
+
+Wickham, Hadley; Grolemund, Garrett. 2017. R for Data Science. 1st ed. Sebastopol, California: O’Reilly Media. https://r4ds.had.co.nz/index.html.  
+
+Xie, Yihui. 2015. Dynamic Documents with R and Knitr. 2nd ed. Boca Raton, Florida: Chapman; Hall/CRC. http://yihui.org/knitr/. 2021. Bookdown: Authoring Books and Technical Documents with r Markdown. https://CRAN.R-project.org/package=bookdown.  

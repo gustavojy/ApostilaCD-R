@@ -1,0 +1,212 @@
+# Ciência de dados e R  
+
+## O que é Ciência de Dados?
+
+A ciência de dados, como o próprio termo sugere, consiste no estudo e análise de dados, com o objetivo de extrair informações relevantes, utilizando técnicas e conhecimentos multidisciplinares. Por mais que o termo tenha se popularizado fortemente nos últimos anos devido à massiva geração de dados em elevadas quantidades, diversidades e velocidades, sua concepção se origina no século passado, seja por nomes notáveis como o do matemático e estatístico [John W. Tukey](http://www.ru.ac.bd/wp-content/uploads/sites/25/2019/03/102_05_01_Tukey-Exploratory-Data-Analysis-1977.pdf), mas também por aqueles que atuavam nas áreas de negócios e de pesquisa que, sem a pretensão de nomear ou organizar uma nova área do conhecimento, poderiam ser considerados cientistas de dados.   
+
+A concepção recente de ciência de dados abrange pelo menos três grandes áreas do conhecimento, podendo ser descrita por um diagrama de Venn, idealizado em 2010, por [Drew Conway](http://drewconway.com/zia/2013/3/26/the-data-science-venn-diagram):  
+
+```{r venn, echo=FALSE, out.width="50%", fig.cap='Diagrama de Venn da ciência de dados.'}
+knitr::include_graphics('imagens/venn_pt.png')
+```
+
+
+<br>
+
+O diagrama é composto pelo conjunto de habilidades **computacionais**, conhecimento de **matemática e estatística** e domínio da **área de conhecimento**. Assim, as intersecções entre os conjuntos resultam em certas habilidades, descritas da seguinte maneira:  
+
+- **Aprendizado de máquinas**: do termo em inglês *machine learning*, consiste na intersecção entre as habilidades **computacionais** e de **matemática e estatística**. Utiliza estas bases para entender os modelos utilizados e detectar os padrões que serão replicados, a partir dos artifícios da programação, com o intuito de colocar em prática os algoritmos.  
+
+- **Pesquisa tradicional**: é a intersecção entre as áreas da **matemática e estatística** e **área de conhecimento**. Consiste na aplicação das bases matemáticas e estatísticas para solucionar problemas de uma área de atuação específica, sendo uma prática comum e tradicional no meio da pesquisa, principalmente acadêmica.  
+
+- **Zona de perigo**: a intersecção entre **habilidades computacionais** e **área de conhecimento** resulta em uma chamada *zona de perigo*, pois quem se encontra nesta situação consegue resolver problemas aplicando algoritmos, porém sem ter bases teóricas para compreender ou averiguar os resultados.  
+
+- **Ciência de dados**: a ciência de dados é o resultado da intersecção entre as três áreas - **habilidades computacionais**, **matemática e estatística** e **área de conhecimento**. Em teoria, um cientista de dados não possui total domínio destas três áreas, ou senão, possui especialização em alguma das três, contudo sabe aplicá-las para resolver problemas.  
+
+Tendo em vista as bases que definem um cientista de dados, entraremos no âmbito da programação, conhecendo um pouco mais sobre o software R.  
+
+<br>
+
+## R / RStudio
+
+O R é uma das linguagens de programação mais utilizadas por cientistas de dados. Foi desenvolvido por Ross Ihaka e Robert Gentleman, na Universidade de Auckland, Nova Zelândia, em 1993. Iniciou como uma linguagem focada em programação estatística, mas que, ao longo do tempo, tornou-se cada vez mais encorpada e diversificada. Atualmente, o [*R Development Core Team*](https://www.r-project.org/foundation/) atua na manutenção e no desenvolvimento da linguagem, sendo composto por diversos membros, dentre eles, seus idealizadores.  
+
+Por ser um software gratuito de código aberto (*Open source*), possibilitou a formação de uma comunidade que atua diretamente no desenvolvimento do programa, promovendo constantes facilidades, melhorias e inovações acessíveis ao público em geral. O compartilhamento de um conjunto de funções é dado através de **pacotes**, os quais devemos instalar para podermos utilizá-los. Detalharemos a instalação de pacotes na seção \@ref(pacote).  
+
+E, justamente, uma das principais contribuições idealizadas é o **RStudio**. O RStudio é uma IDE (*Integrated Development Environment*), ou seja, um ambiente de trabalho que executa o R a partir de uma interface gráfica mais agradável e com diversas funcionalidades (Figura \@ref(fig:rstudio-apresenta)), o que nos proporciona um maior conforto quando comparado ao R original, composto basicamente pelas janelas de script e console, como mostra a figura \@ref(fig:r-original).
+
+```{r r-original, echo=FALSE, out.width="70%", fig.cap='Tela do R original. Composto apenas pelo script e console.'}
+knitr::include_graphics("imagens/r_tela_basico.png")
+```
+
+<br>
+
+```{r rstudio-apresenta, echo=FALSE, out.width="70%", fig.cap='Tela do RStudio. Como podemos perceber, bem diferente do R original.'}
+knitr::include_graphics("imagens/rstudio_tela.png")
+```
+
+<br>
+
+Mais adiante, na subseção \@ref(rstudio), entraremos em mais detalhes sobre o ambiente do RStudio.  
+
+Vale salientar que o R pode ser utilizado sem o RStudio, porém o RStudio não funciona sem o R. No nosso caso, utilizaremos o RStudio para desenvolver nossas análises. Assim, precisamos ter instalados ambos os programas.  
+
+<br>
+
+### Instalando o R
+
+O R está disponível para todos os sistemas operacionais. Sua instalação é feita via CRAN (*Comprehensive R Archive Network*), ou seja, uma rede com diversos servidores localizados em várias regiões do mundo, os quais armazenam versões idênticas e atualizadas de códigos e documentações para o R. Assim, para instalar o R, recomenda-se selecionar o servidor mais próximo à sua região. A seguir está o passo a passo para o *download*.  
+
+1. Acessar: <https://www.r-project.org/>;  
+
+2. No canto superior esquerdo, clicar em **CRAN**;  
+
+3. Selecionar o servidor (*mirror*) mais próximo a você (perceba que há um servidor da ESALQ/USP-Piracicaba);  
+
+4. Escolha o link referente ao seu sistema operacional;  
+
+5. Sistemas operacionais:  
+
+- **Windows**: após clicar em *'Download R for Windows'*, selecione a opção *'base'* e, posteriormente, *'Download R x.x.x for Windows'*, sendo *'x.x.x'* a versão mais recente a ser baixada;  
+
+- **Linux**: após clicar em *'Download R for Linux'*, selecione a distribuição que você utiliza e siga as instruções da página para instalar o R;  
+
+- **MacOS**: após clicar em *'Download R for macOS'*, selecione a opção mais recente do R, a partir do link *'R-x.x.x.pkg'*, sendo *'x.x.x'* a versão mais recente a ser baixada;  
+
+6. Feito o download, abra o arquivo baixado e siga as instruções para a  instalação. Uma vez que utilizaremos o R a partir do RStudio, não há necessidade de criar um ícone de inicialização do R na área de trabalho, portanto, apenas instale o R em seu computador.  
+
+
+<br>
+
+### Instalando o RStudio
+
+Uma vez feita a instalação do R, precisamos instalar o RStudio. Também está disponível para todos os sistemas operacionais e sua instalação pode ser feita a partir do link: <https://www.rstudio.com/products/rstudio/download/#download>. Escolha a versão referente ao seu sistema operacional e siga as instruções para baixar a IDE em seu computador.  
+
+```{r, echo=FALSE, out.width="80%", fig.cap='Na página referente ao link acima, vá até a seção ilustrada na figura. Lá encontraremos as versões disponíveis do RStudio, de acordo com o sistema operacional.'}
+knitr::include_graphics("imagens/rstudio_download.png")
+```
+
+<br>
+
+### Ambiente RStudio {#rstudio}
+
+Agora que temos o R e o RStudio instalados, vamos conhecer mais sobre o ambiente do RStudio.  
+
+#### Janelas {-}
+
+```{r rstudio-janelas, echo=FALSE, out.width="90%", fig.cap='O RStudio apresenta 4 janelas principais, algumas com abas específicas, cada qual apresentando funcionalidades particulares.'}
+knitr::include_graphics("imagens/rstudio_janelas_expl.png")
+```
+
+<br>
+
+A figura \@ref(fig:rstudio-janelas) ilustra as quatro janelas presentes no RStudio, cada qual com suas particularidades e funções.  
+
+1. *Script*: é a janela na qual escreveremos os códigos e comandos. Para abrir um novo *script*, clique no ícone logo abaixo da aba *file*, no canto esquerdo superior;  
+
+2. *Console*: é onde o código roda e apresenta as saídas dos códigos redigidos no *script*. Também podemos escrever comandos no *console*, porém, ao contrário do *script*, não há a possibilidade de edição, sendo necessário reescrevê-lo, caso preciso.  
+
+3. *Environment*: é onde se localiza e armazena os objetos criados. O ícone da vassoura (presente ao lado do ícone `Import Dataset`) exclui os objetos criados. Esta janela contém outras abas, porém a *Environment* é a principal dentre essas.  
+
+4. *File*, *Plots*, *Packages*, *Help* e *Viewer*: esta janela contém cinco abas.  
+
+- *File*: apresenta os arquivos presentes no diretório do seu computador;  
+
+- *Plots*: permite a visualização dos gráficos gerados;  
+
+- *Packages*: mostra todos os pacotes instalados em seu RStudio;  
+
+- *Help*: retorna documentações referentes a funções as quais podemos saber mais detalhes sobre elas;  
+
+- *Viewer*: apresenta os resultados gerados a partir do R Markdown, Bookdown, dentre outras extensões relacionadas a execução de relatórios e documentos diversos.  
+
+<br>
+
+#### Aparência {-}
+
+Podemos alterar a aparência do RStudio acessando a aba `Tools`, presente no menu superior, clicar em `Global Options...` e, posteriormente, na aba `Appearance`. Nela, pode-se alterar o tema de fundo, regular o *zoom* do ambiente como um todo ou somente dos textos e alterar a fonte dos textos. Na figura \@ref(fig:rstudio-tema1) esta ilustrado um exemplo de configuração da aparência do RStudio, e na figura \@ref(fig:rstudio-tema2), o resultado dessa alteração.  
+
+
+```{r rstudio-tema1, echo=FALSE, out.width="60%", fig.cap='Podemos configurar a aparência do RStudio em diversos aspectos. Faça alguns testes e veja qual lhe agrada mais.'}
+knitr::include_graphics("imagens/rstudio_tema1.png")
+```
+
+<br>
+
+```{r rstudio-tema2, echo=FALSE, out.width="70%", fig.cap='Um exemplo de alteração na aparência do RStudio.'}
+knitr::include_graphics("imagens/rstudio_tema2.png")
+```
+
+<br>
+
+## Etapas da Ciência de Dados
+
+Agora que temos uma melhor noção sobre ciência de dados e o software R, vamos explorar as etapas que compõem o seu processo.  
+
+```{r dc-fluxo, echo=FALSE, out.width="100%", fig.cap='Etapas do trabalho em ciência de dados. O ato de programar abrange todos os processos do fluxograma.'}
+knitr::include_graphics('imagens/etapas_cd.png')
+```
+
+<br>
+
+O fluxograma da figura \@ref(fig:dc-fluxo) representa as etapas que compõem o trabalho de um cientista de dados. A seguir, descreveremos brevemente as etapas, para termos noção sobre a relevância de cada uma delas.  
+
+- **Importar** (*Import*): é a importação dos dados brutos para dentro do R, seja a partir de banco de dados presentes na web ou coletados pelo próprio cientista de dados. Basicamente é a etapa *sine qua non* da ciência de dados, pois sem dados, não há o que analisar;  
+
+- **Limpar/Arrumar** (*Tidy*): limpar ou arrumar os dados significa organizá-los em uma estrutura consistente, que esteja de acordo com a semântica de um conjunto de dados, para que não haja problemas ao realizar as análises. Mais adiante, veremos como estruturar os dados de maneira desejável, designando cada variável a uma coluna e cada observação a uma linha, semalhante a uma planilha Excel;  
+
+- **Transformar** (*Transform*): a transformação consiste em selecionar as observações de interesse no banco de dados. Em outras palavras, reduzir o banco de dados para conter somente as informações necessárias para a análise. Também podemos criar novas variáveis em função das variáveis já existentes, além de gerar descrições estatísticas como média, variância, porcentagens, dentre outras;  
+
+- **Visualizar** (*Visualisation*): a visualização gráfica dos dados permite enxergar as informações com mais clareza, levantar novos questionamentos e até mesmo indicar se a pesquisa está no caminho correto ou não;  
+
+- **Modelar** (*Models*): os modelos são usados para responder as perguntas norteadoras, depois que a pergunta norteadora estiver suficientemente precisa. Entra em cena a matemática, estatística e a computação como ferramentas para sua realização.  
+
+- **Comunicar** (*Communication*): é a parte crítica de um projeto analítico (*Data analysis*), pois é necessário expor os resultados de maneira inteligível para o público, seja ele técnico ou leigo;  
+
+- **Programar** (*Programming*): a programação abrange todas as etapas citadas anteriormente. Em ciência de dados, não precisamos ter um domínio avançado para começarmos um projeto, mas quanto mais se sabe, mais automático ficam as tarefas comuns e mais facilmente se resolve novos problemas.  
+
+Por último, podemos destacar o termo *Wrangling*, que abrange as etapas de **Arrumar** e **Transformar**. Traduzindo o termo, podemos entender que essas etapas do processo são, literalmente, uma *luta* para que se consiga deixar os dados de forma mais natural para serem analisados.  
+
+Na seção \@ref(pacote), vamos conhecer mais sobre o pacote `tidyverse`, o qual contém as principais funções a serem utilizadas ao longo desta apostila. Detalharemos os pacotes específicos para cada uma das etapas descritas anteriormente.  
+
+<br>
+
+## Pacote `tidyverse` {#pacote}
+
+O `tidyverse` é um "pacote mestre" que abrange diversos outros, cada qual apresentando diversas funcionalidades específicas para cada uma das etapas apresentadas no fluxograma do tópico anterior. O esquema a seguir relaciona as etapas que constituem o trabalho do cientista de dados com os respectivos pacotes.  
+
+```{r, echo=FALSE, out.width="100%", fig.cap='Para cada etapa do fluxograma de trabalho da ciência de dados, existem pacotes específicos no R.'}
+knitr::include_graphics('imagens/pacotes_cd.png')
+```
+
+<br>
+
+Nesta apostila, focaremos no pacote `tidyverse` aplicado às etapas de **Importar**, **Arrumar**, **Transformar** e **Visualizar**, apresentando as principais ferramentas a serem utilizadas. Apenas os pacotes relacionados às etapas de **Modelar** e **Comunicar** não estão presentes no `tidyverse`.  
+
+Assim sendo, vamos instalar o nosso primeiro pacote, o `tidyverse`:  
+
+```{r}
+install.packages("tidyverse")
+library(tidyverse)
+```
+
+A função `install.packages("nome_do_pacote")` instala o requerido pacote. Atente-se ao fato que o nome do pacote deve estar entre aspas.  
+
+Uma vez instalado, devemos carregar o pacote com a função `library()`, para que possamos utilizar as suas funcionalidades. Agora, o nome do pacote não precisa estar entre aspas. Esta função deve ser executada a cada nova seção inicializada no R.  
+
+Lembrando que, para executar um comando, devemos escrever os respectivos códigos no *script* ou no *console*.  
+
+Para rodar estas funções (além das demais outras que rodaremos), devemos selecionar a linha de código que se deseja executar e clicar no ícone '*Run*', presente no canto superior direito da própria janela do *script*, ou utilizar o atalho `ctrl + Enter` no teclado. Perceba que temos que rodar linha por linha de código ou selecionar todas as linhas do *script* para então rodar o código de uma vez só.  
+
+Para se ter uma visão geral de quais pacotes estão presentes no `tidyverse`, utilizamos a função `tidyverse_packages()`.  
+
+```{r}
+tidyverse_packages()
+```
+
+Perceba que o pacote `tidyverse` contém outros 30 pacotes. Dentre estes, utilizamos o `readr` e o `readxl` para importarmos os dados; o `tidyr` e o `tibble` para arrumar; o `dplyr`, `stringr`, `forcats` e `lubridate` para transformar; e por último, o `ggplot2` para visualizar.  
+
+Caso o leitor tenha curiosidade em saber mais detalhes sobre o `tidyverse`, acesse o link da página oficial do pacote: <https://www.tidyverse.org/packages/>.  
+
+Nos capítulos a seguir, abordaremos as etapas de **Importar**, **Arrumar**, **Transformar** e **Visualizar**, apresentando as principais utilidades e funções de cada um dos respectivos pacotes presentes no `tidyverse`. Mas antes, veremos alguns conceitos básicos para programarmos em R.  
+

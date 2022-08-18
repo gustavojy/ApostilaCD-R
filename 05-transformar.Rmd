@@ -1,0 +1,540 @@
+# Transformação {#trans}
+
+A etapa de transformação dos dados consiste em selecionar as variáveis e observações de interesse no nosso banco de dados, a fim de gerar medidas úteis para a análise. Podemos realizar operações entre colunas de acordo com determinada variável, calcular a média, mediana, contagem e porcentagens, além de selecionar, filtrar e criar novas variáveis.  
+
+Os principais pacotes relacionados ao tema, presentes no `tidyverse`, são o `dplyr`, `stringr`, `forcats` e `lubridate`, cada qual apresentando funções particulares e específicas para trabalhar com os dados. Nesta apostila, abordaremos apenas o pacote `dplyr`, cujas funções conseguem resolver a maioria dos problemas relacionados a essa etapa.  
+
+Os demais pacotes tratam de assuntos específicos na transformação de dados. Caso você precise tratar de algum problema que o `dplyr` não consiga resolver, descreveremos, brevemente, as características desses pacotes para facilitar suas pesquisas.  
+
+- `stringr`: manipula as variáveis categóricas a partir de **expressões regulares (REGEX)**;  
+
+- `forcats`: apresenta funções que lidam com variáveis do tipo fator (*factor*). Caso queira entender melhor sobre esse tipo de classe, confira a seção \@ref(fator);  
+
+- `lubridate`: pacote específico para trabalhar com variáveis do tipo data e tempo.  
+
+A seguir, trataremos com detalhes as funcionalidades presentes no pacote `dplyr`. Para tanto, precisamos rodar o pacote.  
+
+```{r}
+library(dplyr)
+```
+
+Para verificar todas as funcionalidades presentes no pacote, rode o seguinte comando:  
+
+```{r, eval=FALSE}
+ls("package:dplyr")
+```
+
+<br>
+
+## Pacote `dplyr`
+
+O pacote `dplyr` possui ferramentas simples, porém muito importantes para realizar as devidas transformações na base de dados. A seguir, apresentaremos as principais funções do pacote, que nos permitem resolver a maioria dos problemas relacionados à etapa de transformação dos dados.  
+
+A base de dados utilizada para os exemplos é referente à produção de milho, soja, trigo e arroz, nos países da América do Sul, entre 1961 e 2019, obtidos da FAOSTAT. Para fazer o *download* dos dados, [clique aqui](https://github.com/gustavojy/ApostilaCD-R/blob/main/dados_zip/dados_transf.zip?raw=true).  
+
+```{r}
+graos <- read_csv("dados_transf/prod_graos.csv")
+
+graos
+```
+
+O banco de dados possui 5510 observações e 14 variáveis. Como podemos observar, muitas das variáveis são referentes à códigos de identificação, os quais não nos interessam para a realização das análises. Assim, a seguir, veremos como selecionar somente as variáveis de interesse.  
+
+
+### Selecionar
+
+Para selecionar colunas, utilizamos a função `select()`, tendo como primeiro argumento a base de dados utilizada, sendo os demais argumentos referentes aos nomes das colunas que se deseja selecionar.  
+
+Nos dois exemplos a seguir, perceba que podemos selecionar uma ou mais de uma coluna.  
+
+```{r}
+# Selecionando somente a coluna "Item"
+select(graos,
+       Item)
+```
+
+```{r}
+# Selecionando mais de uma coluna
+select(graos,
+       Area, Item, Value)
+```
+
+Podemos selecionar várias colunas consecutivas com o operador `:`. Basta informar os nomes ou as posições da primeira e da última coluna que se deseja selecionar.  
+
+```{r}
+# Selecionando colunas consecutivas a partir dos nomes
+select(graos,
+       Area:Year)
+```
+
+```{r}
+# Selecionando colunas consecutivas a partir das posições
+select(graos, 4:10)
+```
+
+A função `select()` possui outras funções que auxiliam na seleção de colunas, sendo elas:  
+
+- `starts_with()`: seleciona colunas que começam com um texto padrão;  
+
+- `ends_with()`: seleciona colunas que terminam com um texto padrão;  
+
+- `contains()`: seleciona colunas que possuem um texto padrão.  
+
+```{r}
+# starts_with() - Começa com tal palavra
+select(graos, starts_with("Year"))
+
+# ends_with() - Termina com tal palavra
+select(graos, ends_with("Code"))
+
+# contains() - Contém tal palavra
+select(graos, contains("FAO"))
+```
+
+Também podemos retirar uma coluna inserindo um sinal de menos (`-`) antes do nome da variável ou das funções auxiliares.  
+
+```{r}
+# Nome das colunas do banco de dados bruto:
+names(graos)
+
+# Dados sem as respectivas colunas:
+select(graos,
+       -contains("Code"), -contains("Flag"), -Domain)
+```
+
+Por último, temos a função `everything()`, utilizada na função `select()` para arrastar determinadas colunas para o início da base de dados.  
+
+```{r}
+select(graos, 
+       Value, Unit, everything())
+```
+
+
+### Operador *pipe* (%>%)
+
+Na maior parte dos casos, utilizaremos mais de uma função para manipular os nossos dados. Com isso, entra em cena o *pipe* (`%>%`). O *pipe* está presente no pacote `magrittr`, que está contido no `tidyverse`. Portanto, antes de aprofundarmos na ideia central do *pipe*, devemos carregar o pacote `magrittr`.  
+
+```{r, message=FALSE, warning=FALSE}
+library(magrittr)
+```
+
+A principal função do *pipe* é conectar linhas de códigos que se relacionam, executando-as em sequência, de uma só vez. A essa estrutura de código chamamos de *pipelines*. Como exemplo hipotético, calcularemos a média final de um aluno na disciplina de cálculo II, arredondando-a com uma casa decimal.  
+
+```{r}
+notas <- c(8.88, 6.84, 7.51)
+
+# Sem pipe
+round(mean(notas),1)
+
+# Com pipe
+notas %>% mean() %>% round(1)
+```
+
+Utilizando o *pipe*, evitamos de escrever funções dentro de funções, ordenando-as de acordo com a ordem em que desejamos realizar as operações. No exemplo, calculamos primeiro a média das notas e, posteriormente, arrendondamos.  
+
+Quando utilizamos o *pipe*, obtemos um código mais legível, claro e compacto, principalmente quando trabalhamos com diversas funções. Isso facilita não somente a leitura, mas também na manutenção do código, caso seja preciso realizar alterações ou consertar possíveis problemas.  
+
+Tendo essa noção básica do que é o *pipe*, começaremos a aplicá-lo na manipulação dos dados. Caso queira saber mais sobre o *pipe*, confira o capítulo 18 do livro [*R for Data Science*](https://r4ds.had.co.nz/pipes.html).  
+
+
+### Filtrar
+
+Podemos filtrar determinados valores que estão contidos nas linhas de cada coluna, sejam eles quantitativos ou categóricos. Para isso, utilizamos testes lógicos dentro da função `filter()`.  
+
+```{r}
+filter(graos,
+       Area == "Chile")
+```
+
+No exemplo anterior, filtramos a coluna `Area` para que nos retornasse somente as observações referentes ao país `Chile`. Para isso, utilizamos o teste lógico `==`, ou seja, pedimos para que nos retornasse somente as observações que apresentem o valor igual a `Chile` na coluna `Area`.  
+
+Lembre que a função `filter()` segue a lógica demontrada na seção \@ref(logica). Mas perceba que, diferentemente do que fora exposto na referente seção, a `filter()` é muito mais simples e intuitiva de ser utilizada.  
+
+Também podemos selecionar um conjunto de valores contidos em uma coluna. Para isso, criamos um vetor com os valores desejados e aplicamos o teste `%in%`, ou seja, dentro da coluna `Area`, pedimos para que nos retorne somente os valores que estão contidos no vetor.  
+
+```{r}
+conjunto_paises <- filter(graos,
+                          Area %in% c("Brazil", "Argentina", "Chile"))
+
+unique(conjunto_paises$Area)
+```
+
+A função `unique()` comprova a seleção dos respectivos países filtrados, nos retornando todos os valores únicos contidos na coluna `Area` após a utilização do filtro.  
+
+Por outro lado, podemos retirar valores com o operador `!`.  
+
+```{r}
+retirando_paises <- filter(graos,
+                           !(Area %in% c("Brazil", "Argentina", "Chile")))
+
+unique(retirando_paises$Area)
+```
+
+Da mesma forma, podemos aplicar os filtros para variáveis quantitativas. Note no exemplo a seguir que aplicamos 3 filtros. O primeiro referente à variável categórica `Element`, sendo os outros dois, às variáveis quantitativas `Year` e `Value`.  
+
+```{r}
+filter(graos,
+       Element == "Production",
+       Year > 2010,
+       Value > 10^7)
+```
+
+Para melhorar a organização e a apresentação da base de dados, podemos aplicar as funções `filter()` e `select()` juntas. Para tanto, utilizaremos o *pipe* para mesclar ambas as funções em uma *pipeline*.  
+
+```{r}
+graos %>% 
+  filter(Element == "Production",
+         Area %in% c("Brazil", "Argentina"),
+         Year > 2010) %>% 
+  select(Area, Element, Item, Year, Unit, Value)
+
+```
+
+Perceba que a aplicação do *pipe* é bem simples e intuitiva. Primeiramente, indicamos a base de dados a ser utilizada para realizar a filtragem e seleção - no caso, a base `graos`. Em seguida, escrevemos o `%>%` para conectar o banco de dados com a função `filter()`; nesse caso, filtramos apenas os valores iguais a `"Production"` na coluna `Element`, os países `Brazil` e `Argentina` na variável `Area` e os anos maiores que 2010. Novamente, escrevemos o `%>%` para aplicar a `select()` e selecionar as variáveis desejadas.  
+
+Note que não foi preciso indicar, como primeiro argumento das funções, qual a base de dados utilizada, pois essa foi especificada na primeira parte da *pipeline*. Além disso, a execução do código é realizada na ordem em que são escritos os comandos. Assim, caso desejarmos filtrar uma coluna e, posteriomente, retirá-la da seleção, devemos nos atentar à ordem dos comandos.  
+
+```{r}
+graos %>% 
+  filter(Area == "Brazil",
+         Element == "Production",
+         Year %in% c(2015:2019)) %>% 
+  select(Item, Year, Value)
+```
+
+No exemplo acima, perceba que filtramos as colunas `Area` e `Element`, mas não às selecionamos posteriormente. Caso fosse realizada a seleção antes da filtragem, não seria possível filtrar as devidas variáveis, uma vez que não selecionamos suas colunas para, posteriormente, serem filtradas.  
+
+
+### Modificar e criar colunas
+
+Para modificar ou criar novas colunas, utilizamos a função `mutate()`. No exemplo a seguir, transformaremos os valores de produção, em toneladas, para quilogramas.  
+
+```{r}
+graos %>% 
+  filter(Element == "Production") %>% 
+  select(Area, Element, Item, Year, Value) %>% 
+  mutate(Value = Value*1000)
+```
+
+No código acima, transformamos os valores da coluna `Value`. Contudo, também podemos manter a coluna original e criar uma nova coluna com a variável calculada. Basta designar um novo nome à coluna, nesse caso, criamos a `Value(kg)`.  
+
+```{r}
+graos %>% 
+  filter(Element == "Production") %>% 
+  select(Area, Element, Item, Year, Value) %>% 
+  mutate(Value_kg = Value*1000)
+```
+
+Podemos realizar qualquer operação com a quantidade de colunas que desejarmos. Porém, deve ser retornado um vetor com comprimento igual à quantidade de linhas da base de dados ou com comprimento igual a 1, sendo assim realizado o processo de reciclagem do valor.  
+
+```{r}
+graos %>% 
+  filter(Element == "Production") %>% 
+  select(Area, Element, Item, Year, Value) %>% 
+  mutate(Value = Value*1000,
+         Unit = "kg")
+```
+
+
+### Resumo de valores
+
+O processo de sumarizar consiste em resumir um conjunto de dados a partir de uma medida de interesse. Como exemplo, podemos tirar a média, mediana, frequência e proporção dos valores desejados. Para isso, utilizamos a função `summarise()`. A seguir, faremos a média da produção de milho no Brasil.  
+
+```{r}
+graos %>% 
+  filter(Area == "Brazil",
+         Element == "Production",
+         Item == "Maize") %>% 
+  select(Area, Item, Year, Value) %>% 
+  summarise(media = mean(Value, na.rm = TRUE))
+```
+
+Podemos calcular várias medidas diferentes na função `summarise()`.  
+
+```{r}
+graos %>% 
+  filter(Area == "Brazil",
+         Element == "Production",
+         Item == "Maize") %>% 
+  select(Area, Item, Year, Value) %>% 
+  summarise(media = mean(Value),
+            mediana = median(Value),
+            variancia = var(Value))
+```
+
+Há casos em que queremos sumarizar uma coluna de acordo com alguma variável categórica de uma outra coluna. Para isso, utilizamos a função `group_by()` para indicar qual coluna desejamos agrupar para realizar a `summarise()`. No exemplo a seguir, agruparemos a variável `Element` para calcular a média da produção (`Production`) e da área colhida (`Area harvested`) de soja, na América do Sul.  
+
+```{r}
+graos %>% 
+  filter(Item == "Soybeans") %>% 
+  group_by(Element) %>% 
+  summarise(media = mean(Value, na.rm = TRUE))
+```
+
+Podemos agrupar mais de duas variáveis para sumarizar. A seguir, agruparemos as colunas `Area` e `Element` para calcular, novamente, a média da produção e da área colhida, mas agora, por país sul-americano.  
+
+```{r warning=FALSE}
+graos %>% 
+  filter(Item == "Soybeans") %>%
+  group_by(Area, Element) %>% 
+  summarise(media = mean(Value, na.rm = TRUE))
+```
+
+
+### Ordenar
+
+Podemos ordenar as linhas da base de dados de acordo com algum parâmetro referente aos valores de uma ou mais colunas. Para tanto, utilizamos a função `arrange()`.  
+
+```{r}
+graos %>% 
+  filter(Element == "Production") %>% 
+  select(Area, Item, Year, Value) %>% 
+  arrange(Value)
+```
+
+Por padrão, a função `arrange()` ordena os valores em ordem crescente. Para ordená-las em ordem decrescente, utilizamos a função `desc()` dentro da própria `arrange()`.  
+
+```{r}
+graos %>% 
+  filter(Element == "Production") %>% 
+  select(Area, Item, Year, Value) %>% 
+  arrange(desc(Value))
+```
+
+Além disso, podemos ordenar a base de dados de acordo com duas variáveis.  
+
+```{r}
+graos %>% 
+  filter(Element == "Production",
+         Item == "Rice, paddy") %>% 
+  select(Area, Year, Value) %>% 
+  arrange(Year, desc(Value))
+```
+
+Perceba que a ordem da declaração das variáveis na função `arrange()` altera a prioridade da ordenação.  
+
+```{r}
+graos %>% 
+  filter(Element == "Production",
+         Item == "Rice, paddy") %>% 
+  select(Area, Year, Value) %>% 
+  arrange(desc(Value), Year)
+```
+
+Nesse último exemplo, priorizamos a ordenação pelos valores de produção, em quanto que no outro, ordenamos a base a partir dos anos e, posteriormente, dos valores de produção.  
+
+
+### Mudar nomes de colunas
+
+Podemos alterar os nomes das colunas com a função `rename()`. Basta inserir o nome desejado e indicar, após o sinal de `=`, qual coluna da base de dados se deseja alterar o nome.  
+
+```{r}
+graos %>% 
+  select(Area, Element, Item, Year, Unit, Value) %>% 
+  rename(`país` = Area, tipo = Element, cultura = Item, ano = Year, 
+         unidade = Unit, valor = Value)
+```
+
+### Juntar bases de dados
+
+Em alguns casos, precisamos utilizar informações presentes em diferentes bases de dados, como por exemplo em planilhas Excel distintas ou em diferentes abas de uma mesma planilha. Nesse caso, é necessário juntar todas as informações em um único *data frame*.  
+
+Para isso, podemos utilizar algumas funções presentes no pacote `dplyr`. A seguir, apresentaremos as funções do tipo `bind_` e `_join`, usando como exemplo a planilha `dados_juntar.xlsx`, presente no mesmo *link* para *download* apresentado no início desse capítulo.  
+
+```{r}
+excel_sheets("dados_transf/dados_juntar.xlsx")
+```
+
+Com a função `readxl::excel_sheets()`, verificamos que a planilha contém 5 abas. Essas abas tratam de um mesmo tema, as quais precisaremos juntar em um único *data frame*. Assim, devemos salvar cada aba da planilha em um objeto.  
+
+```{r}
+d1 <- read_excel("dados_transf/dados_juntar.xlsx", sheet = "dados1")
+
+d2 <- read_excel("dados_transf/dados_juntar.xlsx", sheet = "dados2")
+
+d3 <- read_excel("dados_transf/dados_juntar.xlsx", sheet = "dados3")
+
+d4 <- read_excel("dados_transf/dados_juntar.xlsx", sheet = "dados4")
+
+d5 <- read_excel("dados_transf/dados_juntar.xlsx", sheet = "dados5")
+```
+
+#### Funções `bind_` {-}
+
+As funções do tipo `bind_` são as mais simples para juntarmos os bancos de dados. A função `bind_rows()` junta as observações (linhas) de dois ou mais bancos de dados com base nas colunas. Com essa função, podemos realizar a união dos *data frames* `d1`, `d2`, `d3` e `d4`, que possuem as mesmas variáveis (colunas), porém tratando de diferentes observações.  
+
+```{r}
+d1
+d2
+d3
+d4
+```
+
+Primeiramente, uniremos as bases `d1` e `d2`. Dentro da função `bind_rows()` declaramos os *data frames* que desejamos juntar, separados por vírgula.  
+
+```{r}
+juntar.linhas.d1.d2 <- bind_rows(d1, d2)
+juntar.linhas.d1.d2
+```
+
+Uma vez unidos os dados de `d1` e `d2`, juntaremos com o `d3`. Porém, note que as colunas da base `d3` apresentam uma ordem diferente em relação ao `d1` e ao `d2`. Mesmo com a ordem diferente, a função consegue combinar as linhas de maneira adequada, desde que os nomes das colunas dos bancos de dados sejam iguais.  
+
+```{r}
+juntar.linhas.d1.d2.d3 <- bind_rows(juntar.linhas.d1.d2, d3)
+juntar.linhas.d1.d2.d3
+```
+
+A função `bind_rows()` consegue juntar mais de dois bancos de dados em um só comando. Basta declararmos as bases que desejamos juntar.  
+
+```{r}
+# Juntando d1, d2 e d3 em um só comando
+juntar.linhas.direto <- bind_rows(d1, d2, d3)
+juntar.linhas.direto
+```
+
+Por último, precisamos unir o `d4` aos demais dados.  
+
+```{r}
+juntar.linhas.d1.d2.d3.d4 <- bind_rows(d1, d2, d3, d4)
+juntar.linhas.d1.d2.d3.d4
+```
+
+Juntando a base de dados `d4` ao `d1`, `d2` e `d3`, percebemos que foi criada uma nova coluna. Isso ocorre, pois a nomenclatura atribuída à variável `nome` no `d4` está no plural, sendo assim, precisamos padronizar o nome dessa variável antes de juntá-la às demais bases.  
+
+```{r}
+d4_corrigido <- d4 %>% 
+  rename("nome" = nomes)
+
+names(d4_corrigido)
+```
+
+```{r}
+juntar.linhas <- bind_rows(d1, d2, d3, d4_corrigido)
+juntar.linhas
+```
+
+Com a função `rename()`, renomeamos a coluna `nomes` para o singular (`nome`). Assim, ao realizar a junção dos quatro bancos de dados, os nomes são alocados em uma única coluna (`nome`).  
+
+<br>
+
+Já a função `bind_cols()` une colunas de dois ou mais bancos de dados. A seguir, juntaremos as colunas das bases `juntar.linhas` e `d5`.  
+
+```{r}
+juntar.linhas
+d5
+```
+
+```{r}
+juntar.colunas <- bind_cols(juntar.linhas, d5)
+juntar.colunas
+```
+
+Note que a função juntou as colunas, preservando todas as variáveis, bem como a ordem original das linhas das bases de dados. Porém, nesse caso, seria conveniente unir as colunas com base na variável em comum entre os conjuntos, no caso, a variável `nome`. Para isso, utilizamos um outro conjunto de funções, as do tipo `_join`.  
+
+#### Funções `_join` {-}
+
+Para juntar dois conjuntos de dados com base em uma ou mais colunas em comum, utilizamos as funções do tipo `_join` (conhecidas também por *merge*). Você deve ter notado que a base `d5` possui indivíduos em comum com a base `juntar.linhas`; mas também, diferentes.  
+
+Nesse caso, de acordo com o que se deseja para a análise, podemos selecionar todas as observações dos conjuntos; apenas as observações exclusivas de um dos conjuntos de dados; ou aquelas que estão presentes em ambas as bases de dados. A figura \@ref(fig:join) ilustra tais possibilidades e as respectivas funções.  
+
+```{r join, echo=FALSE, out.width="70%", fig.cap="Diagrama de Venn com os tipos de joins. Fonte: R for Data Science, 2017."}
+knitr::include_graphics("imagens/join-venn.png")
+```
+
+A função `inner_join()` retorna as observações em comum entre os dois conjuntos, de acordo com certa variável.  
+
+```{r}
+inner.join <- inner_join(juntar.linhas, d5,
+                         by = "nome")
+inner.join
+```
+
+Na função acima, declaramos as duas bases de dados a serem unidas, junto ao argumento `by = "nome"`, sendo essa a variável em comum. Como resultado, a `inner_join()` nos retornou apenas a observações em comum entre o conjunto.  
+
+```{r, echo=FALSE, out.width="50%", fig.cap="Esquematização da função $inner_join$. Fonte: R for Data Science, 2017."}
+knitr::include_graphics("imagens/join-inner.png")
+```
+
+Caso haja mais de uma variável em comum, bastaria declarar um vetor com as variáveis no argumento `by =` (`by = c("var_1", "var_2", ..., "var_n")`). Atente-se ao fato que as variáveis devem estar entre aspas.  
+
+<br>
+
+A função `full_join()` nos retorna todas as observações de ambos os conjuntos, atribuindo valor `NA` para os valores ausentes.  
+
+```{r}
+full.join <- full_join(juntar.linhas, d5, by = "nome")
+full.join
+```
+
+```{r, echo=FALSE, out.width="50%", fig.cap="Esquematização da função $full_join$. Fonte: R for Data Science, 2017."}
+knitr::include_graphics("imagens/join-full.png")
+```
+
+<br>
+
+A função `left_join()` retorna todas as observações presentes no primeiro conjunto declarado, além dos valores em comum do segundo conjunto em relação ao primeiro. Por outro lado, a `right_join()` retorna todas as observações do segundo conjunto declarado e os valores em comum do primeiro conjunto em relação ao segundo.  
+
+```{r}
+left.join <- left_join(juntar.linhas, d5, by = "nome")
+left.join
+
+right.join <- right_join(juntar.linhas, d5, by = "nome")
+right.join
+```
+
+Note que em ambas as funções, o primeiro conjunto declarado é o `juntar.linhas`, sendo o segundo, o `d5`.  
+
+```{r, echo=FALSE, out.width="50%", fig.cap="Esquematização das funções $left_join$ e $right_join$. Fonte: R for Data Science, 2017."}
+knitr::include_graphics("imagens/join-rl.png")
+```
+
+<br>
+
+Por fim, temos o `semi_join()` e o `anti_join()`.  
+
+O `semi_join()` nos retorna todas as observações do primeiro conjunto que também estão presentes no segundo.  
+
+```{r}
+# Tendo como primeiro conjunto o `juntar.linhas`
+semi.join1 <- semi_join(juntar.linhas, d5, by = "nome")
+semi.join1
+
+# Tendo como primeiro conjunto o `d5`
+semi.join2 <- semi_join(d5, juntar.linhas, by = "nome")
+semi.join2
+```
+
+```{r, echo=FALSE, out.width="50%", fig.cap="Esquematização da função $semi_join$. Fonte: R for Data Science, 2017."}
+knitr::include_graphics("imagens/join-semi.png")
+```
+
+<br>
+
+Já o `anti_join()`, retorna as observações do primeiro conjunto que não estão presentes no segundo.  
+
+```{r}
+# Tendo como primeiro conjunto o `juntar.linhas`
+anti.join1 <- anti_join(juntar.linhas, d5, by = "nome")
+anti.join1
+
+# Tendo como primeiro conjunto o `d5`
+anti.join2 <- anti_join(d5, juntar.linhas, by = "nome")
+anti.join2
+```
+
+```{r, echo=FALSE, out.width="50%", fig.cap="Esquematização da função $anti_join$. Fonte: R for Data Science, 2017."}
+knitr::include_graphics("imagens/join-anti.png")
+```
+
+Tanto no `semi_join()`, como no `anti_join()`, mantêm-se apenas as colunas presentes no primeiro conjunto.  
+
+<br>
+
+Pode-se notar que o `inner_join()`, `full_join()`, `left_join()` e `right_join()` adicionam novas variáveis a um conjunto de dados a partir de observações correspondentes em outro, ou seja, são *mutating joins* (atuam de maneira semelhante à função `mutate()`). Já o `semi_join()` e o `anti_join()`, filtram observações de um conjunto de dados com base na correspondência - ou não - a uma observação no outro conjunto, ou seja, são *filtering joins* (atuam de maneira semelhante à função `filter()`).  
+
+<br>
+
+Partindo de uma base de dados cujas medidas de interesse foram selecionadas, filtradas, criadas, calculadas e unidas, podemos representá-las em gráficos, de acordo com o tipo de dado a ser representado. Com isso, no próximo capítulo, veremos como fazer gráficos a partir do pacote `ggplot2`, com o intuito de enxergarmos os nossos dados a partir de uma outra perspectiva.  
+
+
+

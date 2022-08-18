@@ -1,0 +1,436 @@
+# Importação {#import}
+
+Neste capítulo, iniciaremos a primeira etapa para começarmos a aplicar ciência de dados: a importação dos dados para o R. Deve-se ter em mente que um conjunto de dados pode estar em diversos formatos, seja em arquivo de texto, planilha Excel ou extensões de outros programas. Assim, para cada formato, haverá uma maneira específica de importá-los ao R. Nesta apostila, trataremos dos formatos mais usuais a serem importados: os arquivos texto e as planilhas Excel.  
+
+Como citado na seção \@ref(proj), referente à criação de projetos no RStudio, devemos criar um projeto para cada trabalho realizado, logo, direcionar os arquivos a serem importados para o respectivo diretório, a fim de manter uma organização e facilitar o nosso acesso aos documentos necessários. Portanto, caso ainda não tenha criado um projeto, confira a seção referente ao tema.  
+
+A seguir, mostraremos como importar os dados em formato texto e planilha Excel. Para os exemplos, utilizaremos a base de dados referente a produção de cereais, extraída da FAOSTAT. Faça o *download* da pasta [clicando aqui](https://github.com/gustavojy/ApostilaCD-R/blob/main/dados_zip/dados_importar.zip?raw=true). Nela, estão presentes as mesmas bases de dados em diversos formatos de arquivos para que você possa acompanhar os exemplos a seguir.  
+
+<br>
+
+## Pacote `readr`
+
+Com o pacote `readr`, podemos ler arquivos em formato de texto, como os `.txt` e os `.csv`.  
+
+```{r}
+library(readr)
+```
+
+O `readr` importa os arquivos no formato de `tibbles`, análogo aos *data frames* (seção \@ref(dataf)). No capítulo \@ref(org) veremos mais detalhes sobre as `tibbles`. Neste momento, focaremos em como importar os dados para o R, para então, entendermos os diferentes formatos de dados. A seguir, estão apresentadas as funções a serem utilizadas de acordo com o formato do arquivo:  
+
+- `read_csv()`: arquivos separados por vírgula;  
+
+- `read_csv2()`: arquivos separados por ponto-e-vírgula;  
+
+- `read_tsv()`: arquivos separados por tabulação;  
+
+- `read_delim()`: arquivos separados por um delimitador genérico. Requer o argumento `delim =` para indicar qual o caractere que separa as colunas do arquivo texto;  
+
+- `read_table()`: arquivos com colunas separadas por espaço.  
+
+Para entendermos melhor o que são separadores, basicamente, em um arquivo texto, as colunas do Excel são delimitadas por um operador, ou seja, um separador de colunas, podendo ser vírgulas, ponto-e-vírgulas, espaços, TAB ou um delimitador genérico. Para isso, o `readr` apresenta diferentes funções para conseguir importar estes arquivos no formato correto, de acordo com o tipo de arquivo e delimitador utilizado.  
+
+### Ler arquivos texto
+
+Importaremos arquivos texto nos formatos `.csv` e `.txt`.  
+
+Para ler um arquivo em `.csv`, cujo separador de colunas são as vírgulas, utilizamos a função `read_csv()`.  
+
+```{r, eval=FALSE}
+cereais_csv <- read_csv(file = "cereais.csv")
+```
+
+```{r, echo=FALSE, message=TRUE}
+cereais_csv <- read_csv(file = "dados_importar/cereais.csv")
+```
+
+Ao importar o arquivo `.csv`, a função nos informa as dimensões do banco de dados (`Rows` e `Columns`), o delimitador considerado (`Delimiter:`) e a classe atribuída para cada variável (coluna). Podemos perceber que das 14 variáveis, em 8 foi atribuída a classe do tipo caractere (`chr (8)`) e em 6, a classe numérica (`dbl (6)`).  
+
+Devemos nos atentar a este passo, pois em algumas situações, a classificação das variáveis pode estar errada ou imprópria para o uso correto nas análises. Na subseção \@ref(readrgs), apresentaremos o argumento `col_types =` para reclassificar as variáveis.  
+
+O argumento `file =` representa o caminho até o arquivo. Perceba que não foi preciso indicar o diretório do arquivo, pois esse se localiza na mesma pasta do projeto em uso. Caso o arquivo esteja em uma outra pasta presente no diretório do projeto em uso, devemos especificá-la dentro do caminho até o arquivo. Exemplificaremos o processo com a pasta de nome `dados_importar`.  
+
+```{r, eval=FALSE}
+cereais_csv <- read_csv(file = "dados_importar/cereais.csv")
+```
+
+Em algumas situações, as colunas dos arquivos `.csv` são separadas por ponto-e-vírgula. Esse tipo de arquivo costuma ser utilizado quando os separadores decimais são as vírgulas, como é o caso da sintaxe utilizada no Brasil. Nesse caso, deve-se utilizar a função `read_csv2()`.  
+
+```{r, eval=FALSE}
+cereais_csv2 <- read_csv2(file = "cereais2.csv")
+```
+
+<br>
+
+Já os arquivos `.txt` são lidos a partir da função `read_delim()`, sendo necessário indicar qual caractere é utilizado para separar as colunas do arquivo a ser importado.  
+
+No exemplo a seguir, importaremos um arquivo `.txt`, separado por tabulação, sendo que o código `\t` representa a tecla TAB.  
+
+```{r, eval=FALSE}
+cereais_txt <- read_delim(file = "cereais.txt", delim = "\t")
+```
+
+Também podemos importar o arquivo anterior a partir da função `read_tsv()`, pois considera a tabulação como separador. Assim, não precisamos utilizar o argumento `delim =`.  
+
+```{r, eval=FALSE}
+cereais2_tab <- read_tsv(file = "cereais.txt")
+```
+
+<br>
+
+### Outros argumentos {#readrgs}
+
+Alguns outros argumento estão presentes na maioria das funções de importação de arquivos do pacote `readr`. Essas funções auxiliam na organização do banco de dados, pois visam arrumar alguns detalhes antes mesmo de importá-los ao R. A seguir, citaremos alguns desses:  
+
+#### `skip =` {-}
+
+Pula linhas do começo do arquivo antes da importação. Muito útil para evitar possíveis textos presentes no início do arquivo. Indique no argumento a quantidade de linhas a serem puladas;  
+
+```{r, eval=FALSE}
+# Exemplo: pular as duas primeiras linhas do banco de dados
+cereais_csv <- read_csv(file = "cereais.csv",
+                        skip = 2)
+```
+
+#### `comment =` {-}
+
+No caso de arquivos que possuem algum caractere padrão que precede os comentários, usamos esse argumento para indicar qual o caractere utilizado. Por exemplo, caso o caractere `#` venha antes de todos os comentários presentes em um arquivo, utilizamos o `comment = "#"` para que o arquivo importado venha sem a parte comentada;  
+
+```{r, eval=FALSE}
+cereais_csv <- read_csv(file = "cereais.csv",
+                        comment = "#")
+```
+
+#### `na = ` {-}
+
+Atribui valor `NA` a determinado caractere especificado no argumento. Aceita um vetor como objeto do argumento. Como exemplo, atribuiremos valor `NA` ao texto `Brazil`, presente na coluna `Area`, a fim de ilustrar o argumento.  
+
+```{r, eval=FALSE}
+cereais_csv <- read_csv(file = "cereais.csv",
+                        na = "Brazil")
+
+head(cereais_csv)
+```
+
+```{r, echo=FALSE, message=TRUE, warning=FALSE}
+cereais_csv <- read_csv(file = "dados_importar/cereais.csv",
+                        na = "Brazil",
+                        show_col_types = F)
+
+head(cereais_csv)
+```
+
+
+#### `col_names =` {-}
+
+Por padrão, a função assume que a primeira linha da base de dados é o nome das colunas. Caso a base de dados não venha com os nomes das colunas, utilizamos o argumento `col_names = FALSE`.  
+
+```{r, eval=FALSE}
+cereais_csv <- read_csv(file = "cereais.csv",
+                        col_names = F,
+                        skip = 1)
+
+head(cereais_csv)
+```
+
+```{r, echo=FALSE, message=TRUE, warning=FALSE}
+cereais_csv <- read_csv(file = "dados_importar/cereais.csv",
+                        col_names = F,
+                        skip = 1,
+                        show_col_types = F)
+
+head(cereais_csv)
+```
+
+Perceba que a função atribui nomes genéricos para as colunas, o que dificulta a identificação das variáveis presentes no banco de dados. Para isso, com o mesmo argumento `col_names =`, podemos (re)nomear as colunas.  
+
+```{r, eval=FALSE}
+cereais_csv <- read_csv(file = "cereais.csv",
+                        col_names = c("cd", "cod","ac", "pais", "ec",
+                                      "elemento", "ic", "cultura", "yc",
+                                      "ano", "unidade", "valor", "flag",
+                                      "descricao"),
+                        skip = 1)
+
+head(cereais_csv)
+```
+
+```{r, echo=FALSE, message=TRUE, warning=FALSE}
+cereais_csv <- read_csv(file = "dados_importar/cereais.csv",
+                        col_names = c("cd", "cod","ac", "pais", "ec",
+                                      "elemento", "ic", "cultura", "yc",
+                                      "ano", "unidade", "valor", "flag",
+                                      "descricao"),
+                        skip = 1,
+                        show_col_types = F)
+
+head(cereais_csv)
+```
+
+Como exemplo, renomeamos as colunas com o argumento `col_names = c()`, sendo que cada coluna deve ser, obrigatoriamente, renomeada ou conter o mesmo nome anterior, porém reescrito dentro do vetor, na ordem correta. Perceba que temos que pular a primeira linha (`skip = 1`), pois após a renomeação, a primeira linha do *data frame* será o antigo nome das colunas. Por outro lado, caso a base da dados tenha vindo sem nome, o argumento `skip` não precisa estar presente.  
+
+
+#### `col_types =` {-}
+
+No caso de alguma coluna ser importada com a classe errada ou imprópria, utiliza-se tal argumento para alterar a classe. Será exemplificada a transformação da variável `Element` em fator e da variável `Year` em números inteiros.  
+
+```{r, eval=FALSE}
+cereais_csv <- read_csv(file = "cereais.csv",
+                        col_types = cols(
+                          Element = col_factor(),
+                          Year = col_integer()))
+
+class(cereais_csv$Element)
+class(cereais_csv$Year)
+```
+
+```{r, echo=FALSE, message=TRUE, warning=FALSE}
+cereais_csv <- read_csv(file = "dados_importar/cereais.csv",
+                        col_types = cols(
+                          Element = col_factor(),
+                          Year = col_integer()))
+
+class(cereais_csv$Element)
+class(cereais_csv$Year)
+```
+
+
+#### `locale =` {-}
+
+Esse argumento define opções de formatações de certas localidades, como o idioma, formato de datas e horas, separador decimal e *encoding*. É utilizada dentro da função `read_`, tendo como objeto a função de mesmo nome, `locale()`. A seguir, veremos alguns exemplos de aplicações desse argumento.  
+
+```{r}
+# Função locale() - verifica quais padrões estão sendo utilizados
+locale()
+```
+
+```{r}
+# Troca os dias e meses para o padrão português
+locale(date_names = "pt")
+```
+
+```{r}
+# Troca o separador decimal de ponto para vírgula
+locale(decimal_mark = ",")
+```
+
+Outro problema que podemos resolver com o argumento é o *encoding* de arquivos. *Encoding* é a forma como o computador traduz os caracteres replicados no R para valores binários. Há diversos tipos de *encoding*, sendo que o Windows utiliza um diferente em relação ao Linux e Mac. Com isso, é comum termos problemas de *encoding* no Windows quando um arquivo é criado em um desses sistemas operacionais, havendo a desconfiguração de letras com acentos e outros caracteres especiais após a importação para o R. A seguir, demonstraremos o que são os problemas de *encoding* no Windows.  
+
+```{r}
+poema_drummond <- "E agora, José? A festa acabou, a luz apagou, o povo sumiu, a noite esfriou, e agora, José? (...)"
+
+# Verificando encoding no Windows
+Encoding(poema_drummond)
+
+# Forçando problema de encoding no Windows
+Encoding(poema_drummond) <- "UTF-8"
+poema_drummond
+
+```
+
+Para corrigir o *encoding* no Windows, devemos atribuir o *encoding* `latin1`.  
+
+Assim, dependendo de qual sistema operacional um arquivo foi executado, devemos converter para diferentes *encoding*.  
+
+```{r, eval=FALSE}
+# Dados via Windows: usuário de Windows, converter para "latin1"
+read_csv("dados_via_Windows.csv", locale = locale(encoding = "latin1"))
+
+# Dados via Linux/Mac: usuário de Windows, converter para "UFT-8"
+read_csv("dados_via_linux_mac.csv", locale = locale(encoding = "UFT-8"))
+```
+
+<br>
+
+Outra funcionalidade do argumento `locale =` é o de *parsear* valores. Esse termo, comum no meio da programação, significa arrumar ou formatar um "valor A" para um "valor B", a partir das similaridades entre ambos.  
+
+Como exemplo, podemos converter números que estão em formato de caractere para o formato de números, efetivamente:  
+
+```{r}
+parse_number(c("5", "5.0", "5,0", "R$5.00", "5 a"))
+```
+
+Podemos realizar o mesmo procedimento especificando o *parseamento*:  
+
+```{r}
+parse_number("5,0", locale = locale(decimal_mark = ","))
+```
+
+Ainda, podemos *parsear* datas, de acordo com o idioma:  
+
+```{r}
+# Inglês
+parse_date("08/July/2021",
+           format = "%d/%B/%Y")
+
+# Português
+parse_date("08/Julho/2021",
+           format = "%d/%B/%Y",
+           locale = locale(date_names = "pt"))
+```
+
+<br>
+
+Para conferir todos os argumentos presentes nas funções do pacote `readr`, podemos utilizar a função `args(nome_da_função)`. Exemplificaremos com a função `read_csv()`.  
+
+```{r}
+args(read_csv)
+```
+
+<br>
+
+### Escrever arquivos texto
+
+Também temos a opção de salvar uma base de dados contida no R para um formato específico de arquivo. Para tanto, utilizamos a função `write_`, acompanhada dos argumentos `x =` e `file =`, referentes, respectivamente, ao objeto a ser escrito e ao nome do arquivo a ser criado.  
+
+Nos exemplos a seguir, escreveremos dados para os formatos `.csv` e `.txt`. Utilizaremos os dados do `mtcars`, presente no banco de dados nativo do R.  
+
+```{r, eval=FALSE}
+# Arquivo .csv separado por vírgula
+write_csv(x = mtcars, file = "mtcars.csv")
+
+# Arquivo .csv separado por ponto-e-vírgula
+write_csv2(x = mtcars, file = "mtcars.csv")
+
+# Arquivo .txt, separado por tabulação
+write_delim(x = mtcars, file = "mtcars.txt", delim = "\t")
+
+```
+
+O arquivo escrito estará localizado no diretório referente ao projeto em atividade. Caso queira definir outro local para armazenar o arquivo, especifique-o no argumento `file =`. Por exemplo, caso deseje salvar o arquivo em uma pasta chamada `banco_de_dados`, localizada no diretório do projeto em uso, devemos prosseguir da seguinte maneira:  
+
+```{r, eval=FALSE}
+# Arquivo .csv separado por vírgula
+write_csv(x = mtcars, file = "banco_de_dados/mtcars.csv")
+
+# Arquivo .csv separado por ponto-e-vírgula
+write_csv2(x = mtcars, file = "banco_de_dados/mtcars.csv")
+
+# Arquivo .txt, separado por tabulação
+write_delim(x = mtcars, file = "banco_de_dados/mtcars.txt", delim = "\t")
+
+```
+
+<br>
+
+## Pacote `readxl`
+
+### Ler arquivos Excel
+
+O pacote `readxl` lê e importa planilhas Excel em formato `.xlsx` e `.xls`. Para tanto, utilizamos a função `read_excel()`. Esta função identifica automaticamente qual a extensão do arquivo, seja `.xlsx` ou `.xls`.  
+
+```{r, eval=FALSE}
+library(readxl)
+
+cereais_xlsx <- read_excel("cereais.xlsx")
+```
+
+```{r, echo=FALSE, message=TRUE, warning=FALSE}
+library(readxl)
+
+cereais_xlsx <- read_excel("dados_importar/cereais.xlsx")
+```
+
+Neste mesmo pacote, estão presentes alguns exemplos de arquivos nos formatos `.xlsx` e `.xls`. Para conferi-los, utilizamos a função `readxl_example()`.
+
+```{r}
+readxl_example()
+```
+
+Para utilizar um destes dados, devemos verificar em qual diretório estão localizados. Vamos exemplificar com o arquivo `"deaths.xlsx"`, salvando sua localização no objeto `local_arquivo`.
+
+```{r}
+local_arquivo <- readxl_example("deaths.xlsx")
+local_arquivo
+```
+
+Em alguns casos, um arquivo Excel pode conter diversas planilhas. Para verificar quais planilhas estão presentes, utilizamos a função `excel_sheets()`.  
+
+```{r}
+excel_sheets(local_arquivo)
+```
+
+Perceba que o arquivo Excel `deaths` apresenta duas planilhas: "arts" e "other". Para selecionar a planilha desejada, devemos utilizar o argumento `sheet =` dentro da função `read_excel()`. Caso não seja utilizado o argumento, por padrão, será selecionada a primeira planilha contida no arquivo.
+
+```{r}
+# Primeira planilha
+read_excel(local_arquivo)
+
+```
+
+```{r}
+# Segunda planilha
+read_excel(local_arquivo, sheet = 2)
+
+```
+
+```{r}
+# Seleciona a segunda planilha, agora pelo seu nome
+read_excel(local_arquivo, sheet = "other")
+
+```
+
+Podemos verificar outros argumentos presentes nas funções do pacote `readxl` com a função `args(nome_da_função)`. Exemplificaremos com a função `read_excel()`.  
+
+```{r}
+args(read_excel)
+```
+
+Como se pode notar, há diversos argumentos idênticos aos demonstrados na subseção \@ref(readrgs), referente ao pacote `readr`. Contudo, na função `read_excel()` não temos o argumento `locale`, sendo uma falta relevante para que possamos resolver problemas relacionados à temática. Como alternativa, podemos priorizar a importação de arquivos texto ao R, ao invés de planilhas Excel, sendo facilmente resolvido salvando o Excel em formato texto, seja em `.csv` ou `.txt`.  
+
+<br>
+
+### Escrever arquivos Excel
+
+Também podemos escrever um arquivo Excel em formato `.xlsx` utilizando a função `write_xlsx`, contida no pacote `writexl`. Utilizaremos novamente os dados `mtcars` para demonstração.  
+
+```{r, message=FALSE, eval=FALSE}
+install.packages("writexl")
+library(writexl)
+
+write_xlsx(mtcars, "mtcars.xlsx")
+
+```
+
+<br>
+
+## Importação via URL
+
+Uma opção prática para importar dados presentes na internet, diretamente do ambiente do RStudio, se dá via URL, ou seja, a partir do endereço *web* em que se localiza o banco de dados para *download*. Esse método permite a importação direta do banco de dados para o R, sem a necessidade de realizar o *download* de um arquivo para o seu computador.  
+
+Como exemplo, importaremos os dados sobre preços praticados por revendedores de combustíveis automotivos e de gás liquefeito de petróleo, no 2º semestre de 2021, coletados do [Portal Brasileiro de Dados Abertos](https://dados.gov.br/dataset/serie-historica-de-precos-de-combustiveis-por-revenda/resource/baf0fa4d-488a-45b4-8ba4-d0c9f447f843).  
+
+```{r}
+url <- "https://www.gov.br/anp/pt-br/centrais-de-conteudo/dados-abertos/arquivos/shpc/dsas/ca/ca-2021-02.csv"
+
+dados_comb <- read_csv2(file = url)
+
+head(dados_comb)
+```
+
+Para isso, o primeiro passo é salvar a URL em um objeto; no caso, denominamos o objeto de `url`. Por se tratar de um arquivo `.csv`, delimitado por `;`, utilizamos a função `read_csv2()` para importar o arquivo, tendo como argumento `file =` a URL salva no objeto `url`.  
+
+<br>
+
+## Banco de dados
+
+A seguir, listaremos alguns sites que fornecem uma grande variedade de base de dados públicas. Confira algum que apresente dados de seu interesse, para que você possa aplicá-los futuramente no R.  
+
+- FAOSTAT: https://www.fao.org/faostat/en/#data
+
+- IBGE: https://sidra.ibge.gov.br/acervo#/A/Q
+
+- USDA: https://apps.fas.usda.gov/psdonline/app/index.html#/app/advQuery
+
+- DataBank: https://databank.worldbank.org/home.aspx
+
+- Kaggle: https://www.kaggle.com/datasets;  
+
+- Dados do Agro: https://dados.agr.br/fonte-de-dados/
+
+<br>
+
+Como pudemos perceber, a importação de dados para o R não é uma tarefa difícil. Devemos nos atentar ao formato em que o arquivo está, a fim de utilizarmos a função de importação correta. Dependendo da fonte dos dados, esses podem vir com algumas configurações indesejadas, o que pode ser resolvido antes mesmo de importarmos os dados, utilizando funções e argumentos específicos para cada necessidade. Por fim, também conhecemos funções que escrevem os dados do R para diversos formatos, seja arquivos texto ou planilhas Excel.  
+
+No próximo capítulo, trataremos da etapa de **arrumar** os dados. Serão apresentadas as `tibbles`, um tipo de *data frame* que utilizaremos muito, além de explorarmos as funcionalidades presentes no pacote `tidyr`, a fim de obtermos uma base de dados organizada e fácil de se trabalhar.  
+

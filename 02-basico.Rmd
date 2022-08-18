@@ -1,0 +1,814 @@
+# Noções básicas em R
+
+Para trabalhar com ciência de dados em R, devemos ter algumas noções básicas de programação nessa linguagem. Os conceitos discutidos neste capítulo serão a base para aplicarmos as demais ferramentas ao longo da apostila.  
+
+
+## Projetos {#proj}
+
+Uma funcionalidade importante do RStudio são os projetos. Ao criar um projeto, uma nova pasta é criada em seu computador. Nela, podemos (e devemos) direcionar os arquivos a serem utiilizados para o projeto, além de abrigar os novos arquivos criados para a análise.  
+
+Com isso, a criação de projetos nos proporciona uma melhor organização dos arquivos, separando-os de acordo com o projeto realizado no R. Além disso, facilita a importação de dados para dentro do R, como veremos no capítulo \@ref(import), referente à importação de dados.  
+
+Para criar um projeto, clique em `File`, presente no menu superior, depois em `New Project...`. Então, abrirá uma janela como o da imagem a seguir:  
+
+```{r, echo=FALSE, out.width="50%"}
+knitr::include_graphics("imagens/criar_projeto.png")
+```
+
+Clique em `New Directory`, `New Project` e nomeie seu projeto em `Directory name`. Em `Create project as subdirectory of:` escolha o diretório em seu computador (pasta) no qual seu novo projeto será alocado. Finalize clicando em `Create Project`.  
+
+Pronto, seu projeto está criado. No canto superior direito aparecerá o nome do projeto. Além disso, na aba `Files`, estarão todos os arquivos contidos na pasta referente ao projeto. Portanto, direcione todos os arquivos que você utilizará para a respectiva pasta do projeto em uso.  
+
+```{r, echo=FALSE, out.width="80%"}
+knitr::include_graphics("imagens/projeto_aberto.png")
+```
+
+Clicando no mesmo ícone o qual aparece o nome do projeto, podemos criar um novo projeto e abrir um projeto já existente. Por tanto, atente-se a qual projeto se encontra ativo.  
+
+<br>
+
+## Ajuda
+
+Cada ferramenta presente no R contém uma documentação que explica a sua utilização. Para acessarmos tais documentos, podemos prosseguir das seguintes maneiras:  
+
+```{r, eval=FALSE}
+?mean
+
+help(mean)
+```
+
+Neste exemplo, queremos saber mais sobre a função `mean`, ou seja, função que calcula a média aritmética. Ao rodar um destes comandos, a documentação referente à função será aberta na aba `Help`. Nela conterá algumas descrições importantes, como a noção geral de uso da função, os argumentos aceitos e exemplos de utilização.  
+
+Portanto, caso tenha dúvidas sobre qualquer outra ferramenta - seja funções, *data frames*, listas ou pacotes -, utilize o `help(nome_da_ferramenta)` ou o `?nome_da_ferramenta`. Ainda, pode-se utilizar o atalho `F1` do teclado, selecionando uma ferramenta presente no *script* e clicar em `F1`.  
+
+Outra via de auxílio são as *folhas de cola*, ou **Cheatsheets**. Basicamente, trazem resumos sobre as principais funções contidas em determinados pacotes. Seu acesso pode ser realizado em: <https://www.rstudio.com/resources/cheatsheets/> ou clicando na página inicial da aba *Help*.  
+
+```{r, echo=FALSE, out.width="70%", fig.cap='Cheetsheet do RStudio. Nela podemos verificar, de maneira geral, as principais funcionalidades presentes no ambiente do RStudio.'}
+knitr::include_graphics("imagens/rstudio_cheet.png")
+```
+
+Caso ainda tenha dúvidas, não exite em fazer uma busca no Google, encontrar tutoriais explicativos - seja no YouTube ou no próprio site do [RStudio](https://www.rstudio.com/resources/webinars/) -, acessar fóruns de perguntas e respostas - como o [Stack Overflow](https://stackoverflow.com/) e acessar o [Rseek](https://rseek.org/) ou o [Search R-project](https://search.r-project.org/), que são buscadores específicos para assuntos relacionados ao R.  
+
+<br>
+
+## Comentários
+
+Podemos inserir comentários dentro do *script*, sem que estes interfiram na execução dos códigos. Fazer comentários ao longo do *script* é muito importante para quem está começando, pois assim permite fazer registros para, posteriormente, revisar a utilizadade de certas funcionalidades ou realizar alguma manutenção no código. Além disso é muito relevante para que se possa compartilhar um código inteligível com outras pessoas.  
+
+Para inserir um comentário, basta colocar o símbolo `#` antes da parte comentada.  
+
+```{r coment, echo=FALSE, out.width="80%", fig.cap='Perceba que os comentários apresentam uma coloração diferenciada e padronizada no script.'}
+knitr::include_graphics("imagens/comentario.png")
+```
+
+Como visto na figura \@ref(fig:coment), além da possibilidade de comentar no início de uma linha, também podemos realizar comentários após um comando, desde que não interfira no fluxo dos códigos.  
+
+<br>
+
+## Operações matemáticas
+
+A seguir, listaremos as principais operações matemáticas presentes no R. Digite os seguintes comandos no *script* e rode-os. Perceba que os resultados aparecem no *console*.  
+
+```{r}
+# Adição
+1 + 1.2
+
+# Subtração
+2 - 1
+
+# Multiplicação
+5 * 5
+
+# Divisão
+6 / 4
+
+# Potência (possibilidade 1)
+2 ^ 3
+
+# Potência (possibilidade 2)
+2 ** 3
+
+# Raiz quadrada
+4 ^ (1/2)
+
+# Resto da divisão
+7 %% 3
+
+# Parte inteira de uma divisão
+7 %/% 3
+
+# Ordem de precedência
+1 + 2 * 5 - (4 - 2) / 2
+
+```
+
+No caso do exemplo da ordem de precedência, assim como na matemática, o R calcula primeiro a multiplicação e divisão, além dos valores entre parênteses, para, posteriormente, calcular a adição e a subtração.  
+
+Outra informação relevante a ser dita quando tratamos de números no R é que os decimais são delimitados por pontos e não por vírgulas, portanto, diferente do padrão adotado no Brasil. Essa informação é importante para que possamos escrever números decimais da maneira a qual o R aceita.  
+
+Uma função útil para tratar de números decimais é a `round()`. Ela arredonda números decimais de acordo com o número de casas decimais informadas no argumento `digits`.  
+
+```{r}
+round(10.456783452, digits = 3)
+
+round(pi, digits = 2)
+```
+
+<br>
+
+## Objetos {#obj}
+
+Objetos são nomes que recebem um determinado valor. Para criar um objeto, utilizamos o operador `<-`, cujo atalho no teclado é `Alt` + `-` (tecla Alt, junto com o sinal de menos).  
+
+No exemplo a seguir, salvaremos o valor `10` dentro do nome `a`. Ao rodar o objeto `a`, o R retorna o valor 10.  
+
+```{r}
+# O número '10' será armazenado em 'a'
+a <- 10
+
+# Rodando o objeto 'a', retorna o valor '10'
+a
+```
+
+Perceba que ao criar um objeto, esse será armazenado na janela `Enviroment`. Para excluir objetos, selecione os que deseja excluir e clique no ícone da vassoura.  
+
+```{r, echo=FALSE, out.width="80%"}
+knitr::include_graphics("imagens/objeto.png")
+```
+
+Devemos nos atentar a alguns outros detalhes ao criarmos um objeto. Primeiramente, o R diferencia letras maiúsculas e minúsculas:  
+
+```{r}
+A <- 10
+a <- 50
+
+A
+a
+
+```
+
+Além disso, não podemos nomear um objeto começando por números, *underline* (_), ponto (.) e traço (-), sendo esses, **nomes de sintaxe inválida**.  
+
+```{r, eval=FALSE}
+# Nomes não permitidos!
+13v <- 1
+_objeto <- 2
+-objeto <- 3
+nomear-objeto <- 4
+.objeto <- 5
+
+```
+
+Contudo, podemos utilizar números, *underline* e pontos, desde que não estejam no início do nome.  
+
+```{r, eval=FALSE}
+# Permitido
+x1 <- 7
+nomear_objeto <- 25
+nomear.objeto <- 52
+
+```
+
+Neste primeiro momento, criamos objetos que recebem um único valor. Ao longo da apostila, criaremos objetos mais complexos, cada qual apresentando tipos diferentes, como os vetores, *data frames* e listas.  
+
+<br>
+
+## Funções
+
+As funções são nomes que guardam um código em R. Portanto, cada função apresenta certas ferramentas específicas que nos trazem alguma resposta.  
+
+Dentro dos parênteses de uma função estão os **argumentos**. Estes argumentos são separados por vírgulas e não há um limite de argumentos que uma função pode receber. Por tanto, uma função executa determinado comando, em resposta aos argumentos especificados dentro dela.  
+
+```{r}
+sum(1, 2, 10)
+```
+
+No exemplo, `1`, `2` e `10` são argumentos da função `sum` (ou seja, função soma). Portanto, a função realizou a operação de soma dos argumentos especificados dentro da função, retornando o resultado da operação, igual a `13`.  
+
+Alguns argumentos de funções possuem nomes, que podemos ou não explicitar em uma função. Utilizaremos como exemplo a função `seq()`.  
+
+```{r}
+seq(from = 2, to = 10, by = 2)
+```
+
+A função `seq()` cria uma sequência numérica de acordo com os argumentos. O `from` indica por qual número se inicia a sequência, o `to`, em qual número termina e o `by`, de quanto em quanto a sequência será construída. Assim, no exemplo, criamos uma sequência que começa do 2, termina no 10 e que vai de 2 em 2.  
+
+Temos a possibilidade de não explicitar os nomes dos argumentos, desde que se respeite a ordem em que os argumentos aparecem.  
+
+```{r}
+seq(2, 10, 2)
+```
+
+Para saber qual a ordem dos argumentos da função `seq()`, acessamos a sua documentação com o comando `?seq`.  
+
+Caso seja explicitado o nome dos argumentos, a ordem não interfere no resultado final.  
+
+```{r}
+seq(by = 2, from = 2, to = 10)
+```
+
+Mas caso os nomes não sejam explicitados, a ordem incorreta acarreta em outro resultado.  
+
+```{r}
+seq(2, 2, 10)
+```
+
+Além de conferir as documentações referentes às funções, podemos utilizar a função `args(nome_da_função)` para verificar todos os argumentos presentes em uma função específica.  
+
+```{r}
+args(lm)
+```
+
+As funções serão a base para realizarmos cada etapa do fluxograma da ciência de dados, assim, nos depararemos com diversas funções e argumentos específicos, cada qual presente em um pacote ou sendo nativo do R.  
+
+<br>
+
+## Classes {#classes}
+
+As classes de objetos nos indicam qual o **tipo** de valor que está armazenado em um determinado objeto. São divididas em quatro principais tipos:  
+
+- *numeric*: apresenta valores numéricos, sejam inteiros (*integer*) ou decimais (*double*);  
+
+- *character*: valores do tipo caractere. Também podemos chamá-los de valores do tipo texto, categóricos ou *string*, nome mais comum no meio da programação;  
+
+- *factor*: apresentam variáveis qualitativas possíveis de serem agrupadas em categorias. Veremos com mais detalhes na seção \@ref(fator);  
+
+- *logical*: valores lógicos do tipo verdadeiro ou falso (TRUE/FALSE). Também são conhecidos como valores booleanos. Abordaremos mais detalhadamente esta classe na seção \@ref(logica).  
+
+Para verificarmos a classe de um objeto, utilizamos a função `class()`, tendo como argumento o nome do objeto. Vejamos alguns exemplos:  
+
+```{r}
+# Classe numérica
+a <- 10
+class(a)
+
+# Classe caractere
+b <- "a"
+class(b)
+
+```
+
+Para criarmos um objeto com a classe do tipo caractere, devemos escrevê-lo entre aspas `""`. As aspas servem para diferenciar **nomes** (objetos, funções e pacotes) de **textos** (letras e palavras). No exemplo anterior, perceba que na classe numérica criamos um **objeto** de **nome** `a` que recebe o valor `10`, enquanto que na classe caractere, criamos um objeto de nome `b` que recebe o **texto** `"a"`.  
+
+Portanto, resumindo: no primeiro caso, criamos um objeto chamado `a`, enquanto no outro exemplo, criamos um objeto que contém o caractere `"a"`.  
+
+Conhecer a classe de objetos e valores é importante para definirmos os procedimentos e operações possíveis de serem realizadas. Por exemplo, podemos realizar uma operação matemática com números, porém não podemos com caracteres.  
+
+```{r, warning=TRUE}
+# Números
+10^2
+
+# Caracteres
+"a" + "b"
+"1" + "1"
+
+```
+
+No último exemplo, perceba que os números `1` foram escritos entre aspas, logo deixam de ser um tipo numérico para se apresentar como um tipo caractere. Por este motivo não conseguimos realizar a soma desses.  
+
+<br>
+
+## Data frames {#dataf}
+
+O *data frame* é o objeto que armazena os dados importados para dentro do R. São estruturados a partir de linhas e colunas, sendo que cada coluna representa uma variável e cada linha, uma observação, estrutura muito semelhante a uma planilha Excel.  
+
+```{r}
+PlantGrowth
+```
+
+O *data frame* `PlantGrowth` é nativo do R e contém dados sobre o crescimento de plantas sob 2 tipos diferentes de tratamentos (para mais informações, consulte a documentação do *data frame*, rodando `?PlantGrowth`). Possui 30 linhas (observações) e 2 colunas (variáveis).  
+
+Portanto, podemos dizer que o objeto de nome `PlantGrowth` guarda um *data frame* com 30 linhas e 2 colunas.  
+
+Podemos aplicar algumas funções em *data frames*, a fim de visualizarmos melhor sua estrutura e elementos presentes. A seguir, demonstraremos algumas delas aplicadas no *data frame* `PlantGrowth`.  
+
+```{r}
+# Mostra as 6 primeira linhas
+head(PlantGrowth)
+
+# Mostra as 6 últimas linhas
+tail(PlantGrowth)
+
+# Mostra as dimensões (nº de linhas x nº de coluna)
+dim(PlantGrowth)
+
+# Nomes das colunas (variáveis)
+names(PlantGrowth)
+
+# Estrutura do data frame com informações como o tipo, dimensão e classes
+str(PlantGrowth)
+
+# Retorna algumas medidas-resumo
+summary(PlantGrowth)
+```
+
+Os *data frames* serão o nosso principal objeto de estudo para aplicarmos ciência de dados, uma vez que guardam os dados a serem analisados. Estudaremos os *data frames* com mais detalhes na subseção \@ref(df). Mas antes, devemos conhecer alguns outros conceitos importantes, como é o caso dos **vetores**, assunto do tópico a seguir.  
+
+<br>
+
+## Vetores {#vetor}
+
+Os vetores nada mais são do que um conjunto de valores unidos em um só objeto. Em um linguajar mais técnicos, vetor é um conjunto de valores indexados. Para criarmos um vetor, devemos utilizar a função `c()`, cujos argumentos devem estar separados por vírgulas.  
+
+```{r}
+vetor_numerico <- c(2, 6, -10, 14, 18, 22)
+vetor_numerico
+class(vetor_numerico)
+
+vetor_texto <- c("g", "j", "y")
+vetor_texto
+class(vetor_texto)
+```
+
+Perceba que a função `class()` nos retorna o tipo de classe que um vetor apresenta. Um vetor só pode guardar um tipo de classe. Caso misturemos um vetor com números e caracteres, os números serão convertidos para texto. Esse comportamento é conhecido como **coerção**.  
+
+```{r}
+# Vetor misto
+vetor_misto <- c(1, 5, "a")
+vetor_misto
+class(vetor_misto)
+```
+
+Os números `1` e `5`, dentro de um vetor que contém o caractere `"a"`, são convertidos para texto, resultando em um vetor com os textos `"1"`, `"5"` e `"a"`, como constatado ao utilizar a função `class()`, que nos retorna uma classe do tipo caractere.  
+
+Portanto, devemos ter em mente que, para vetores com valores de classes diferentes, os caracteres serão dominantes em relação aos números. Para criar um conjunto de valores com classes diferentes, devemos criar uma **lista**, assunto que veremos mais adiante na seção \@ref(list).  
+
+Podemos criar um vetor com uma sequência numérica utilizando o operador `:`.
+
+```{r}
+# Vetor de 1 a 15
+sequencia_numerica <- 1:15
+sequencia_numerica
+```
+
+Ao criarmos um vetor, cada valor ocupa uma posição dentro do vetor. A posição é dada pela ordem em que estão no vetor. Portanto, podemos encontrar determinados valores de acordo com a posição em que estão localizados no vetor. Essa operação é conhecida como *subsetting*. Para isso, colocamos o número da posição que desejamos acessar dentro de colchetes `[]`, associado ao objeto que desejamos analisar.  
+
+```{r}
+posicao_vetor <- c(11, 22, 33, 44)
+
+posicao_vetor[1]
+posicao_vetor[2]
+posicao_vetor[3]
+posicao_vetor[4]
+posicao_vetor[5]
+```
+
+O objeto de nome `posicao_vetor` é um vetor com 4 valores (ou 4 argumentos). Com o comando `posicao_vetor[1]`, temos o valor `11`, contido na primeira posição do vetor, seguindo a mesma lógica para as demais posições. Perceba que o comando `posicao_vetor[5]` nos retorna o valor `NA`, pois não existe esta posição dentro do vetor. Mais adiante, na seção \@ref(especial), trataremos sobre o valor `NA`.  
+
+Também podemos inserir um conjunto de posições dentro dos colchetes, o que nos retorna um subconjunto de valores dentro de um vetor. Para isso, utilizamos a função `c()`, tendo como argumentos as posições que se deseja acessar.  
+
+```{r}
+v <- c("w", "x", "y", "z")
+
+v[c(2, 4)]
+```
+
+Ainda, podemos realizar operações matemáticas com vetores de classe numérica:
+
+```{r}
+vetor <- c(8, 19, 24, 25)
+
+vetor + 1
+vetor - 1
+vetor / 2
+vetor * 2
+vetor ^ 2
+```
+
+Perceba que as operações matemáticas são executadas para cada um dos elementos do vetor.  
+
+Também podemos fazer operações entre vetores:
+
+```{r}
+vetor1 <- c(1, 2, 3, 4)
+vetor2 <- c(5, 6, 7, 8)
+
+vetor1 + vetor2
+```
+
+Para realizar a operação, ambos os vetores são alinhados, sendo somados os valores de acordo com a posição correlata entre os elementos dos vetores. Portanto, o elemento que oculpa a primeira posição no `vetor1` é somado com o primeiro elemento do `vetor2`, seguindo a mesma lógica para os demais elementos.  
+
+No caso de vetores com tamanhos diferentes, ocorre o processo de **reciclagem**.  
+
+```{r}
+vetor3 <- c(1, 3)
+vetor4 <- c(11, 22, 33, 44)
+
+vetor3 + vetor4
+```
+
+A operação entre vetores de tamanhos diferentes segue a mesma lógica citada anteriormente: ambos os vetores são alinhados, porém, por apresentarem diferentes dimensões, é realizada uma repetição (*reciclagem*) do `vetor3` para que esse fique com o mesmo tamanho do `vetor4`, assim, possibilitando a operação matemática. Portanto, é como se o `vetor3` tivesse a dimensão de `c(1, 3, 1, 3)`.  
+
+Vale destacar que o comportamento de reciclagem foi aplicado quando fizemos as operações matemáticas em um só vetor. Por exemplo, quando somamos `1` ao vetor de dimensão `c(8, 19, 24, 25)`, o R reciclou o número `1` - que nada mais é do que um vetor de tamanho 1, igual a `c(1)` - formando um vetor `c(1, 1, 1, 1)` para que fosse possível realizar a soma.  
+
+Até então, fizemos operações entre vetores com comprimentos múltiplos entre si. Ao realizar operações entre vetores cujos tamanhos não são múltiplos, a reciclagem atua da seguinte maneira:  
+
+```{r, warning=TRUE}
+vetor5 <- c(1, 2, 3)
+vetor6 <- c(10, 20, 30, 40, 50)
+
+vetor5 + vetor6
+```
+
+Nessa situação, foi realizada a reciclagem do `vetor5`, até que ele adquirisse a mesma dimensão do `vetor6`. Assim, o `vetor5` se apresenta da seguinte maneira após a reciclagem: `c(1, 2, 3, 1, 2)`. Perceba que o último valor do `vetor5` não foi reciclado na operação, pois sua presença na reciclagem ultrapassaria a dimensão do `vetor6`. Normalmente, esse tipo de operação não é desejada, devido a não reciclagem de certos valores de um vetor, o que pode causar problemas nas análises. E, justamente, por ser um processo incomum, o R gera uma mensagem de aviso (*warning*) no *console*, alertando o ocorrido.  
+
+Guarde com carinho os conceitos explicados nesta seção, pois os utilizaremos com muita frequência nos próximos capítulos para trabalharmos com os *data frame*, uma vez que cada coluna de um *data frame* é um vetor.  
+
+<br>
+
+## Fatores {#fator}
+
+As variáveis do tipo **fator** são um caso especial de classe de objetos que representam variáveis qualitativas possíveis de serem agrupadas em **categorias**, como, por exemplo, o sexo e grau de escolaridade. As possíveis categorias presentes em um fator são indicadas pelo atributo `levels`, como os `levels` masculino e feminino, no caso do sexo, e ensino fundamental, médio e superior, no caso do grau de escolaridade.  
+
+Normalmente, este tipo de variável é criada ou importada como texto, sendo necessário transformá-la em fator, utilizando a função `as.factor()`.  
+
+```{r}
+# Classe do tipo caractere
+sexo <- c("F", "F", "M", "F", "M", "M")
+class(sexo)
+
+# Classe do tipo fator
+as.factor(sexo)
+```
+
+Criando o objeto `sexo`, sendo os argumentos `F` para o sexo feminino e `M` para o masculino, temos um vetor de classe do tipo caractere. Como o sexo é uma variável possível de ser categorizada, transformamos essa variável para a classe fator, a partir da função `as.factor()`. Perceba que na classe do tipo fator, o R nos retorna os `levels`, ou seja, o conjunto de categorias presentes no objeto `sexo`, no caso, `F` e `M`.  
+
+Ainda, podemos criar um vetor do tipo fator utilizando a função `factor()`. A função `class()` mostra o tipo de classe do objeto `sexo_fator` e a `levels()`, indica quais são as categorias presentes no objeto de classe do tipo fator.  
+
+```{r}
+sexo_fator <- factor(c("F", "F", "M", "F", "M", "M"))
+class(sexo_fator)
+levels(sexo_fator)
+```
+
+Por padrão, os `levels` são ordenados por ordem alfabética. No exemplo anterior, a categoria `F` vem antes da `M`. Para reordená-las, utilizamos o argumento `levels` na função `factor()`, ordenando as categorias de acordo com sua posição no vetor.  
+
+```{r}
+sexo_fator <- factor(sexo_fator, levels = c("M", "F"))
+levels(sexo_fator)
+```
+
+<br>
+
+### Diferenças entre fatores e caracteres
+
+Apesar dos objetos do tipo fator serem representados por letras ou palavras, o R os enxerga como números inteiros, diferentemente dos objetos da classe caractere, que são puramente textos. Podemos notar essas diferenças ao tentar convertê-las em classe numérica.  
+
+```{r}
+# Classe caractere
+sexo <- c("F", "F", "M", "F", "M", "M")
+class(sexo)
+as.numeric(sexo)
+
+# Classe fator
+sexo_fator <- factor(c("F", "F", "M", "F", "M", "M"))
+class(sexo_fator)
+as.numeric(sexo_fator)
+```
+
+Podemos notar que não foi possível converter o vetor do tipo caractere para um vetor numérico, pois o R não consegue atribuir uma classificação numérica para textos. Porém, no caso do vetor tipo fator, foi possível transformá-lo para um tipo numérico, sendo representado como `1` o nível `F` e como `2`, o `M`.  
+
+Portanto, para o R, os `levels` dos fatores são números inteiros sequenciais, começando do `1`, atribuídos conforme a ordem alfabética dos argumentos no vetor.  
+
+<br>
+
+## Operações lógicas {#logica}
+
+As operações lógicas nos retornam valores do tipo verdadeiro ou falso, representados no R por `TRUE` e `FALSE` (em letras maiúsculas), respectivamente. Portanto, a classe atribuida a estes tipos de valores é a `logical` - como vimos na seção \@ref(classes) - aceitando somente estes dois valores.  
+
+```{r}
+class(TRUE)
+
+class(FALSE)
+```
+
+Para aplicarmos testes lógicos, podemos utilizar o operador `==` (duas vezes o sinal de igual) para verificar se dois valores são iguais, ou o operador `!=` (exclamação + igual) para ver se os valores são diferentes.  
+
+```{r}
+# Resultados verdadeiros
+52 == 52
+"x" == "x"
+"a" != "b"
+1 != 2
+
+# Resultados falsos
+52 != 52
+"x" != "x"
+"a" == "b"
+1 == 2
+```
+
+Além disso, podemos utilizar outros operadores lógicos, como por exemplo:  
+
+- `<` se um valor é **menor** ao outro;  
+
+- `>` se um valor é **maior** ao outro;  
+
+- `<=` se um valor é **menor ou igual** ao outro;  
+
+- `>=` se um valor é **maior ou igual** ao outro.  
+
+```{r}
+# Menor
+3 < 5
+3 < 2
+
+# Maior
+3 > 1
+4 > 7
+
+# Menor ou igual
+3 <= 3
+2 <= 1
+
+# Maior ou igual
+10 >= 5
+1 >= 6
+```
+
+O operador `%in%` verifica se um dado valor pertence a um vetor, ou seja, se um valor está contido dentro de um conjunto de valores.  
+
+```{r}
+3 %in% c(1, 2, 3)
+
+"a" %in% c("x", "y")
+```
+
+Ainda tratando dos vetores, observe o seguinte exemplo:  
+
+```{r}
+vet <- c(1, 0, 6, -9, 10, 52, 3)
+
+vet > 3
+
+vet[vet > 3]
+```
+
+Aqui teremos que relembrar alguns conceitos expostos anteriormente. Primeiramente, criamos um vetor de nome `vet`, que recebe 7 valores. Posteriormente, utilizamos um teste lógico para verificar quais valores de `vet` são maiores que 3, cuja resposta é dada por `TRUE` ou `FALSE`. Nessa situação, ocorre uma **reciclagem** (conceito visto na seção \@ref(vetor)) do valor `3`, portanto, resultando em um vetor igual a `c(3, 3, 3, 3, 3, 3, 3)`. A partir disso, o R alinha o vetor `c(1, 0, 6, -9, 10, 52, 3)` com o vetor `c(3, 3, 3, 3, 3, 3, 3)` e testa a lógica proposta elemento por elemento (`1 > 3`, `0 > 3`, `6 > 3`, `-9 > 3`, `10 > 3`, `52 > 3` e `3 > 3`), formando um vetor de verdadeiros e falsos.  
+
+Toda essa explicação embasa a operação lógica `vet[vet > 3]`, que nos retorna apenas os valores do vetor que são maiores que 3, ou seja, todos os valores iguais a `TRUE`. Esse tipo de operação será muito utilizada nos capítulos seguintes, mais especificamente no capítulo \@ref(trans) ao utilizarmos a função `filter`, essa muito mais simples de operar do que em relação ao apresentado anteriormente, porém seguindo a mesma lógica.  
+
+<br>
+
+## Valores especiais {#especial}
+
+Nesta seção, explicaremos alguns valores particulares presentes no R.  
+
+### NA
+
+O `NA` representa a **ausência de informação**, ou seja, a informação existe, porém não se sabe qual é. Em bases de dados, é comum que algumas informações não tenham registro, sendo assim, representados pelo valor `NA`. Com isso, devemos saber interpretar e tratar estes valores.  
+
+Reforçando o significado de `NA`, podemos exemplificar com uma coleta de dados em que certos indivíduos não informaram suas idades. Isso não significa que os entrevistados não possuem idade, mas simplesmente que o registro de algumas idades é uma informação ausente na pesquisa.  
+
+Sabendo do significado de `NA`, podemos aprofundar sua utilização em testes lógicos, como representa o exemplo a seguir:  
+
+```{r}
+idade_jose <- 24
+idade_joao <- NA
+idade_maria <- NA
+
+idade_jose == idade_joao
+
+idade_joao == idade_maria
+```
+
+Conhecemos apenas a idade do José, mas não sabemos a idade do João e da Maria, logo, a idade dos dois últimos são representados pelo valor `NA`. Ao aplicar o teste lógico `idade_jose == idade_joao`, o retorno é o valor `NA`, ou seja, o R não sabe responder se a idade do José é a mesma de João, uma vez que a idade do João não foi informada. No teste `idade_joao == idade_maria`, também nos é retornado o valor `NA`, pois ambas as idades não foram informadas, logo tanto a idade do João pode ser a mesma da Maria, como pode ser distinta. Portanto, o R não "chutará" uma resposta e simplesmente responderá: `NA` (*não sei*).  
+
+Dito isso, temos que nos atentar aos valores `NA` presentes nos nossos *data frames*, pois em algumas operações, como a média (`mean()`), não conseguimos executá-la na presença desses valores. No caso da função `mean()`, ela possui o argumento `na.rm = TRUE` para excluir os `NA` da operação matemática. Todavia, algumas outras funções não possuem um argumento semelhante, sendo necessário realizar outras manipulações de dados, as quais veremos nos capítulos mais adiantes.  
+
+<br>
+
+### NaN
+
+O `NaN` (*not a number*) representa indeterminações matemáticas.
+
+```{r}
+0/0
+
+log(-1)
+```
+
+Também podemos utilizar testes lógicos com a função `is.nan()`.  
+
+```{r}
+nao_numero <- 0/0
+is.nan(nao_numero)
+```
+
+<br>
+
+### Inf
+
+O `Inf` (infinito) representa um valor muito grande, o qual o R não consegue retratar. Também pode representar um limite matemático.
+
+```{r}
+# Valor grande
+100 ^ 200
+
+# Limite matemático
+1 / 0
+
+-1 / 0
+```
+
+Novamente, podemos utilizar testes lógicos para identificar se um objeto apresenta valor infinito. Para isso, utilizamos a função `is.infinite()`.  
+
+```{r}
+valor_infinito <- 1 / 0
+is.infinite(valor_infinito)
+```
+
+<br>
+
+### NULL
+
+O `NULL` representa a ausência de um objeto. Seu significado está mais atrelado a lógica de programação, quando não queremos atribuir valor à um objeto. Portanto, diferentemente do `NA`, o `NULL` indica a inexistência de um parâmetro qualquer.  
+
+```{r}
+valor_nulo <- NULL
+valor_nulo
+```
+
+Para utilizar teste lógico à valores nulos, utilizamos a função `is.null()`.  
+
+```{r}
+is.null(valor_nulo)
+```
+
+<br>
+
+## Listas {#list}
+
+As listas são objetos semelhantes a um vetor, porém, com algumas diferenças. Como citado na seção \@ref(vetor), não podemos misturar objetos de classes distintas em um único vetor, contudo, nas **listas** podemos realizar essa mescla de classes.  
+
+Para criarmos uma lista, utilizamos a função `list()`, tendo como argumentos os valores desejados.  
+
+```{r}
+lista <- list(5, "x", FALSE)
+lista
+class(lista)
+```
+
+Nesse caso, criamos uma lista com elementos de classes numérica, caractere e lógica, sem que ocorresse coerção, ou seja, não houve a conversão do objeto para uma única classe, como vimos ocorrer com os vetores (seção \@ref(vetor)). Assim, as listas nos permite unir classes distintas em um mesmo objeto.  
+
+Outro diferencial é o fato de que **cada elemento de uma lista também é uma lista**. Portanto, para acessarmos um elemento de uma lista, devemos utilizar dois colchetes `[[]]`.  
+
+```{r}
+lista <- list(5, "x", FALSE)
+
+# Utilizando 1 colchete, nos retorna uma classe do tipo lista
+lista[2]
+class(lista[2])
+
+# Utilizando 2 colchetes, nos retorna a classe do elemento
+lista[[2]]
+class(lista[[2]])
+```
+
+Assim, utilizando um colchete, é retornado a classe da lista que contém um único elemento. Já com dois colchetes, nos é retornado a classe do elemento que está na lista, no caso do exemplo, a classe do `x`.  
+
+O fato de cada elemento ser uma lista dentro de uma lista é importante para podermos colocar vetores de tamanhos diferentes em cada posição. Isso faz das listas objetos muito flexíveis para armazenar dados.  
+
+```{r}
+listas_sao_flexiveis <- list(1:5, c("a", "b", "c"), c(TRUE, FALSE, TRUE, FALSE))
+
+listas_sao_flexiveis[1]
+listas_sao_flexiveis[2]
+listas_sao_flexiveis[3]
+```
+
+Podemos nomear cada posição de uma lista. Para isso, colocamos dentro da função `list()` os argumentos com as respectivas denominações e valores.  
+
+```{r}
+dados_estudantes <- list(nome = c("José", "Joao", "Maria"),
+                         sexo = c("M", "M", "F"),
+                         idade = c(26, 19, 20))
+
+dados_estudantes
+```
+
+Quando a posição de uma lista possui um nome, podemos acessar seus valores com o operador `$`. Esse operador é equivalente a `dados_alunos[[]]`.  
+
+```{r}
+# Equivalente a dados_estudantes[[1]]
+dados_estudantes$nome
+
+# Equivalente a dados_estudantes[[2]]
+dados_estudantes$sexo
+
+# Equivalente a dados_estudantes[[3]]
+dados_estudantes$idade
+```
+
+<br>
+
+### Data frames e listas {#df}
+
+Depois de apresentarmos o que são listas (além dos demais conceitos presentes nas seções anteriores), vamos aprofundar os nossos conhecimentos sobre os *data frames*.  
+
+A relação entre listas e *data frames* é que, basicamente, os *data frames* são um tipo de lista. Assim, as propriedades expostas sobre as listas se aplicam aos *data frames*.  
+
+No capítulo \@ref(dataf), apresentamos o básico sobre os *data frames*, exemplificado com o `PlantGrowth`. Assim, para entendermos a equivalência entre listas e *data frames*, converteremos o `PlantGrowth` em uma lista.  
+
+```{r}
+# Data frame
+head(PlantGrowth)
+```
+
+```{r}
+# Lista
+as.list(PlantGrowth)
+```
+
+Perceba que os nomes das colunas do *data frame* se tornam o nome das posições de uma lista (`$weight` e `$group`) e cada valor das colunas são convertidos em elementos da respectiva lista.  
+
+Portanto, podemos dizer que cada coluna de um *data frame* também é um *data frame*, assim como no caso das listas.  
+
+```{r}
+# Classe do data frame PlantGrowth
+class(PlantGrowth)
+
+# Classe da primeira coluna (weight)
+class(PlantGrowth[1])
+```
+
+Além disso, podemos utilizar o operador `$` para acessar os elementos de uma coluna (ou lista).  
+
+```{r}
+PlantGrowth$weight
+
+PlantGrowth$group
+```
+
+Contudo, temos de destacar que todo *data frame* é um tipo de lista, porém nem toda lista é um *data frame*. Assim, o *data frame* possui algumas propriedades particulares que o torna um tipo de lista especial:  
+
+- Todas as colunas precisam ter a mesma dimensão, ou seja, ter o mesmo número de linhas;  
+
+- Todas as colunas precisam ser nomeadas;  
+
+- Possuir 2 dimensões.  
+
+Essas propriedades nos indicam que um *data frame* tem que receber uma base de dados em formato retangular (análoga a uma planilha Excel), com o mesmo número de linhas (observações) em cada coluna (variável), sendo necessário a presença um nome específico para cada uma das colunas.  
+
+Um exemplo da propriedade *Todas as colunas precisam ter a mesma dimensão* é a tentativa (falha) de converter uma lista com vetores de comprimentos diferentes em um *data frame*.  
+
+```{r message=TRUE}
+listas <- list(1:5, c("a", "b", "c"), c(TRUE, FALSE, TRUE, FALSE))
+as.data.frame(listas)
+```
+
+A propriedade *Todas as colunas precisam ser nomeadas* não é um impeditivo para se criar um *data frame*, porém, não se obtém um bom resultado ao ignorar esta propriedade, pois é necessário ter um nome para cada coluna e o R trata de criá-los de uma maneira pouco agradável.  
+
+```{r}
+dados_estudantes <- list(c("José", "Joao", "Maria"),
+                         c("M", "M", "F"),
+                         c(45, 19, 26))
+
+as.data.frame(dados_estudantes)
+```
+
+Já a propriedade *Possuir 2 dimensões* indica que o *data frame* possui linhas e colunas, o que os diferencia das listas, uma vez que essas não possuem dimensão. A função `dim()` retorna as dimensões de um objeto e comprova que as listas não possuem dimensão.  
+
+```{r}
+# Data frame
+dim(PlantGrowth)
+
+# Lista
+dim(as.list(PlantGrowth))
+```
+
+Assim, a função `dim()` nos indica que o *data frame* `PlantGrowth` apresenta 30 linhas e 2 colunas. Por outro lado, ao convertermos o *data frame* `PlantGrowth` em uma lista, a mesma função nos diz que o objeto é ausente de dimensão (`NULL`).  
+
+Além disso, caso haja valores faltantes na base de dados (como, por exemplo, células vazias no Excel), esses serão representados por `NA`, sendo preservada a estrutura do *data frame*.  
+
+Por possuir duas dimensões, para acessarmos valores em um *data frame*, devemos especificar as linhas e colunas dentro de colchetes, na seguinte ordem: `[numero_linha, numero_coluna]`.  
+
+```{r}
+# Acessa o elemento posicionado na 10ª linha da 1ª coluna
+PlantGrowth[10, 1]
+```
+
+Podemos pegar todas as linhas de uma coluna ou todas as colunas de uma linha deixando um dos argumentos vazios:  
+
+```{r}
+# Todas as linhas da 2ª coluna
+PlantGrowth[,2]
+
+# Todas as colunas da 2ª linhas
+PlantGrowth[2,]
+```
+
+E, devido ao fato de que cada coluna do *data frame* é um vetor, podemos aplicar testes lógicos para filtrar linhas, assim como fizemos na seção \@ref(logica).  
+
+```{r}
+PlantGrowth[PlantGrowth$weight > 5.5, ]
+```
+
+Neste caso, a condição lógica imposta à coluna `weight` nos retorna todas as linhas que apresentem plantas com peso seco maior que 5,5.  
+
+<br>
+
+Com as listas, finalizamos as noções básicas em R. Para aqueles que entraram em contato pela primeira vez com conceitos teóricos de programação, seja na linguagem que for, a teoria pode parecer complicada e maçante. Mas a não compreensão de alguns conceitos expostos neste capítulo não será um impeditivo para continuar os estudos em ciência de dados em R. Sinta-se livre em replicar os códigos dos próximos capítulos, mesmo que não compreenda 100% do que está sendo feito. Em algumas ocasiões, você compreenderá melhor um conceito ao aplicá-lo na prática. Além disso, recomendo que você revisite este capítulo caso tenha alguma dúvida conceitual, ou senão, quando estiver mais familiarizado na programação em R.  
+
+Portanto, nos próximos capítulos, começaremos a aplicar ciência de dados na prática, começando pela importação de dados ao R.  
+

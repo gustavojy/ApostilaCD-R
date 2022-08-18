@@ -1,0 +1,61 @@
+--- 
+title: "Introdução à Ciência de Dados em R"
+author: Gustavo Jun Yakushiji^[Graduando em Engenharia Agronômica - ESALQ/USP]; Cristian Marcelo Villegas Lobos^[Professor Doutor do Departamento de Ciências Exatas - ESALQ/USP]
+date: "Agosto, 2022"
+output: pdf_document
+site: bookdown::bookdown_site
+documentclass: book
+header-includes: \usepackage[portuguese]{babel}
+bibliography:
+- book.bib
+- packages.bib
+biblio-style: apalike
+link-citations: yes
+github-repo: rstudio/bookdown-demo
+geometry: left=3cm,right=3cm,top=3cm,bottom=3cm
+urlcolor: blue
+interlinespace: 4ex
+lang: pt-BR
+---
+
+```{r, echo=FALSE, message=FALSE, warning=FALSE}
+knitr::opts_chunk$set(echo = TRUE,
+                      warning = FALSE, 
+                      message = FALSE,
+                      comment = "",
+                      cache = TRUE,
+                      error = TRUE,
+                      results = "markup",
+                      fig.align = "center",
+                      fig.asp=.75)
+
+##Bibliotecas##
+
+library(knitr)
+library(kableExtra)
+library(float) # configuração de imagens no pdf
+library(tidyverse)
+library(readxl)
+library(writexl)
+library(geobr)
+library(devtools)
+library(patchwork)
+library(gghighlight)
+
+knitr::write_bib(x = c("knitr", "kableExtra", "float", "tidyverse", "readxl", "writexl", "geobr", "devtools", "patchwork", "gghighlight"),
+                 file = "packages.bib")
+```
+
+# Introdução^[Esta apostila foi confeccionada a partir do *Bookdown*. Todos os arquivos e códigos utilizados estão disponíveis em: https://github.com/gustavojy/ApostilaCD-R.]
+
+A proposta desta apostila é compartilhar experiências sobre ciência de dados na linguagem de programação R, visando auxiliar àqueles que estão iniciando sua jornada nesta empreitada.  
+
+Antes de começarmos, levantaremos algumas perguntas norteadoras:  
+
+- O que é ciência de dados (*Data Science*)?  
+
+- Quais são os primeiros passos a serem dados em R?  
+
+- Quais as principais ferramentas aplicadas à ciência de dados em R?  
+
+Ao longo da apostila, construiremos as respostas para estas perguntas, cujo intuito principal é criar uma base sólida em programação na linguagem R aplicada à ciência de dados, a fim de dar maior autonomia ao leitor para que possa prosseguir em seus estudos.  

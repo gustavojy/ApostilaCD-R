@@ -1,0 +1,325 @@
+# Organização {#org}
+
+Neste capítulo, trataremos sobre a manipulação dos dados. Esse processo tem como base o conceito de *tidy data*, no qual devemos ajustar os nossos dados em uma estrutura consistente e padronizada. Isso nos permite visualizar, analisar e modelar os dados de maneira mais fácil e rápida. Normalmente, costuma ser trabalhoso o processo de organizar a base de dados, mas, com o auxílio das ferramentas presentes no `tidyverse`, conseguimos obter bons resultados que, em longo prazo, faz o esforço valer a pena.  
+
+Como o próprio nome do pacote sugere, o `tidyverse` é baseado nos princípios de uma *tidy data*. Por isso, seus pacotes foram desenvolvidos para funcionarem seguindo tal princípio e serem complementares entre si.  
+
+No capítulo \@ref(import), demos início ao processo de manipulação dos dados quando alteramos a classe das variáveis, renomeamos as colunas, corrigimos problemas de *encoding*, além de outras ações demonstradas a partir das diversas funções e argumentos.  
+
+Neste capítulo, veremos como começar a arrumar uma base de dados já importada para o R e, posteriormente, transformar variáveis de acordo com os interesses de uma análise (capítulo \@ref(trans)) e visualizar os dados de forma gráfica (capítulo \@ref(graf)).  
+
+Para mais detalhes sobre *tidy data*, recomendo dois documentos que abordam o tema. Ambos são da autoria de Hadley Wickham, o idealizador do pacote `tidyverse`. O primeiro é o [*The tidy tools manifesto*](https://cran.r-project.org/web/packages/tidyverse/vignettes/manifesto.html), que aborda os princípios que norteiam o *tidyverse*. O outro documento é o artigo [*Tidy Data*](https://www.jstatsoft.org/article/view/v059i10), que trata de maneira teórica os conceitos de dados arrumados.  
+
+Assim sendo, vamos começar a organizar os nossos dados. A seguir, apresentaremos os pacotes `tibble` e `tidyr`.  
+
+<br>
+
+## Tibbles
+
+Nesta seção, veremos o que são as *tibbles* e suas funcionalidades. No capítulo \@ref(import) vimos que o pacote `readr` apresenta funções que convertem diretamente os arquivos importados para o formato *tibble*. Isso se deve ao fato de que os pacotes presentes no `tidyverse` utilizam como padrão esse formato, ao invés do formato tradicional de *data frame*. Porém, a maioria dos outros pacotes que não estão no `tidyverse` ainda utilizam o formato de *data frame*.  
+
+*Tibbles* nada mais são do que uma versão mais atualizada dos *data frames*, apresentando ajustes importantes que facilitam o trabalho do cientista de dados. Dessa forma, os conceitos que vimos nas seções \@ref(dataf) e \@ref(df) são válidos para as *tibbles*. Elas fazem parte do pacote `tibble`, assim, devemos carregar o seu pacote.  
+
+```{r}
+library(tibble)
+```
+
+<br>
+
+### Criando *Tibbles*
+
+Para converter *data frames* em *tibbles*, utilizamos a função `as_tibble()`. Como exemplo, transformaremos a base de dados nativa do R `iris` para o formato *tibble*.  
+
+```{r}
+as_tibble(iris)
+```
+
+Perceba que, por padrão, apenas as 10 primeiras linhas são apresentadas. Caso o número de colunas não couber na largura da tela, essas serão ocultadas da apresentação. Além disso, as *tibbles* mostram as dimensões da tabela (no caso, `150 x 5`) e a classe de todas as colunas (entre `< >`).  
+
+Já os *data frames*, não apresentam as dimensões da tabela e nem as respectivas classes das colunas. Além disso, sua saída não é a muito boa quando trabalhamos com bases de dados extensas, como podemos ver e comparar a seguir.  
+
+```{r}
+class(iris)
+iris
+```
+
+Caso queira ter uma visão completa dos dados, a melhor forma de fazê-la é utilizando a função `view()`. Teste o seguinte comando:  
+
+```{r, eval=FALSE}
+View(iris)
+```
+
+Também podemos criar uma *tibble* do zero, a partir de vetores individuais, com a função `tibble()`.  
+
+```{r}
+tibble(
+  nomes = c("José", "João", "Maria", "Ana"),
+  sexo = c("M", "M", "F", "F"),
+  idade = 21:24,
+  idade_ao_quadrado = idade ^ 2,
+  filhos = 0)
+```
+
+No exemplo acima, veja que foi possível criar a coluna `idade_ao_quadrado` em função de outra coluna, a `idade`. Na coluna `filhos`, passamos um vetor de tamanho 1, ocorrendo o processo de reciclagem do vetor (tema tratado na seção \@ref(vetor)), ou seja, foi atribuído o valor `0` para todas as demais observações até que se igualasse o número de linhas da *tibble*.  
+
+É possível colocar nomes de colunas com caracteres de sintaxe inválida (tema tratado na seção \@ref(obj)), desde que os nomes estejam entre acentos graves (`). No caso dos *data frames*, teríamos dificuldades em trabalhar com esse tipo de sintaxe, pois os nomes seriam convertidos para um formato que se enquadre na sintaxe válida, portanto, ocorreria uma alteração dos nomes designados originalmente.  
+
+A seguir, criaremos um exemplo de *tibble* (puramente a título de demonstração) com nomes que contêm espaços, começam com números e possuem caracteres especiais.  
+
+```{r}
+tibble(
+  `nomes dos estudantes` = c("José", "João", "Maria", "Ana"),
+  `2sexo` = c("M", "M", "F", "F"),
+  `:)idade` = 21:24,
+  `idade²` = `:)idade` ^ 2,
+  `nº filhos` = 0)
+```
+
+Por consequência, quando trabalharmos com as variáveis nomeadas dessa forma, precisaremos colocá-las sempre entre acentos graves, como foi o caso da construção da coluna `idade²`, em que tivemos que colocar a coluna `:)idade` entre acentos graves para que conseguíssemos elevar seus valores ao quadrado.  
+
+Por último, podemos criar *tibbles* com a função `tribble()`. A `tribble()` é construída definindo os nomes das colunas por fórmulas (começando com `~`), cujos valores são separados por vírgulas, sendo uma forma mais visual e intuitiva para construir pequenas *tibbles*.  
+
+```{r}
+tribble(
+  ~nome, ~id, ~sexo,
+  #-----|---|------
+  "João", 25, "M",
+  "José", 30, "M",
+  "Ana", 23, "F"
+)
+```
+
+Veja que é possível até mesmo adicionar um comentário (`#`) para criar uma delimitação entre o cabeçalho e os valores, tornando o código ainda mais visual.  
+
+<br>
+
+### Outras funções
+
+Podemos adicionar novas linhas e colunas à *tibble* com as funções `add_row()` e `add_column()`, respectivamente.  
+
+```{r}
+tib <- tibble(
+  nomes = c("José", "João", "Maria"),
+  sexo = c("M", "M", "F")
+)
+
+tib_col <- add_column(tib, idade = c(26, 30, 19))
+
+tib_col
+
+tib_row <- add_row(tib_col,
+                   nomes = c("Ana", "Beatriz"),
+                   sexo = "F",
+                   idade = c(20, 23))
+
+tib_row
+```
+
+<br>
+
+## Pacote `tidyr`
+
+Nesta seção, abordaremos as principais ferramentas de organização de dados presentes no pacote `tidyr`. Portanto, precisamos rodá-lo no R.  
+
+```{r}
+library(tidyr)
+```
+
+A seguir, aplicaremos as ferramentas do `tidyr` em uma mesma base de dados, porém em diversas versões desarrumadas ^[O termo *desarrumada* não é o mais apropriado para nos referirmos aos demais formatos de dados, pois o formato *tidy* é um dos possíveis para se trabalhar com dados - principalmente quando trabalhamos com dados retangulares - utilizando o pacote `tidyverse`. Portanto, quando nos referirmos a dados *desarrumados*, entenda como dados fora do padrão *tidy data* ou *não-tidy*. Para entender mais sobre os dados *não-tidy*, recomendo o post do [Jeff Leek](https://simplystatistics.org/posts/2016-02-17-non-tidy-data/) sobre o assunto.] . Os dados são referentes a produção (em toneladas) e a área colhida (em hectares) da cultura do milho, no Brasil, China e Índia, nos anos de 2000 e 2019. Para fazer o *download* da pasta contendo as bases de dados, [clique aqui](https://github.com/gustavojy/ApostilaCD-R/blob/main/dados_zip/dados_tidy.zip).  
+
+<br>
+
+### Base de dados *tidy*
+
+Antes de abordarmos as bases desarrumadas, vamos tratar da base de dados arrumadas.  
+
+Para alcançarmos a tão desejada base de dados arrumada, devemos ter em mente as três principais propriedades de uma *tidy data*:  
+
+- Cada variável possui sua própria coluna;  
+
+- Cada observação possui sua própria linha;  
+
+- Cada célula contém somente um único valor.  
+
+```{r, echo=FALSE, out.width="90%", fig.cap="Seguindo os princípios da tidy data, cada variável possui uma coluna, cada observação está em uma linha e cada célula contém somente um valor."}
+knitr::include_graphics("imagens/tidy_data.png")
+```
+
+Como citamos em capítulos anteriores, cada coluna de um *data frame* (ou *tibble*) é um vetor. Ao designar uma variável à uma única coluna, podemos trabalhar com as informações a partir de vetores individualizados. Portanto, os conceitos vistos na seção \@ref(vetor), referente aos vetores, são aplicáveis a cada uma das colunas de uma base de dados organizada. E é dessa maneira que os pacotes do `tidyverse` trabalham.  
+
+```{r, message=FALSE}
+tidy <- read_csv("dados_tidy/tidy.csv")
+```
+
+```{r}
+tidy
+```
+
+Portanto, esse é um exemplo de uma base de dados organizada. Cada coluna é uma variável, cada observação está em uma linha e cada célula contém um único valor. Assim, sempre que se deparar com uma nova base de dados, observe primeiro quais elementos são variáveis e quais são observações, e se uma célula contém um ou mais valores.  
+
+Nos próximos capítulos, veremos como utilizar uma *tidy data* para realizar transformações e gráficos. Mas antes, temos que tratar dos dados desarrumados.  
+
+<br>
+
+### Pivotagem
+
+Uma forma de organizarmos os nossos dados é realizando a pivotagem. Este método converte as observações que estão como nome de colunas, para linhas; e variáveis que estão em linhas, para as colunas.  
+
+#### Pivot longer {-}
+
+A função `pivot_longer()` converte as observações que estão como nome das colunas, para linhas. Aplicaremos sua função no arquivo `tidy1a_prod.csv`.  
+
+```{r}
+plonger1 <- read_csv("dados_tidy/tidy1a_prod.csv")
+
+plonger1
+```
+
+Veja que as observações referentes aos anos (`2000` e `2019`) estão como nome das colunas, cada qual com os valores referentes a produção de milho nos respectivos anos. Para arrumá-las, devemos criar duas novas colunas, uma para alocar os anos e outra, para os valores de produção de milho.  
+
+```{r}
+plonger1_tidy <- pivot_longer(data = plonger1,
+                              col = c(`2000`, `2019`),
+                              names_to = "ano", 
+                              values_to = "producao")
+plonger1_tidy
+```
+
+Assim, na função `pivot_longer()`, utilizamos o argumento `data =` para indicar qual a base de dados desejamos arrumar - no caso o objeto `plonger1`. Em seguida, utilizamos o argumento `col` para selecionar as colunas que desejamos pivotar. Já no argumento `names_to` devemos dizer para qual coluna os nomes selecionados devem ir (no caso, os nomes `2000` e `2019`), portanto, são direcionados para a nova coluna `ano`. Por fim, no argumento `values_to`, dizemos que os valores contidos nas colunas `2000` e `2019` devem ir para uma única coluna, denominada `producao`.  
+
+Perceba que os valores se mantém associados às antigas colunas `2000` e `2019`, agora como valores de uma observação.  
+
+Podemos fazer o mesmo com os dados referentes à área colhida - presente no arquivo `tidy1b_col.csv` - somente alterando o atributo do argumento `values_to` para `colheita`:  
+
+```{r}
+plonger2 <- read_csv("dados_tidy/tidy1b_col.csv")
+
+plonger2
+```
+
+```{r}
+plonger2_tidy <- pivot_longer(data = plonger2,
+                              col = c(`2000`, `2019`),
+                              names_to = "ano", 
+                              values_to = "colheita")
+plonger2_tidy
+```
+
+Para juntar ambas as tabelas, utilizamos a `dplyr::full_join()`, presente no pacote `dplyr`, a qual veremos com mais detalhes no capítulo \@ref(trans).  
+
+```{r}
+plonger <- full_join(plonger1_tidy, plonger2_tidy)
+
+plonger
+```
+
+
+#### Pivot wider {-}
+
+A função `pivot_wider()` é a oposta da `pivot_longer()`. Ela é usada para converter as variáveis que estão nas linhas, para o nome das colunas. Como exemplo, utilizaremos o arquivo `tidy2.csv`.  
+
+```{r}
+pwider <- read_csv(file = "dados_tidy/tidy2.csv")
+
+pwider
+```
+
+Como podemos observar, as variáveis `colheita` e `producao` estão como valores de observações. Portanto, devemos transformá-las em nomes de colunas, recebendo os respectivos valores associados à coluna `valor`.  
+
+```{r}
+pwider_tidy <- pivot_wider(data = pwider,
+                           names_from = tipo,
+                           values_from = valor)
+pwider_tidy
+```
+
+Assim, na função `pivot_wider()`, utilizamos o argumento `names_from` para dizer em qual coluna (`tipo`) estão os nomes das novas variáveis (`producao` e `colheita`) e o `values_from` para indicar em qual coluna estão localizados os respectivos valores das novas colunas criadas.  
+
+<br>
+
+Portanto, podemos dizer que a `pivot_longer()` torna a base de dados mais longa (reduz o número de colunas e aumenta o número de linhas) e a `pivot_wider()`, deixa mais larga (aumenta o número de colunas e diminui o número de linhas).  
+
+Para conferir todos os argumentos das funções `pivot_longer()` e `pivot_wider()`, utilize as funções `args(pivot_longer)` e `args(pivot_wider)`, respectivamente.  
+
+<br>
+
+### Separar e Unir
+
+Para tratar das funções de separar e unir, exemplificaremos com os dados do arquivo `tidy3.csv`.  
+
+```{r}
+sep_unir <- read_csv(file = "dados_tidy/tidy3.csv")
+
+sep_unir
+```
+
+#### Separar {-}
+
+O banco de dados apresentado acima apresenta a coluna `produtividade`, cujos valores são representados como `produção/área colhida`. Portanto, precisamos separá-los em duas colunas, pois temos duas variáveis em uma mesma coluna e dois valores em uma mesma célula. Para isso utilizaremos a função `separate()`.  
+
+```{r}
+sep_unir_tidy <- separate(data = sep_unir,
+                          col = produtividade,
+                          into = c("producao", "colheita"))
+sep_unir_tidy
+```
+
+Na função `separate()`, indicamos a base de dados a ser processada no argumento `data =`; posteriormente, declaramos no argumento `col =` o nome da coluna a ser separada - no caso, a `produtividade` -, e com o argumento `into =`, dizemos o nome das novas colunas que direcionaremos os valores da coluna separada (`producao` e `"colheita`).  
+
+Por padrão, a função `separate()` irá quebrar os valores quando perceber que entre eles há um operador não numérico ou não textual, como foi o caso do exemplo acima, que apresentava uma `/` separando os valores. Caso for necessário especificar qual o separador utilizado, devemos utilizar o argumento `sep`.  
+
+```{r}
+sep_unir_tidy <- separate(data = sep_unir,
+                          col = produtividade,
+                          into = c("producao", "colheita"),
+                          sep = "/")
+sep_unir_tidy
+```
+
+Perceba que a classe das novas colunas vieram como tipo caractere. Por padrão, a função `separate()` sempre adotará essa classe. Para corrigirmos a classe, podemos utilizar o argumento `convert = TRUE`, ou seja, pedir para função adotar uma classe mais apropriada aos valores contidos nas colunas.  
+
+```{r}
+sep_unir_tidy <- separate(data = sep_unir,
+                          col = produtividade,
+                          into = c("producao", "colheita"),
+                          sep = "/",
+                          convert = TRUE)
+sep_unir_tidy
+```
+
+Feito isso, temos a classe `int` (números inteiros) para as colunas `producao` e `colheita`.  
+
+Também podemos separar valores informando uma quantidade de caracteres a serem considerados na separação. Para isso, informamos no argumento `sep` a quantidade dos primeiros caracteres que desejamos quebrar. Por exemplo, para separar os valores da coluna `ano` em `seculo` e `decada`, podemos passar o argumento `sep = 2`, ou seja, o argumento selecionará os dois primeiros caracteres dos valores contidos na coluna `ano` e os separará dos demais, formando as novas colunas `seculo` e `decada`.  
+
+```{r}
+separar <-separate(data = sep_unir_tidy,
+                   col = ano,
+                   into = c("seculo", "decada"),
+                   sep = 2)
+
+separar
+```
+
+Nesse caso, o argumento `sep = 2` pegou os dois primneiros número e os separou dos demais. Caso houver um número negativo, o argumento considera o sinal de negativo como o primeiro caractere informado no argumento.  
+
+#### Unir {-}
+
+A função `unite()` é a inversa de `separate()`. Portanto, combina múltiplas colunas em uma única. Usaremos a `unite()` para juntar novamente as colunas `seculo` e `decada` para apenas a coluna `novamente_ano`.  
+
+```{r}
+unir <- unite(data = separar,
+              col = "novamente_ano",
+              seculo, decada,
+              sep = "")
+
+unir
+
+```
+
+No argumento `col =` dizemos qual o nome da nova coluna, em seguida, as colunas a serem juntadas (`seculo` e `decada`), e o `sep =`, para informar qual o separador utilizado. Nesse caso, precisavamos juntar os valores sem qualquer caractere ou espaço, portanto, nosso argumento recebe apenas duas aspas `""`. Caso não fosse informado o argumento `sep`, por padrão, a função adota o *underline* (`_`) como separador.  
+
+Para conferir todos os argumentos das funções `separate()` e `unite()`, utilize as funções `args(separate)` e `args(unite)`, respectivamente.  
+
+<br>
+
+De maneira geral, essas são as principais ferramentas quando o tema é arrumar os dados. A seguir, agora com os dados arrumados, iremos transformar as nossas bases de dados para que contenha apenas as variáveis de nosso interesse e também criar novas variáveis, de acordo com as existentes.  
