@@ -40,9 +40,9 @@ list_geobr() %>% view()
 ```
 
 ```{r, echo=FALSE, message=TRUE}
-kbl(list_geobr(),
+kbl(tibble(list_geobr()),
     table.attr = "style = \"color: black;\"", position = "c")%>%
-  kable_styling(font_size = 16, position = "c", full_width = FALSE)
+  kable_styling(font_size = 10, position = "c", full_width = FALSE)
 ```
 
 A função `list_geobr()` nos retorna um objeto do tipo *data frame*, apresentando como variáveis o nome das funções que contém os conjuntos de dados (`function`), a abrangência geográfica (`geography`), os anos presentes (`years`) e a fonte dos dados (`source`). A seguir, veremos como utilizar todas essas funções.  
@@ -119,9 +119,9 @@ read_state(code_state = "all",
 ```
 
 ```{r, echo=FALSE, message=TRUE}
-kbl(read_state(showProgress = F),
+kbl(tibble(read_state(showProgress = F)),
     table.attr = "style = \"color: black;\"", position = "c")%>%
-  kable_styling(font_size = 16, position = "c", full_width = FALSE)
+  kable_styling(font_size = 13, position = "c", full_width = FALSE)
 ```
 
 Na subseção \@ref(estad), demonstraremos como trabalhar com os estados de maneira individualizada.  
