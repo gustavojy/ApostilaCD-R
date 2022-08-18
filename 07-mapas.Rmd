@@ -39,11 +39,20 @@ Para verificarmos todos os conjuntos de dados disponíveis no pacote `geobr`, ut
 list_geobr() %>% view()
 ```
 
-```{r, echo=FALSE, message=TRUE}
+```{r, eval=TRUE, echo=FALSE}
+# Versão html
 kbl(tibble(list_geobr()),
     table.attr = "style = \"color: black;\"", position = "c")%>%
   kable_styling(font_size = 10, position = "c", full_width = FALSE)
 ```
+
+```{r, eval=FALSE ,echo=FALSE}
+kable(tibble(list_geobr()), "latex", longtable = T, booktabs = T) %>%
+  kable_styling(latex_options = c("repeat_header"), font_size = 5,position = "c", full_width = FALSE) %>%
+  column_spec(2:3, width = "5cm") %>% 
+  landscape()
+```
+
 
 A função `list_geobr()` nos retorna um objeto do tipo *data frame*, apresentando como variáveis o nome das funções que contém os conjuntos de dados (`function`), a abrangência geográfica (`geography`), os anos presentes (`years`) e a fonte dos dados (`source`). A seguir, veremos como utilizar todas essas funções.  
 
@@ -118,11 +127,18 @@ read_state(code_state = "all",
            showProgress = F) %>% view()
 ```
 
-```{r, echo=FALSE, message=TRUE}
+```{r, eval=TRUE, echo=FALSE}
+# Versão html
 kbl(tibble(read_state(showProgress = F)),
     table.attr = "style = \"color: black;\"", position = "c")%>%
   kable_styling(font_size = 13, position = "c", full_width = FALSE)
 ```
+
+```{r, eval=FALSE, echo=FALSE}
+kable(tibble(read_state(showProgress = F)), "latex", longtable = T, booktabs = T) %>%
+  kable_styling(latex_options = c("repeat_header"), font_size = 6,position = "c", full_width = FALSE)
+```
+
 
 Na subseção \@ref(estad), demonstraremos como trabalhar com os estados de maneira individualizada.  
 

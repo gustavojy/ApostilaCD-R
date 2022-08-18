@@ -451,7 +451,7 @@ inner.join
 
 Na função acima, declaramos as duas bases de dados a serem unidas, junto ao argumento `by = "nome"`, sendo essa a variável em comum. Como resultado, a `inner_join()` nos retornou apenas a observações em comum entre o conjunto.  
 
-```{r, echo=FALSE, out.width="50%", fig.cap="Esquematização da função $inner_join$. Fonte: R for Data Science, 2017."}
+```{r, echo=FALSE, out.width="50%", fig.cap="Esquematização da função inner-join. Fonte: R for Data Science, 2017."}
 knitr::include_graphics("imagens/join-inner.png")
 ```
 
@@ -466,7 +466,7 @@ full.join <- full_join(juntar.linhas, d5, by = "nome")
 full.join
 ```
 
-```{r, echo=FALSE, out.width="50%", fig.cap="Esquematização da função $full_join$. Fonte: R for Data Science, 2017."}
+```{r, echo=FALSE, out.width="50%", fig.cap="Esquematização da função full-join. Fonte: R for Data Science, 2017."}
 knitr::include_graphics("imagens/join-full.png")
 ```
 
@@ -484,7 +484,7 @@ right.join
 
 Note que em ambas as funções, o primeiro conjunto declarado é o `juntar.linhas`, sendo o segundo, o `d5`.  
 
-```{r, echo=FALSE, out.width="50%", fig.cap="Esquematização das funções $left_join$ e $right_join$. Fonte: R for Data Science, 2017."}
+```{r, echo=FALSE, out.width="50%", fig.cap="Esquematização das funções left-join e right-join. Fonte: R for Data Science, 2017."}
 knitr::include_graphics("imagens/join-rl.png")
 ```
 
@@ -504,7 +504,7 @@ semi.join2 <- semi_join(d5, juntar.linhas, by = "nome")
 semi.join2
 ```
 
-```{r, echo=FALSE, out.width="50%", fig.cap="Esquematização da função $semi_join$. Fonte: R for Data Science, 2017."}
+```{r, echo=FALSE, out.width="50%", fig.cap="Esquematização da função semi-join. Fonte: R for Data Science, 2017."}
 knitr::include_graphics("imagens/join-semi.png")
 ```
 
@@ -522,7 +522,7 @@ anti.join2 <- anti_join(d5, juntar.linhas, by = "nome")
 anti.join2
 ```
 
-```{r, echo=FALSE, out.width="50%", fig.cap="Esquematização da função $anti_join$. Fonte: R for Data Science, 2017."}
+```{r, echo=FALSE, out.width="50%", fig.cap="Esquematização da função anti-join. Fonte: R for Data Science, 2017."}
 knitr::include_graphics("imagens/join-anti.png")
 ```
 

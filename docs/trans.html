@@ -1070,9 +1070,9 @@ Figure 6.1: Diagrama de Venn com os tipos de joins. Fonte: R for Data Science, 2
 4 Fabio  M        35    81 Medico     </code></pre>
 <p>Na função acima, declaramos as duas bases de dados a serem unidas, junto ao argumento <code>by = "nome"</code>, sendo essa a variável em comum. Como resultado, a <code>inner_join()</code> nos retornou apenas a observações em comum entre o conjunto.</p>
 <div class="figure" style="text-align: center"><span style="display:block;" id="fig:unnamed-chunk-173"></span>
-<img src="imagens/join-inner.png" alt="Esquematização da função $inner_join$. Fonte: R for Data Science, 2017." width="50%" />
+<img src="imagens/join-inner.png" alt="Esquematização da função inner-join. Fonte: R for Data Science, 2017." width="50%" />
 <p class="caption">
-Figure 6.2: Esquematização da função <span class="math inline">\(inner_join\)</span>. Fonte: R for Data Science, 2017.
+Figure 6.2: Esquematização da função inner-join. Fonte: R for Data Science, 2017.
 </p>
 </div>
 <p>Caso haja mais de uma variável em comum, bastaria declarar um vetor com as variáveis no argumento <code>by =</code> (<code>by = c("var_1", "var_2", ..., "var_n")</code>). Atente-se ao fato que as variáveis devem estar entre aspas.</p>
@@ -1096,9 +1096,9 @@ Figure 6.2: Esquematização da função <span class="math inline">\(inner_join\
 11 Jose      &lt;NA&gt;     NA    NA Biologo    
 12 Getulio   &lt;NA&gt;     NA    NA Musico     </code></pre>
 <div class="figure" style="text-align: center"><span style="display:block;" id="fig:unnamed-chunk-175"></span>
-<img src="imagens/join-full.png" alt="Esquematização da função $full_join$. Fonte: R for Data Science, 2017." width="50%" />
+<img src="imagens/join-full.png" alt="Esquematização da função full-join. Fonte: R for Data Science, 2017." width="50%" />
 <p class="caption">
-Figure 6.3: Esquematização da função <span class="math inline">\(full_join\)</span>. Fonte: R for Data Science, 2017.
+Figure 6.3: Esquematização da função full-join. Fonte: R for Data Science, 2017.
 </p>
 </div>
 <p><br></p>
@@ -1131,9 +1131,9 @@ Figure 6.3: Esquematização da função <span class="math inline">\(full_join\)
 8 Getulio   &lt;NA&gt;     NA    NA Musico     </code></pre>
 <p>Note que em ambas as funções, o primeiro conjunto declarado é o <code>juntar.linhas</code>, sendo o segundo, o <code>d5</code>.</p>
 <div class="figure" style="text-align: center"><span style="display:block;" id="fig:unnamed-chunk-177"></span>
-<img src="imagens/join-rl.png" alt="Esquematização das funções $left_join$ e $right_join$. Fonte: R for Data Science, 2017." width="50%" />
+<img src="imagens/join-rl.png" alt="Esquematização das funções left-join e right-join. Fonte: R for Data Science, 2017." width="50%" />
 <p class="caption">
-Figure 6.4: Esquematização das funções <span class="math inline">\(left_join\)</span> e <span class="math inline">\(right_join\)</span>. Fonte: R for Data Science, 2017.
+Figure 6.4: Esquematização das funções left-join e right-join. Fonte: R for Data Science, 2017.
 </p>
 </div>
 <p><br></p>
@@ -1160,9 +1160,9 @@ Figure 6.4: Esquematização das funções <span class="math inline">\(left_join
 3 Marcos Professor  
 4 Vitor  Agronomo   </code></pre>
 <div class="figure" style="text-align: center"><span style="display:block;" id="fig:unnamed-chunk-179"></span>
-<img src="imagens/join-semi.png" alt="Esquematização da função $semi_join$. Fonte: R for Data Science, 2017." width="50%" />
+<img src="imagens/join-semi.png" alt="Esquematização da função semi-join. Fonte: R for Data Science, 2017." width="50%" />
 <p class="caption">
-Figure 6.5: Esquematização da função <span class="math inline">\(semi_join\)</span>. Fonte: R for Data Science, 2017.
+Figure 6.5: Esquematização da função semi-join. Fonte: R for Data Science, 2017.
 </p>
 </div>
 <p><br></p>
@@ -1188,9 +1188,9 @@ Figure 6.5: Esquematização da função <span class="math inline">\(semi_join\)
 3 Jose      Biologo   
 4 Getulio   Musico    </code></pre>
 <div class="figure" style="text-align: center"><span style="display:block;" id="fig:unnamed-chunk-181"></span>
-<img src="imagens/join-anti.png" alt="Esquematização da função $anti_join$. Fonte: R for Data Science, 2017." width="50%" />
+<img src="imagens/join-anti.png" alt="Esquematização da função anti-join. Fonte: R for Data Science, 2017." width="50%" />
 <p class="caption">
-Figure 6.6: Esquematização da função <span class="math inline">\(anti_join\)</span>. Fonte: R for Data Science, 2017.
+Figure 6.6: Esquematização da função anti-join. Fonte: R for Data Science, 2017.
 </p>
 </div>
 <p>Tanto no <code>semi_join()</code>, como no <code>anti_join()</code>, mantêm-se apenas as colunas presentes no primeiro conjunto.</p>
@@ -1260,20 +1260,6 @@ gitbook.start({
 });
 </script>
 
-<!-- dynamically load mathjax for compatibility with self-contained -->
-<script>
-  (function () {
-    var script = document.createElement("script");
-    script.type = "text/javascript";
-    var src = "true";
-    if (src === "" || src === "true") src = "https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-MML-AM_CHTML";
-    if (location.protocol !== "file:")
-      if (/^https?:/.test(src))
-        src = src.replace(/^https?:/, '');
-    script.src = src;
-    document.getElementsByTagName("head")[0].appendChild(script);
-  })();
-</script>
 </body>
 
 </html>
