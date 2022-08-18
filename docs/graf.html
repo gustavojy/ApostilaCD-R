@@ -138,7 +138,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li><a href="./">Introdução à Ciência de Dados em R</a></li>
 
 <li class="divider"></li>
-<li class="chapter" data-level="1" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i><b>1</b> Introdução</a></li>
+<li class="chapter" data-level="1" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i><b>1</b> Introdução </a></li>
 <li class="chapter" data-level="2" data-path="ciência-de-dados-e-r.html"><a href="ciência-de-dados-e-r.html"><i class="fa fa-check"></i><b>2</b> Ciência de dados e R</a>
 <ul>
 <li class="chapter" data-level="2.1" data-path="ciência-de-dados-e-r.html"><a href="ciência-de-dados-e-r.html#o-que-é-ciência-de-dados"><i class="fa fa-check"></i><b>2.1</b> O que é Ciência de Dados?</a></li>
@@ -392,23 +392,23 @@ Figure 7.1: Representação das 7 camadas presentes na gramática de gráficos, 
 <span id="cb477-2"><a href="graf.html#cb477-2" aria-hidden="true" tabindex="-1"></a>       <span class="at">mapping =</span> <span class="fu">aes</span>(<span class="at">x =</span> altura,</span>
 <span id="cb477-3"><a href="graf.html#cb477-3" aria-hidden="true" tabindex="-1"></a>                     <span class="at">y =</span> peso)) <span class="sc">+</span></span>
 <span id="cb477-4"><a href="graf.html#cb477-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_point</span>()</span></code></pre></div>
-<p><img src="_main_files/figure-html/unnamed-chunk-188-1.png" width="672" style="display: block; margin: auto;" /></p>
+<p><img src="_main_files/figure-html/fig1-1.png" width="672" style="display: block; margin: auto;" /></p>
 <p>A primeira camada do nosso gráfico é dada pela função <code>ggplot()</code>. O argumento <code>data =</code> recebe o objeto <code>dados_alunos</code>, ou seja, recebe a base de dados que importamos anteriormente e que utilizaremos para construir o gráfico. Em seguida, o argumento <code>mapping =</code> define a estética do gráfico a partir da função <code>aes()</code>, sendo atribuído ao eixo x a variável altura (<code>x = altura</code>) e ao eixo y, a variável peso (<code>y = peso</code>). Por fim, criamos uma última camada referente ao tipo de geometria adotado no gráfico, no caso, a geometria de pontos <code>geom_point()</code>.</p>
 <p>Perceba que as camadas são unidas por um sinal de <code>+</code>. Portanto, a combinação das funções <code>ggplot()</code> e <code>geom_point()</code> define o tipo de gráfico resultante.</p>
 <p>Para se ter uma noção de como foi gerado o gráfico e entender melhor a lógica da <em>gramática de gráficos</em>, rodaremos o código anterior por partes.</p>
 <div class="sourceCode" id="cb478"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb478-1"><a href="graf.html#cb478-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(<span class="at">data =</span> dados_alunos)</span></code></pre></div>
-<p><img src="_main_files/figure-html/unnamed-chunk-189-1.png" width="672" style="display: block; margin: auto;" /></p>
+<p><img src="_main_files/figure-html/unnamed-chunk-188-1.png" width="672" style="display: block; margin: auto;" /></p>
 <p>Ao definir somente o argumento <code>data = dados_alunos</code> na função <code>ggplot()</code>, o <code>ggplot2</code> nos retorna um gráfico vazio, pois indicamos apenas qual a base de dados que utilizaremos, sem fornecer informações referentes à estrutura do gráfico.</p>
 <div class="sourceCode" id="cb479"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb479-1"><a href="graf.html#cb479-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(<span class="at">data =</span> dados_alunos,</span>
 <span id="cb479-2"><a href="graf.html#cb479-2" aria-hidden="true" tabindex="-1"></a>       <span class="at">mapping =</span> <span class="fu">aes</span>(<span class="at">x =</span> altura, </span>
 <span id="cb479-3"><a href="graf.html#cb479-3" aria-hidden="true" tabindex="-1"></a>                     <span class="at">y =</span> peso))</span></code></pre></div>
-<p><img src="_main_files/figure-html/unnamed-chunk-190-1.png" width="672" style="display: block; margin: auto;" /></p>
+<p><img src="_main_files/figure-html/unnamed-chunk-189-1.png" width="672" style="display: block; margin: auto;" /></p>
 <p>Agora, indicando as variáveis mapeadas nos eixos x e y, temos um gráfico com as coordenadas definidas, porém sem ter os dados plotados, pois ainda não definimos qual o tipo de geometria será utilizada.</p>
 <div class="sourceCode" id="cb480"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb480-1"><a href="graf.html#cb480-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(<span class="at">data =</span> dados_alunos,</span>
 <span id="cb480-2"><a href="graf.html#cb480-2" aria-hidden="true" tabindex="-1"></a>       <span class="at">mapping =</span> <span class="fu">aes</span>(<span class="at">x =</span> altura,</span>
 <span id="cb480-3"><a href="graf.html#cb480-3" aria-hidden="true" tabindex="-1"></a>                     <span class="at">y =</span> peso)) <span class="sc">+</span></span>
 <span id="cb480-4"><a href="graf.html#cb480-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_point</span>()</span></code></pre></div>
-<p><img src="_main_files/figure-html/unnamed-chunk-191-1.png" width="672" style="display: block; margin: auto;" /></p>
+<p><img src="_main_files/figure-html/unnamed-chunk-190-1.png" width="672" style="display: block; margin: auto;" /></p>
 <p>Assim, ao definir a geometria de pontos <code>geom_point()</code>, os dados são inseridos no gráfico.</p>
 <p>Portanto, para os que estão começando a utilizar o <code>ggplot2</code>, recomendo executar comando por comando, pois auxiliará na compreensão da montagem dos gráficos.</p>
 <div id="cores" class="section level3" number="7.1.1">
@@ -419,7 +419,7 @@ Figure 7.1: Representação das 7 camadas presentes na gramática de gráficos, 
 <span id="cb481-3"><a href="graf.html#cb481-3" aria-hidden="true" tabindex="-1"></a>                     <span class="at">y =</span> peso,</span>
 <span id="cb481-4"><a href="graf.html#cb481-4" aria-hidden="true" tabindex="-1"></a>                     <span class="at">color =</span> sexo)) <span class="sc">+</span></span>
 <span id="cb481-5"><a href="graf.html#cb481-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_point</span>()</span></code></pre></div>
-<p><img src="_main_files/figure-html/unnamed-chunk-192-1.png" width="672" style="display: block; margin: auto;" /></p>
+<p><img src="_main_files/figure-html/unnamed-chunk-191-1.png" width="672" style="display: block; margin: auto;" /></p>
 </div>
 <div id="formatos" class="section level3" number="7.1.2">
 <h3><span class="header-section-number">7.1.2</span> Formatos</h3>
@@ -429,7 +429,7 @@ Figure 7.1: Representação das 7 camadas presentes na gramática de gráficos, 
 <span id="cb482-3"><a href="graf.html#cb482-3" aria-hidden="true" tabindex="-1"></a>                     <span class="at">y =</span> peso,</span>
 <span id="cb482-4"><a href="graf.html#cb482-4" aria-hidden="true" tabindex="-1"></a>                     <span class="at">color =</span> sexo)) <span class="sc">+</span></span>
 <span id="cb482-5"><a href="graf.html#cb482-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_point</span>(<span class="at">shape =</span> <span class="dv">4</span>)</span></code></pre></div>
-<p><img src="_main_files/figure-html/unnamed-chunk-193-1.png" width="672" style="display: block; margin: auto;" /></p>
+<p><img src="_main_files/figure-html/unnamed-chunk-192-1.png" width="672" style="display: block; margin: auto;" /></p>
 <p>Cada tipo de formato é representado por um número, cujas legendas podem ser conferidas na figura <a href="graf.html#fig:shape">7.2</a>.</p>
 <div class="figure" style="text-align: center"><span style="display:block;" id="fig:shape"></span>
 <img src="imagens/shapes.png" alt="Legendas dos tipos de formatos de pontos, indicados no argumento `shape`. Fonte: R for Data Science, 2017." width="70%" />
@@ -443,7 +443,7 @@ Figure 7.2: Legendas dos tipos de formatos de pontos, indicados no argumento <co
 <span id="cb483-3"><a href="graf.html#cb483-3" aria-hidden="true" tabindex="-1"></a>                     <span class="at">y =</span> peso,</span>
 <span id="cb483-4"><a href="graf.html#cb483-4" aria-hidden="true" tabindex="-1"></a>                     <span class="at">shape =</span> sexo)) <span class="sc">+</span></span>
 <span id="cb483-5"><a href="graf.html#cb483-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_point</span>()</span></code></pre></div>
-<p><img src="_main_files/figure-html/unnamed-chunk-194-1.png" width="672" style="display: block; margin: auto;" /></p>
+<p><img src="_main_files/figure-html/unnamed-chunk-193-1.png" width="672" style="display: block; margin: auto;" /></p>
 <p>Como padrão, o argumento atribui aos pontos os formatos <code>16</code> e <code>17</code>. Para alterá-los, utilizamos a função <code>scale_shape_manual()</code>, com o argumento <code>values</code> recebendo um vetor com os números dos formatos que se deseja atribuir.</p>
 <div class="sourceCode" id="cb484"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb484-1"><a href="graf.html#cb484-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(<span class="at">data =</span> dados_alunos,</span>
 <span id="cb484-2"><a href="graf.html#cb484-2" aria-hidden="true" tabindex="-1"></a>       <span class="at">mapping =</span> <span class="fu">aes</span>(<span class="at">x =</span> altura,</span>
@@ -451,7 +451,7 @@ Figure 7.2: Legendas dos tipos de formatos de pontos, indicados no argumento <co
 <span id="cb484-4"><a href="graf.html#cb484-4" aria-hidden="true" tabindex="-1"></a>                     <span class="at">shape =</span> sexo)) <span class="sc">+</span></span>
 <span id="cb484-5"><a href="graf.html#cb484-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_point</span>()<span class="sc">+</span></span>
 <span id="cb484-6"><a href="graf.html#cb484-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scale_shape_manual</span>(<span class="at">values =</span> <span class="fu">c</span>(<span class="dv">13</span>, <span class="dv">24</span>))</span></code></pre></div>
-<p><img src="_main_files/figure-html/unnamed-chunk-195-1.png" width="672" style="display: block; margin: auto;" /></p>
+<p><img src="_main_files/figure-html/unnamed-chunk-194-1.png" width="672" style="display: block; margin: auto;" /></p>
 <p>Perceba que a ordem dos números no vetor segue a ordem das variáveis, ou seja, o formato <code>13</code> é referente ao sexo feminino (<code>F</code>) e o formato <code>24</code>, ao sexo masculino (<code>M</code>).</p>
 </div>
 <div id="tamanho" class="section level3" number="7.1.3">
@@ -462,7 +462,7 @@ Figure 7.2: Legendas dos tipos de formatos de pontos, indicados no argumento <co
 <span id="cb485-3"><a href="graf.html#cb485-3" aria-hidden="true" tabindex="-1"></a>                     <span class="at">y =</span> peso,</span>
 <span id="cb485-4"><a href="graf.html#cb485-4" aria-hidden="true" tabindex="-1"></a>                     <span class="at">color =</span> sexo)) <span class="sc">+</span></span>
 <span id="cb485-5"><a href="graf.html#cb485-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_point</span>(<span class="at">size =</span> <span class="dv">5</span>)</span></code></pre></div>
-<p><img src="_main_files/figure-html/unnamed-chunk-196-1.png" width="672" style="display: block; margin: auto;" /></p>
+<p><img src="_main_files/figure-html/unnamed-chunk-195-1.png" width="672" style="display: block; margin: auto;" /></p>
 <p>Caso o argumento <code>size</code> não seja especificado, por padrão, o valor adotado é igual a 1. Assim, podemos gerar ponto maiores designando valores superiores a 1, ou senão, pontos menores, atribuindo valores inferiores a 1.</p>
 <p>Outra possibilidade é diferenciar as idades dos alunos pelo tamanho dos pontos. Para isso, o argumento <code>size</code> receberá a variável <code>idade</code>, dentro a função <code>aes()</code>.</p>
 <div class="sourceCode" id="cb486"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb486-1"><a href="graf.html#cb486-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(<span class="at">data =</span> dados_alunos,</span>
@@ -471,7 +471,7 @@ Figure 7.2: Legendas dos tipos de formatos de pontos, indicados no argumento <co
 <span id="cb486-4"><a href="graf.html#cb486-4" aria-hidden="true" tabindex="-1"></a>                     <span class="at">color =</span> sexo,</span>
 <span id="cb486-5"><a href="graf.html#cb486-5" aria-hidden="true" tabindex="-1"></a>                     <span class="at">size =</span> idade)) <span class="sc">+</span></span>
 <span id="cb486-6"><a href="graf.html#cb486-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_point</span>()</span></code></pre></div>
-<p><img src="_main_files/figure-html/unnamed-chunk-197-1.png" width="672" style="display: block; margin: auto;" /></p>
+<p><img src="_main_files/figure-html/unnamed-chunk-196-1.png" width="672" style="display: block; margin: auto;" /></p>
 </div>
 <div id="transparência" class="section level3" number="7.1.4">
 <h3><span class="header-section-number">7.1.4</span> Transparência</h3>
@@ -482,7 +482,7 @@ Figure 7.2: Legendas dos tipos de formatos de pontos, indicados no argumento <co
 <span id="cb487-4"><a href="graf.html#cb487-4" aria-hidden="true" tabindex="-1"></a>                     <span class="at">color =</span> sexo,</span>
 <span id="cb487-5"><a href="graf.html#cb487-5" aria-hidden="true" tabindex="-1"></a>                     <span class="at">alpha =</span> idade)) <span class="sc">+</span></span>
 <span id="cb487-6"><a href="graf.html#cb487-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_point</span>(<span class="at">size =</span> <span class="dv">4</span>)</span></code></pre></div>
-<p><img src="_main_files/figure-html/unnamed-chunk-198-1.png" width="672" style="display: block; margin: auto;" /></p>
+<p><img src="_main_files/figure-html/unnamed-chunk-197-1.png" width="672" style="display: block; margin: auto;" /></p>
 <p><br></p>
 <p>Você deve ter percebido que um mesmo argumento pode ser utilizado de diferentes maneiras. Nos exemplos anteriores, utilizamos os argumentos <code>shape</code> e <code>size</code> dentro da função <code>aes()</code>, mas também na <code>geom_point()</code>. Quando utilizamos dentro da <code>aes()</code>, o argumento sempre recebe uma <strong>variável</strong> da base de dados. Por outro lado, quando utilizada na <code>geom_point()</code>, eles recebem um valor genérico contido em uma determinada escala. Assim, devemos nos atentar a esses detalhes para construirmos os gráficos de acordo com as especificações e posições dos argumentos.</p>
 <p><br></p>
@@ -496,7 +496,7 @@ Figure 7.2: Legendas dos tipos de formatos de pontos, indicados no argumento <co
 <span id="cb488-4"><a href="graf.html#cb488-4" aria-hidden="true" tabindex="-1"></a>                     <span class="at">color =</span> sexo))<span class="sc">+</span></span>
 <span id="cb488-5"><a href="graf.html#cb488-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_point</span>()<span class="sc">+</span></span>
 <span id="cb488-6"><a href="graf.html#cb488-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">facet_wrap</span>(<span class="sc">~</span>sexo, <span class="at">ncol =</span> <span class="dv">2</span>)</span></code></pre></div>
-<p><img src="_main_files/figure-html/unnamed-chunk-199-1.png" width="672" style="display: block; margin: auto;" /></p>
+<p><img src="_main_files/figure-html/unnamed-chunk-198-1.png" width="672" style="display: block; margin: auto;" /></p>
 <p>A função <code>facet_wrap()</code> entra como uma terceira camada ao gráfico. Como argumento, utilizamos a fórmula <code>~sexo</code> para dizer que a variável <code>sexo</code> será utilizada como fator para quebrar o gráfico em duas grades. Como se pode perceber, cada grade recebe somente os dados referentes aos respectivos sexos. Logo em seguida, temos um outro argumento que nos indica a disposição dos gráficos. No caso do <code>ncol</code>, os gráficos ficam dispostos lado a lado, sendo que para o <code>nrow</code> os gráficos se dispõem um embaixo do outro, como podemos ver a seguir.</p>
 <div class="sourceCode" id="cb489"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb489-1"><a href="graf.html#cb489-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(<span class="at">data =</span> dados_alunos,</span>
 <span id="cb489-2"><a href="graf.html#cb489-2" aria-hidden="true" tabindex="-1"></a>       <span class="at">mapping =</span> <span class="fu">aes</span>(<span class="at">x =</span> altura,</span>
@@ -504,7 +504,7 @@ Figure 7.2: Legendas dos tipos de formatos de pontos, indicados no argumento <co
 <span id="cb489-4"><a href="graf.html#cb489-4" aria-hidden="true" tabindex="-1"></a>                     <span class="at">color =</span> sexo))<span class="sc">+</span></span>
 <span id="cb489-5"><a href="graf.html#cb489-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_point</span>()<span class="sc">+</span></span>
 <span id="cb489-6"><a href="graf.html#cb489-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">facet_wrap</span>(<span class="sc">~</span>sexo, <span class="at">nrow =</span> <span class="dv">2</span>)</span></code></pre></div>
-<p><img src="_main_files/figure-html/unnamed-chunk-200-1.png" width="672" style="display: block; margin: auto;" /></p>
+<p><img src="_main_files/figure-html/unnamed-chunk-199-1.png" width="672" style="display: block; margin: auto;" /></p>
 <p>Ainda podemos associar duas variáveis categóricas ao <em>facet</em>. Como exemplo, adicionaremos a variável <code>futuro</code> à fórmula <code>futuro~sexo</code>, a fim de verificarmos as perspectivas dos alunos sobre seus futuros após a graduação, de acordo com o sexo.</p>
 <div class="sourceCode" id="cb490"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb490-1"><a href="graf.html#cb490-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(<span class="at">data =</span> dados_alunos,</span>
 <span id="cb490-2"><a href="graf.html#cb490-2" aria-hidden="true" tabindex="-1"></a>       <span class="at">mapping =</span> <span class="fu">aes</span>(<span class="at">x =</span> altura,</span>
@@ -512,7 +512,7 @@ Figure 7.2: Legendas dos tipos de formatos de pontos, indicados no argumento <co
 <span id="cb490-4"><a href="graf.html#cb490-4" aria-hidden="true" tabindex="-1"></a>                     <span class="at">color =</span> sexo))<span class="sc">+</span></span>
 <span id="cb490-5"><a href="graf.html#cb490-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_point</span>()<span class="sc">+</span></span>
 <span id="cb490-6"><a href="graf.html#cb490-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">facet_wrap</span>(futuro<span class="sc">~</span>sexo, <span class="at">ncol =</span> <span class="dv">4</span>)</span></code></pre></div>
-<p><img src="_main_files/figure-html/unnamed-chunk-201-1.png" width="672" style="display: block; margin: auto;" /></p>
+<p><img src="_main_files/figure-html/unnamed-chunk-200-1.png" width="672" style="display: block; margin: auto;" /></p>
 <p>Perceba que o número atribuído ao argumento <code>ncol =</code> define o número de colunas do <em>facet</em>. A mesma lógica é válida para o <code>nrow =</code>, porém definindo o número de linhas.</p>
 <p><br></p>
 </div>
@@ -530,7 +530,7 @@ Figure 7.2: Legendas dos tipos de formatos de pontos, indicados no argumento <co
 <span id="cb491-5"><a href="graf.html#cb491-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_hline</span>(<span class="at">mapping =</span> <span class="fu">aes</span>(<span class="at">yintercept =</span> <span class="fu">mean</span>(media_ponderada)),</span>
 <span id="cb491-6"><a href="graf.html#cb491-6" aria-hidden="true" tabindex="-1"></a>             <span class="at">color =</span> <span class="st">&quot;red&quot;</span>,</span>
 <span id="cb491-7"><a href="graf.html#cb491-7" aria-hidden="true" tabindex="-1"></a>             <span class="at">linetype =</span> <span class="dv">2</span>)</span></code></pre></div>
-<p><img src="_main_files/figure-html/unnamed-chunk-202-1.png" width="672" style="display: block; margin: auto;" /></p>
+<p><img src="_main_files/figure-html/unnamed-chunk-201-1.png" width="672" style="display: block; margin: auto;" /></p>
 <p>Perceba que o argumento <code>yintercept</code> foi colocado dentro da função <code>aes()</code>, pois utilizamos uma variável da nossa base de dados para construir a linha. Além disso, atribuímos a cor vermelha à linha (<code>color = "red"</code>) e definimos seu estilo com o argumento <code>linetype</code>. Cada tipo de linha é representado por um número, cuja legenda pode ser conferida na figura <a href="graf.html#fig:linetype">7.3</a>.</p>
 <div class="figure" style="text-align: center"><span style="display:block;" id="fig:linetype"></span>
 <img src="imagens/linetype.png" alt="Possíveis tipos de linhas a partir do argumento `linetype`. Fonte: R Graphics Cookbook." width="70%" />
@@ -549,7 +549,7 @@ Figure 7.3: Possíveis tipos de linhas a partir do argumento <code>linetype</cod
 <span id="cb492-5"><a href="graf.html#cb492-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_vline</span>(<span class="at">mapping =</span> <span class="fu">aes</span>(<span class="at">xintercept =</span> <span class="fu">mean</span>(media_ponderada)),</span>
 <span id="cb492-6"><a href="graf.html#cb492-6" aria-hidden="true" tabindex="-1"></a>             <span class="at">color =</span> <span class="st">&quot;red&quot;</span>,</span>
 <span id="cb492-7"><a href="graf.html#cb492-7" aria-hidden="true" tabindex="-1"></a>             <span class="at">linetype =</span> <span class="dv">2</span>)</span></code></pre></div>
-<p><img src="_main_files/figure-html/unnamed-chunk-203-1.png" width="672" style="display: block; margin: auto;" /></p>
+<p><img src="_main_files/figure-html/unnamed-chunk-202-1.png" width="672" style="display: block; margin: auto;" /></p>
 </div>
 <div id="linhas-diagonais" class="section level4 unnumbered">
 <h4>Linhas diagonais</h4>
@@ -571,7 +571,7 @@ Coefficients:
 <span id="cb495-6"><a href="graf.html#cb495-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_abline</span>(<span class="at">intercept =</span> <span class="fl">1.084</span>,</span>
 <span id="cb495-7"><a href="graf.html#cb495-7" aria-hidden="true" tabindex="-1"></a>              <span class="at">slope =</span> <span class="fl">2.23</span>,</span>
 <span id="cb495-8"><a href="graf.html#cb495-8" aria-hidden="true" tabindex="-1"></a>              <span class="at">size =</span> <span class="dv">2</span>)</span></code></pre></div>
-<p><img src="_main_files/figure-html/unnamed-chunk-204-1.png" width="672" style="display: block; margin: auto;" /></p>
+<p><img src="_main_files/figure-html/unnamed-chunk-203-1.png" width="672" style="display: block; margin: auto;" /></p>
 <p>Como exemplo, utilizamos a base de dados nativa do R <code>iris</code> para criar um gráfico de dispersão entre a largura e o comprimento das pétalas de flores. Com a função <code>lm()</code>, calculamos o intercepto e o coeficiente angular entre as variáveis selecionadas, informando primeiro a variável do eixo y, seguida da variável do eixo x, tendo entre ambas o símbolo <code>~</code>.</p>
 <p>Uma vez calculados o intercepto e o coeficiente angular, na função <code>geom_abline()</code> especificamos os argumentos <code>intercept = 1.084</code> e <code>slope = 2.23</code> para informar que a reta começa na coordenada (0 , 1.084), possuindo um coeficiente de angulação igual a 2,23.</p>
 <p><br></p>
@@ -587,7 +587,7 @@ Coefficients:
 <span id="cb496-3"><a href="graf.html#cb496-3" aria-hidden="true" tabindex="-1"></a>                     <span class="at">y =</span> peso))<span class="sc">+</span></span>
 <span id="cb496-4"><a href="graf.html#cb496-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_point</span>()<span class="sc">+</span></span>
 <span id="cb496-5"><a href="graf.html#cb496-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_smooth</span>()</span></code></pre></div>
-<p><img src="_main_files/figure-html/unnamed-chunk-205-1.png" width="672" style="display: block; margin: auto;" /></p>
+<p><img src="_main_files/figure-html/unnamed-chunk-204-1.png" width="672" style="display: block; margin: auto;" /></p>
 <p>Neste primeiro gráfico, definimos dentro da função <code>ggplot()</code> os eixos <code>x = altura</code> e <code>y = peso</code>. Sendo assim, essa estética é utilizada por ambas as funções geométricas, tanto a <code>geom_point()</code>, como a <code>geom_smooth()</code>.</p>
 <p>Podemos definir na função <code>geom_smooth()</code> o tipo de método para gerar a linha de regressão. Por padrão, o metódo utilizado é o <code>loess</code> (sigla de <em>locally estimated scatterplot smoothing</em>).</p>
 <p>Para alterar o método, utilizamos o argumento <code>method =</code> na função <code>geom_smooth()</code>. No exemplo a seguir, definimos o método <code>"lm"</code>, ou seja, modelo linear (<em>linear model</em>).</p>
@@ -596,7 +596,7 @@ Coefficients:
 <span id="cb497-3"><a href="graf.html#cb497-3" aria-hidden="true" tabindex="-1"></a>                     <span class="at">y =</span> peso))<span class="sc">+</span></span>
 <span id="cb497-4"><a href="graf.html#cb497-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_point</span>()<span class="sc">+</span></span>
 <span id="cb497-5"><a href="graf.html#cb497-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_smooth</span>(<span class="at">method =</span> <span class="st">&quot;lm&quot;</span>)</span></code></pre></div>
-<p><img src="_main_files/figure-html/unnamed-chunk-206-1.png" width="672" style="display: block; margin: auto;" /></p>
+<p><img src="_main_files/figure-html/unnamed-chunk-205-1.png" width="672" style="display: block; margin: auto;" /></p>
 <p>Perceba que a linha de regressão apresenta uma região sombreada em seu entorno. Essa região é o intervalo de confiança que, por padrão, adota-se 95% de confiança. Para alterar o nível de confiança, utilizamos o argumento <code>level</code>. No exemplo a seguir, adotaremos 70% de confiança (<code>level = 0.70</code>).</p>
 <div class="sourceCode" id="cb498"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb498-1"><a href="graf.html#cb498-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(<span class="at">data =</span> dados_alunos,</span>
 <span id="cb498-2"><a href="graf.html#cb498-2" aria-hidden="true" tabindex="-1"></a>       <span class="at">mapping =</span> <span class="fu">aes</span>(<span class="at">x =</span> altura,</span>
@@ -604,7 +604,7 @@ Coefficients:
 <span id="cb498-4"><a href="graf.html#cb498-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_point</span>()<span class="sc">+</span></span>
 <span id="cb498-5"><a href="graf.html#cb498-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_smooth</span>(<span class="at">method =</span> <span class="st">&quot;lm&quot;</span>, </span>
 <span id="cb498-6"><a href="graf.html#cb498-6" aria-hidden="true" tabindex="-1"></a>              <span class="at">level =</span> <span class="fl">0.70</span>)</span></code></pre></div>
-<p><img src="_main_files/figure-html/unnamed-chunk-207-1.png" width="672" style="display: block; margin: auto;" /></p>
+<p><img src="_main_files/figure-html/unnamed-chunk-206-1.png" width="672" style="display: block; margin: auto;" /></p>
 <p>Para desativar o intervalo de confiança, utilizamos o argumento <code>se = FALSE</code>.</p>
 <div class="sourceCode" id="cb499"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb499-1"><a href="graf.html#cb499-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(<span class="at">data =</span> dados_alunos,</span>
 <span id="cb499-2"><a href="graf.html#cb499-2" aria-hidden="true" tabindex="-1"></a>       <span class="at">mapping =</span> <span class="fu">aes</span>(<span class="at">x =</span> altura,</span>
@@ -612,7 +612,7 @@ Coefficients:
 <span id="cb499-4"><a href="graf.html#cb499-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_point</span>()<span class="sc">+</span></span>
 <span id="cb499-5"><a href="graf.html#cb499-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_smooth</span>(<span class="at">method =</span> <span class="st">&quot;lm&quot;</span>,</span>
 <span id="cb499-6"><a href="graf.html#cb499-6" aria-hidden="true" tabindex="-1"></a>              <span class="at">se =</span> <span class="cn">FALSE</span>)</span></code></pre></div>
-<p><img src="_main_files/figure-html/unnamed-chunk-208-1.png" width="672" style="display: block; margin: auto;" /></p>
+<p><img src="_main_files/figure-html/unnamed-chunk-207-1.png" width="672" style="display: block; margin: auto;" /></p>
 <p>Ainda podemos alterar alguns fatores estéticos da reta, como por exemplo a cor, tamanho e tipo de linha.</p>
 <div class="sourceCode" id="cb500"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb500-1"><a href="graf.html#cb500-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(<span class="at">data =</span> dados_alunos,</span>
 <span id="cb500-2"><a href="graf.html#cb500-2" aria-hidden="true" tabindex="-1"></a>       <span class="at">mapping =</span> <span class="fu">aes</span>(<span class="at">x =</span> altura,</span>
@@ -623,7 +623,7 @@ Coefficients:
 <span id="cb500-7"><a href="graf.html#cb500-7" aria-hidden="true" tabindex="-1"></a>              <span class="at">color =</span> <span class="st">&quot;red&quot;</span>,</span>
 <span id="cb500-8"><a href="graf.html#cb500-8" aria-hidden="true" tabindex="-1"></a>              <span class="at">size =</span> <span class="dv">1</span>,</span>
 <span id="cb500-9"><a href="graf.html#cb500-9" aria-hidden="true" tabindex="-1"></a>              <span class="at">linetype =</span> <span class="dv">5</span>)</span></code></pre></div>
-<p><img src="_main_files/figure-html/unnamed-chunk-209-1.png" width="672" style="display: block; margin: auto;" /></p>
+<p><img src="_main_files/figure-html/unnamed-chunk-208-1.png" width="672" style="display: block; margin: auto;" /></p>
 <p>Para construir linhas de regressão para diferentes grupos, em um mesmo gráfico, podemos prosseguir de diferentes maneiras. No exemplo a seguir, distinguiremos os pontos por cores, de acordo com o sexo.</p>
 <div class="sourceCode" id="cb501"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb501-1"><a href="graf.html#cb501-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(<span class="at">data =</span> dados_alunos)<span class="sc">+</span></span>
 <span id="cb501-2"><a href="graf.html#cb501-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_point</span>(<span class="at">mapping =</span> <span class="fu">aes</span>(<span class="at">x =</span> altura,</span>
@@ -633,7 +633,7 @@ Coefficients:
 <span id="cb501-6"><a href="graf.html#cb501-6" aria-hidden="true" tabindex="-1"></a>                            <span class="at">y =</span> peso),</span>
 <span id="cb501-7"><a href="graf.html#cb501-7" aria-hidden="true" tabindex="-1"></a>              <span class="at">method =</span> <span class="st">&quot;lm&quot;</span>,</span>
 <span id="cb501-8"><a href="graf.html#cb501-8" aria-hidden="true" tabindex="-1"></a>              <span class="at">se =</span> <span class="cn">FALSE</span>)</span></code></pre></div>
-<p><img src="_main_files/figure-html/unnamed-chunk-210-1.png" width="672" style="display: block; margin: auto;" /></p>
+<p><img src="_main_files/figure-html/unnamed-chunk-209-1.png" width="672" style="display: block; margin: auto;" /></p>
 <p>Perceba que, apesar de ter distinguido os pontos de acordo com o sexo, foi traçada uma única linha de regressão para ambos os sexos. Para construir uma linha para cada sexo, precisamos agrupar a variável <code>sexo</code> na função <code>aes()</code> da <code>geom_smooth()</code>, a partir do argumento <code>group =</code>.</p>
 <div class="sourceCode" id="cb502"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb502-1"><a href="graf.html#cb502-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(<span class="at">data =</span> dados_alunos)<span class="sc">+</span></span>
 <span id="cb502-2"><a href="graf.html#cb502-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_point</span>(<span class="at">mapping =</span> <span class="fu">aes</span>(<span class="at">x =</span> altura,</span>
@@ -644,7 +644,7 @@ Coefficients:
 <span id="cb502-7"><a href="graf.html#cb502-7" aria-hidden="true" tabindex="-1"></a>                            <span class="at">group =</span> sexo),</span>
 <span id="cb502-8"><a href="graf.html#cb502-8" aria-hidden="true" tabindex="-1"></a>              <span class="at">method =</span> <span class="st">&quot;lm&quot;</span>,</span>
 <span id="cb502-9"><a href="graf.html#cb502-9" aria-hidden="true" tabindex="-1"></a>              <span class="at">se =</span> <span class="cn">FALSE</span>)</span></code></pre></div>
-<p><img src="_main_files/figure-html/unnamed-chunk-211-1.png" width="672" style="display: block; margin: auto;" /></p>
+<p><img src="_main_files/figure-html/unnamed-chunk-210-1.png" width="672" style="display: block; margin: auto;" /></p>
 <p>Nesses últimos exemplo, percaba que definimos a estética do gráfico (<code>aes()</code>) dentro de cada geometria e não mais na função <code>ggplot()</code>. Isso permite definir as estéticas individuais de cada geometria.</p>
 <p>Caso contrário, poderíamos definir uma mesma estética para ambas as geometrias, definindo-a como função da <code>ggplot()</code>. No exemplo a seguir, traremos uma outra solução para o problema das linhas de regressão por categoria, definindo a <code>aes()</code> na função <code>ggplot()</code>.</p>
 <div class="sourceCode" id="cb503"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb503-1"><a href="graf.html#cb503-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(<span class="at">data =</span> dados_alunos,</span>
@@ -654,7 +654,7 @@ Coefficients:
 <span id="cb503-5"><a href="graf.html#cb503-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_point</span>()<span class="sc">+</span></span>
 <span id="cb503-6"><a href="graf.html#cb503-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_smooth</span>(<span class="at">method =</span> <span class="st">&quot;lm&quot;</span>,</span>
 <span id="cb503-7"><a href="graf.html#cb503-7" aria-hidden="true" tabindex="-1"></a>              <span class="at">se =</span> <span class="cn">FALSE</span>)</span></code></pre></div>
-<p><img src="_main_files/figure-html/unnamed-chunk-212-1.png" width="672" style="display: block; margin: auto;" /></p>
+<p><img src="_main_files/figure-html/unnamed-chunk-211-1.png" width="672" style="display: block; margin: auto;" /></p>
 <p>Nesse caso, definimos o fator cor (<code>color</code>) para diferenciarmos o sexo, tanto para a <code>geom_point()</code>, como para a <code>geom_smooth()</code>. Assim, perceba que os ponto e as retas de regressão ficaram com cores diferentes, de acordo com o sexo.</p>
 <p>Para saber mais sobre as linhas de regressão no <code>ggplot2</code>, confira os capítulos 5.6 a 5.9 do excelente livro <a href="https://r-graphics.org/recipe-scatter-fitlines">R Graphics Cookbook</a>.</p>
 <p><br></p>
@@ -677,7 +677,7 @@ Coefficients:
 <span id="cb504-13"><a href="graf.html#cb504-13" aria-hidden="true" tabindex="-1"></a>    <span class="at">subtitle =</span> <span class="st">&quot;Altura x Peso&quot;</span>,</span>
 <span id="cb504-14"><a href="graf.html#cb504-14" aria-hidden="true" tabindex="-1"></a>    <span class="at">caption =</span> <span class="st">&quot;Fonte: Disciplina Estatística Aplicada/ESALQ.&quot;</span></span>
 <span id="cb504-15"><a href="graf.html#cb504-15" aria-hidden="true" tabindex="-1"></a>  )</span></code></pre></div>
-<p><img src="_main_files/figure-html/unnamed-chunk-213-1.png" width="672" style="display: block; margin: auto;" /></p>
+<p><img src="_main_files/figure-html/unnamed-chunk-212-1.png" width="672" style="display: block; margin: auto;" /></p>
 <p>Podemos adicionar mais alguns ajustes, como centralizar o título e subtítulo, colocar a fonte à esquerda, além de ocultar as legendas.</p>
 <div class="sourceCode" id="cb505"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb505-1"><a href="graf.html#cb505-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(<span class="at">data =</span> dados_alunos,</span>
 <span id="cb505-2"><a href="graf.html#cb505-2" aria-hidden="true" tabindex="-1"></a>       <span class="at">mapping =</span> <span class="fu">aes</span>(<span class="at">x =</span> altura,</span>
@@ -698,7 +698,7 @@ Coefficients:
 <span id="cb505-17"><a href="graf.html#cb505-17" aria-hidden="true" tabindex="-1"></a>        <span class="at">plot.subtitle =</span> <span class="fu">element_text</span>(<span class="at">hjust =</span> <span class="fl">0.5</span>),</span>
 <span id="cb505-18"><a href="graf.html#cb505-18" aria-hidden="true" tabindex="-1"></a>        <span class="at">plot.caption =</span> <span class="fu">element_text</span>(<span class="at">hjust =</span> <span class="dv">0</span>),</span>
 <span id="cb505-19"><a href="graf.html#cb505-19" aria-hidden="true" tabindex="-1"></a>        <span class="at">legend.position =</span> <span class="st">&quot;none&quot;</span>)</span></code></pre></div>
-<p><img src="_main_files/figure-html/unnamed-chunk-214-1.png" width="672" style="display: block; margin: auto;" /></p>
+<p><img src="_main_files/figure-html/unnamed-chunk-213-1.png" width="672" style="display: block; margin: auto;" /></p>
 <p>Nesse caso, conjuntamente à função <code>theme()</code>, utilizamos outra função, a <code>element_text()</code>, para ajustar o posicionamento horizontal do título (<code>plot.title</code>) e do subtítulo (<code>plot.subtitle</code>), além da fonte (<code>plot.caption</code>). O argumento <code>hjust</code> apresenta uma escala de 0 a 1, sendo 0 o posicionamento mais à esquerda do gráfico. Assim, para centralizarmos os textos, definimos o ajuste na metade da escala (<code>hjust = 0.5</code>).</p>
 <p>No caso das legendas, ainda dentro da função <code>theme()</code>, utilizamos o argumento <code>legend.position = "none"</code> para ocultar todas as legendas presentes no gráfico.</p>
 <p>Caso queira ocultar somente uma das legendas, utilizamos a função <code>guides()</code>, informando a variável cuja legenda se deseja ocultar.</p>
@@ -721,7 +721,7 @@ Coefficients:
 <span id="cb506-17"><a href="graf.html#cb506-17" aria-hidden="true" tabindex="-1"></a>        <span class="at">plot.subtitle =</span> <span class="fu">element_text</span>(<span class="at">hjust =</span> <span class="fl">0.5</span>),</span>
 <span id="cb506-18"><a href="graf.html#cb506-18" aria-hidden="true" tabindex="-1"></a>        <span class="at">plot.caption =</span> <span class="fu">element_text</span>(<span class="at">hjust =</span> <span class="dv">0</span>))<span class="sc">+</span></span>
 <span id="cb506-19"><a href="graf.html#cb506-19" aria-hidden="true" tabindex="-1"></a>  <span class="fu">guides</span>(<span class="at">alpha =</span> <span class="cn">FALSE</span>)</span></code></pre></div>
-<p><img src="_main_files/figure-html/unnamed-chunk-215-1.png" width="672" style="display: block; margin: auto;" /></p>
+<p><img src="_main_files/figure-html/unnamed-chunk-214-1.png" width="672" style="display: block; margin: auto;" /></p>
 <p>Nesse exemplo, ocultamos apenas a legenda da variável <code>alpha</code>, atribuindo o valor lógico <code>FALSE</code>.</p>
 <p>Para saber mais sobre títulos, rótulos e aparência geral dos gráficos, confira os capítulos 9 e 10 do livro <a href="https://r-graphics.org/chapter-appearance"><em>R Graphics Cookbook</em></a>.</p>
 <p><br></p>
@@ -749,7 +749,7 @@ Coefficients:
 <span id="cb507-18"><a href="graf.html#cb507-18" aria-hidden="true" tabindex="-1"></a>        <span class="at">plot.subtitle =</span> <span class="fu">element_text</span>(<span class="at">hjust =</span> <span class="fl">0.5</span>),</span>
 <span id="cb507-19"><a href="graf.html#cb507-19" aria-hidden="true" tabindex="-1"></a>        <span class="at">plot.caption =</span> <span class="fu">element_text</span>(<span class="at">hjust =</span> <span class="dv">0</span>))<span class="sc">+</span></span>
 <span id="cb507-20"><a href="graf.html#cb507-20" aria-hidden="true" tabindex="-1"></a>  <span class="fu">guides</span>(<span class="at">alpha =</span> <span class="cn">FALSE</span>)</span></code></pre></div>
-<p><img src="_main_files/figure-html/unnamed-chunk-216-1.png" width="672" style="display: block; margin: auto;" /></p>
+<p><img src="_main_files/figure-html/unnamed-chunk-215-1.png" width="672" style="display: block; margin: auto;" /></p>
 <div class="sourceCode" id="cb508"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb508-1"><a href="graf.html#cb508-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(<span class="at">data =</span> dados_alunos,</span>
 <span id="cb508-2"><a href="graf.html#cb508-2" aria-hidden="true" tabindex="-1"></a>       <span class="at">mapping =</span> <span class="fu">aes</span>(<span class="at">x =</span> altura,</span>
 <span id="cb508-3"><a href="graf.html#cb508-3" aria-hidden="true" tabindex="-1"></a>                     <span class="at">y =</span> peso,</span>
@@ -770,7 +770,7 @@ Coefficients:
 <span id="cb508-18"><a href="graf.html#cb508-18" aria-hidden="true" tabindex="-1"></a>        <span class="at">plot.subtitle =</span> <span class="fu">element_text</span>(<span class="at">hjust =</span> <span class="fl">0.5</span>),</span>
 <span id="cb508-19"><a href="graf.html#cb508-19" aria-hidden="true" tabindex="-1"></a>        <span class="at">plot.caption =</span> <span class="fu">element_text</span>(<span class="at">hjust =</span> <span class="dv">0</span>))<span class="sc">+</span></span>
 <span id="cb508-20"><a href="graf.html#cb508-20" aria-hidden="true" tabindex="-1"></a>  <span class="fu">guides</span>(<span class="at">alpha =</span> <span class="cn">FALSE</span>)</span></code></pre></div>
-<p><img src="_main_files/figure-html/unnamed-chunk-217-1.png" width="672" style="display: block; margin: auto;" /></p>
+<p><img src="_main_files/figure-html/unnamed-chunk-216-1.png" width="672" style="display: block; margin: auto;" /></p>
 <div class="sourceCode" id="cb509"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb509-1"><a href="graf.html#cb509-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(<span class="at">data =</span> dados_alunos,</span>
 <span id="cb509-2"><a href="graf.html#cb509-2" aria-hidden="true" tabindex="-1"></a>       <span class="at">mapping =</span> <span class="fu">aes</span>(<span class="at">x =</span> altura,</span>
 <span id="cb509-3"><a href="graf.html#cb509-3" aria-hidden="true" tabindex="-1"></a>                     <span class="at">y =</span> peso,</span>
@@ -791,7 +791,7 @@ Coefficients:
 <span id="cb509-18"><a href="graf.html#cb509-18" aria-hidden="true" tabindex="-1"></a>        <span class="at">plot.subtitle =</span> <span class="fu">element_text</span>(<span class="at">hjust =</span> <span class="fl">0.5</span>),</span>
 <span id="cb509-19"><a href="graf.html#cb509-19" aria-hidden="true" tabindex="-1"></a>        <span class="at">plot.caption =</span> <span class="fu">element_text</span>(<span class="at">hjust =</span> <span class="dv">0</span>))<span class="sc">+</span></span>
 <span id="cb509-20"><a href="graf.html#cb509-20" aria-hidden="true" tabindex="-1"></a>  <span class="fu">guides</span>(<span class="at">alpha =</span> <span class="cn">FALSE</span>)</span></code></pre></div>
-<p><img src="_main_files/figure-html/unnamed-chunk-218-1.png" width="672" style="display: block; margin: auto;" /></p>
+<p><img src="_main_files/figure-html/unnamed-chunk-217-1.png" width="672" style="display: block; margin: auto;" /></p>
 <p><br></p>
 </div>
 </div>
@@ -827,14 +827,14 @@ Coefficients:
 <span id="cb512-4"><a href="graf.html#cb512-4" aria-hidden="true" tabindex="-1"></a>           <span class="at">y =</span> Valor,</span>
 <span id="cb512-5"><a href="graf.html#cb512-5" aria-hidden="true" tabindex="-1"></a>           <span class="at">color =</span> Cultura))<span class="sc">+</span></span>
 <span id="cb512-6"><a href="graf.html#cb512-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_col</span>()</span></code></pre></div>
-<p><img src="_main_files/figure-html/unnamed-chunk-220-1.png" width="672" style="display: block; margin: auto;" /></p>
+<p><img src="_main_files/figure-html/unnamed-chunk-219-1.png" width="672" style="display: block; margin: auto;" /></p>
 <div class="sourceCode" id="cb513"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb513-1"><a href="graf.html#cb513-1" aria-hidden="true" tabindex="-1"></a><span class="co">#Argumento &quot;fill =&quot;</span></span>
 <span id="cb513-2"><a href="graf.html#cb513-2" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(<span class="at">data =</span> producao,</span>
 <span id="cb513-3"><a href="graf.html#cb513-3" aria-hidden="true" tabindex="-1"></a>       <span class="fu">aes</span>(<span class="at">x =</span> Local,</span>
 <span id="cb513-4"><a href="graf.html#cb513-4" aria-hidden="true" tabindex="-1"></a>           <span class="at">y =</span> Valor,</span>
 <span id="cb513-5"><a href="graf.html#cb513-5" aria-hidden="true" tabindex="-1"></a>           <span class="at">fill =</span> Cultura))<span class="sc">+</span></span>
 <span id="cb513-6"><a href="graf.html#cb513-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_col</span>()</span></code></pre></div>
-<p><img src="_main_files/figure-html/unnamed-chunk-221-1.png" width="672" style="display: block; margin: auto;" /></p>
+<p><img src="_main_files/figure-html/unnamed-chunk-220-1.png" width="672" style="display: block; margin: auto;" /></p>
 <p><br></p>
 </div>
 <div id="posição" class="section level4" number="7.2.0.2">
@@ -846,7 +846,7 @@ Coefficients:
 <span id="cb514-4"><a href="graf.html#cb514-4" aria-hidden="true" tabindex="-1"></a>           <span class="at">y =</span> Valor,</span>
 <span id="cb514-5"><a href="graf.html#cb514-5" aria-hidden="true" tabindex="-1"></a>           <span class="at">fill =</span> Cultura))<span class="sc">+</span></span>
 <span id="cb514-6"><a href="graf.html#cb514-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_col</span>(<span class="at">position =</span> <span class="st">&quot;stack&quot;</span>)</span></code></pre></div>
-<p><img src="_main_files/figure-html/unnamed-chunk-222-1.png" width="672" style="display: block; margin: auto;" /></p>
+<p><img src="_main_files/figure-html/unnamed-chunk-221-1.png" width="672" style="display: block; margin: auto;" /></p>
 <p>Perceba que a posição <code>"stack"</code> é a opção padrão do argumento <code>position =</code>, portanto, caso o argumento não seja especificado, a disposição do gráfico de colunas será a <code>"stack"</code>. Essa disposição de barras representa os valores absolutos de produtividade das culturas em apenas uma barra, de acordo com o país.</p>
 <div class="sourceCode" id="cb515"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb515-1"><a href="graf.html#cb515-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Posição &quot;dodge&quot;</span></span>
 <span id="cb515-2"><a href="graf.html#cb515-2" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(<span class="at">data =</span> producao,</span>
@@ -854,7 +854,7 @@ Coefficients:
 <span id="cb515-4"><a href="graf.html#cb515-4" aria-hidden="true" tabindex="-1"></a>           <span class="at">y =</span> Valor,</span>
 <span id="cb515-5"><a href="graf.html#cb515-5" aria-hidden="true" tabindex="-1"></a>           <span class="at">fill =</span> Cultura))<span class="sc">+</span></span>
 <span id="cb515-6"><a href="graf.html#cb515-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_col</span>(<span class="at">position =</span> <span class="st">&quot;dodge&quot;</span>)</span></code></pre></div>
-<p><img src="_main_files/figure-html/unnamed-chunk-223-1.png" width="672" style="display: block; margin: auto;" /></p>
+<p><img src="_main_files/figure-html/unnamed-chunk-222-1.png" width="672" style="display: block; margin: auto;" /></p>
 <p>Já a posição <code>"dodge"</code> representa as cultura em colunas separadas, de acordo com o país, ainda representando valores absolutos de produtividade.</p>
 <div class="sourceCode" id="cb516"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb516-1"><a href="graf.html#cb516-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Posição &quot;fill&quot;</span></span>
 <span id="cb516-2"><a href="graf.html#cb516-2" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(<span class="at">data =</span> producao,</span>
@@ -862,7 +862,7 @@ Coefficients:
 <span id="cb516-4"><a href="graf.html#cb516-4" aria-hidden="true" tabindex="-1"></a>           <span class="at">y =</span> Valor,</span>
 <span id="cb516-5"><a href="graf.html#cb516-5" aria-hidden="true" tabindex="-1"></a>           <span class="at">fill =</span> Cultura))<span class="sc">+</span></span>
 <span id="cb516-6"><a href="graf.html#cb516-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_col</span>(<span class="at">position =</span> <span class="st">&quot;fill&quot;</span>)</span></code></pre></div>
-<p><img src="_main_files/figure-html/unnamed-chunk-224-1.png" width="672" style="display: block; margin: auto;" /></p>
+<p><img src="_main_files/figure-html/unnamed-chunk-223-1.png" width="672" style="display: block; margin: auto;" /></p>
 <p>Por último, a posição <code>"fill"</code> constrói barras iguais, com escala de 0 a 1, preenchendo-as com os valores absolutos das produções de milho e trigo, de acordo com o país.</p>
 <p><br></p>
 </div>
@@ -879,7 +879,7 @@ Coefficients:
 <span id="cb517-8"><a href="graf.html#cb517-8" aria-hidden="true" tabindex="-1"></a>           <span class="at">color =</span> <span class="st">&quot;white&quot;</span>,</span>
 <span id="cb517-9"><a href="graf.html#cb517-9" aria-hidden="true" tabindex="-1"></a>           <span class="at">vjust =</span> <span class="fl">1.5</span>,</span>
 <span id="cb517-10"><a href="graf.html#cb517-10" aria-hidden="true" tabindex="-1"></a>           <span class="at">position =</span> <span class="fu">position_stack</span>(<span class="fl">0.9</span>))</span></code></pre></div>
-<p><img src="_main_files/figure-html/unnamed-chunk-225-1.png" width="672" style="display: block; margin: auto;" /></p>
+<p><img src="_main_files/figure-html/unnamed-chunk-224-1.png" width="672" style="display: block; margin: auto;" /></p>
 <div class="sourceCode" id="cb518"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb518-1"><a href="graf.html#cb518-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Posição &quot;dodge&quot;</span></span>
 <span id="cb518-2"><a href="graf.html#cb518-2" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(<span class="at">data =</span> producao,</span>
 <span id="cb518-3"><a href="graf.html#cb518-3" aria-hidden="true" tabindex="-1"></a>       <span class="fu">aes</span>(<span class="at">x =</span> Local,</span>
@@ -890,7 +890,7 @@ Coefficients:
 <span id="cb518-8"><a href="graf.html#cb518-8" aria-hidden="true" tabindex="-1"></a>            <span class="at">color =</span> <span class="st">&quot;white&quot;</span>,</span>
 <span id="cb518-9"><a href="graf.html#cb518-9" aria-hidden="true" tabindex="-1"></a>            <span class="at">vjust =</span> <span class="fl">1.5</span>,</span>
 <span id="cb518-10"><a href="graf.html#cb518-10" aria-hidden="true" tabindex="-1"></a>            <span class="at">position =</span> <span class="fu">position_dodge</span>(<span class="fl">0.9</span>))</span></code></pre></div>
-<p><img src="_main_files/figure-html/unnamed-chunk-226-1.png" width="672" style="display: block; margin: auto;" /></p>
+<p><img src="_main_files/figure-html/unnamed-chunk-225-1.png" width="672" style="display: block; margin: auto;" /></p>
 <div class="sourceCode" id="cb519"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb519-1"><a href="graf.html#cb519-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Posição &quot;fill&quot;</span></span>
 <span id="cb519-2"><a href="graf.html#cb519-2" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(<span class="at">data =</span> producao,</span>
 <span id="cb519-3"><a href="graf.html#cb519-3" aria-hidden="true" tabindex="-1"></a>       <span class="fu">aes</span>(<span class="at">x =</span> Local,</span>
@@ -901,7 +901,7 @@ Coefficients:
 <span id="cb519-8"><a href="graf.html#cb519-8" aria-hidden="true" tabindex="-1"></a>            <span class="at">color =</span> <span class="st">&quot;white&quot;</span>,</span>
 <span id="cb519-9"><a href="graf.html#cb519-9" aria-hidden="true" tabindex="-1"></a>            <span class="at">vjust =</span> <span class="fl">2.5</span>,</span>
 <span id="cb519-10"><a href="graf.html#cb519-10" aria-hidden="true" tabindex="-1"></a>            <span class="at">position =</span> <span class="fu">position_fill</span>(<span class="fl">0.9</span>))</span></code></pre></div>
-<p><img src="_main_files/figure-html/unnamed-chunk-227-1.png" width="672" style="display: block; margin: auto;" /></p>
+<p><img src="_main_files/figure-html/unnamed-chunk-226-1.png" width="672" style="display: block; margin: auto;" /></p>
 <p>Note que a estrutura da função <code>geom_text()</code> é quase idêntica para as três posições, apenas alterando alguns valores e especificações. Primeiramente, definimos na função <code>aes()</code> a variável utilizada para ilustrar as legendas, no caso, a <code>Valor</code>. Em seguida, definimos a cor da legenda, sendo definida como branca (<code>color = "white"</code>). O argumento <code>vjust =</code> ajusta o posicionamento vertical das legendas, tendo como referência cada uma das barras; nesse caso, faça os ajustes testando valores, sendo possível atribuir valores negativos, fazendo com que a legenda suba. Por fim, a função <code>position_</code>, contida no argumento <code>position =</code>, ajusta o posicionamento das legendas em cada um dos setores da barra, de acordo com o tipo de posição adotada no <code>geom_col()</code>, seja o <code>stack</code> (<code>position_stack()</code>), <code>dodge</code> (<code>position_dodge()</code>) ou <code>fill</code> (<code>position_fill()</code>).</p>
 <p><br></p>
 </div>
@@ -928,14 +928,14 @@ Coefficients:
 <div class="sourceCode" id="cb522"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb522-1"><a href="graf.html#cb522-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(diamonds,</span>
 <span id="cb522-2"><a href="graf.html#cb522-2" aria-hidden="true" tabindex="-1"></a>       <span class="fu">aes</span>(<span class="at">x =</span> cut))<span class="sc">+</span></span>
 <span id="cb522-3"><a href="graf.html#cb522-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_bar</span>()</span></code></pre></div>
-<p><img src="_main_files/figure-html/unnamed-chunk-229-1.png" width="672" style="display: block; margin: auto;" /></p>
+<p><img src="_main_files/figure-html/unnamed-chunk-228-1.png" width="672" style="display: block; margin: auto;" /></p>
 <p>Perceba que foi preciso informar apenas a variável categórica <code>cut</code> no eixo x, sendo o y construido, automaticamente, a partir da contagem dos diamantes que se encaixam nas respectivas categorias.</p>
 <p>Podemos melhorar a apresentação do gráfico atribuindo cores às categorias. Para isso, utilizamos o argumento <code>fill</code> na função <code>aes()</code>.</p>
 <div class="sourceCode" id="cb523"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb523-1"><a href="graf.html#cb523-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(diamonds,</span>
 <span id="cb523-2"><a href="graf.html#cb523-2" aria-hidden="true" tabindex="-1"></a>       <span class="fu">aes</span>(<span class="at">x =</span> cut,</span>
 <span id="cb523-3"><a href="graf.html#cb523-3" aria-hidden="true" tabindex="-1"></a>           <span class="at">fill =</span> cut))<span class="sc">+</span></span>
 <span id="cb523-4"><a href="graf.html#cb523-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_bar</span>()</span></code></pre></div>
-<p><img src="_main_files/figure-html/unnamed-chunk-230-1.png" width="672" style="display: block; margin: auto;" /></p>
+<p><img src="_main_files/figure-html/unnamed-chunk-229-1.png" width="672" style="display: block; margin: auto;" /></p>
 <p><br></p>
 <div id="coordenadas" class="section level4" number="7.2.0.4">
 <h4><span class="header-section-number">7.2.0.4</span> Coordenadas</h4>
@@ -945,7 +945,7 @@ Coefficients:
 <span id="cb524-3"><a href="graf.html#cb524-3" aria-hidden="true" tabindex="-1"></a>           <span class="at">fill =</span> cut))<span class="sc">+</span></span>
 <span id="cb524-4"><a href="graf.html#cb524-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_bar</span>()<span class="sc">+</span></span>
 <span id="cb524-5"><a href="graf.html#cb524-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">coord_flip</span>()</span></code></pre></div>
-<p><img src="_main_files/figure-html/unnamed-chunk-231-1.png" width="672" style="display: block; margin: auto;" /></p>
+<p><img src="_main_files/figure-html/unnamed-chunk-230-1.png" width="672" style="display: block; margin: auto;" /></p>
 <p>Podemos utilizar outras coordenadas para contruir diferentes tipos de gráficos, como é o caso dos gráficos de setores, os quais veremos a seguir.</p>
 <p><br></p>
 </div>
@@ -975,7 +975,7 @@ Coefficients:
 <span id="cb527-3"><a href="graf.html#cb527-3" aria-hidden="true" tabindex="-1"></a>                     <span class="at">y =</span> Porcentagem,</span>
 <span id="cb527-4"><a href="graf.html#cb527-4" aria-hidden="true" tabindex="-1"></a>                     <span class="at">fill =</span> Instrucao))<span class="sc">+</span></span>
 <span id="cb527-5"><a href="graf.html#cb527-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_col</span>(<span class="at">color =</span> <span class="st">&quot;black&quot;</span>)</span></code></pre></div>
-<p><img src="_main_files/figure-html/unnamed-chunk-233-1.png" width="672" style="display: block; margin: auto;" /></p>
+<p><img src="_main_files/figure-html/unnamed-chunk-232-1.png" width="672" style="display: block; margin: auto;" /></p>
 <p><strong>2. Legendas:</strong> utilizamos a <code>geom_text()</code> para definir a legenda das porcentagens dentro de cada setor da barra. Dentro da função <code>aes()</code>, definimos como rótulo (<code>label =</code>) a variável <code>Porcentagem</code>, sendo que a função <code>paste(Porcentagem, "%")</code> insere o símbolo de <code>%</code> logo após os valores de porcentagem. Por último, o argumento <code>vjust = 0.5</code> ajusta a posição das legendas;</p>
 <div class="sourceCode" id="cb528"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb528-1"><a href="graf.html#cb528-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(<span class="at">data =</span> educ,</span>
 <span id="cb528-2"><a href="graf.html#cb528-2" aria-hidden="true" tabindex="-1"></a>       <span class="at">mapping =</span> <span class="fu">aes</span>(<span class="at">x =</span> <span class="st">&quot;&quot;</span>,</span>
@@ -984,7 +984,7 @@ Coefficients:
 <span id="cb528-5"><a href="graf.html#cb528-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_col</span>(<span class="at">color =</span> <span class="st">&quot;black&quot;</span>)<span class="sc">+</span></span>
 <span id="cb528-6"><a href="graf.html#cb528-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_text</span>(<span class="fu">aes</span>(<span class="at">label =</span> <span class="fu">paste</span>(Porcentagem, <span class="st">&quot;%&quot;</span>)),</span>
 <span id="cb528-7"><a href="graf.html#cb528-7" aria-hidden="true" tabindex="-1"></a>            <span class="at">position =</span> <span class="fu">position_stack</span>(<span class="at">vjust =</span> <span class="fl">0.5</span>))</span></code></pre></div>
-<p><img src="_main_files/figure-html/unnamed-chunk-234-1.png" width="672" style="display: block; margin: auto;" /></p>
+<p><img src="_main_files/figure-html/unnamed-chunk-233-1.png" width="672" style="display: block; margin: auto;" /></p>
 <p><strong>3. Coordenada:</strong> nesse ponto, utilizamos a função <code>coord_polar()</code> para tornar nosso gráfico redondo. O argumento <code>theta = "y"</code> indica que o eixo y deve ser adotado como referência para a alteração da coordenada e o <code>start =</code> indica por qual valor o gráfico deve começar (teste outro valores para ver a diferença);</p>
 <div class="sourceCode" id="cb529"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb529-1"><a href="graf.html#cb529-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(<span class="at">data =</span> educ,</span>
 <span id="cb529-2"><a href="graf.html#cb529-2" aria-hidden="true" tabindex="-1"></a>       <span class="at">mapping =</span> <span class="fu">aes</span>(<span class="at">x =</span> <span class="st">&quot;&quot;</span>,</span>
@@ -995,7 +995,7 @@ Coefficients:
 <span id="cb529-7"><a href="graf.html#cb529-7" aria-hidden="true" tabindex="-1"></a>            <span class="at">position =</span> <span class="fu">position_stack</span>(<span class="at">vjust =</span> <span class="fl">0.5</span>))<span class="sc">+</span></span>
 <span id="cb529-8"><a href="graf.html#cb529-8" aria-hidden="true" tabindex="-1"></a>  <span class="fu">coord_polar</span>(<span class="at">theta =</span> <span class="st">&quot;y&quot;</span>,</span>
 <span id="cb529-9"><a href="graf.html#cb529-9" aria-hidden="true" tabindex="-1"></a>              <span class="at">start =</span> <span class="dv">0</span>)</span></code></pre></div>
-<p><img src="_main_files/figure-html/unnamed-chunk-235-1.png" width="672" style="display: block; margin: auto;" /></p>
+<p><img src="_main_files/figure-html/unnamed-chunk-234-1.png" width="672" style="display: block; margin: auto;" /></p>
 <p><strong>4. Retirar elementos:</strong> neste ponto, já temos um gráfico de pizza, porém poluído devido a presença das escalas, nome dos eixos e cor de fundo inadequada. Para alterar o fundo cinza para um branco, escolhemos o tema <code>theme_minimal()</code>. Em seguida, na função <code>theme()</code>, atribuímos a alguns argumentos o <code>element_blank()</code>, ou seja, função que retira os elementos de cena. Portanto, o <code>axis.title = element_blank()</code> retira os nomes dos eixos, o <code>axis.text = element_blank()</code> exclui o restante de texto presente no gráfico e o <code>panel.grid = element_blank()</code> omite o restante das linhas gráficas.</p>
 <div class="sourceCode" id="cb530"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb530-1"><a href="graf.html#cb530-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(<span class="at">data =</span> educ,</span>
 <span id="cb530-2"><a href="graf.html#cb530-2" aria-hidden="true" tabindex="-1"></a>       <span class="at">mapping =</span> <span class="fu">aes</span>(<span class="at">x =</span> <span class="st">&quot;&quot;</span>,</span>
@@ -1012,7 +1012,7 @@ Coefficients:
 <span id="cb530-13"><a href="graf.html#cb530-13" aria-hidden="true" tabindex="-1"></a>    <span class="at">axis.text =</span> <span class="fu">element_blank</span>(),</span>
 <span id="cb530-14"><a href="graf.html#cb530-14" aria-hidden="true" tabindex="-1"></a>    <span class="at">panel.grid =</span> <span class="fu">element_blank</span>()</span>
 <span id="cb530-15"><a href="graf.html#cb530-15" aria-hidden="true" tabindex="-1"></a>    )</span></code></pre></div>
-<p><img src="_main_files/figure-html/unnamed-chunk-236-1.png" width="672" style="display: block; margin: auto;" /></p>
+<p><img src="_main_files/figure-html/unnamed-chunk-235-1.png" width="672" style="display: block; margin: auto;" /></p>
 <p><strong>5. Personalização:</strong> agora temos um gráfico de pizza autêntico. Podemos realizar mais algumas modificações estéticas, como definir uma paleta de cores com a <code>scale_fill_brewer()</code> e ajustar o nome na legenda com o <code>labs()</code>.</p>
 <div class="sourceCode" id="cb531"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb531-1"><a href="graf.html#cb531-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(<span class="at">data =</span> educ,</span>
 <span id="cb531-2"><a href="graf.html#cb531-2" aria-hidden="true" tabindex="-1"></a>       <span class="at">mapping =</span> <span class="fu">aes</span>(<span class="at">x =</span> <span class="st">&quot;&quot;</span>,</span>
@@ -1031,7 +1031,7 @@ Coefficients:
 <span id="cb531-15"><a href="graf.html#cb531-15" aria-hidden="true" tabindex="-1"></a>    )<span class="sc">+</span></span>
 <span id="cb531-16"><a href="graf.html#cb531-16" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scale_fill_brewer</span>(<span class="at">palette =</span> <span class="st">&quot;Pastel1&quot;</span>)<span class="sc">+</span></span>
 <span id="cb531-17"><a href="graf.html#cb531-17" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(<span class="at">fill =</span> <span class="st">&quot;Grau de Instrução&quot;</span>)</span></code></pre></div>
-<p><img src="_main_files/figure-html/unnamed-chunk-237-1.png" width="672" style="display: block; margin: auto;" /></p>
+<p><img src="_main_files/figure-html/unnamed-chunk-236-1.png" width="672" style="display: block; margin: auto;" /></p>
 <p><br></p>
 </div>
 <div id="gráfico-de-linhas" class="section level2" number="7.4">
@@ -1080,7 +1080,7 @@ Coefficients:
 <div class="sourceCode" id="cb536"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb536-1"><a href="graf.html#cb536-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(produtiv_br)<span class="sc">+</span></span>
 <span id="cb536-2"><a href="graf.html#cb536-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_line</span>(<span class="fu">aes</span>(<span class="at">x =</span> Ano,</span>
 <span id="cb536-3"><a href="graf.html#cb536-3" aria-hidden="true" tabindex="-1"></a>                <span class="at">y =</span> Valor))</span></code></pre></div>
-<p><img src="_main_files/figure-html/unnamed-chunk-240-1.png" width="672" style="display: block; margin: auto;" /></p>
+<p><img src="_main_files/figure-html/unnamed-chunk-239-1.png" width="672" style="display: block; margin: auto;" /></p>
 <p><br></p>
 <div id="cores-2" class="section level3" number="7.4.1">
 <h3><span class="header-section-number">7.4.1</span> Cores</h3>
@@ -1089,14 +1089,14 @@ Coefficients:
 <span id="cb537-2"><a href="graf.html#cb537-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_line</span>(<span class="fu">aes</span>(<span class="at">x =</span> Ano,</span>
 <span id="cb537-3"><a href="graf.html#cb537-3" aria-hidden="true" tabindex="-1"></a>                <span class="at">y =</span> Valor,</span>
 <span id="cb537-4"><a href="graf.html#cb537-4" aria-hidden="true" tabindex="-1"></a>                <span class="at">color =</span> <span class="st">&quot;blue&quot;</span>))</span></code></pre></div>
-<p><img src="_main_files/figure-html/unnamed-chunk-241-1.png" width="672" style="display: block; margin: auto;" /></p>
+<p><img src="_main_files/figure-html/unnamed-chunk-240-1.png" width="672" style="display: block; margin: auto;" /></p>
 <p>Perceba que o argumento <code>color = "blue"</code> nos retornou uma linha de coloração vermelha e não azul. Isto aconteceu pois o argumento foi colocado dentro da função <code>aes()</code> e esta espera uma coluna do banco de dados para mapear, assim, o valor <code>"blue"</code> é tratado como uma nova variável pertencente a todas as observações. Portanto, a linha é colorida de vermelho (padrão do <code>ggplot2</code>) associada à nova categoria “<em>blue</em>”.</p>
 <p>Portanto, para colorirmos a linha de azul, devemos colocar o atributo <code>color =</code> fora da função <code>aes()</code>.</p>
 <div class="sourceCode" id="cb538"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb538-1"><a href="graf.html#cb538-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(produtiv_br)<span class="sc">+</span></span>
 <span id="cb538-2"><a href="graf.html#cb538-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_line</span>(<span class="fu">aes</span>(<span class="at">x =</span> Ano,</span>
 <span id="cb538-3"><a href="graf.html#cb538-3" aria-hidden="true" tabindex="-1"></a>                <span class="at">y =</span> Valor),</span>
 <span id="cb538-4"><a href="graf.html#cb538-4" aria-hidden="true" tabindex="-1"></a>            <span class="at">color =</span> <span class="st">&quot;blue&quot;</span>)</span></code></pre></div>
-<p><img src="_main_files/figure-html/unnamed-chunk-242-1.png" width="672" style="display: block; margin: auto;" /></p>
+<p><img src="_main_files/figure-html/unnamed-chunk-241-1.png" width="672" style="display: block; margin: auto;" /></p>
 <p><br></p>
 </div>
 <div id="tamanho-1" class="section level3" number="7.4.2">
@@ -1107,7 +1107,7 @@ Coefficients:
 <span id="cb539-3"><a href="graf.html#cb539-3" aria-hidden="true" tabindex="-1"></a>                <span class="at">y =</span> Valor),</span>
 <span id="cb539-4"><a href="graf.html#cb539-4" aria-hidden="true" tabindex="-1"></a>            <span class="at">color =</span> <span class="st">&quot;blue&quot;</span>,</span>
 <span id="cb539-5"><a href="graf.html#cb539-5" aria-hidden="true" tabindex="-1"></a>            <span class="at">size =</span> <span class="dv">3</span>)</span></code></pre></div>
-<p><img src="_main_files/figure-html/unnamed-chunk-243-1.png" width="672" style="display: block; margin: auto;" /></p>
+<p><img src="_main_files/figure-html/unnamed-chunk-242-1.png" width="672" style="display: block; margin: auto;" /></p>
 <p><br></p>
 </div>
 <div id="geometrias" class="section level3" number="7.4.3">
@@ -1118,7 +1118,7 @@ Coefficients:
 <span id="cb540-3"><a href="graf.html#cb540-3" aria-hidden="true" tabindex="-1"></a>           <span class="at">y =</span> Valor))<span class="sc">+</span></span>
 <span id="cb540-4"><a href="graf.html#cb540-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_line</span>(<span class="at">color =</span> <span class="st">&quot;red&quot;</span>)<span class="sc">+</span></span>
 <span id="cb540-5"><a href="graf.html#cb540-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_point</span>()</span></code></pre></div>
-<p><img src="_main_files/figure-html/unnamed-chunk-244-1.png" width="672" style="display: block; margin: auto;" /></p>
+<p><img src="_main_files/figure-html/unnamed-chunk-243-1.png" width="672" style="display: block; margin: auto;" /></p>
 <p>Aqui, podemos ver a associação do gráfico de linhas com o gráfico de pontos. Perceba que a estética (<code>aes()</code>) foi definida na função <code>ggplot()</code>, servindo tanto para o <code>geom_line()</code>, como para o <code>geom_point()</code>.</p>
 <p><br></p>
 <div class="sourceCode" id="cb541"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb541-1"><a href="graf.html#cb541-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(produtiv_milho, </span>
@@ -1130,7 +1130,7 @@ Coefficients:
 <span id="cb541-7"><a href="graf.html#cb541-7" aria-hidden="true" tabindex="-1"></a>              <span class="at">color =</span> <span class="st">&quot;black&quot;</span>,</span>
 <span id="cb541-8"><a href="graf.html#cb541-8" aria-hidden="true" tabindex="-1"></a>              <span class="at">method =</span> <span class="st">&quot;lm&quot;</span>,</span>
 <span id="cb541-9"><a href="graf.html#cb541-9" aria-hidden="true" tabindex="-1"></a>              <span class="at">se =</span> <span class="cn">FALSE</span>)</span></code></pre></div>
-<p><img src="_main_files/figure-html/unnamed-chunk-245-1.png" width="672" style="display: block; margin: auto;" /></p>
+<p><img src="_main_files/figure-html/unnamed-chunk-244-1.png" width="672" style="display: block; margin: auto;" /></p>
 <p>Agora, utilizando a base de dados <code>produtiv_milho</code>, unimos os quatro países em um mesmo gráfico. Designamos a variável <code>Local</code> (ou seja, os países) ao argumento <code>color =</code> para distingui-los com cores diferentes. Por se tratar de uma variável do nosso banco de dados, colocamos o argumento dentro da função <code>aes()</code>, contida na <code>geom_line()</code>. A outra camada geométrica é referente a reta de regressão, onde agrupamos a variável <code>Local</code> para que fosse possível traçar uma linha de regressão linear para cada variável.</p>
 <p><br></p>
 </div>
@@ -1142,7 +1142,7 @@ Coefficients:
 <span id="cb542-3"><a href="graf.html#cb542-3" aria-hidden="true" tabindex="-1"></a>           <span class="at">y =</span> Valor,</span>
 <span id="cb542-4"><a href="graf.html#cb542-4" aria-hidden="true" tabindex="-1"></a>           <span class="at">linetype =</span> Local))<span class="sc">+</span></span>
 <span id="cb542-5"><a href="graf.html#cb542-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_line</span>(<span class="at">size =</span> <span class="dv">2</span>)</span></code></pre></div>
-<p><img src="_main_files/figure-html/unnamed-chunk-246-1.png" width="672" style="display: block; margin: auto;" /></p>
+<p><img src="_main_files/figure-html/unnamed-chunk-245-1.png" width="672" style="display: block; margin: auto;" /></p>
 <p>Ademais, poderiamos associar formatos e cores em um mesmo gráfico, a fim de diferenciar as variáveis.</p>
 <div class="sourceCode" id="cb543"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb543-1"><a href="graf.html#cb543-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(produtiv_milho, </span>
 <span id="cb543-2"><a href="graf.html#cb543-2" aria-hidden="true" tabindex="-1"></a>       <span class="fu">aes</span>(<span class="at">x =</span> Ano,</span>
@@ -1150,7 +1150,7 @@ Coefficients:
 <span id="cb543-4"><a href="graf.html#cb543-4" aria-hidden="true" tabindex="-1"></a>           <span class="at">color =</span> Local,</span>
 <span id="cb543-5"><a href="graf.html#cb543-5" aria-hidden="true" tabindex="-1"></a>           <span class="at">linetype =</span> Local))<span class="sc">+</span></span>
 <span id="cb543-6"><a href="graf.html#cb543-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_line</span>(<span class="at">size =</span> <span class="dv">2</span>)</span></code></pre></div>
-<p><img src="_main_files/figure-html/unnamed-chunk-247-1.png" width="672" style="display: block; margin: auto;" /></p>
+<p><img src="_main_files/figure-html/unnamed-chunk-246-1.png" width="672" style="display: block; margin: auto;" /></p>
 <p><br></p>
 </div>
 <div id="escalas" class="section level3" number="7.4.5">
@@ -1166,7 +1166,7 @@ Coefficients:
 <span id="cb544-5"><a href="graf.html#cb544-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_line</span>(<span class="at">size =</span> <span class="dv">1</span>)<span class="sc">+</span></span>
 <span id="cb544-6"><a href="graf.html#cb544-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scale_x_continuous</span>(<span class="at">breaks =</span> <span class="fu">seq</span>(<span class="at">from =</span> <span class="dv">1961</span>, <span class="at">to =</span> <span class="dv">2019</span>, <span class="at">by =</span> <span class="dv">3</span>))<span class="sc">+</span></span>
 <span id="cb544-7"><a href="graf.html#cb544-7" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scale_y_continuous</span>(<span class="at">breaks =</span> <span class="fu">seq</span>(<span class="at">from =</span> <span class="dv">0</span>, <span class="at">to =</span> <span class="dv">12</span>, <span class="at">by =</span> <span class="dv">1</span>))</span></code></pre></div>
-<p><img src="_main_files/figure-html/unnamed-chunk-248-1.png" width="672" style="display: block; margin: auto;" /></p>
+<p><img src="_main_files/figure-html/unnamed-chunk-247-1.png" width="672" style="display: block; margin: auto;" /></p>
 <p>Perceba que, no eixo x, os anos ficaram apertados e mal apresentados. Para melhorar sua aparência, podemos alterar a angulação do texto (<code>angle =</code>) com o argumento <code>axis.text.x = element_text()</code>, dentro da função <code>theme()</code>.</p>
 <div class="sourceCode" id="cb545"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb545-1"><a href="graf.html#cb545-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(produtiv_milho, </span>
 <span id="cb545-2"><a href="graf.html#cb545-2" aria-hidden="true" tabindex="-1"></a>       <span class="fu">aes</span>(<span class="at">x =</span> Ano,</span>
@@ -1176,7 +1176,7 @@ Coefficients:
 <span id="cb545-6"><a href="graf.html#cb545-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scale_x_continuous</span>(<span class="at">breaks =</span> <span class="fu">seq</span>(<span class="at">from =</span> <span class="dv">1961</span>, <span class="at">to =</span> <span class="dv">2019</span>, <span class="at">by =</span> <span class="dv">3</span>))<span class="sc">+</span></span>
 <span id="cb545-7"><a href="graf.html#cb545-7" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scale_y_continuous</span>(<span class="at">breaks =</span> <span class="fu">seq</span>(<span class="at">from =</span> <span class="dv">0</span>, <span class="at">to =</span> <span class="dv">12</span>, <span class="at">by =</span> <span class="dv">1</span>))<span class="sc">+</span></span>
 <span id="cb545-8"><a href="graf.html#cb545-8" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme</span>(<span class="at">axis.text.x =</span> <span class="fu">element_text</span>(<span class="at">angle =</span> <span class="sc">-</span><span class="dv">45</span>))</span></code></pre></div>
-<p><img src="_main_files/figure-html/unnamed-chunk-249-1.png" width="672" style="display: block; margin: auto;" /></p>
+<p><img src="_main_files/figure-html/unnamed-chunk-248-1.png" width="672" style="display: block; margin: auto;" /></p>
 <p>Ainda podemos inserir uma segunda escala aos nossos gráficos, utilizando a função <code>scale_y_continuous()</code>. Uma segunda escala é útil para representar, em um mesmo gráfico, variáveis que apresentem escala numérica diferente. Como exemplo, utilizaremos a base de dados sobre o PIB do Brasil, disponível no arquivo <code>pib_br.csv</code>.</p>
 <div class="sourceCode" id="cb546"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb546-1"><a href="graf.html#cb546-1" aria-hidden="true" tabindex="-1"></a>pib_br <span class="ot">&lt;-</span> <span class="fu">read_csv</span>(<span class="st">&quot;dados_ggplot2/pib_br.csv&quot;</span>)</span>
 <span id="cb546-2"><a href="graf.html#cb546-2" aria-hidden="true" tabindex="-1"></a></span>
@@ -1211,12 +1211,12 @@ Coefficients:
 <span id="cb548-5"><a href="graf.html#cb548-5" aria-hidden="true" tabindex="-1"></a>           <span class="at">show.legend =</span> <span class="cn">FALSE</span>,</span>
 <span id="cb548-6"><a href="graf.html#cb548-6" aria-hidden="true" tabindex="-1"></a>           <span class="at">color =</span> <span class="st">&quot;black&quot;</span>)<span class="sc">+</span></span>
 <span id="cb548-7"><a href="graf.html#cb548-7" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_hline</span>(<span class="at">yintercept =</span> <span class="dv">0</span>, <span class="at">color =</span> <span class="st">&quot;black&quot;</span>)</span></code></pre></div>
-<p><img src="_main_files/figure-html/unnamed-chunk-251-1.png" width="672" style="display: block; margin: auto;" /></p>
+<p><img src="_main_files/figure-html/unnamed-chunk-250-1.png" width="672" style="display: block; margin: auto;" /></p>
 <p>Para preencher as barras com cores, utilizamos o critério no qual valores positivos recebem uma cor e negativos, outra cor. Perceba que a escala da variação anual do PIB varia entre, aproximadamente, -5 e 6.</p>
 <div class="sourceCode" id="cb549"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb549-1"><a href="graf.html#cb549-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(pib_br,</span>
 <span id="cb549-2"><a href="graf.html#cb549-2" aria-hidden="true" tabindex="-1"></a>       <span class="fu">aes</span>(<span class="at">x=</span>ano))<span class="sc">+</span></span>
 <span id="cb549-3"><a href="graf.html#cb549-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_line</span>(<span class="fu">aes</span>(<span class="at">y =</span> (valor)))</span></code></pre></div>
-<p><img src="_main_files/figure-html/unnamed-chunk-252-1.png" width="672" style="display: block; margin: auto;" /></p>
+<p><img src="_main_files/figure-html/unnamed-chunk-251-1.png" width="672" style="display: block; margin: auto;" /></p>
 <p>Já no gráfico referente ao valor bruto do PIB, a escala varia entre 2.500 e 13.000.</p>
 <p>Assim, para unirmos ambas as medidas, precisaremos criar duas escalas no eixo y. Para isso, precisamos redefinir a escala da variável <code>valor</code>. A tática a ser utilizada será dividir os valores pelo menor valor apresentado na variável referente à variação anual do PIB.</p>
 <div class="sourceCode" id="cb550"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb550-1"><a href="graf.html#cb550-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(pib_br,</span>
@@ -1227,7 +1227,7 @@ Coefficients:
 <span id="cb550-6"><a href="graf.html#cb550-6" aria-hidden="true" tabindex="-1"></a>           <span class="at">color =</span> <span class="st">&quot;black&quot;</span>)<span class="sc">+</span></span>
 <span id="cb550-7"><a href="graf.html#cb550-7" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_hline</span>(<span class="at">yintercept =</span> <span class="dv">0</span>, <span class="at">color =</span> <span class="st">&quot;black&quot;</span>)<span class="sc">+</span></span>
 <span id="cb550-8"><a href="graf.html#cb550-8" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_line</span>(<span class="fu">aes</span>(<span class="at">y =</span> (valor<span class="sc">/</span><span class="dv">2842</span>)))</span></code></pre></div>
-<p><img src="_main_files/figure-html/unnamed-chunk-253-1.png" width="672" style="display: block; margin: auto;" /></p>
+<p><img src="_main_files/figure-html/unnamed-chunk-252-1.png" width="672" style="display: block; margin: auto;" /></p>
 <p>Dessa maneira, conseguimos representar ambas as variáveis em um mesmo gráfico. Contudo, precisamos definir um novo eixo y, a fim de representarmos os valores da variável <code>var_anual</code>. Para isso, utilizaremos a função <code>scale_y_continuous()</code>.</p>
 <div class="sourceCode" id="cb551"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb551-1"><a href="graf.html#cb551-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(pib_br,</span>
 <span id="cb551-2"><a href="graf.html#cb551-2" aria-hidden="true" tabindex="-1"></a>       <span class="fu">aes</span>(<span class="at">x=</span>ano))<span class="sc">+</span></span>
@@ -1241,7 +1241,7 @@ Coefficients:
 <span id="cb551-10"><a href="graf.html#cb551-10" aria-hidden="true" tabindex="-1"></a>                     <span class="at">sec.axis =</span> <span class="fu">sec_axis</span>(<span class="at">trans =</span> <span class="sc">~</span>. <span class="sc">*</span><span class="dv">2842</span>,</span>
 <span id="cb551-11"><a href="graf.html#cb551-11" aria-hidden="true" tabindex="-1"></a>                                         <span class="at">name =</span> <span class="st">&quot;US$&quot;</span>,</span>
 <span id="cb551-12"><a href="graf.html#cb551-12" aria-hidden="true" tabindex="-1"></a>                                         <span class="at">breaks =</span> <span class="fu">seq</span>(<span class="dv">0</span>, <span class="dv">20000</span>, <span class="at">by =</span> <span class="dv">4000</span>)))</span></code></pre></div>
-<p><img src="_main_files/figure-html/unnamed-chunk-254-1.png" width="672" style="display: block; margin: auto;" /></p>
+<p><img src="_main_files/figure-html/unnamed-chunk-253-1.png" width="672" style="display: block; margin: auto;" /></p>
 <p>Na função <code>scale_y_continuous()</code>, o primeiro argumento (<code>breaks =</code>) trata de redefinir a escala da variável <code>var_anual</code>. Posteriormente, o <code>sec.axis =</code> lida com a criação do segundo eixo y para representar a escala referente ao valor bruto do PIB brasileiro. Essa segunda escala toma como base os valores da escala primária do eixo y. O primeiro argumento é o <code>trans =</code>, que recebe uma fórmula, a fim de realizar uma operação matemática para alterar a escala do eixo y secundário. No nosso exemplo, multiplicaremos pelo valor <code>2842</code>, o mesmo o qual dividimos anteriomente os valores do PIB bruto, para representar ambas as variáveis em um mesmo gráfico. Em seguida, nomeamos a nova escala com o argumento <code>names =</code> e definimos sua escala com <code>breaks =</code>.</p>
 <p>Por fim, podemos realizar mais alguns incrementos ao gráfico para deixá-lo mais apresentável.</p>
 <div class="sourceCode" id="cb552"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb552-1"><a href="graf.html#cb552-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(pib_br,</span>
@@ -1263,7 +1263,7 @@ Coefficients:
 <span id="cb552-17"><a href="graf.html#cb552-17" aria-hidden="true" tabindex="-1"></a>                     <span class="at">breaks =</span> <span class="fu">seq</span>(<span class="dv">2000</span>, <span class="dv">2019</span>, <span class="dv">1</span>))<span class="sc">+</span></span>
 <span id="cb552-18"><a href="graf.html#cb552-18" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_bw</span>()<span class="sc">+</span></span>
 <span id="cb552-19"><a href="graf.html#cb552-19" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme</span>(<span class="at">axis.text.x =</span> <span class="fu">element_text</span>(<span class="at">angle =</span> <span class="sc">-</span><span class="dv">25</span>))  </span></code></pre></div>
-<p><img src="_main_files/figure-html/unnamed-chunk-255-1.png" width="672" style="display: block; margin: auto;" /></p>
+<p><img src="_main_files/figure-html/unnamed-chunk-254-1.png" width="672" style="display: block; margin: auto;" /></p>
 <p>Esse exemplo representa um gráfico mais completo e de nível mais avançado. Caso não tenha entendido algum passo, rode o código por camada, para acompanhar a progressão de construção do gráfico e entender a lógica por trás.</p>
 </div>
 <div id="cores-3" class="section level4 unnumbered">
@@ -1276,7 +1276,7 @@ Coefficients:
 <span id="cb553-4"><a href="graf.html#cb553-4" aria-hidden="true" tabindex="-1"></a>           <span class="at">color =</span> Local))<span class="sc">+</span></span>
 <span id="cb553-5"><a href="graf.html#cb553-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_line</span>(<span class="at">size =</span> <span class="fl">1.5</span>)<span class="sc">+</span></span>
 <span id="cb553-6"><a href="graf.html#cb553-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scale_color_manual</span>(<span class="at">values =</span> <span class="fu">c</span>(<span class="st">&quot;chocolate&quot;</span>, <span class="st">&quot;cyan3&quot;</span>, <span class="st">&quot;bisque4&quot;</span>, <span class="st">&quot;chartreuse4&quot;</span>))</span></code></pre></div>
-<p><img src="_main_files/figure-html/unnamed-chunk-256-1.png" width="672" style="display: block; margin: auto;" /></p>
+<p><img src="_main_files/figure-html/unnamed-chunk-255-1.png" width="672" style="display: block; margin: auto;" /></p>
 <p>A figura <a href="graf.html#fig:cornome">7.4</a> mostra os nomes das possíveis cores.</p>
 <div class="figure" style="text-align: center"><span style="display:block;" id="fig:cornome"></span>
 <img src="imagens/nome_cor.png" alt="Nome das possíveis cores a serem definidas para os gráficos. Fonte: *The R Graph Gallery.*" width="80%" />
@@ -1292,7 +1292,7 @@ Figure 7.4: Nome das possíveis cores a serem definidas para os gráficos. Fonte
 <span id="cb554-5"><a href="graf.html#cb554-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_line</span>(<span class="at">size =</span> <span class="fl">1.5</span>)<span class="sc">+</span></span>
 <span id="cb554-6"><a href="graf.html#cb554-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scale_color_brewer</span>(<span class="at">palette =</span> <span class="st">&quot;Pastel1&quot;</span>)<span class="sc">+</span></span>
 <span id="cb554-7"><a href="graf.html#cb554-7" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_classic</span>()</span></code></pre></div>
-<p><img src="_main_files/figure-html/unnamed-chunk-257-1.png" width="672" style="display: block; margin: auto;" /></p>
+<p><img src="_main_files/figure-html/unnamed-chunk-256-1.png" width="672" style="display: block; margin: auto;" /></p>
 <p>A figura <a href="graf.html#fig:paleta">7.5</a> mostra as possíveis paletas de cores.</p>
 <div class="figure" style="text-align: center"><span style="display:block;" id="fig:paleta"></span>
 <img src="imagens/paleta_cor.png" alt="Nome das paletas de cores disponíveis para aplicarmos em nossos gráficos. Fonte: *The R Graph Gallery*." width="50%" />
@@ -1317,7 +1317,7 @@ Figure 7.5: Nome das paletas de cores disponíveis para aplicarmos em nossos gr�
 <span id="cb555-4"><a href="graf.html#cb555-4" aria-hidden="true" tabindex="-1"></a>           <span class="at">color =</span> Local))<span class="sc">+</span></span>
 <span id="cb555-5"><a href="graf.html#cb555-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_line</span>(<span class="at">size =</span> <span class="fl">1.5</span>)<span class="sc">+</span></span>
 <span id="cb555-6"><a href="graf.html#cb555-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scale_color_discrete</span>(<span class="at">labels =</span> <span class="fu">c</span>(<span class="st">&quot;BR&quot;</span>, <span class="st">&quot;CHI&quot;</span>, <span class="st">&quot;IND&quot;</span>, <span class="st">&quot;EUA&quot;</span>))</span></code></pre></div>
-<p><img src="_main_files/figure-html/unnamed-chunk-258-1.png" width="672" style="display: block; margin: auto;" /></p>
+<p><img src="_main_files/figure-html/unnamed-chunk-257-1.png" width="672" style="display: block; margin: auto;" /></p>
 <p><br></p>
 </div>
 </div>
@@ -1346,19 +1346,19 @@ Figure 7.5: Nome das paletas de cores disponíveis para aplicarmos em nossos gr�
 <p>Para isso, utilizamos a função <code>geom_histogram()</code>, sendo necessário indicar somente o atributo <code>x =</code>, pois o eixo y será construído, automaticamente, a partir da contagem dos valores correspondentes às variáveis <code>x</code>.</p>
 <div class="sourceCode" id="cb558"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb558-1"><a href="graf.html#cb558-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(dados_alunos)<span class="sc">+</span></span>
 <span id="cb558-2"><a href="graf.html#cb558-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_histogram</span>(<span class="fu">aes</span>(<span class="at">x =</span> media_ponderada))</span></code></pre></div>
-<p><img src="_main_files/figure-html/unnamed-chunk-260-1.png" width="672" style="display: block; margin: auto;" /></p>
+<p><img src="_main_files/figure-html/unnamed-chunk-259-1.png" width="672" style="display: block; margin: auto;" /></p>
 <p>Por padrão, a função define que o histograma apresenta 30 intervalos. Porém, este número não é o ideal para representar os nossos dados. Para redefini-lo, utilizamos o argumento <code>bins</code>.</p>
 <div class="sourceCode" id="cb559"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb559-1"><a href="graf.html#cb559-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(dados_alunos)<span class="sc">+</span></span>
 <span id="cb559-2"><a href="graf.html#cb559-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_histogram</span>(<span class="fu">aes</span>(<span class="at">x =</span> media_ponderada),</span>
 <span id="cb559-3"><a href="graf.html#cb559-3" aria-hidden="true" tabindex="-1"></a>                 <span class="at">bins =</span> <span class="dv">8</span>)</span></code></pre></div>
-<p><img src="_main_files/figure-html/unnamed-chunk-261-1.png" width="672" style="display: block; margin: auto;" /></p>
+<p><img src="_main_files/figure-html/unnamed-chunk-260-1.png" width="672" style="display: block; margin: auto;" /></p>
 <p>Podemos melhorar a aparência do histograma utilizando os argumentos <code>color =</code>, para colorir as bordas das barras, e o <code>fill =</code>, para colorir o seu interior.</p>
 <div class="sourceCode" id="cb560"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb560-1"><a href="graf.html#cb560-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(dados_alunos)<span class="sc">+</span></span>
 <span id="cb560-2"><a href="graf.html#cb560-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_histogram</span>(<span class="fu">aes</span>(<span class="at">x =</span> media_ponderada),</span>
 <span id="cb560-3"><a href="graf.html#cb560-3" aria-hidden="true" tabindex="-1"></a>                 <span class="at">bins =</span> <span class="dv">8</span>, </span>
 <span id="cb560-4"><a href="graf.html#cb560-4" aria-hidden="true" tabindex="-1"></a>                 <span class="at">color =</span> <span class="st">&quot;black&quot;</span>,</span>
 <span id="cb560-5"><a href="graf.html#cb560-5" aria-hidden="true" tabindex="-1"></a>                 <span class="at">fill =</span> <span class="st">&quot;light blue&quot;</span>)</span></code></pre></div>
-<p><img src="_main_files/figure-html/unnamed-chunk-262-1.png" width="672" style="display: block; margin: auto;" /></p>
+<p><img src="_main_files/figure-html/unnamed-chunk-261-1.png" width="672" style="display: block; margin: auto;" /></p>
 <p><br></p>
 </div>
 <div id="gráfico-de-densidade" class="section level3" number="7.5.2">
@@ -1368,13 +1368,13 @@ Figure 7.5: Nome das paletas de cores disponíveis para aplicarmos em nossos gr�
 <span id="cb561-2"><a href="graf.html#cb561-2" aria-hidden="true" tabindex="-1"></a>       <span class="fu">aes</span>(<span class="at">x =</span> media_ponderada))<span class="sc">+</span></span>
 <span id="cb561-3"><a href="graf.html#cb561-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_density</span>(<span class="at">fill =</span> <span class="st">&quot;light green&quot;</span>,</span>
 <span id="cb561-4"><a href="graf.html#cb561-4" aria-hidden="true" tabindex="-1"></a>               <span class="at">alpha =</span> <span class="fl">0.3</span>)</span></code></pre></div>
-<p><img src="_main_files/figure-html/unnamed-chunk-263-1.png" width="672" style="display: block; margin: auto;" /></p>
+<p><img src="_main_files/figure-html/unnamed-chunk-262-1.png" width="672" style="display: block; margin: auto;" /></p>
 <p>Podemos representar mais de uma densidade em um mesmo gráfico. Basta atribuir uma variável categórica ao argumento <code>fill =</code> ou <code>color =</code>, a fim de distinguir as densidades.</p>
 <div class="sourceCode" id="cb562"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb562-1"><a href="graf.html#cb562-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(dados_alunos,</span>
 <span id="cb562-2"><a href="graf.html#cb562-2" aria-hidden="true" tabindex="-1"></a>       <span class="fu">aes</span>(<span class="at">x =</span> altura,</span>
 <span id="cb562-3"><a href="graf.html#cb562-3" aria-hidden="true" tabindex="-1"></a>           <span class="at">fill =</span> sexo))<span class="sc">+</span></span>
 <span id="cb562-4"><a href="graf.html#cb562-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_density</span>(<span class="at">alpha =</span> <span class="fl">0.3</span>)</span></code></pre></div>
-<p><img src="_main_files/figure-html/unnamed-chunk-264-1.png" width="672" style="display: block; margin: auto;" /></p>
+<p><img src="_main_files/figure-html/unnamed-chunk-263-1.png" width="672" style="display: block; margin: auto;" /></p>
 <p><br></p>
 </div>
 <div id="boxplot" class="section level3" number="7.5.3">
@@ -1383,7 +1383,7 @@ Figure 7.5: Nome das paletas de cores disponíveis para aplicarmos em nossos gr�
 <div class="sourceCode" id="cb563"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb563-1"><a href="graf.html#cb563-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(dados_alunos,</span>
 <span id="cb563-2"><a href="graf.html#cb563-2" aria-hidden="true" tabindex="-1"></a>       <span class="fu">aes</span>(<span class="at">y =</span> media_ponderada))<span class="sc">+</span></span>
 <span id="cb563-3"><a href="graf.html#cb563-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_boxplot</span>()</span></code></pre></div>
-<p><img src="_main_files/figure-html/unnamed-chunk-265-1.png" width="672" style="display: block; margin: auto;" /></p>
+<p><img src="_main_files/figure-html/unnamed-chunk-264-1.png" width="672" style="display: block; margin: auto;" /></p>
 <p>Nesse primeiro caso, fizemos um boxplot da média ponderada dos alunos, atribuindo os valores da variável no eixo y. Para conferir os valores dos quartis, além da amplitude, podemos utilizar a função <code>summary()</code>. Para calcular a distância interquartil - cujo cálculo se dá pela subtração entre o valor do 3º quartil e do 1º quartil - utilizamos a função <code>IQR()</code>.</p>
 <div class="sourceCode" id="cb564"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb564-1"><a href="graf.html#cb564-1" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(dados_alunos<span class="sc">$</span>media_ponderada)</span></code></pre></div>
 <pre><code>   Min. 1st Qu.  Median    Mean 3rd Qu.    Max. 
@@ -1395,7 +1395,7 @@ Figure 7.5: Nome das paletas de cores disponíveis para aplicarmos em nossos gr�
 <span id="cb568-2"><a href="graf.html#cb568-2" aria-hidden="true" tabindex="-1"></a>       <span class="fu">aes</span>(<span class="at">x =</span> futuro,</span>
 <span id="cb568-3"><a href="graf.html#cb568-3" aria-hidden="true" tabindex="-1"></a>           <span class="at">y =</span> media_ponderada))<span class="sc">+</span></span>
 <span id="cb568-4"><a href="graf.html#cb568-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_boxplot</span>()</span></code></pre></div>
-<p><img src="_main_files/figure-html/unnamed-chunk-267-1.png" width="672" style="display: block; margin: auto;" /></p>
+<p><img src="_main_files/figure-html/unnamed-chunk-266-1.png" width="672" style="display: block; margin: auto;" /></p>
 <p>Neste caso, podemos ver a distribuição da média ponderada dos alunos e alunas de acordo com as perspectivas futuras de cada um. Perceba que a variável categórica <code>futuro</code> foi atribuída ao eixo x.</p>
 <p>Agora, caso se queira dividir os boxplots anteriores de acordo com o sexo, podemos atribui-la ao argumento <code>fill</code>.</p>
 <div class="sourceCode" id="cb569"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb569-1"><a href="graf.html#cb569-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(dados_alunos,</span>
@@ -1403,7 +1403,7 @@ Figure 7.5: Nome das paletas de cores disponíveis para aplicarmos em nossos gr�
 <span id="cb569-3"><a href="graf.html#cb569-3" aria-hidden="true" tabindex="-1"></a>           <span class="at">y =</span> media_ponderada,</span>
 <span id="cb569-4"><a href="graf.html#cb569-4" aria-hidden="true" tabindex="-1"></a>           <span class="at">fill =</span> sexo))<span class="sc">+</span></span>
 <span id="cb569-5"><a href="graf.html#cb569-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_boxplot</span>()</span></code></pre></div>
-<p><img src="_main_files/figure-html/unnamed-chunk-268-1.png" width="672" style="display: block; margin: auto;" /></p>
+<p><img src="_main_files/figure-html/unnamed-chunk-267-1.png" width="672" style="display: block; margin: auto;" /></p>
 <p>Assim, podemos observar a distribuição das médias ponderadas de acordo com o sexo e a perspectiva futura.</p>
 <p><br></p>
 </div>
@@ -1429,10 +1429,10 @@ Figure 7.5: Nome das paletas de cores disponíveis para aplicarmos em nossos gr�
 <span id="cb572-13"><a href="graf.html#cb572-13" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb572-14"><a href="graf.html#cb572-14" aria-hidden="true" tabindex="-1"></a><span class="co"># Unindo os gráficos &quot;g1&quot; e &quot;g2&quot;</span></span>
 <span id="cb572-15"><a href="graf.html#cb572-15" aria-hidden="true" tabindex="-1"></a>g1 <span class="sc">+</span> g2</span></code></pre></div>
-<p><img src="_main_files/figure-html/unnamed-chunk-271-1.png" width="672" style="display: block; margin: auto;" /></p>
+<p><img src="_main_files/figure-html/unnamed-chunk-270-1.png" width="672" style="display: block; margin: auto;" /></p>
 <p>Podemos dispô-los um embaixo do outro com o operador <code>/</code>.</p>
 <div class="sourceCode" id="cb573"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb573-1"><a href="graf.html#cb573-1" aria-hidden="true" tabindex="-1"></a>g1 <span class="sc">/</span> g2</span></code></pre></div>
-<p><img src="_main_files/figure-html/unnamed-chunk-272-1.png" width="672" style="display: block; margin: auto;" /></p>
+<p><img src="_main_files/figure-html/unnamed-chunk-271-1.png" width="672" style="display: block; margin: auto;" /></p>
 <p>Além disso, podemos inserir mais gráficos ao conjunto. Nesse caso, incluiremos o histograma.</p>
 <div class="sourceCode" id="cb574"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb574-1"><a href="graf.html#cb574-1" aria-hidden="true" tabindex="-1"></a>g3 <span class="ot">&lt;-</span> <span class="fu">ggplot</span>(dados_alunos)<span class="sc">+</span></span>
 <span id="cb574-2"><a href="graf.html#cb574-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_histogram</span>(<span class="fu">aes</span>(<span class="at">x =</span> media_ponderada),</span>
@@ -1441,9 +1441,9 @@ Figure 7.5: Nome das paletas de cores disponíveis para aplicarmos em nossos gr�
 <span id="cb574-5"><a href="graf.html#cb574-5" aria-hidden="true" tabindex="-1"></a>                 <span class="at">fill =</span> <span class="st">&quot;light blue&quot;</span>)</span>
 <span id="cb574-6"><a href="graf.html#cb574-6" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb574-7"><a href="graf.html#cb574-7" aria-hidden="true" tabindex="-1"></a>(g1 <span class="sc">+</span> g2) <span class="sc">/</span> g3</span></code></pre></div>
-<p><img src="_main_files/figure-html/unnamed-chunk-273-1.png" width="672" style="display: block; margin: auto;" /></p>
+<p><img src="_main_files/figure-html/unnamed-chunk-272-1.png" width="672" style="display: block; margin: auto;" /></p>
 <div class="sourceCode" id="cb575"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb575-1"><a href="graf.html#cb575-1" aria-hidden="true" tabindex="-1"></a>g1 <span class="sc">+</span> (g2 <span class="sc">/</span> g3)</span></code></pre></div>
-<p><img src="_main_files/figure-html/unnamed-chunk-274-1.png" width="672" style="display: block; margin: auto;" /></p>
+<p><img src="_main_files/figure-html/unnamed-chunk-273-1.png" width="672" style="display: block; margin: auto;" /></p>
 <p>Assim, dependendo da combinação de operações entre objetos, a partir do pacote <code>patchwork</code>, é possível dispor os gráficos de diferentes formas.</p>
 <p><br></p>
 <p>Como visto ao longo deste capítulo, percebemos que o pacote <code>ggplot2</code> possui ferramentas poderosas e versáteis para lidar com gráficos. Há diversas outras funcionalidades presentes no pacote, as quais podem (e devem) ser exploradas. Contudo, neste primeiro momento, o que foi exposto se apresenta como uma base para possibilitar a execução dos primeiros gráficos em R, além de ser a porta de entrada ao leitor para que possa aprofundar e aprimorar seus gráficos de maneira mais independente.</p>
@@ -1513,20 +1513,6 @@ gitbook.start({
 });
 </script>
 
-<!-- dynamically load mathjax for compatibility with self-contained -->
-<script>
-  (function () {
-    var script = document.createElement("script");
-    script.type = "text/javascript";
-    var src = "true";
-    if (src === "" || src === "true") src = "https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-MML-AM_CHTML";
-    if (location.protocol !== "file:")
-      if (/^https?:/.test(src))
-        src = src.replace(/^https?:/, '');
-    script.src = src;
-    document.getElementsByTagName("head")[0].appendChild(script);
-  })();
-</script>
 </body>
 
 </html>
