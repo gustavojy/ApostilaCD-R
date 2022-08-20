@@ -6,11 +6,10 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
   <title>Capítulo2 Ciência de dados e R | Introdução à Ciência de Dados em R</title>
   <meta name="description" content="Capítulo2 Ciência de dados e R | Introdução à Ciência de Dados em R" />
-  <meta name="generator" content="bookdown 0.24 and GitBook 2.6.7" />
+  <meta name="generator" content="bookdown 0.28 and GitBook 2.6.7" />
 
   <meta property="og:title" content="Capítulo2 Ciência de dados e R | Introdução à Ciência de Dados em R" />
   <meta property="og:type" content="book" />
-  
   
   
   <meta name="github-repo" content="rstudio/bookdown-demo" />
@@ -32,7 +31,6 @@
   
 <link rel="prev" href="index.html"/>
 <link rel="next" href="noções-básicas-em-r.html"/>
-<script src="libs/header-attrs-2.11/header-attrs.js"></script>
 <script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/fuse.js@6.4.6/dist/fuse.min.js"></script>
 <link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
@@ -50,8 +48,9 @@
 
 
 
-<link href="libs/anchor-sections-1.0.1/anchor-sections.css" rel="stylesheet" />
-<script src="libs/anchor-sections-1.0.1/anchor-sections.js"></script>
+<link href="libs/anchor-sections-1.1.0/anchor-sections.css" rel="stylesheet" />
+<link href="libs/anchor-sections-1.1.0/anchor-sections-hash.css" rel="stylesheet" />
+<script src="libs/anchor-sections-1.1.0/anchor-sections.js"></script>
 <script src="libs/kePrint-0.0.1/kePrint.js"></script>
 <link href="libs/lightable-0.0.1/lightable.css" rel="stylesheet" />
 
@@ -138,7 +137,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li><a href="./">Introdução à Ciência de Dados em R</a></li>
 
 <li class="divider"></li>
-<li class="chapter" data-level="1" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i><b>1</b> Introdução</a></li>
+<li class="chapter" data-level="1" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i><b>1</b> Introdução </a></li>
 <li class="chapter" data-level="2" data-path="ciência-de-dados-e-r.html"><a href="ciência-de-dados-e-r.html"><i class="fa fa-check"></i><b>2</b> Ciência de dados e R</a>
 <ul>
 <li class="chapter" data-level="2.1" data-path="ciência-de-dados-e-r.html"><a href="ciência-de-dados-e-r.html#o-que-é-ciência-de-dados"><i class="fa fa-check"></i><b>2.1</b> O que é Ciência de Dados?</a></li>
@@ -239,8 +238,8 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </ul></li>
 <li class="chapter" data-level="7.2" data-path="graf.html"><a href="graf.html#gráfico-de-barras"><i class="fa fa-check"></i><b>7.2</b> Gráfico de Barras</a>
 <ul>
-<li><a href="graf.html#geom_col"><code>geom_col()</code></a></li>
-<li><a href="graf.html#geom_bar"><code>geom_bar()</code></a></li>
+<li class="chapter" data-level="" data-path="graf.html"><a href="graf.html#geom_col"><i class="fa fa-check"></i><code>geom_col()</code></a></li>
+<li class="chapter" data-level="" data-path="graf.html"><a href="graf.html#geom_bar"><i class="fa fa-check"></i><code>geom_bar()</code></a></li>
 </ul></li>
 <li class="chapter" data-level="7.3" data-path="graf.html"><a href="graf.html#gráfico-de-setores-pizza"><i class="fa fa-check"></i><b>7.3</b> Gráfico de Setores (Pizza)</a></li>
 <li class="chapter" data-level="7.4" data-path="graf.html"><a href="graf.html#gráfico-de-linhas"><i class="fa fa-check"></i><b>7.4</b> Gráfico de Linhas</a>
@@ -333,10 +332,10 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
           <div class="page-inner">
 
             <section class="normal" id="section-">
-<div id="ciência-de-dados-e-r" class="section level1" number="2">
-<h1><span class="header-section-number">Capítulo2</span> Ciência de dados e R</h1>
-<div id="o-que-é-ciência-de-dados" class="section level2" number="2.1">
-<h2><span class="header-section-number">2.1</span> O que é Ciência de Dados?</h2>
+<div id="ciência-de-dados-e-r" class="section level1 hasAnchor" number="2">
+<h1><span class="header-section-number">Capítulo2</span> Ciência de dados e R<a href="ciência-de-dados-e-r.html#ciência-de-dados-e-r" class="anchor-section" aria-label="Anchor link to header"></a></h1>
+<div id="o-que-é-ciência-de-dados" class="section level2 hasAnchor" number="2.1">
+<h2><span class="header-section-number">2.1</span> O que é Ciência de Dados?<a href="ciência-de-dados-e-r.html#o-que-é-ciência-de-dados" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <p>A ciência de dados, como o próprio termo sugere, consiste no estudo e análise de dados, com o objetivo de extrair informações relevantes, utilizando técnicas e conhecimentos multidisciplinares. Por mais que o termo tenha se popularizado fortemente nos últimos anos devido à massiva geração de dados em elevadas quantidades, diversidades e velocidades, sua concepção se origina no século passado, seja por nomes notáveis como o do matemático e estatístico <a href="http://www.ru.ac.bd/wp-content/uploads/sites/25/2019/03/102_05_01_Tukey-Exploratory-Data-Analysis-1977.pdf">John W. Tukey</a>, mas também por aqueles que atuavam nas áreas de negócios e de pesquisa que, sem a pretensão de nomear ou organizar uma nova área do conhecimento, poderiam ser considerados cientistas de dados.</p>
 <p>A concepção recente de ciência de dados abrange pelo menos três grandes áreas do conhecimento, podendo ser descrita por um diagrama de Venn, idealizado em 2010, por <a href="http://drewconway.com/zia/2013/3/26/the-data-science-venn-diagram">Drew Conway</a>:</p>
 <div class="figure" style="text-align: center"><span style="display:block;" id="fig:venn"></span>
@@ -356,8 +355,8 @@ Figure 2.1: Diagrama de Venn da ciência de dados.
 <p>Tendo em vista as bases que definem um cientista de dados, entraremos no âmbito da programação, conhecendo um pouco mais sobre o software R.</p>
 <p><br></p>
 </div>
-<div id="r-rstudio" class="section level2" number="2.2">
-<h2><span class="header-section-number">2.2</span> R / RStudio</h2>
+<div id="r-rstudio" class="section level2 hasAnchor" number="2.2">
+<h2><span class="header-section-number">2.2</span> R / RStudio<a href="ciência-de-dados-e-r.html#r-rstudio" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <p>O R é uma das linguagens de programação mais utilizadas por cientistas de dados. Foi desenvolvido por Ross Ihaka e Robert Gentleman, na Universidade de Auckland, Nova Zelândia, em 1993. Iniciou como uma linguagem focada em programação estatística, mas que, ao longo do tempo, tornou-se cada vez mais encorpada e diversificada. Atualmente, o <a href="https://www.r-project.org/foundation/"><em>R Development Core Team</em></a> atua na manutenção e no desenvolvimento da linguagem, sendo composto por diversos membros, dentre eles, seus idealizadores.</p>
 <p>Por ser um software gratuito de código aberto (<em>Open source</em>), possibilitou a formação de uma comunidade que atua diretamente no desenvolvimento do programa, promovendo constantes facilidades, melhorias e inovações acessíveis ao público em geral. O compartilhamento de um conjunto de funções é dado através de <strong>pacotes</strong>, os quais devemos instalar para podermos utilizá-los. Detalharemos a instalação de pacotes na seção <a href="ciência-de-dados-e-r.html#pacote">2.4</a>.</p>
 <p>E, justamente, uma das principais contribuições idealizadas é o <strong>RStudio</strong>. O RStudio é uma IDE (<em>Integrated Development Environment</em>), ou seja, um ambiente de trabalho que executa o R a partir de uma interface gráfica mais agradável e com diversas funcionalidades (Figura <a href="ciência-de-dados-e-r.html#fig:rstudio-apresenta">2.3</a>), o que nos proporciona um maior conforto quando comparado ao R original, composto basicamente pelas janelas de script e console, como mostra a figura <a href="ciência-de-dados-e-r.html#fig:r-original">2.2</a>.</p>
@@ -378,8 +377,8 @@ Figure 2.3: Tela do RStudio. Como podemos perceber, bem diferente do R original.
 <p>Mais adiante, na subseção <a href="ciência-de-dados-e-r.html#rstudio">2.2.3</a>, entraremos em mais detalhes sobre o ambiente do RStudio.</p>
 <p>Vale salientar que o R pode ser utilizado sem o RStudio, porém o RStudio não funciona sem o R. No nosso caso, utilizaremos o RStudio para desenvolver nossas análises. Assim, precisamos ter instalados ambos os programas.</p>
 <p><br></p>
-<div id="instalando-o-r" class="section level3" number="2.2.1">
-<h3><span class="header-section-number">2.2.1</span> Instalando o R</h3>
+<div id="instalando-o-r" class="section level3 hasAnchor" number="2.2.1">
+<h3><span class="header-section-number">2.2.1</span> Instalando o R<a href="ciência-de-dados-e-r.html#instalando-o-r" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p>O R está disponível para todos os sistemas operacionais. Sua instalação é feita via CRAN (<em>Comprehensive R Archive Network</em>), ou seja, uma rede com diversos servidores localizados em várias regiões do mundo, os quais armazenam versões idênticas e atualizadas de códigos e documentações para o R. Assim, para instalar o R, recomenda-se selecionar o servidor mais próximo à sua região. A seguir está o passo a passo para o <em>download</em>.</p>
 <ol style="list-style-type: decimal">
 <li><p>Acessar: <a href="https://www.r-project.org/" class="uri">https://www.r-project.org/</a>;</p></li>
@@ -398,8 +397,8 @@ Figure 2.3: Tela do RStudio. Como podemos perceber, bem diferente do R original.
 </ol>
 <p><br></p>
 </div>
-<div id="instalando-o-rstudio" class="section level3" number="2.2.2">
-<h3><span class="header-section-number">2.2.2</span> Instalando o RStudio</h3>
+<div id="instalando-o-rstudio" class="section level3 hasAnchor" number="2.2.2">
+<h3><span class="header-section-number">2.2.2</span> Instalando o RStudio<a href="ciência-de-dados-e-r.html#instalando-o-rstudio" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p>Uma vez feita a instalação do R, precisamos instalar o RStudio. Também está disponível para todos os sistemas operacionais e sua instalação pode ser feita a partir do link: <a href="https://www.rstudio.com/products/rstudio/download/#download" class="uri">https://www.rstudio.com/products/rstudio/download/#download</a>. Escolha a versão referente ao seu sistema operacional e siga as instruções para baixar a IDE em seu computador.</p>
 <div class="figure" style="text-align: center"><span style="display:block;" id="fig:unnamed-chunk-2"></span>
 <img src="imagens/rstudio_download.png" alt="Na página referente ao link acima, vá até a seção ilustrada na figura. Lá encontraremos as versões disponíveis do RStudio, de acordo com o sistema operacional." width="80%" />
@@ -409,11 +408,11 @@ Figure 2.4: Na página referente ao link acima, vá até a seção ilustrada na 
 </div>
 <p><br></p>
 </div>
-<div id="rstudio" class="section level3" number="2.2.3">
-<h3><span class="header-section-number">2.2.3</span> Ambiente RStudio</h3>
+<div id="rstudio" class="section level3 hasAnchor" number="2.2.3">
+<h3><span class="header-section-number">2.2.3</span> Ambiente RStudio<a href="ciência-de-dados-e-r.html#rstudio" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p>Agora que temos o R e o RStudio instalados, vamos conhecer mais sobre o ambiente do RStudio.</p>
-<div id="janelas" class="section level4 unnumbered">
-<h4>Janelas</h4>
+<div id="janelas" class="section level4 unnumbered hasAnchor">
+<h4>Janelas<a href="ciência-de-dados-e-r.html#janelas" class="anchor-section" aria-label="Anchor link to header"></a></h4>
 <div class="figure" style="text-align: center"><span style="display:block;" id="fig:rstudio-janelas"></span>
 <img src="imagens/rstudio_janelas_expl.png" alt="O RStudio apresenta 4 janelas principais, algumas com abas específicas, cada qual apresentando funcionalidades particulares." width="90%" />
 <p class="caption">
@@ -437,8 +436,8 @@ Figure 2.5: O RStudio apresenta 4 janelas principais, algumas com abas específi
 </ul>
 <p><br></p>
 </div>
-<div id="aparência" class="section level4 unnumbered">
-<h4>Aparência</h4>
+<div id="aparência" class="section level4 unnumbered hasAnchor">
+<h4>Aparência<a href="ciência-de-dados-e-r.html#aparência" class="anchor-section" aria-label="Anchor link to header"></a></h4>
 <p>Podemos alterar a aparência do RStudio acessando a aba <code>Tools</code>, presente no menu superior, clicar em <code>Global Options...</code> e, posteriormente, na aba <code>Appearance</code>. Nela, pode-se alterar o tema de fundo, regular o <em>zoom</em> do ambiente como um todo ou somente dos textos e alterar a fonte dos textos. Na figura <a href="ciência-de-dados-e-r.html#fig:rstudio-tema1">2.6</a> esta ilustrado um exemplo de configuração da aparência do RStudio, e na figura <a href="ciência-de-dados-e-r.html#fig:rstudio-tema2">2.7</a>, o resultado dessa alteração.</p>
 <div class="figure" style="text-align: center"><span style="display:block;" id="fig:rstudio-tema1"></span>
 <img src="imagens/rstudio_tema1.png" alt="Podemos configurar a aparência do RStudio em diversos aspectos. Faça alguns testes e veja qual lhe agrada mais." width="60%" />
@@ -457,8 +456,8 @@ Figure 2.7: Um exemplo de alteração na aparência do RStudio.
 </div>
 </div>
 </div>
-<div id="etapas-da-ciência-de-dados" class="section level2" number="2.3">
-<h2><span class="header-section-number">2.3</span> Etapas da Ciência de Dados</h2>
+<div id="etapas-da-ciência-de-dados" class="section level2 hasAnchor" number="2.3">
+<h2><span class="header-section-number">2.3</span> Etapas da Ciência de Dados<a href="ciência-de-dados-e-r.html#etapas-da-ciência-de-dados" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <p>Agora que temos uma melhor noção sobre ciência de dados e o software R, vamos explorar as etapas que compõem o seu processo.</p>
 <div class="figure" style="text-align: center"><span style="display:block;" id="fig:dc-fluxo"></span>
 <img src="imagens/etapas_cd.png" alt="Etapas do trabalho em ciência de dados. O ato de programar abrange todos os processos do fluxograma." width="100%" />
@@ -481,8 +480,8 @@ Figure 2.8: Etapas do trabalho em ciência de dados. O ato de programar abrange 
 <p>Na seção <a href="ciência-de-dados-e-r.html#pacote">2.4</a>, vamos conhecer mais sobre o pacote <code>tidyverse</code>, o qual contém as principais funções a serem utilizadas ao longo desta apostila. Detalharemos os pacotes específicos para cada uma das etapas descritas anteriormente.</p>
 <p><br></p>
 </div>
-<div id="pacote" class="section level2" number="2.4">
-<h2><span class="header-section-number">2.4</span> Pacote <code>tidyverse</code></h2>
+<div id="pacote" class="section level2 hasAnchor" number="2.4">
+<h2><span class="header-section-number">2.4</span> Pacote <code>tidyverse</code><a href="ciência-de-dados-e-r.html#pacote" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <p>O <code>tidyverse</code> é um “pacote mestre” que abrange diversos outros, cada qual apresentando diversas funcionalidades específicas para cada uma das etapas apresentadas no fluxograma do tópico anterior. O esquema a seguir relaciona as etapas que constituem o trabalho do cientista de dados com os respectivos pacotes.</p>
 <div class="figure" style="text-align: center"><span style="display:block;" id="fig:unnamed-chunk-3"></span>
 <img src="imagens/pacotes_cd.png" alt="Para cada etapa do fluxograma de trabalho da ciência de dados, existem pacotes específicos no R." width="100%" />
@@ -502,8 +501,8 @@ Figure 2.9: Para cada etapa do fluxograma de trabalho da ciência de dados, exis
 <p>Para se ter uma visão geral de quais pacotes estão presentes no <code>tidyverse</code>, utilizamos a função <code>tidyverse_packages()</code>.</p>
 <div class="sourceCode" id="cb2"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb2-1"><a href="ciência-de-dados-e-r.html#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="fu">tidyverse_packages</span>()</span></code></pre></div>
 <pre><code> [1] &quot;broom&quot;         &quot;cli&quot;           &quot;crayon&quot;        &quot;dbplyr&quot;       
- [5] &quot;dplyr&quot;         &quot;dtplyr&quot;        &quot;forcats&quot;       &quot;googledrive&quot;  
- [9] &quot;googlesheets4&quot; &quot;ggplot2&quot;       &quot;haven&quot;         &quot;hms&quot;          
+ [5] &quot;dplyr&quot;         &quot;dtplyr&quot;        &quot;forcats&quot;       &quot;ggplot2&quot;      
+ [9] &quot;googledrive&quot;   &quot;googlesheets4&quot; &quot;haven&quot;         &quot;hms&quot;          
 [13] &quot;httr&quot;          &quot;jsonlite&quot;      &quot;lubridate&quot;     &quot;magrittr&quot;     
 [17] &quot;modelr&quot;        &quot;pillar&quot;        &quot;purrr&quot;         &quot;readr&quot;        
 [21] &quot;readxl&quot;        &quot;reprex&quot;        &quot;rlang&quot;         &quot;rstudioapi&quot;   
@@ -560,7 +559,7 @@ gitbook.start({
 "link": null,
 "text": null
 },
-"download": ["_main.pdf", "_main.epub"],
+"download": ["Apostila.pdf", "Apostila.epub"],
 "search": {
 "engine": "fuse",
 "options": null
@@ -572,20 +571,6 @@ gitbook.start({
 });
 </script>
 
-<!-- dynamically load mathjax for compatibility with self-contained -->
-<script>
-  (function () {
-    var script = document.createElement("script");
-    script.type = "text/javascript";
-    var src = "true";
-    if (src === "" || src === "true") src = "https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-MML-AM_CHTML";
-    if (location.protocol !== "file:")
-      if (/^https?:/.test(src))
-        src = src.replace(/^https?:/, '');
-    script.src = src;
-    document.getElementsByTagName("head")[0].appendChild(script);
-  })();
-</script>
 </body>
 
 </html>

@@ -169,7 +169,7 @@
 \tableofcontents
 }
 \hypertarget{introduuxe7uxe3o}{%
-\chapter[Introdução]{\texorpdfstring{Introdução\footnote{Esta apostila foi confeccionada a partir do \emph{Bookdown}. Todos os arquivos e códigos utilizados estão disponíveis em: \url{https://github.com/gustavojy/ApostilaCD-R}.}}{Introdução}}\label{introduuxe7uxe3o}}
+\chapter[Introdução ]{\texorpdfstring{Introdução \footnote{Esta apostila foi confeccionada a partir do \emph{Bookdown}. Todos os arquivos e códigos utilizados estão disponíveis em: \url{https://github.com/gustavojy/ApostilaCD-R}.} \footnote{Versão online disponível em: \url{https://gustavojy.github.io/ApostilaCD-R/}}}{Introdução  }}\label{introduuxe7uxe3o}}
 
 A proposta desta apostila é compartilhar experiências sobre ciência de dados na linguagem de programação R, visando auxiliar àqueles que estão iniciando sua jornada nesta empreitada.
 
@@ -3369,7 +3369,7 @@ Nesta seção, abordaremos as principais ferramentas de organização de dados p
 \end{Highlighting}
 \end{Shaded}
 
-A seguir, aplicaremos as ferramentas do \texttt{tidyr} em uma mesma base de dados, porém em diversas versões desarrumadas \footnote{O termo \emph{desarrumada} não é o mais apropriado para nos referirmos aos demais formatos de dados, pois o formato \emph{tidy} é um dos possíveis para se trabalhar com dados - principalmente quando trabalhamos com dados retangulares - utilizando o pacote \texttt{tidyverse}. Portanto, quando nos referirmos a dados \emph{desarrumados}, entenda como dados fora do padrão \emph{tidy data} ou \emph{não-tidy}. Para entender mais sobre os dados \emph{não-tidy}, recomendo o post do \href{https://simplystatistics.org/posts/2016-02-17-non-tidy-data/}{Jeff Leek} sobre o assunto.} . Os dados são referentes a produção (em toneladas) e a área colhida (em hectares) da cultura do milho, no Brasil, China e Índia, nos anos de 2000 e 2019. Para fazer o \emph{download} da pasta contendo as bases de dados, \href{https://github.com/gustavojy/ApostilaCD-R/blob/main/dados_zip/dados_tidy.zip}{clique aqui}.
+A seguir, aplicaremos as ferramentas do \texttt{tidyr} em uma mesma base de dados, porém em diversas versões desarrumadas \footnote{O termo \emph{desarrumada} não é o mais apropriado para nos referirmos aos demais formatos de dados, pois o formato \emph{tidy} é um dos possíveis para se trabalhar com dados - principalmente quando trabalhamos com dados retangulares - utilizando o pacote \texttt{tidyverse}. Portanto, quando nos referirmos a dados \emph{desarrumados}, entenda como dados fora do padrão \emph{tidy data} ou \emph{não-tidy}. Para entender mais sobre os dados \emph{não-tidy}, recomendo o post do \href{https://simplystatistics.org/posts/2016-02-17-non-tidy-data/}{Jeff Leek} sobre o assunto.} . Os dados são referentes a produção (em toneladas) e a área colhida (em hectares) da cultura do milho, no Brasil, China e Índia, nos anos de 2000 e 2019. Para fazer o \emph{download} da pasta contendo as bases de dados, \href{https://github.com/gustavojy/ApostilaCD-R/blob/main/dados_zip/dados_tidy.zip?raw=true}{clique aqui}.
 
 \hypertarget{base-de-dados-tidy}{%
 \subsection{\texorpdfstring{Base de dados \emph{tidy}}{Base de dados tidy}}\label{base-de-dados-tidy}}
@@ -4977,7 +4977,7 @@ Na função acima, declaramos as duas bases de dados a serem unidas, junto ao ar
 
 }
 
-\caption{Esquematização da função $inner_join$. Fonte: R for Data Science, 2017.}\label{fig:unnamed-chunk-173}
+\caption{Esquematização da função inner-join. Fonte: R for Data Science, 2017.}\label{fig:unnamed-chunk-173}
 \end{figure}
 
 Caso haja mais de uma variável em comum, bastaria declarar um vetor com as variáveis no argumento \texttt{by\ =} (\texttt{by\ =\ c("var\_1",\ "var\_2",\ ...,\ "var\_n")}). Atente-se ao fato que as variáveis devem estar entre aspas.
@@ -5015,7 +5015,7 @@ A função \texttt{full\_join()} nos retorna todas as observações de ambos os 
 
 }
 
-\caption{Esquematização da função $full_join$. Fonte: R for Data Science, 2017.}\label{fig:unnamed-chunk-175}
+\caption{Esquematização da função full-join. Fonte: R for Data Science, 2017.}\label{fig:unnamed-chunk-175}
 \end{figure}
 
 A função \texttt{left\_join()} retorna todas as observações presentes no primeiro conjunto declarado, além dos valores em comum do segundo conjunto em relação ao primeiro. Por outro lado, a \texttt{right\_join()} retorna todas as observações do segundo conjunto declarado e os valores em comum do primeiro conjunto em relação ao segundo.
@@ -5070,7 +5070,7 @@ Note que em ambas as funções, o primeiro conjunto declarado é o \texttt{junta
 
 }
 
-\caption{Esquematização das funções $left_join$ e $right_join$. Fonte: R for Data Science, 2017.}\label{fig:unnamed-chunk-177}
+\caption{Esquematização das funções left-join e right-join. Fonte: R for Data Science, 2017.}\label{fig:unnamed-chunk-177}
 \end{figure}
 
 Por fim, temos o \texttt{semi\_join()} e o \texttt{anti\_join()}.
@@ -5119,7 +5119,7 @@ O \texttt{semi\_join()} nos retorna todas as observações do primeiro conjunto 
 
 }
 
-\caption{Esquematização da função $semi_join$. Fonte: R for Data Science, 2017.}\label{fig:unnamed-chunk-179}
+\caption{Esquematização da função semi-join. Fonte: R for Data Science, 2017.}\label{fig:unnamed-chunk-179}
 \end{figure}
 
 Já o \texttt{anti\_join()}, retorna as observações do primeiro conjunto que não estão presentes no segundo.
@@ -5166,7 +5166,7 @@ Já o \texttt{anti\_join()}, retorna as observações do primeiro conjunto que n
 
 }
 
-\caption{Esquematização da função $anti_join$. Fonte: R for Data Science, 2017.}\label{fig:unnamed-chunk-181}
+\caption{Esquematização da função anti-join. Fonte: R for Data Science, 2017.}\label{fig:unnamed-chunk-181}
 \end{figure}
 
 Tanto no \texttt{semi\_join()}, como no \texttt{anti\_join()}, mantêm-se apenas as colunas presentes no primeiro conjunto.
@@ -7082,70 +7082,57 @@ Para verificarmos todos os conjuntos de dados disponíveis no pacote \texttt{geo
 \end{Highlighting}
 \end{Shaded}
 
-\begin{table}
-\centering\begingroup\fontsize{16}{18}\selectfont
+\begin{landscape}\begingroup\fontsize{5}{7}\selectfont
 
-\begin{tabular}[t]{l|l|l|l}
-\hline
+\begin{longtable}{l>{\raggedright\arraybackslash}p{5cm}>{\raggedright\arraybackslash}p{5cm}l}
+\toprule
 function & geography & years & source\\
-\hline
+\midrule
+\endfirsthead
+\multicolumn{4}{@{}l}{\textit{(continued)}}\\
+\toprule
+function & geography & years & source\\
+\midrule
+\endhead
+
+\endfoot
+\bottomrule
+\endlastfoot
 `read\_country` & Country & 1872, 1900, 1911, 1920, 1933, 1940, 1950, 1960, 1970, 1980, 1991, 2000, 2001, 2010, 2013, 2014, 2015, 2016, 2017, 2018, 2019, 2020 & IBGE\\
-\hline
 `read\_region` & Region & 2000, 2001, 2010, 2013, 2014, 2015, 2016, 2017, 2018, 2019, 2020 & IBGE\\
-\hline
 `read\_state` & States & 1872, 1900, 1911, 1920, 1933, 1940, 1950, 1960, 1970, 1980, 1991, 2000, 2001, 2010, 2013, 2014, 2015, 2016, 2017, 2018, 2019, 2020 & IBGE\\
-\hline
 `read\_meso\_region` & Meso region & 2000, 2001, 2010, 2013, 2014, 2015, 2016, 2017, 2018, 2019, 2020 & IBGE\\
-\hline
 `read\_micro\_region` & Micro region & 2000, 2001, 2010, 2013, 2014, 2015, 2016, 2017, 2018, 2019, 2020 & IBGE\\
-\hline
+\addlinespace
 `read\_intermediate\_region` & Intermediate region & 2017, 2019, 2020 & IBGE\\
-\hline
 `read\_immediate\_region` & Immediate region & 2017, 2019, 2020 & IBGE\\
-\hline
 `read\_municipality` & Municipality & 1872, 1900, 1911, 1920, 1933, 1940, 1950, 1960, 1970, 1980, 1991, 2000, 2001, 2005, 2007, 2010, 2013, 2014, 2015, 2016, 2017, 2018, 2019, 2020 & IBGE\\
-\hline
 `read\_municipal\_seat` & Municipality seats (sedes municipais) & 1872, 1900, 1911, 1920, 1933, 1940, 1950, 1960, 1970, 1980, 1991, 2010 & IBGE\\
-\hline
 `read\_weighting\_area` & Census weighting area (área de ponderação) & 2010 & IBGE\\
-\hline
+\addlinespace
 `read\_census\_tract` & Census tract (setor censitário) & 2000, 2010, 2017, 2019, 2020 & IBGE\\
-\hline
 `read\_statistical\_grid` & Statistical Grid of 200 x 200 meters & 2010 & IBGE\\
-\hline
 `read\_metro\_area` & Metropolitan areas & 1970, 2001, 2002, 2003, 2005, 2010, 2013, 2014, 2015, 2016, 2017, 2018 & IBGE\\
-\hline
 `read\_urban\_area` & Urban footprints & 2005, 2015 & IBGE\\
-\hline
 `read\_amazon` & Brazil's Legal Amazon & 2012 & MMA\\
-\hline
+\addlinespace
 `read\_biomes` & Biomes & 2004, 2019 & IBGE\\
-\hline
 `read\_conservation\_units` & Environmental Conservation Units & 201909 & MMA\\
-\hline
 `read\_disaster\_risk\_area` & Disaster risk areas & 2010 & CEMADEN and IBGE\\
-\hline
 `read\_indigenous\_land` & Indigenous lands & 201907, 202103 & FUNAI\\
-\hline
 `read\_semiarid` & Semi Arid region & 2005, 2017 & IBGE\\
-\hline
+\addlinespace
 `read\_health\_facilities` & Health facilities & 2015 & CNES, DataSUS\\
-\hline
 `read\_health\_region` & Health regions and macro regions & 1991, 1994, 1997, 2001, 2005, 2013 & DataSUS\\
-\hline
 `read\_neighborhood` & Neighborhood limits & 2010 & IBGE\\
-\hline
 `read\_schools` & Schools & 2020 & INEP\\
-\hline
 `read\_comparable\_areas` & Historically comparable municipalities, aka Areas minimas comparaveis (AMCs) & 1872,1900,1911,1920,1933,1940,1950,1960,1970,1980,1991,2000,2010 & IBGE\\
-\hline
+\addlinespace
 `read\_urban\_concentrations` & Urban concentration areas (concentrações urbanas) & 2015 & IBGE\\
-\hline
-`read\_pop\_arrangements` & Population arrangements (arranjos populacioanis) & 2015 & IBGE\\
-\hline
-\end{tabular}
+`read\_pop\_arrangements` & Population arrangements (arranjos populacioanis) & 2015 & IBGE\\*
+\end{longtable}
 \endgroup{}
-\end{table}
+\end{landscape}
 
 A função \texttt{list\_geobr()} nos retorna um objeto do tipo \emph{data frame}, apresentando como variáveis o nome das funções que contém os conjuntos de dados (\texttt{function}), a abrangência geográfica (\texttt{geography}), os anos presentes (\texttt{years}) e a fonte dos dados (\texttt{source}). A seguir, veremos como utilizar todas essas funções.
 
@@ -7182,7 +7169,7 @@ Assim, utilizaremos o pacote \texttt{ggplot2} como ferramenta para gerar os mapa
 \end{Highlighting}
 \end{Shaded}
 
-\begin{center}\includegraphics{_main_files/figure-latex/unnamed-chunk-282-1} \end{center}
+\begin{center}\includegraphics{_main_files/figure-latex/unnamed-chunk-283-1} \end{center}
 
 Com a função \texttt{ggplot()}, utilizamos a geometria \texttt{geom\_sf()}, que converte os dados \texttt{sf} em mapa.
 
@@ -7202,7 +7189,7 @@ A mesma lógica que utilizamos para confeccionar gráficos no \texttt{ggplot2} �
 \end{Highlighting}
 \end{Shaded}
 
-\begin{center}\includegraphics{_main_files/figure-latex/unnamed-chunk-283-1} \end{center}
+\begin{center}\includegraphics{_main_files/figure-latex/unnamed-chunk-284-1} \end{center}
 
 Tanto as escalas, como os sistemas de referência geodésicos utilizados para a confecção dos mapas podem ser conferidos na documentação das funções, utilizando o \texttt{?}.
 
@@ -7231,7 +7218,7 @@ Para representarmos o mapa do Brasil dividido por estados, utilizamos a função
 \end{Highlighting}
 \end{Shaded}
 
-\begin{center}\includegraphics{_main_files/figure-latex/unnamed-chunk-285-1} \end{center}
+\begin{center}\includegraphics{_main_files/figure-latex/unnamed-chunk-286-1} \end{center}
 
 A função \texttt{read\_state()} apresenta alguns argumentos importantes para confeccionarmos os mapas. O argumento \texttt{code\_state\ =} é utilizado para especificar qual(is) estados serão considerados para compor o mapa. Se \texttt{code\_state\ =\ "all"}, todos os estados são utilizados. Para selecionar um estado em específico, pode-se utilizar a abreviação do nome do estado (\texttt{abbrev\_state}) ou um código de dois dígitos (\texttt{code\_state}). Tanto as abreviações, como os códigos podem ser consultados no \emph{data frame} da respectiva função.
 
@@ -7242,74 +7229,63 @@ A função \texttt{read\_state()} apresenta alguns argumentos importantes para c
 \end{Highlighting}
 \end{Shaded}
 
-\begin{verbatim}
-Using year 2010
-\end{verbatim}
+\begin{Shaded}
+\begin{Highlighting}[]
+\FunctionTok{kable}\NormalTok{(}\FunctionTok{tibble}\NormalTok{(}\FunctionTok{read\_state}\NormalTok{(}\AttributeTok{showProgress =}\NormalTok{ F)), }\StringTok{"latex"}\NormalTok{, }\AttributeTok{longtable =}\NormalTok{ T, }\AttributeTok{booktabs =}\NormalTok{ T) }\SpecialCharTok{\%\textgreater{}\%}
+  \FunctionTok{kable\_styling}\NormalTok{(}\AttributeTok{latex\_options =} \FunctionTok{c}\NormalTok{(}\StringTok{"repeat\_header"}\NormalTok{), }\AttributeTok{font\_size =} \DecValTok{6}\NormalTok{,}\AttributeTok{position =} \StringTok{"c"}\NormalTok{, }\AttributeTok{full\_width =} \ConstantTok{FALSE}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
 
-\begin{table}
-\centering\begingroup\fontsize{16}{18}\selectfont
+\begingroup\fontsize{6}{8}\selectfont
 
-\begin{tabular}[t]{r|l|l|r|l|l}
-\hline
+\begin{longtable}{rllrll}
+\toprule
 code\_state & abbrev\_state & name\_state & code\_region & name\_region & geom\\
-\hline
+\midrule
+\endfirsthead
+\multicolumn{6}{@{}l}{\textit{(continued)}}\\
+\toprule
+code\_state & abbrev\_state & name\_state & code\_region & name\_region & geom\\
+\midrule
+\endhead
+
+\endfoot
+\bottomrule
+\endlastfoot
 11 & RO & Rondônia & 1 & Norte & MULTIPOLYGON (((-63.32721 -...\\
-\hline
 12 & AC & Acre & 1 & Norte & MULTIPOLYGON (((-73.18253 -...\\
-\hline
 13 & AM & Amazonas & 1 & Norte & MULTIPOLYGON (((-67.32609 2...\\
-\hline
 14 & RR & Roraima & 1 & Norte & MULTIPOLYGON (((-60.20051 5...\\
-\hline
 15 & PA & Pará & 1 & Norte & MULTIPOLYGON (((-54.95431 2...\\
-\hline
+\addlinespace
 16 & AP & Amapá & 1 & Norte & MULTIPOLYGON (((-51.1797 4....\\
-\hline
 17 & TO & Tocantins & 1 & Norte & MULTIPOLYGON (((-48.35878 -...\\
-\hline
 21 & MA & Maranhão & 2 & Nordeste & MULTIPOLYGON (((-45.84073 -...\\
-\hline
 22 & PI & Piauí & 2 & Nordeste & MULTIPOLYGON (((-41.74605 -...\\
-\hline
 23 & CE & Ceará & 2 & Nordeste & MULTIPOLYGON (((-41.16703 -...\\
-\hline
+\addlinespace
 24 & RN & Rio Grande Do Norte & 2 & Nordeste & MULTIPOLYGON (((-37.25329 -...\\
-\hline
 25 & PB & Paraíba & 2 & Nordeste & MULTIPOLYGON (((-37.22269 -...\\
-\hline
 26 & PE & Pernambuco & 2 & Nordeste & MULTIPOLYGON (((-32.39705 -...\\
-\hline
 27 & AL & Alagoas & 2 & Nordeste & MULTIPOLYGON (((-35.46753 -...\\
-\hline
 28 & SE & Sergipe & 2 & Nordeste & MULTIPOLYGON (((-37.99245 -...\\
-\hline
+\addlinespace
 29 & BA & Bahia & 2 & Nordeste & MULTIPOLYGON (((-39.36446 -...\\
-\hline
 31 & MG & Minas Gerais & 3 & Sudeste & MULTIPOLYGON (((-41.87545 -...\\
-\hline
 32 & ES & Espirito Santo & 3 & Sudeste & MULTIPOLYGON (((-41.87545 -...\\
-\hline
 33 & RJ & Rio De Janeiro & 3 & Sudeste & MULTIPOLYGON (((-41.85946 -...\\
-\hline
 35 & SP & São Paulo & 3 & Sudeste & MULTIPOLYGON (((-44.90215 -...\\
-\hline
+\addlinespace
 41 & PR & Paraná & 4 & Sul & MULTIPOLYGON (((-52.05188 -...\\
-\hline
 42 & SC & Santa Catarina & 4 & Sul & MULTIPOLYGON (((-48.63865 -...\\
-\hline
 43 & RS & Rio Grande Do Sul & 4 & Sul & MULTIPOLYGON (((-51.90486 -...\\
-\hline
 50 & MS & Mato Grosso Do Sul & 5 & Centro Oeste & MULTIPOLYGON (((-56.1037 -1...\\
-\hline
 51 & MT & Mato Grosso & 5 & Centro Oeste & MULTIPOLYGON (((-54.89485 -...\\
-\hline
+\addlinespace
 52 & GO & Goiás & 5 & Centro Oeste & MULTIPOLYGON (((-50.16015 -...\\
-\hline
-53 & DF & Distrito Federal & 5 & Centro Oeste & MULTIPOLYGON (((-47.57461 -...\\
-\hline
-\end{tabular}
+53 & DF & Distrito Federal & 5 & Centro Oeste & MULTIPOLYGON (((-47.57461 -...\\*
+\end{longtable}
 \endgroup{}
-\end{table}
 
 Na subseção \ref{estad}, demonstraremos como trabalhar com os estados de maneira individualizada.
 
@@ -7347,7 +7323,7 @@ O argumento \texttt{year()} permite selecionar um ano em específico do conjunto
 \end{Highlighting}
 \end{Shaded}
 
-\begin{center}\includegraphics{_main_files/figure-latex/unnamed-chunk-290-1} \end{center}
+\begin{center}\includegraphics{_main_files/figure-latex/unnamed-chunk-292-1} \end{center}
 
 Ainda, o argumento \texttt{simplified\ =} trata da resolução do mapa; caso \texttt{simplified\ =\ TRUE}, as bordas do mapa são traçadas de maneira ``aproximada''; por outro lado, caso \texttt{simplified\ =\ FALSE}, as bordas são traçadas de maneira detalhada. Caso o argumento não seja especificado, por padrão, adota-se \texttt{simplified\ =\ TRUE}.
 
@@ -7374,7 +7350,7 @@ Como citado na seção acima, podemos selecionar um estado em específico a part
 Using year 2020
 \end{verbatim}
 
-\begin{center}\includegraphics{_main_files/figure-latex/unnamed-chunk-292-1} \end{center}
+\begin{center}\includegraphics{_main_files/figure-latex/unnamed-chunk-294-1} \end{center}
 
 \begin{Shaded}
 \begin{Highlighting}[]
@@ -7388,7 +7364,7 @@ Using year 2020
 \end{Highlighting}
 \end{Shaded}
 
-\begin{center}\includegraphics{_main_files/figure-latex/unnamed-chunk-293-1} \end{center}
+\begin{center}\includegraphics{_main_files/figure-latex/unnamed-chunk-295-1} \end{center}
 
 Também podemos formar um mapa com mais de um estado. O exemplo a seguir representa a região do MATOPIBA.
 
@@ -7407,7 +7383,7 @@ Também podemos formar um mapa com mais de um estado. O exemplo a seguir represe
 \end{Highlighting}
 \end{Shaded}
 
-\begin{center}\includegraphics{_main_files/figure-latex/unnamed-chunk-294-1} \end{center}
+\begin{center}\includegraphics{_main_files/figure-latex/unnamed-chunk-296-1} \end{center}
 
 Perceba que utilizamos a função \texttt{dplyr::filter()} para filtrar somente as observações referentes aos estados que compõem o MATOPIBA, presentes no \emph{data frame} da função \texttt{read\_state()}.
 
@@ -7428,7 +7404,7 @@ Para adicionar legendas nos mapas, utilizamos a função \texttt{geom\_sf\_text(
 \end{Highlighting}
 \end{Shaded}
 
-\begin{center}\includegraphics{_main_files/figure-latex/unnamed-chunk-295-1} \end{center}
+\begin{center}\includegraphics{_main_files/figure-latex/unnamed-chunk-297-1} \end{center}
 
 Dentro da função \texttt{geom\_sf\_text()}, declaramos o argumento \texttt{label\ =} dentro da \texttt{aes()}, indicando que, para compor a legenda, serão consideradas as abreviações dos nomes dos estados (\texttt{abbrev\_state}).
 
@@ -7474,7 +7450,7 @@ De maneira semelhante aos estados, podemos dividir o mapa do Brasil a partir das
 \end{Highlighting}
 \end{Shaded}
 
-\begin{center}\includegraphics{_main_files/figure-latex/unnamed-chunk-297-1} \end{center}
+\begin{center}\includegraphics{_main_files/figure-latex/unnamed-chunk-299-1} \end{center}
 
 \hypertarget{regiuxf5es-especuxedficas}{%
 \subsection{Regiões específicas}\label{regiuxf5es-especuxedficas}}
@@ -7492,7 +7468,7 @@ Para selecionar uma região específica, podemos utilizar, novamente, a função
 \end{Highlighting}
 \end{Shaded}
 
-\begin{center}\includegraphics{_main_files/figure-latex/unnamed-chunk-298-1} \end{center}
+\begin{center}\includegraphics{_main_files/figure-latex/unnamed-chunk-300-1} \end{center}
 
 \hypertarget{regiuxf5es-com-os-estados}{%
 \subsection{Regiões com os estados}\label{regiuxf5es-com-os-estados}}
@@ -7513,7 +7489,7 @@ Para gerarmos o mapa de uma região específica delimitada pelos estados, devemo
 \end{Highlighting}
 \end{Shaded}
 
-\begin{center}\includegraphics{_main_files/figure-latex/unnamed-chunk-299-1} \end{center}
+\begin{center}\includegraphics{_main_files/figure-latex/unnamed-chunk-301-1} \end{center}
 
 \hypertarget{mesorregiuxf5es-e-microrregiuxf5es}{%
 \section{Mesorregiões e Microrregiões}\label{mesorregiuxf5es-e-microrregiuxf5es}}
@@ -7534,7 +7510,7 @@ Para representarmos as mesorregiões e as microrregiões do Brasil, utilizamos a
 \end{Highlighting}
 \end{Shaded}
 
-\begin{center}\includegraphics{_main_files/figure-latex/unnamed-chunk-300-1} \end{center}
+\begin{center}\includegraphics{_main_files/figure-latex/unnamed-chunk-302-1} \end{center}
 
 \hypertarget{selecionando-mesorregiuxf5es}{%
 \subsubsection{Selecionando Mesorregiões}\label{selecionando-mesorregiuxf5es}}
@@ -7555,7 +7531,7 @@ Para representarmos as mesorregiões e as microrregiões do Brasil, utilizamos a
 Using year 2020
 \end{verbatim}
 
-\begin{center}\includegraphics{_main_files/figure-latex/unnamed-chunk-302-1} \end{center}
+\begin{center}\includegraphics{_main_files/figure-latex/unnamed-chunk-304-1} \end{center}
 
 \begin{Shaded}
 \begin{Highlighting}[]
@@ -7571,7 +7547,7 @@ Using year 2020
 \end{Highlighting}
 \end{Shaded}
 
-\begin{center}\includegraphics{_main_files/figure-latex/unnamed-chunk-303-1} \end{center}
+\begin{center}\includegraphics{_main_files/figure-latex/unnamed-chunk-305-1} \end{center}
 
 Para selecionar uma mesorregião específica de um estado, devemos colocar o seu código de identificação no argumento \texttt{code\_meso\ =}. Lembrando que todos os códigos de identificação podem ser conferidos no \emph{data frame} da respectiva função.
 
@@ -7587,7 +7563,7 @@ Para selecionar uma mesorregião específica de um estado, devemos colocar o seu
 \end{Highlighting}
 \end{Shaded}
 
-\begin{center}\includegraphics{_main_files/figure-latex/unnamed-chunk-304-1} \end{center}
+\begin{center}\includegraphics{_main_files/figure-latex/unnamed-chunk-306-1} \end{center}
 
 \hypertarget{regiuxf5es-geogruxe1ficas-intermediuxe1rias}{%
 \subsubsection{Regiões geográficas intermediárias}\label{regiuxf5es-geogruxe1ficas-intermediuxe1rias}}
@@ -7605,7 +7581,7 @@ As regiões geográficas intermediárias são parte de uma nova divisão geográ
 \end{Highlighting}
 \end{Shaded}
 
-\begin{center}\includegraphics{_main_files/figure-latex/unnamed-chunk-305-1} \end{center}
+\begin{center}\includegraphics{_main_files/figure-latex/unnamed-chunk-307-1} \end{center}
 
 \hypertarget{microrregiuxf5es}{%
 \subsection{Microrregiões}\label{microrregiuxf5es}}
@@ -7621,7 +7597,7 @@ As regiões geográficas intermediárias são parte de uma nova divisão geográ
 \end{Highlighting}
 \end{Shaded}
 
-\begin{center}\includegraphics{_main_files/figure-latex/unnamed-chunk-306-1} \end{center}
+\begin{center}\includegraphics{_main_files/figure-latex/unnamed-chunk-308-1} \end{center}
 
 \hypertarget{selecionando-microrregiuxf5es}{%
 \subsubsection{Selecionando Microrregiões}\label{selecionando-microrregiuxf5es}}
@@ -7642,7 +7618,7 @@ As regiões geográficas intermediárias são parte de uma nova divisão geográ
 Using year 2020
 \end{verbatim}
 
-\begin{center}\includegraphics{_main_files/figure-latex/unnamed-chunk-308-1} \end{center}
+\begin{center}\includegraphics{_main_files/figure-latex/unnamed-chunk-310-1} \end{center}
 
 \begin{Shaded}
 \begin{Highlighting}[]
@@ -7658,7 +7634,7 @@ Using year 2020
 \end{Highlighting}
 \end{Shaded}
 
-\begin{center}\includegraphics{_main_files/figure-latex/unnamed-chunk-309-1} \end{center}
+\begin{center}\includegraphics{_main_files/figure-latex/unnamed-chunk-311-1} \end{center}
 
 \begin{Shaded}
 \begin{Highlighting}[]
@@ -7672,7 +7648,7 @@ Using year 2020
 \end{Highlighting}
 \end{Shaded}
 
-\begin{center}\includegraphics{_main_files/figure-latex/unnamed-chunk-310-1} \end{center}
+\begin{center}\includegraphics{_main_files/figure-latex/unnamed-chunk-312-1} \end{center}
 
 \hypertarget{regiuxf5es-geogruxe1ficas-imediatas}{%
 \subsubsection{Regiões geográficas imediatas}\label{regiuxf5es-geogruxe1ficas-imediatas}}
@@ -7690,7 +7666,7 @@ Assim como as regiões geográficas intermediárias, as regiões geográficas im
 \end{Highlighting}
 \end{Shaded}
 
-\begin{center}\includegraphics{_main_files/figure-latex/unnamed-chunk-311-1} \end{center}
+\begin{center}\includegraphics{_main_files/figure-latex/unnamed-chunk-313-1} \end{center}
 
 \hypertarget{municuxedpios}{%
 \section{Municípios}\label{municuxedpios}}
@@ -7708,7 +7684,7 @@ Para representarmos os municípios do Brasil, utilizamos a função \texttt{read
 \end{Highlighting}
 \end{Shaded}
 
-\begin{center}\includegraphics{_main_files/figure-latex/unnamed-chunk-312-1} \end{center}
+\begin{center}\includegraphics{_main_files/figure-latex/unnamed-chunk-314-1} \end{center}
 
 \hypertarget{funuxe7uxe3o-lookup_muni}{%
 \subsection{\texorpdfstring{Função \texttt{lookup\_muni()}}{Função lookup\_muni()}}\label{funuxe7uxe3o-lookup_muni}}
@@ -7770,7 +7746,7 @@ No exemplo acima, verificamos que o código 3509502 é respectivo ao município 
 Using year 2020
 \end{verbatim}
 
-\begin{center}\includegraphics{_main_files/figure-latex/unnamed-chunk-316-1} \end{center}
+\begin{center}\includegraphics{_main_files/figure-latex/unnamed-chunk-318-1} \end{center}
 
 \begin{Shaded}
 \begin{Highlighting}[]
@@ -7799,7 +7775,7 @@ Using year 2020
 \end{Highlighting}
 \end{Shaded}
 
-\begin{center}\includegraphics{_main_files/figure-latex/unnamed-chunk-317-1} \end{center}
+\begin{center}\includegraphics{_main_files/figure-latex/unnamed-chunk-319-1} \end{center}
 
 \hypertarget{mapa-do-brasil-com-as-capitais}{%
 \subsection{Mapa do Brasil com as capitais}\label{mapa-do-brasil-com-as-capitais}}
@@ -7838,7 +7814,7 @@ Podemos representar as capitais de cada estado no mapa do país. Para tanto, uti
 \end{Highlighting}
 \end{Shaded}
 
-\begin{center}\includegraphics{_main_files/figure-latex/unnamed-chunk-318-1} \end{center}
+\begin{center}\includegraphics{_main_files/figure-latex/unnamed-chunk-320-1} \end{center}
 
 Primeiramente, para a confecção do mapa anterior, carregamos os bancos de dados dos estados e dos municípios, respectivos às funções \texttt{read\_state()} e \texttt{read\_municipality()}.
 
@@ -7860,7 +7836,7 @@ Contudo, perceba que as capitais foram representadas a partir dos polígonos que
 \end{Highlighting}
 \end{Shaded}
 
-\begin{center}\includegraphics{_main_files/figure-latex/unnamed-chunk-319-1} \end{center}
+\begin{center}\includegraphics{_main_files/figure-latex/unnamed-chunk-321-1} \end{center}
 
 Para isso, na geometria referente às capitais, substituimos a \texttt{geom\_sf()} por \texttt{geom\_point()}, declarando os argumentos \texttt{stat\ =\ "sf\_coordinates"} e \texttt{geometry\ =\ geom} dentro do \texttt{aes()}, ambos para indicar que os dados considerados estão no formato \texttt{sf} e que desejamos representá-los por pontos no mapa.
 
@@ -7884,7 +7860,7 @@ Para isso, na geometria referente às capitais, substituimos a \texttt{geom\_sf(
 \end{Highlighting}
 \end{Shaded}
 
-\begin{center}\includegraphics{_main_files/figure-latex/unnamed-chunk-320-1} \end{center}
+\begin{center}\includegraphics{_main_files/figure-latex/unnamed-chunk-322-1} \end{center}
 
 Para inserir legendas com o nome das capitais e as abreviações dos nomes dos estados, utilizamos a função \texttt{geom\_sf\_text()}, como demonstrado na subseção \ref{leg}. Perceba que foram utilizadas duas \texttt{geom\_sf\_text()}, uma respectiva às abreviações dos estados e a outra, ao nome das capitais. Os argumentos \texttt{nudge\_y\ =} e \texttt{nudge\_x\ =} servem para reordenar o posicionamento das legendas no mapa, cada qual referente ao eixo vertical e horizontal, respectivamente.
 
@@ -7903,7 +7879,7 @@ A função \texttt{read\_municipal\_seat()} nos retorna as prefeituras das cidad
 \end{Highlighting}
 \end{Shaded}
 
-\begin{center}\includegraphics{_main_files/figure-latex/unnamed-chunk-321-1} \end{center}
+\begin{center}\includegraphics{_main_files/figure-latex/unnamed-chunk-323-1} \end{center}
 
 \begin{Shaded}
 \begin{Highlighting}[]
@@ -7917,7 +7893,7 @@ A função \texttt{read\_municipal\_seat()} nos retorna as prefeituras das cidad
 \end{Highlighting}
 \end{Shaded}
 
-\begin{center}\includegraphics{_main_files/figure-latex/unnamed-chunk-322-1} \end{center}
+\begin{center}\includegraphics{_main_files/figure-latex/unnamed-chunk-324-1} \end{center}
 
 Perceba que essa função nos retorna pontos no mapa, diferentemente dos exemplos anteriores, que nos retornavam polígonos. Essa diferença pode ser percebida a partir da classe da coluna \texttt{geom}:
 
@@ -7981,7 +7957,7 @@ Using year 2010
 Using year 2010
 \end{verbatim}
 
-\begin{center}\includegraphics{_main_files/figure-latex/unnamed-chunk-326-1} \end{center}
+\begin{center}\includegraphics{_main_files/figure-latex/unnamed-chunk-328-1} \end{center}
 
 A primeira geometria é correspondente ao mapa dos municípios de São Paulo, que foi sobreposto pela segunda geometria, referente ao mapa das prefeituras dos municípios de São Paulo.
 
@@ -8000,7 +7976,7 @@ A função \texttt{read\_neighborhood()} retorna os limites de bairros/subdistri
 \end{Highlighting}
 \end{Shaded}
 
-\begin{center}\includegraphics{_main_files/figure-latex/unnamed-chunk-327-1} \end{center}
+\begin{center}\includegraphics{_main_files/figure-latex/unnamed-chunk-329-1} \end{center}
 
 \begin{Shaded}
 \begin{Highlighting}[]
@@ -8014,7 +7990,7 @@ A função \texttt{read\_neighborhood()} retorna os limites de bairros/subdistri
 \end{Highlighting}
 \end{Shaded}
 
-\begin{center}\includegraphics{_main_files/figure-latex/unnamed-chunk-328-1} \end{center}
+\begin{center}\includegraphics{_main_files/figure-latex/unnamed-chunk-330-1} \end{center}
 
 \begin{Shaded}
 \begin{Highlighting}[]
@@ -8032,7 +8008,7 @@ A função \texttt{read\_neighborhood()} retorna os limites de bairros/subdistri
 \end{Highlighting}
 \end{Shaded}
 
-\begin{center}\includegraphics{_main_files/figure-latex/unnamed-chunk-329-1} \end{center}
+\begin{center}\includegraphics{_main_files/figure-latex/unnamed-chunk-331-1} \end{center}
 
 No mapa acima, construímos o mapa com os bairros de Piracicaba/SP, destacando o bairro Agronomia - onde se localiza a ESALQ/USP - utilizando a função \texttt{gghighlight::gghighlight()}.
 
@@ -8051,7 +8027,7 @@ A função \texttt{read\_metro\_area()} retorna as regiões metropolitanas do Br
 \end{Highlighting}
 \end{Shaded}
 
-\begin{center}\includegraphics{_main_files/figure-latex/unnamed-chunk-330-1} \end{center}
+\begin{center}\includegraphics{_main_files/figure-latex/unnamed-chunk-332-1} \end{center}
 
 \begin{Shaded}
 \begin{Highlighting}[]
@@ -8070,7 +8046,7 @@ A função \texttt{read\_metro\_area()} retorna as regiões metropolitanas do Br
 \end{Highlighting}
 \end{Shaded}
 
-\begin{center}\includegraphics{_main_files/figure-latex/unnamed-chunk-331-1} \end{center}
+\begin{center}\includegraphics{_main_files/figure-latex/unnamed-chunk-333-1} \end{center}
 
 \begin{Shaded}
 \begin{Highlighting}[]
@@ -8098,7 +8074,7 @@ Using year 2019
 Using year 2018
 \end{verbatim}
 
-\begin{center}\includegraphics{_main_files/figure-latex/unnamed-chunk-333-1} \end{center}
+\begin{center}\includegraphics{_main_files/figure-latex/unnamed-chunk-335-1} \end{center}
 
 \hypertarget{uxe1reas-urbanas}{%
 \section{Áreas urbanas}\label{uxe1reas-urbanas}}
@@ -8115,7 +8091,7 @@ A função \texttt{read\_urban\_area()} retorna as áreas urbanas do Brasil nos 
 \end{Highlighting}
 \end{Shaded}
 
-\begin{center}\includegraphics{_main_files/figure-latex/unnamed-chunk-334-1} \end{center}
+\begin{center}\includegraphics{_main_files/figure-latex/unnamed-chunk-336-1} \end{center}
 
 \begin{Shaded}
 \begin{Highlighting}[]
@@ -8154,7 +8130,7 @@ A função \texttt{read\_urban\_area()} retorna as áreas urbanas do Brasil nos 
 \end{Highlighting}
 \end{Shaded}
 
-\begin{center}\includegraphics{_main_files/figure-latex/unnamed-chunk-336-1} \end{center}
+\begin{center}\includegraphics{_main_files/figure-latex/unnamed-chunk-338-1} \end{center}
 
 \begin{Shaded}
 \begin{Highlighting}[]
@@ -8194,7 +8170,7 @@ Using year 2015
 Joining, by = "code_muni"
 \end{verbatim}
 
-\begin{center}\includegraphics{_main_files/figure-latex/unnamed-chunk-338-1} \end{center}
+\begin{center}\includegraphics{_main_files/figure-latex/unnamed-chunk-340-1} \end{center}
 
 \hypertarget{uxe1reas-muxednimas-comparuxe1veis-amcs}{%
 \section{Áreas mínimas comparáveis (AMCs)}\label{uxe1reas-muxednimas-comparuxe1veis-amcs}}
@@ -8214,7 +8190,7 @@ Os dados estão disponíveis para qualquer combinação de anos censitários ent
 \end{Highlighting}
 \end{Shaded}
 
-\begin{center}\includegraphics{_main_files/figure-latex/unnamed-chunk-339-1} \end{center}
+\begin{center}\includegraphics{_main_files/figure-latex/unnamed-chunk-341-1} \end{center}
 
 Esta função recebe os argumentos \texttt{start\_year\ =} e \texttt{end\_year\ =} para indicar o ano inicial e final, respectivamente, como referência do período a ser considerado.
 
@@ -8252,7 +8228,7 @@ Como resultado, obtem-se um código da área mínima comparável (\texttt{code\_
 \end{Highlighting}
 \end{Shaded}
 
-\begin{center}\includegraphics{_main_files/figure-latex/unnamed-chunk-341-1} \end{center}
+\begin{center}\includegraphics{_main_files/figure-latex/unnamed-chunk-343-1} \end{center}
 
 O mapa acima representa a área mínima comparável dos municípios de Carauari e Itamarati (AM), no período entre 1980 e 2010.
 
@@ -8364,7 +8340,7 @@ Feito isso, iniciaremos a confecção dos mapas, começando pelos dados do censo
 \end{Highlighting}
 \end{Shaded}
 
-\begin{center}\includegraphics{_main_files/figure-latex/unnamed-chunk-346-1} \end{center}
+\begin{center}\includegraphics{_main_files/figure-latex/unnamed-chunk-348-1} \end{center}
 
 O mapa coroplético acima representa o número de estabelecimentos agropecuários, em 2006, de acordo com os estados. Para a sua confecção, primeiramente, filtramos o ano de 2006 e a variável relativa ao número de estabelecimentos (\texttt{n\_estab\_1000}). Em seguida, dentro do \texttt{aes()} de geometria \texttt{geom\_sf()} definimos a coluna de \texttt{valores} como parâmetro do argumento \texttt{fill\ =}, ou seja, os valores relativos ao número de estabelecimentos agropecuários serão preenchidos no mapa, de acordo com o estado.
 
@@ -8397,7 +8373,7 @@ Assim, de maneira bem simples, podemos confeccionar mapas coropléticos a partir
 \end{Highlighting}
 \end{Shaded}
 
-\begin{center}\includegraphics{_main_files/figure-latex/unnamed-chunk-347-1} \end{center}
+\begin{center}\includegraphics{_main_files/figure-latex/unnamed-chunk-349-1} \end{center}
 
 A função \texttt{scale\_fill\_distiller()} define a paleta de cores a serem utilizadas, bem como os parâmetros referentes à legenda. A \texttt{labs()} permite inserir rótulos ao mapa, seja o título, subtítulo, fonte, dentre outros. Também definimos a temática estética do mapa ao definir o tamanho de letras e posicionamentos no mapa.
 
@@ -8429,7 +8405,7 @@ O mapa a seguir segue a mesma lógica do anterior, porém, representando a área
 \end{Highlighting}
 \end{Shaded}
 
-\begin{center}\includegraphics{_main_files/figure-latex/unnamed-chunk-348-1} \end{center}
+\begin{center}\includegraphics{_main_files/figure-latex/unnamed-chunk-350-1} \end{center}
 
 Também podemos juntar dois mapas tamáticos. No exemplo a seguir, uniremos o mapa do número de estabelecimentos com a área, de acordo com o censo agropecuário de 2006.
 
@@ -8463,7 +8439,7 @@ Também podemos juntar dois mapas tamáticos. No exemplo a seguir, uniremos o ma
 \end{Highlighting}
 \end{Shaded}
 
-\begin{center}\includegraphics{_main_files/figure-latex/unnamed-chunk-349-1} \end{center}
+\begin{center}\includegraphics{_main_files/figure-latex/unnamed-chunk-351-1} \end{center}
 
 Para isso, utilizamos a função \texttt{facet\_wrap()}, definindo a variável \texttt{var} como parâmetro para dividir os mapas. Além disso, dentro dessa mesma função, utilizamos a \texttt{labeller\ =\ as\_labeller()} para alterar os nomes das observações que compõem a coluna \texttt{var}, a fim de ficarem mais apresentáveis ao mapa.
 
@@ -8496,7 +8472,7 @@ Podemos proceder da mesma forma para comparar o censo de 2006 com o de 2017, ape
 \end{Highlighting}
 \end{Shaded}
 
-\begin{center}\includegraphics{_main_files/figure-latex/unnamed-chunk-350-1} \end{center}
+\begin{center}\includegraphics{_main_files/figure-latex/unnamed-chunk-352-1} \end{center}
 
 \begin{Shaded}
 \begin{Highlighting}[]
@@ -8525,7 +8501,7 @@ Podemos proceder da mesma forma para comparar o censo de 2006 com o de 2017, ape
 \end{Highlighting}
 \end{Shaded}
 
-\begin{center}\includegraphics{_main_files/figure-latex/unnamed-chunk-351-1} \end{center}
+\begin{center}\includegraphics{_main_files/figure-latex/unnamed-chunk-353-1} \end{center}
 
 \hypertarget{municuxedpios-de-mato-grosso}{%
 \subsubsection*{Municípios de Mato Grosso}\label{municuxedpios-de-mato-grosso}}
@@ -8583,7 +8559,7 @@ Using year 2010
 \end{Highlighting}
 \end{Shaded}
 
-\begin{center}\includegraphics{_main_files/figure-latex/unnamed-chunk-354-1} \end{center}
+\begin{center}\includegraphics{_main_files/figure-latex/unnamed-chunk-356-1} \end{center}
 
 \begin{Shaded}
 \begin{Highlighting}[]
@@ -8608,7 +8584,7 @@ Using year 2010
 \end{Highlighting}
 \end{Shaded}
 
-\begin{center}\includegraphics{_main_files/figure-latex/unnamed-chunk-355-1} \end{center}
+\begin{center}\includegraphics{_main_files/figure-latex/unnamed-chunk-357-1} \end{center}
 
 \begin{Shaded}
 \begin{Highlighting}[]
@@ -8637,7 +8613,7 @@ Using year 2010
 \end{Highlighting}
 \end{Shaded}
 
-\begin{center}\includegraphics{_main_files/figure-latex/unnamed-chunk-356-1} \end{center}
+\begin{center}\includegraphics{_main_files/figure-latex/unnamed-chunk-358-1} \end{center}
 
 \hypertarget{biomas}{%
 \section{Biomas}\label{biomas}}
@@ -8655,7 +8631,7 @@ O pacote \texttt{geobr} também possui uma base de dados para os biomas e a zona
 \end{Highlighting}
 \end{Shaded}
 
-\begin{center}\includegraphics{_main_files/figure-latex/unnamed-chunk-357-1} \end{center}
+\begin{center}\includegraphics{_main_files/figure-latex/unnamed-chunk-359-1} \end{center}
 
 \begin{Shaded}
 \begin{Highlighting}[]
@@ -8670,7 +8646,7 @@ O pacote \texttt{geobr} também possui uma base de dados para os biomas e a zona
 \end{Highlighting}
 \end{Shaded}
 
-\begin{center}\includegraphics{_main_files/figure-latex/unnamed-chunk-358-1} \end{center}
+\begin{center}\includegraphics{_main_files/figure-latex/unnamed-chunk-360-1} \end{center}
 
 \begin{Shaded}
 \begin{Highlighting}[]
@@ -8688,7 +8664,7 @@ O pacote \texttt{geobr} também possui uma base de dados para os biomas e a zona
 \end{Highlighting}
 \end{Shaded}
 
-\begin{center}\includegraphics{_main_files/figure-latex/unnamed-chunk-359-1} \end{center}
+\begin{center}\includegraphics{_main_files/figure-latex/unnamed-chunk-361-1} \end{center}
 
 No exemplo acima, a primeira geometria é correspondente ao mapa do país, sendo a outra, ao bioma costeiro. O exemplo a seguir segue a mesma lógica explicada, porém, agora, para mais de um tipo de bioma.
 
@@ -8708,7 +8684,7 @@ No exemplo acima, a primeira geometria é correspondente ao mapa do país, sendo
 \end{Highlighting}
 \end{Shaded}
 
-\begin{center}\includegraphics{_main_files/figure-latex/unnamed-chunk-360-1} \end{center}
+\begin{center}\includegraphics{_main_files/figure-latex/unnamed-chunk-362-1} \end{center}
 
 \begin{Shaded}
 \begin{Highlighting}[]
@@ -8732,7 +8708,7 @@ No exemplo acima, a primeira geometria é correspondente ao mapa do país, sendo
 \end{Highlighting}
 \end{Shaded}
 
-\begin{center}\includegraphics{_main_files/figure-latex/unnamed-chunk-361-1} \end{center}
+\begin{center}\includegraphics{_main_files/figure-latex/unnamed-chunk-363-1} \end{center}
 
 O exemplo acima juntou o mapa do país, dividido por estados, com o dos biomas. Para isso, tivemos que sobrepor os mapas para formar um único. Em cada um dos \texttt{geom\_sf()}, declaramos - a partir do argumento \texttt{data\ =} - qual base de dados foi considerada.
 
@@ -8752,7 +8728,7 @@ A função \texttt{read\_amazon()} nos retorna a área da Amazônia Legal Brasil
 \end{Highlighting}
 \end{Shaded}
 
-\begin{center}\includegraphics{_main_files/figure-latex/unnamed-chunk-362-1} \end{center}
+\begin{center}\includegraphics{_main_files/figure-latex/unnamed-chunk-364-1} \end{center}
 
 \begin{Shaded}
 \begin{Highlighting}[]
@@ -8771,7 +8747,7 @@ A função \texttt{read\_amazon()} nos retorna a área da Amazônia Legal Brasil
 \end{Highlighting}
 \end{Shaded}
 
-\begin{center}\includegraphics{_main_files/figure-latex/unnamed-chunk-363-1} \end{center}
+\begin{center}\includegraphics{_main_files/figure-latex/unnamed-chunk-365-1} \end{center}
 
 \hypertarget{semiuxe1rido}{%
 \section{Semiárido}\label{semiuxe1rido}}
@@ -8788,7 +8764,7 @@ A função \texttt{read\_semiarid()} retorna os municípios que compunham o semi
 \end{Highlighting}
 \end{Shaded}
 
-\begin{center}\includegraphics{_main_files/figure-latex/unnamed-chunk-364-1} \end{center}
+\begin{center}\includegraphics{_main_files/figure-latex/unnamed-chunk-366-1} \end{center}
 
 \begin{Shaded}
 \begin{Highlighting}[]
@@ -8806,7 +8782,7 @@ A função \texttt{read\_semiarid()} retorna os municípios que compunham o semi
 \end{Highlighting}
 \end{Shaded}
 
-\begin{center}\includegraphics{_main_files/figure-latex/unnamed-chunk-365-1} \end{center}
+\begin{center}\includegraphics{_main_files/figure-latex/unnamed-chunk-367-1} \end{center}
 
 No exemplo acima, podemos retirar as linhas dos municípios e colocar apenas a mancha dos municípios do semiário no mapa do Brasil, inserindo o argumento \texttt{color\ =\ 0} dentro do primeiro \texttt{geom\_sf()}, esse referente à geometria dos municípios do semiárido.
 
@@ -8826,7 +8802,7 @@ No exemplo acima, podemos retirar as linhas dos municípios e colocar apenas a m
 \end{Highlighting}
 \end{Shaded}
 
-\begin{center}\includegraphics{_main_files/figure-latex/unnamed-chunk-366-1} \end{center}
+\begin{center}\includegraphics{_main_files/figure-latex/unnamed-chunk-368-1} \end{center}
 
 \begin{Shaded}
 \begin{Highlighting}[]
@@ -8870,7 +8846,7 @@ No exemplo acima, podemos retirar as linhas dos municípios e colocar apenas a m
 \end{Highlighting}
 \end{Shaded}
 
-\begin{center}\includegraphics{_main_files/figure-latex/unnamed-chunk-368-1} \end{center}
+\begin{center}\includegraphics{_main_files/figure-latex/unnamed-chunk-370-1} \end{center}
 
 \begin{Shaded}
 \begin{Highlighting}[]
@@ -8926,7 +8902,7 @@ No exemplo acima, podemos retirar as linhas dos municípios e colocar apenas a m
 \end{Highlighting}
 \end{Shaded}
 
-\begin{center}\includegraphics{_main_files/figure-latex/unnamed-chunk-370-1} \end{center}
+\begin{center}\includegraphics{_main_files/figure-latex/unnamed-chunk-372-1} \end{center}
 
 \hypertarget{uxe1reas-de-conservauxe7uxe3o}{%
 \section{Áreas de conservação}\label{uxe1reas-de-conservauxe7uxe3o}}
@@ -8972,7 +8948,7 @@ A base de dados possui 1934 áreas de conservação registradas, sendo divididas
 \end{Highlighting}
 \end{Shaded}
 
-\begin{center}\includegraphics{_main_files/figure-latex/unnamed-chunk-372-1} \end{center}
+\begin{center}\includegraphics{_main_files/figure-latex/unnamed-chunk-374-1} \end{center}
 
 \begin{Shaded}
 \begin{Highlighting}[]
@@ -8990,7 +8966,7 @@ A base de dados possui 1934 áreas de conservação registradas, sendo divididas
 \end{Highlighting}
 \end{Shaded}
 
-\begin{center}\includegraphics{_main_files/figure-latex/unnamed-chunk-373-1} \end{center}
+\begin{center}\includegraphics{_main_files/figure-latex/unnamed-chunk-375-1} \end{center}
 
 \hypertarget{terras-induxedgenas}{%
 \section{Terras indígenas}\label{terras-induxedgenas}}
@@ -9007,7 +8983,7 @@ Para trabalharmos com áreas de terras indígenas, utilizamos a função \texttt
 \end{Highlighting}
 \end{Shaded}
 
-\begin{center}\includegraphics{_main_files/figure-latex/unnamed-chunk-374-1} \end{center}
+\begin{center}\includegraphics{_main_files/figure-latex/unnamed-chunk-376-1} \end{center}
 
 \begin{Shaded}
 \begin{Highlighting}[]
@@ -9026,7 +9002,7 @@ Para trabalharmos com áreas de terras indígenas, utilizamos a função \texttt
 \end{Highlighting}
 \end{Shaded}
 
-\begin{center}\includegraphics{_main_files/figure-latex/unnamed-chunk-375-1} \end{center}
+\begin{center}\includegraphics{_main_files/figure-latex/unnamed-chunk-377-1} \end{center}
 
 \begin{Shaded}
 \begin{Highlighting}[]
@@ -9046,7 +9022,7 @@ Para trabalharmos com áreas de terras indígenas, utilizamos a função \texttt
 \end{Highlighting}
 \end{Shaded}
 
-\begin{center}\includegraphics{_main_files/figure-latex/unnamed-chunk-376-1} \end{center}
+\begin{center}\includegraphics{_main_files/figure-latex/unnamed-chunk-378-1} \end{center}
 
 \begin{Shaded}
 \begin{Highlighting}[]
@@ -9067,7 +9043,7 @@ Para trabalharmos com áreas de terras indígenas, utilizamos a função \texttt
 \end{Highlighting}
 \end{Shaded}
 
-\begin{center}\includegraphics{_main_files/figure-latex/unnamed-chunk-377-1} \end{center}
+\begin{center}\includegraphics{_main_files/figure-latex/unnamed-chunk-379-1} \end{center}
 
 \begin{Shaded}
 \begin{Highlighting}[]
@@ -9088,7 +9064,7 @@ Para trabalharmos com áreas de terras indígenas, utilizamos a função \texttt
 \end{Highlighting}
 \end{Shaded}
 
-\begin{center}\includegraphics{_main_files/figure-latex/unnamed-chunk-378-1} \end{center}
+\begin{center}\includegraphics{_main_files/figure-latex/unnamed-chunk-380-1} \end{center}
 
 \hypertarget{uxe1reas-de-risco-de-desastres-naturais}{%
 \section{Áreas de risco de desastres naturais}\label{uxe1reas-de-risco-de-desastres-naturais}}
@@ -9107,7 +9083,7 @@ Cada polígono de área de risco (conhecido como ``BATER'') possui um código de
 \end{Highlighting}
 \end{Shaded}
 
-\begin{center}\includegraphics{_main_files/figure-latex/unnamed-chunk-379-1} \end{center}
+\begin{center}\includegraphics{_main_files/figure-latex/unnamed-chunk-381-1} \end{center}
 
 \begin{Shaded}
 \begin{Highlighting}[]
@@ -9125,7 +9101,7 @@ Cada polígono de área de risco (conhecido como ``BATER'') possui um código de
 \end{Highlighting}
 \end{Shaded}
 
-\begin{center}\includegraphics{_main_files/figure-latex/unnamed-chunk-380-1} \end{center}
+\begin{center}\includegraphics{_main_files/figure-latex/unnamed-chunk-382-1} \end{center}
 
 \begin{Shaded}
 \begin{Highlighting}[]
@@ -9152,7 +9128,7 @@ Using year 2019
 Using year 2010
 \end{verbatim}
 
-\begin{center}\includegraphics{_main_files/figure-latex/unnamed-chunk-382-1} \end{center}
+\begin{center}\includegraphics{_main_files/figure-latex/unnamed-chunk-384-1} \end{center}
 
 \begin{Shaded}
 \begin{Highlighting}[]
@@ -9185,7 +9161,7 @@ Using year 2010
 \end{Highlighting}
 \end{Shaded}
 
-\begin{center}\includegraphics{_main_files/figure-latex/unnamed-chunk-383-1} \end{center}
+\begin{center}\includegraphics{_main_files/figure-latex/unnamed-chunk-385-1} \end{center}
 
 \hypertarget{estabelecimentos-de-sauxfade}{%
 \section{Estabelecimentos de saúde}\label{estabelecimentos-de-sauxfade}}
@@ -9209,7 +9185,7 @@ Informações adicionais sobre os dados estão presentes em: \url{https://dados.
 \end{Highlighting}
 \end{Shaded}
 
-\begin{center}\includegraphics{_main_files/figure-latex/unnamed-chunk-384-1} \end{center}
+\begin{center}\includegraphics{_main_files/figure-latex/unnamed-chunk-386-1} \end{center}
 
 \begin{Shaded}
 \begin{Highlighting}[]
@@ -9247,7 +9223,7 @@ Informações adicionais sobre os dados estão presentes em: \url{https://dados.
 \end{Highlighting}
 \end{Shaded}
 
-\begin{center}\includegraphics{_main_files/figure-latex/unnamed-chunk-385-1} \end{center}
+\begin{center}\includegraphics{_main_files/figure-latex/unnamed-chunk-387-1} \end{center}
 
 Vale destacar que na função \texttt{read\_health\_facilities()}, os códigos de identificação dos municípios (\texttt{code\_muni}) estão representados pelos 6 primeiros dígitos dos 7 dígitos que compõe o código original. Por tanto, quando utilizar os códigos do municípios na função \texttt{read\_health\_facilities()}, use apenas os 6 primeiros dígitos.
 
@@ -9288,7 +9264,7 @@ Estes dados são utilizados para orientar o planejamento regional e estadual dos
 \end{Highlighting}
 \end{Shaded}
 
-\begin{center}\includegraphics{_main_files/figure-latex/unnamed-chunk-387-1} \end{center}
+\begin{center}\includegraphics{_main_files/figure-latex/unnamed-chunk-389-1} \end{center}
 
 O argumento \texttt{macro\ =} da função \texttt{read\_health\_region()} aceita valores lógicos para representar as macrorregiões de saúde (\texttt{macro\ =\ TRUE}) ou representar apenas as regiões de saúde (\texttt{macro\ =\ FALSE}). Por padrão, caso não seja especificado o argumento, \texttt{macro\ =\ FALSE}.
 
@@ -9327,7 +9303,7 @@ O argumento \texttt{macro\ =} da função \texttt{read\_health\_region()} aceita
 \end{Highlighting}
 \end{Shaded}
 
-\begin{center}\includegraphics{_main_files/figure-latex/unnamed-chunk-389-1} \end{center}
+\begin{center}\includegraphics{_main_files/figure-latex/unnamed-chunk-391-1} \end{center}
 
 \hypertarget{escolas}{%
 \section{Escolas}\label{escolas}}
@@ -9366,7 +9342,7 @@ O banco de dados possui diversas informações, como por exemplo, o nome da esco
 \end{Highlighting}
 \end{Shaded}
 
-\begin{center}\includegraphics{_main_files/figure-latex/unnamed-chunk-391-1} \end{center}
+\begin{center}\includegraphics{_main_files/figure-latex/unnamed-chunk-393-1} \end{center}
 
 \begin{Shaded}
 \begin{Highlighting}[]
@@ -9387,7 +9363,7 @@ O banco de dados possui diversas informações, como por exemplo, o nome da esco
 \end{Highlighting}
 \end{Shaded}
 
-\begin{center}\includegraphics{_main_files/figure-latex/unnamed-chunk-392-1} \end{center}
+\begin{center}\includegraphics{_main_files/figure-latex/unnamed-chunk-394-1} \end{center}
 
 \hypertarget{uxe1reas-de-concentrauxe7uxe3o-de-populauxe7uxe3o}{%
 \section{Áreas de Concentração de População}\label{uxe1reas-de-concentrauxe7uxe3o-de-populauxe7uxe3o}}
@@ -9421,7 +9397,7 @@ O banco de dados traz como variáveis o nome das áreas de concentração urbana
 \end{Highlighting}
 \end{Shaded}
 
-\begin{center}\includegraphics{_main_files/figure-latex/unnamed-chunk-394-1} \end{center}
+\begin{center}\includegraphics{_main_files/figure-latex/unnamed-chunk-396-1} \end{center}
 
 \begin{Shaded}
 \begin{Highlighting}[]
@@ -9440,7 +9416,7 @@ O banco de dados traz como variáveis o nome das áreas de concentração urbana
 \end{Highlighting}
 \end{Shaded}
 
-\begin{center}\includegraphics{_main_files/figure-latex/unnamed-chunk-395-1} \end{center}
+\begin{center}\includegraphics{_main_files/figure-latex/unnamed-chunk-397-1} \end{center}
 
 \begin{Shaded}
 \begin{Highlighting}[]
@@ -9467,7 +9443,7 @@ Using year 2010
 Using year 2015
 \end{verbatim}
 
-\begin{center}\includegraphics{_main_files/figure-latex/unnamed-chunk-397-1} \end{center}
+\begin{center}\includegraphics{_main_files/figure-latex/unnamed-chunk-399-1} \end{center}
 
 \begin{Shaded}
 \begin{Highlighting}[]
@@ -9497,7 +9473,7 @@ Using year 2010
 Using year 2015
 \end{verbatim}
 
-\begin{center}\includegraphics{_main_files/figure-latex/unnamed-chunk-399-1} \end{center}
+\begin{center}\includegraphics{_main_files/figure-latex/unnamed-chunk-401-1} \end{center}
 
 Para confeccionar um mapa de calor de acordo com a população urbana das áreas de concentração urbana do Paraná, definimos o número de habitantes urbanos (\texttt{pop\_urban\_2010}) como parâmetro do argumento \texttt{fill\ =}, dentro da \texttt{aes()} respectiva ao banco de dados das áreas de concentração urbana. Além disso, com a função \texttt{scale\_fill\_viridis\_c()} definimos os limites de escala a serem considerados no mapa de calor, tendo valor mínimo de 3.000 e máximo de 1.750.000 habitantes.
 
@@ -9533,7 +9509,7 @@ De modo semelhante ao banco de dados das áreas de concentração urbana, este c
 \end{Highlighting}
 \end{Shaded}
 
-\begin{center}\includegraphics{_main_files/figure-latex/unnamed-chunk-401-1} \end{center}
+\begin{center}\includegraphics{_main_files/figure-latex/unnamed-chunk-403-1} \end{center}
 
 \begin{Shaded}
 \begin{Highlighting}[]
@@ -9558,7 +9534,7 @@ Using year 2010
 Using year 2015
 \end{verbatim}
 
-\begin{center}\includegraphics{_main_files/figure-latex/unnamed-chunk-403-1} \end{center}
+\begin{center}\includegraphics{_main_files/figure-latex/unnamed-chunk-405-1} \end{center}
 
 \begin{Shaded}
 \begin{Highlighting}[]
@@ -9584,7 +9560,7 @@ Using year 2010
 Using year 2015
 \end{verbatim}
 
-\begin{center}\includegraphics{_main_files/figure-latex/unnamed-chunk-405-1} \end{center}
+\begin{center}\includegraphics{_main_files/figure-latex/unnamed-chunk-407-1} \end{center}
 
 \hypertarget{setor-censituxe1rio}{%
 \section{Setor censitário}\label{setor-censituxe1rio}}
@@ -9622,7 +9598,7 @@ O argumento \texttt{code\_tract\ =} pode receber os seguintes valores: \texttt{"
 Using year 2010
 \end{verbatim}
 
-\begin{center}\includegraphics{_main_files/figure-latex/unnamed-chunk-408-1} \end{center}
+\begin{center}\includegraphics{_main_files/figure-latex/unnamed-chunk-410-1} \end{center}
 
 \begin{Shaded}
 \begin{Highlighting}[]
@@ -9671,7 +9647,7 @@ Using year 2000
 Using data of Urban census tracts
 \end{verbatim}
 
-\begin{center}\includegraphics{_main_files/figure-latex/unnamed-chunk-411-1} \end{center}
+\begin{center}\includegraphics{_main_files/figure-latex/unnamed-chunk-413-1} \end{center}
 
 No caso dos setores censitários do ano de 2000, as zonas rural e urbana estão em banco de dados separados. Para isso, precisamos utilizar o argumento \texttt{zone\ =} para especificar a zona rural (\texttt{zone\ =\ "rural"}) ou urbana (\texttt{zone\ =\ "urban"}). Caso o argumento não seja declarado, por padrão, adota-se a zona urbana.
 
@@ -9693,7 +9669,7 @@ A função \texttt{read\_weighting\_area()} nos retorna as áreas de ponderaçã
 \end{Highlighting}
 \end{Shaded}
 
-\begin{center}\includegraphics{_main_files/figure-latex/unnamed-chunk-412-1} \end{center}
+\begin{center}\includegraphics{_main_files/figure-latex/unnamed-chunk-414-1} \end{center}
 
 \begin{Shaded}
 \begin{Highlighting}[]
@@ -9711,7 +9687,7 @@ A função \texttt{read\_weighting\_area()} nos retorna as áreas de ponderaçã
 Using year 2010
 \end{verbatim}
 
-\begin{center}\includegraphics{_main_files/figure-latex/unnamed-chunk-414-1} \end{center}
+\begin{center}\includegraphics{_main_files/figure-latex/unnamed-chunk-416-1} \end{center}
 
 \begin{Shaded}
 \begin{Highlighting}[]
@@ -9740,7 +9716,7 @@ Using year 2010
 \end{Highlighting}
 \end{Shaded}
 
-\begin{center}\includegraphics{_main_files/figure-latex/unnamed-chunk-415-1} \end{center}
+\begin{center}\includegraphics{_main_files/figure-latex/unnamed-chunk-417-1} \end{center}
 
 \hypertarget{grade-estatuxedstica-do-ibge}{%
 \section{Grade estatística do IBGE}\label{grade-estatuxedstica-do-ibge}}

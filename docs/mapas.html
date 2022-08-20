@@ -6,11 +6,10 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
   <title>Capítulo8 Mapas | Introdução à Ciência de Dados em R</title>
   <meta name="description" content="Capítulo8 Mapas | Introdução à Ciência de Dados em R" />
-  <meta name="generator" content="bookdown 0.24 and GitBook 2.6.7" />
+  <meta name="generator" content="bookdown 0.28 and GitBook 2.6.7" />
 
   <meta property="og:title" content="Capítulo8 Mapas | Introdução à Ciência de Dados em R" />
   <meta property="og:type" content="book" />
-  
   
   
   <meta name="github-repo" content="rstudio/bookdown-demo" />
@@ -32,7 +31,6 @@
   
 <link rel="prev" href="graf.html"/>
 <link rel="next" href="bibliografia-consultada.html"/>
-<script src="libs/header-attrs-2.11/header-attrs.js"></script>
 <script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/fuse.js@6.4.6/dist/fuse.min.js"></script>
 <link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
@@ -50,8 +48,9 @@
 
 
 
-<link href="libs/anchor-sections-1.0.1/anchor-sections.css" rel="stylesheet" />
-<script src="libs/anchor-sections-1.0.1/anchor-sections.js"></script>
+<link href="libs/anchor-sections-1.1.0/anchor-sections.css" rel="stylesheet" />
+<link href="libs/anchor-sections-1.1.0/anchor-sections-hash.css" rel="stylesheet" />
+<script src="libs/anchor-sections-1.1.0/anchor-sections.js"></script>
 <script src="libs/kePrint-0.0.1/kePrint.js"></script>
 <link href="libs/lightable-0.0.1/lightable.css" rel="stylesheet" />
 
@@ -138,7 +137,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li><a href="./">Introdução à Ciência de Dados em R</a></li>
 
 <li class="divider"></li>
-<li class="chapter" data-level="1" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i><b>1</b> Introdução</a></li>
+<li class="chapter" data-level="1" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i><b>1</b> Introdução </a></li>
 <li class="chapter" data-level="2" data-path="ciência-de-dados-e-r.html"><a href="ciência-de-dados-e-r.html"><i class="fa fa-check"></i><b>2</b> Ciência de dados e R</a>
 <ul>
 <li class="chapter" data-level="2.1" data-path="ciência-de-dados-e-r.html"><a href="ciência-de-dados-e-r.html#o-que-é-ciência-de-dados"><i class="fa fa-check"></i><b>2.1</b> O que é Ciência de Dados?</a></li>
@@ -239,8 +238,8 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </ul></li>
 <li class="chapter" data-level="7.2" data-path="graf.html"><a href="graf.html#gráfico-de-barras"><i class="fa fa-check"></i><b>7.2</b> Gráfico de Barras</a>
 <ul>
-<li><a href="graf.html#geom_col"><code>geom_col()</code></a></li>
-<li><a href="graf.html#geom_bar"><code>geom_bar()</code></a></li>
+<li class="chapter" data-level="" data-path="graf.html"><a href="graf.html#geom_col"><i class="fa fa-check"></i><code>geom_col()</code></a></li>
+<li class="chapter" data-level="" data-path="graf.html"><a href="graf.html#geom_bar"><i class="fa fa-check"></i><code>geom_bar()</code></a></li>
 </ul></li>
 <li class="chapter" data-level="7.3" data-path="graf.html"><a href="graf.html#gráfico-de-setores-pizza"><i class="fa fa-check"></i><b>7.3</b> Gráfico de Setores (Pizza)</a></li>
 <li class="chapter" data-level="7.4" data-path="graf.html"><a href="graf.html#gráfico-de-linhas"><i class="fa fa-check"></i><b>7.4</b> Gráfico de Linhas</a>
@@ -333,8 +332,8 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
           <div class="page-inner">
 
             <section class="normal" id="section-">
-<div id="mapas" class="section level1" number="8">
-<h1><span class="header-section-number">Capítulo8</span> Mapas</h1>
+<div id="mapas" class="section level1 hasAnchor" number="8">
+<h1><span class="header-section-number">Capítulo8</span> Mapas<a href="mapas.html#mapas" class="anchor-section" aria-label="Anchor link to header"></a></h1>
 <p>Em complemento à visualização de dados a partir de gráficos, nesse capítulo, demonstraremos como podemos representá-los em mapas no R. Existem diversos pacotes desenvolvidos pela comunidade do R que tratam do assunto. No caso da confecção de mapas do Brasil, utilizaremos o pacote <code>geobr</code>.</p>
 <p>O pacote <code>geobr</code> foi desenvolvido pelo Instituto de Pesquisa Econômica Aplicada (IPEA) <a href="https://github.com/ipeaGIT/geobr">(PEREIRA; GONÇALVES et al., 2019)</a>. Nele, encontramos uma ampla gama de dados geoespaciais oficiais do Brasil, disponíveis em várias escalas geográficas e por vários anos, com atributos, projeção e topologia harmonizados.</p>
 <p>A instalação do pacote <code>geobr</code> é realizada diretamente via GitHub. Essa é uma das formas de se instalar pacotes que não estão presentes no CRAN - a via mais comum para instalar pacotes. Para isso, precisaremos instalar e, posteriormente, carregar o pacote <code>devtools</code> para realizarmos a instalação do <code>geobr</code>.</p>
@@ -349,8 +348,8 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <p>A maioria dos pacotes disponibilizados via GitHub contém instruções de como fazer sua instalação, mais especificamente na parte denominada <code>README</code>. Podemos verificar o <code>README</code> do <code>geobr</code> <a href="https://github.com/ipeaGIT/geobr#readme">clicando aqui</a>.</p>
 <p>Ademais, vale destacar que este material foi desenvolvido a partir da versão 1.6.5999 do pacote <code>geobr</code>, que pode passar por melhorias e incrementos ao longo do tempo.</p>
 <p><br></p>
-<div id="funções-do-pacote-geobr" class="section level2" number="8.1">
-<h2><span class="header-section-number">8.1</span> Funções do pacote <code>geobr</code></h2>
+<div id="funções-do-pacote-geobr" class="section level2 hasAnchor" number="8.1">
+<h2><span class="header-section-number">8.1</span> Funções do pacote <code>geobr</code><a href="mapas.html#funções-do-pacote-geobr" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <p>Para verificarmos todos os conjuntos de dados disponíveis no pacote <code>geobr</code>, utilizamos a função <code>list_geobr()</code>.</p>
 <div class="sourceCode" id="cb579"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb579-1"><a href="mapas.html#cb579-1" aria-hidden="true" tabindex="-1"></a><span class="fu">list_geobr</span>() <span class="sc">%&gt;%</span> <span class="fu">view</span>()</span></code></pre></div>
 <table style="color: black; font-size: 10px; width: auto !important; margin-left: auto; margin-right: auto;" class="table">
@@ -754,8 +753,8 @@ IBGE
 <p>A função <code>list_geobr()</code> nos retorna um objeto do tipo <em>data frame</em>, apresentando como variáveis o nome das funções que contém os conjuntos de dados (<code>function</code>), a abrangência geográfica (<code>geography</code>), os anos presentes (<code>years</code>) e a fonte dos dados (<code>source</code>). A seguir, veremos como utilizar todas essas funções.</p>
 <p><br></p>
 </div>
-<div id="mapa-do-país" class="section level2" number="8.2">
-<h2><span class="header-section-number">8.2</span> Mapa do país</h2>
+<div id="mapa-do-país" class="section level2 hasAnchor" number="8.2">
+<h2><span class="header-section-number">8.2</span> Mapa do país<a href="mapas.html#mapa-do-país" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <p>Para acessar o mapa do Brasil, utilizamos a função <code>read_country()</code>.</p>
 <div class="sourceCode" id="cb580"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb580-1"><a href="mapas.html#cb580-1" aria-hidden="true" tabindex="-1"></a>brasil <span class="ot">&lt;-</span> <span class="fu">read_country</span>(<span class="at">showProgress =</span> F)</span>
 <span id="cb580-2"><a href="mapas.html#cb580-2" aria-hidden="true" tabindex="-1"></a><span class="fu">class</span>(brasil)</span></code></pre></div>
@@ -765,7 +764,7 @@ IBGE
 <div class="sourceCode" id="cb582"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb582-1"><a href="mapas.html#cb582-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(ggplot2)</span></code></pre></div>
 <div class="sourceCode" id="cb583"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb583-1"><a href="mapas.html#cb583-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>()<span class="sc">+</span></span>
 <span id="cb583-2"><a href="mapas.html#cb583-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_sf</span>(<span class="at">data =</span> brasil)</span></code></pre></div>
-<p><img src="_main_files/figure-html/unnamed-chunk-283-1.png" width="672" style="display: block; margin: auto;" /></p>
+<p><img src="Apostila_files/figure-html/unnamed-chunk-283-1.png" width="672" style="display: block; margin: auto;" /></p>
 <p>Com a função <code>ggplot()</code>, utilizamos a geometria <code>geom_sf()</code>, que converte os dados <code>sf</code> em mapa.</p>
 <p>A mesma lógica que utilizamos para confeccionar gráficos no <code>ggplot2</code> é aplicável aos mapas. A seguir, serão demonstrados alguns exemplos básicos de personalização do mapa anterior.</p>
 <div class="sourceCode" id="cb584"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb584-1"><a href="mapas.html#cb584-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>()<span class="sc">+</span></span>
@@ -777,14 +776,14 @@ IBGE
 <span id="cb584-7"><a href="mapas.html#cb584-7" aria-hidden="true" tabindex="-1"></a>       <span class="at">subtitle =</span> <span class="st">&quot;com o pacote geobr&quot;</span>,</span>
 <span id="cb584-8"><a href="mapas.html#cb584-8" aria-hidden="true" tabindex="-1"></a>       <span class="at">x =</span> <span class="st">&quot;Longitude&quot;</span>,</span>
 <span id="cb584-9"><a href="mapas.html#cb584-9" aria-hidden="true" tabindex="-1"></a>       <span class="at">y =</span> <span class="st">&quot;Latitude&quot;</span>)</span></code></pre></div>
-<p><img src="_main_files/figure-html/unnamed-chunk-284-1.png" width="672" style="display: block; margin: auto;" /></p>
+<p><img src="Apostila_files/figure-html/unnamed-chunk-284-1.png" width="672" style="display: block; margin: auto;" /></p>
 <p>Tanto as escalas, como os sistemas de referência geodésicos utilizados para a confecção dos mapas podem ser conferidos na documentação das funções, utilizando o <code>?</code>.</p>
 <div class="sourceCode" id="cb585"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb585-1"><a href="mapas.html#cb585-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Acessando a documentação da função `read_country()` </span></span>
 <span id="cb585-2"><a href="mapas.html#cb585-2" aria-hidden="true" tabindex="-1"></a>?read_country</span></code></pre></div>
 <p><br></p>
 </div>
-<div id="estados" class="section level2" number="8.3">
-<h2><span class="header-section-number">8.3</span> Estados</h2>
+<div id="estados" class="section level2 hasAnchor" number="8.3">
+<h2><span class="header-section-number">8.3</span> Estados<a href="mapas.html#estados" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <p>Para representarmos o mapa do Brasil dividido por estados, utilizamos a função <code>read_state()</code>.</p>
 <div class="sourceCode" id="cb586"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb586-1"><a href="mapas.html#cb586-1" aria-hidden="true" tabindex="-1"></a><span class="fu">read_state</span>(<span class="at">code_state =</span> <span class="st">&quot;all&quot;</span>,</span>
 <span id="cb586-2"><a href="mapas.html#cb586-2" aria-hidden="true" tabindex="-1"></a>           <span class="at">year =</span> <span class="dv">2020</span>,</span>
@@ -794,7 +793,7 @@ IBGE
 <span id="cb586-6"><a href="mapas.html#cb586-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ggplot</span>() <span class="sc">+</span> </span>
 <span id="cb586-7"><a href="mapas.html#cb586-7" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_sf</span>()<span class="sc">+</span></span>
 <span id="cb586-8"><a href="mapas.html#cb586-8" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_bw</span>()</span></code></pre></div>
-<p><img src="_main_files/figure-html/unnamed-chunk-286-1.png" width="672" style="display: block; margin: auto;" /></p>
+<p><img src="Apostila_files/figure-html/unnamed-chunk-286-1.png" width="672" style="display: block; margin: auto;" /></p>
 <p>A função <code>read_state()</code> apresenta alguns argumentos importantes para confeccionarmos os mapas. O argumento <code>code_state =</code> é utilizado para especificar qual(is) estados serão considerados para compor o mapa. Se <code>code_state = "all"</code>, todos os estados são utilizados. Para selecionar um estado em específico, pode-se utilizar a abreviação do nome do estado (<code>abbrev_state</code>) ou um código de dois dígitos (<code>code_state</code>). Tanto as abreviações, como os códigos podem ser consultados no <em>data frame</em> da respectiva função.</p>
 <div class="sourceCode" id="cb587"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb587-1"><a href="mapas.html#cb587-1" aria-hidden="true" tabindex="-1"></a><span class="fu">read_state</span>(<span class="at">code_state =</span> <span class="st">&quot;all&quot;</span>,</span>
 <span id="cb587-2"><a href="mapas.html#cb587-2" aria-hidden="true" tabindex="-1"></a>           <span class="at">showProgress =</span> F) <span class="sc">%&gt;%</span> <span class="fu">view</span>()</span></code></pre></div>
@@ -1388,12 +1387,12 @@ MULTIPOLYGON (((-47.57461 -…
 <span id="cb589-9"><a href="mapas.html#cb589-9" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(<span class="at">title =</span> <span class="st">&quot;2020&quot;</span>)</span>
 <span id="cb589-10"><a href="mapas.html#cb589-10" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb589-11"><a href="mapas.html#cb589-11" aria-hidden="true" tabindex="-1"></a>br_2020</span></code></pre></div>
-<p><img src="_main_files/figure-html/unnamed-chunk-292-1.png" width="672" style="display: block; margin: auto;" /></p>
+<p><img src="Apostila_files/figure-html/unnamed-chunk-292-1.png" width="672" style="display: block; margin: auto;" /></p>
 <p>Ainda, o argumento <code>simplified =</code> trata da resolução do mapa; caso <code>simplified = TRUE</code>, as bordas do mapa são traçadas de maneira “aproximada”; por outro lado, caso <code>simplified = FALSE</code>, as bordas são traçadas de maneira detalhada. Caso o argumento não seja especificado, por padrão, adota-se <code>simplified = TRUE</code>.</p>
 <p>Por fim, o argumento <code>showProgress =</code> aceita valores lógicos para mostrar (<code>TRUE</code>) ou não (<code>FALSE</code>) a barra de progresso do download dos dados da função.</p>
 <p><br></p>
-<div id="estad" class="section level3" number="8.3.1">
-<h3><span class="header-section-number">8.3.1</span> Selecionando estados</h3>
+<div id="estad" class="section level3 hasAnchor" number="8.3.1">
+<h3><span class="header-section-number">8.3.1</span> Selecionando estados<a href="mapas.html#estad" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p>Como citado na seção acima, podemos selecionar um estado em específico a partir da função <code>read_state()</code>. O exemplo a seguir demonstra a seleção do estado de São Paulo a partir de sua nomenclatura abreviada e pelo seu código de identificação.</p>
 <div class="sourceCode" id="cb590"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb590-1"><a href="mapas.html#cb590-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Seleção por nomenclatura abreviada</span></span>
 <span id="cb590-2"><a href="mapas.html#cb590-2" aria-hidden="true" tabindex="-1"></a><span class="fu">read_state</span>(<span class="at">code_state =</span> <span class="st">&quot;SP&quot;</span>,</span>
@@ -1403,7 +1402,7 @@ MULTIPOLYGON (((-47.57461 -…
 <span id="cb590-6"><a href="mapas.html#cb590-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_sf</span>()<span class="sc">+</span></span>
 <span id="cb590-7"><a href="mapas.html#cb590-7" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_bw</span>()</span></code></pre></div>
 <pre><code>Using year 2020</code></pre>
-<p><img src="_main_files/figure-html/unnamed-chunk-294-1.png" width="672" style="display: block; margin: auto;" /></p>
+<p><img src="Apostila_files/figure-html/unnamed-chunk-294-1.png" width="672" style="display: block; margin: auto;" /></p>
 <div class="sourceCode" id="cb592"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb592-1"><a href="mapas.html#cb592-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Seleção por código de identificação</span></span>
 <span id="cb592-2"><a href="mapas.html#cb592-2" aria-hidden="true" tabindex="-1"></a><span class="fu">read_state</span>(<span class="at">code_state =</span> <span class="dv">35</span>,</span>
 <span id="cb592-3"><a href="mapas.html#cb592-3" aria-hidden="true" tabindex="-1"></a>           <span class="at">year =</span> <span class="dv">2020</span>,</span>
@@ -1411,7 +1410,7 @@ MULTIPOLYGON (((-47.57461 -…
 <span id="cb592-5"><a href="mapas.html#cb592-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ggplot</span>()<span class="sc">+</span></span>
 <span id="cb592-6"><a href="mapas.html#cb592-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_sf</span>()<span class="sc">+</span></span>
 <span id="cb592-7"><a href="mapas.html#cb592-7" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_bw</span>()</span></code></pre></div>
-<p><img src="_main_files/figure-html/unnamed-chunk-295-1.png" width="672" style="display: block; margin: auto;" /></p>
+<p><img src="Apostila_files/figure-html/unnamed-chunk-295-1.png" width="672" style="display: block; margin: auto;" /></p>
 <p>Também podemos formar um mapa com mais de um estado. O exemplo a seguir representa a região do MATOPIBA.</p>
 <div class="sourceCode" id="cb593"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb593-1"><a href="mapas.html#cb593-1" aria-hidden="true" tabindex="-1"></a><span class="fu">read_state</span>(<span class="at">code_state =</span> <span class="st">&quot;all&quot;</span>,</span>
 <span id="cb593-2"><a href="mapas.html#cb593-2" aria-hidden="true" tabindex="-1"></a>           <span class="at">year =</span> <span class="dv">2020</span>,</span>
@@ -1423,12 +1422,12 @@ MULTIPOLYGON (((-47.57461 -…
 <span id="cb593-8"><a href="mapas.html#cb593-8" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scale_fill_brewer</span>(<span class="at">palette =</span> <span class="st">&quot;Pastel1&quot;</span>)<span class="sc">+</span></span>
 <span id="cb593-9"><a href="mapas.html#cb593-9" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_classic</span>()<span class="sc">+</span></span>
 <span id="cb593-10"><a href="mapas.html#cb593-10" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(<span class="at">fill =</span> <span class="st">&quot;MATOPIBA&quot;</span>)</span></code></pre></div>
-<p><img src="_main_files/figure-html/unnamed-chunk-296-1.png" width="672" style="display: block; margin: auto;" /></p>
+<p><img src="Apostila_files/figure-html/unnamed-chunk-296-1.png" width="672" style="display: block; margin: auto;" /></p>
 <p>Perceba que utilizamos a função <code>dplyr::filter()</code> para filtrar somente as observações referentes aos estados que compõem o MATOPIBA, presentes no <em>data frame</em> da função <code>read_state()</code>.</p>
 <p><br></p>
 </div>
-<div id="leg" class="section level3" number="8.3.2">
-<h3><span class="header-section-number">8.3.2</span> Adicionando legendas</h3>
+<div id="leg" class="section level3 hasAnchor" number="8.3.2">
+<h3><span class="header-section-number">8.3.2</span> Adicionando legendas<a href="mapas.html#leg" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p>Para adicionar legendas nos mapas, utilizamos a função <code>geom_sf_text()</code> como camada adicional ao <code>ggplot()</code>. A seguir, adicionaremos as abreviações dos nomes dos estados como legenda no mapa do Brasil.</p>
 <div class="sourceCode" id="cb594"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb594-1"><a href="mapas.html#cb594-1" aria-hidden="true" tabindex="-1"></a><span class="fu">read_state</span>(<span class="at">code_state =</span> <span class="st">&quot;all&quot;</span>,</span>
 <span id="cb594-2"><a href="mapas.html#cb594-2" aria-hidden="true" tabindex="-1"></a>           <span class="at">year =</span> <span class="dv">2020</span>,</span>
@@ -1437,12 +1436,12 @@ MULTIPOLYGON (((-47.57461 -…
 <span id="cb594-5"><a href="mapas.html#cb594-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_sf</span>()<span class="sc">+</span></span>
 <span id="cb594-6"><a href="mapas.html#cb594-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_sf_text</span>(<span class="fu">aes</span>(<span class="at">label =</span> abbrev_state), <span class="at">size =</span> <span class="fl">1.8</span>)<span class="sc">+</span></span>
 <span id="cb594-7"><a href="mapas.html#cb594-7" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_bw</span>()</span></code></pre></div>
-<p><img src="_main_files/figure-html/unnamed-chunk-297-1.png" width="672" style="display: block; margin: auto;" /></p>
+<p><img src="Apostila_files/figure-html/unnamed-chunk-297-1.png" width="672" style="display: block; margin: auto;" /></p>
 <p>Dentro da função <code>geom_sf_text()</code>, declaramos o argumento <code>label =</code> dentro da <code>aes()</code>, indicando que, para compor a legenda, serão consideradas as abreviações dos nomes dos estados (<code>abbrev_state</code>).</p>
 <p><br></p>
 </div>
-<div id="estado-de-um-cep" class="section level3" number="8.3.3">
-<h3><span class="header-section-number">8.3.3</span> Estado de um CEP</h3>
+<div id="estado-de-um-cep" class="section level3 hasAnchor" number="8.3.3">
+<h3><span class="header-section-number">8.3.3</span> Estado de um CEP<a href="mapas.html#estado-de-um-cep" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p>A função <code>cep_to_state()</code> nos retorna o estado correspondente a um CEP (Código de Endereçamento Postal). Apresenta o argumento <code>cep =</code>, que recebe um valor de 8 dígitos, redigidos no formato “xxxxx-xxx” ou em número corrido.</p>
 <div class="sourceCode" id="cb595"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb595-1"><a href="mapas.html#cb595-1" aria-hidden="true" tabindex="-1"></a><span class="fu">cep_to_state</span>(<span class="at">cep =</span> <span class="st">&quot;01525-000&quot;</span>)</span></code></pre></div>
 <pre><code>[1] &quot;SP&quot;</code></pre>
@@ -1451,8 +1450,8 @@ MULTIPOLYGON (((-47.57461 -…
 <p><br></p>
 </div>
 </div>
-<div id="regiões" class="section level2" number="8.4">
-<h2><span class="header-section-number">8.4</span> Regiões</h2>
+<div id="regiões" class="section level2 hasAnchor" number="8.4">
+<h2><span class="header-section-number">8.4</span> Regiões<a href="mapas.html#regiões" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <p>De maneira semelhante aos estados, podemos dividir o mapa do Brasil a partir das regiões geográficas. Para isso, utilizamos a função <code>read_region()</code>.</p>
 <div class="sourceCode" id="cb599"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb599-1"><a href="mapas.html#cb599-1" aria-hidden="true" tabindex="-1"></a><span class="fu">read_region</span>(<span class="at">year =</span> <span class="dv">2020</span>,</span>
 <span id="cb599-2"><a href="mapas.html#cb599-2" aria-hidden="true" tabindex="-1"></a>            <span class="at">showProgress =</span> <span class="cn">FALSE</span>) <span class="sc">%&gt;%</span> </span>
@@ -1461,10 +1460,10 @@ MULTIPOLYGON (((-47.57461 -…
 <span id="cb599-5"><a href="mapas.html#cb599-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scale_fill_brewer</span>(<span class="at">palette =</span> <span class="st">&quot;Paired&quot;</span>)<span class="sc">+</span></span>
 <span id="cb599-6"><a href="mapas.html#cb599-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_classic</span>()<span class="sc">+</span></span>
 <span id="cb599-7"><a href="mapas.html#cb599-7" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(<span class="at">fill =</span> <span class="st">&quot;Região&quot;</span>)</span></code></pre></div>
-<p><img src="_main_files/figure-html/unnamed-chunk-299-1.png" width="672" style="display: block; margin: auto;" /></p>
+<p><img src="Apostila_files/figure-html/unnamed-chunk-299-1.png" width="672" style="display: block; margin: auto;" /></p>
 <p><br></p>
-<div id="regiões-específicas" class="section level3" number="8.4.1">
-<h3><span class="header-section-number">8.4.1</span> Regiões específicas</h3>
+<div id="regiões-específicas" class="section level3 hasAnchor" number="8.4.1">
+<h3><span class="header-section-number">8.4.1</span> Regiões específicas<a href="mapas.html#regiões-específicas" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p>Para selecionar uma região específica, podemos utilizar, novamente, a função <code>dplyr::filter()</code>. No exemplo a seguir, filtraremos a região nordeste.</p>
 <div class="sourceCode" id="cb600"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb600-1"><a href="mapas.html#cb600-1" aria-hidden="true" tabindex="-1"></a><span class="fu">read_region</span>(<span class="at">year =</span> <span class="dv">2020</span>,</span>
 <span id="cb600-2"><a href="mapas.html#cb600-2" aria-hidden="true" tabindex="-1"></a>            <span class="at">showProgress =</span> <span class="cn">FALSE</span>) <span class="sc">%&gt;%</span> </span>
@@ -1472,11 +1471,11 @@ MULTIPOLYGON (((-47.57461 -…
 <span id="cb600-4"><a href="mapas.html#cb600-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ggplot</span>()<span class="sc">+</span></span>
 <span id="cb600-5"><a href="mapas.html#cb600-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_sf</span>()<span class="sc">+</span></span>
 <span id="cb600-6"><a href="mapas.html#cb600-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_classic</span>()</span></code></pre></div>
-<p><img src="_main_files/figure-html/unnamed-chunk-300-1.png" width="672" style="display: block; margin: auto;" /></p>
+<p><img src="Apostila_files/figure-html/unnamed-chunk-300-1.png" width="672" style="display: block; margin: auto;" /></p>
 <p><br></p>
 </div>
-<div id="regiões-com-os-estados" class="section level3" number="8.4.2">
-<h3><span class="header-section-number">8.4.2</span> Regiões com os estados</h3>
+<div id="regiões-com-os-estados" class="section level3 hasAnchor" number="8.4.2">
+<h3><span class="header-section-number">8.4.2</span> Regiões com os estados<a href="mapas.html#regiões-com-os-estados" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p>Para gerarmos o mapa de uma região específica delimitada pelos estados, devemos filtrar as observações que desejamos. Como exemplo, filtraremos as observações referentes à região <code>Nordeste</code>, presentes na coluna <code>name_region</code>, dentro do <em>data frame</em> contido na função <code>read_state()</code>.</p>
 <div class="sourceCode" id="cb601"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb601-1"><a href="mapas.html#cb601-1" aria-hidden="true" tabindex="-1"></a><span class="fu">read_state</span>(<span class="at">code_state =</span> <span class="st">&quot;all&quot;</span>,</span>
 <span id="cb601-2"><a href="mapas.html#cb601-2" aria-hidden="true" tabindex="-1"></a>           <span class="at">year =</span> <span class="dv">2020</span>,</span>
@@ -1487,26 +1486,26 @@ MULTIPOLYGON (((-47.57461 -…
 <span id="cb601-7"><a href="mapas.html#cb601-7" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scale_fill_brewer</span>(<span class="at">palette =</span> <span class="st">&quot;Paired&quot;</span>)<span class="sc">+</span></span>
 <span id="cb601-8"><a href="mapas.html#cb601-8" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_classic</span>()<span class="sc">+</span></span>
 <span id="cb601-9"><a href="mapas.html#cb601-9" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(<span class="at">fill =</span> <span class="st">&quot;Estados Nordestinos&quot;</span>)</span></code></pre></div>
-<p><img src="_main_files/figure-html/unnamed-chunk-301-1.png" width="672" style="display: block; margin: auto;" /></p>
+<p><img src="Apostila_files/figure-html/unnamed-chunk-301-1.png" width="672" style="display: block; margin: auto;" /></p>
 <p><br></p>
 </div>
 </div>
-<div id="mesorregiões-e-microrregiões" class="section level2" number="8.5">
-<h2><span class="header-section-number">8.5</span> Mesorregiões e Microrregiões</h2>
+<div id="mesorregiões-e-microrregiões" class="section level2 hasAnchor" number="8.5">
+<h2><span class="header-section-number">8.5</span> Mesorregiões e Microrregiões<a href="mapas.html#mesorregiões-e-microrregiões" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <p>Para representarmos as mesorregiões e as microrregiões do Brasil, utilizamos as funções <code>read_meso_region()</code> e <code>read_micro_region()</code>, respectivamente. A lógica dessas funções segue a mesma das explicadas acima, apenas alterando o argumento <code>code_state =</code> para <code>code_meso =</code> e <code>code_micro =</code>, respectivamente.</p>
 <p><br></p>
-<div id="mesorregiões" class="section level3" number="8.5.1">
-<h3><span class="header-section-number">8.5.1</span> Mesorregiões</h3>
+<div id="mesorregiões" class="section level3 hasAnchor" number="8.5.1">
+<h3><span class="header-section-number">8.5.1</span> Mesorregiões<a href="mapas.html#mesorregiões" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <div class="sourceCode" id="cb602"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb602-1"><a href="mapas.html#cb602-1" aria-hidden="true" tabindex="-1"></a><span class="fu">read_meso_region</span>(<span class="at">code_meso =</span> <span class="st">&quot;all&quot;</span>,</span>
 <span id="cb602-2"><a href="mapas.html#cb602-2" aria-hidden="true" tabindex="-1"></a>                 <span class="at">year =</span> <span class="dv">2020</span>,</span>
 <span id="cb602-3"><a href="mapas.html#cb602-3" aria-hidden="true" tabindex="-1"></a>                 <span class="at">showProgress =</span> <span class="cn">FALSE</span>) <span class="sc">%&gt;%</span></span>
 <span id="cb602-4"><a href="mapas.html#cb602-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ggplot</span>()<span class="sc">+</span></span>
 <span id="cb602-5"><a href="mapas.html#cb602-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_sf</span>()<span class="sc">+</span></span>
 <span id="cb602-6"><a href="mapas.html#cb602-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_bw</span>()</span></code></pre></div>
-<p><img src="_main_files/figure-html/unnamed-chunk-302-1.png" width="672" style="display: block; margin: auto;" /></p>
+<p><img src="Apostila_files/figure-html/unnamed-chunk-302-1.png" width="672" style="display: block; margin: auto;" /></p>
 <p><br></p>
-<div id="selecionando-mesorregiões" class="section level4" number="8.5.1.1">
-<h4><span class="header-section-number">8.5.1.1</span> Selecionando Mesorregiões</h4>
+<div id="selecionando-mesorregiões" class="section level4 hasAnchor" number="8.5.1.1">
+<h4><span class="header-section-number">8.5.1.1</span> Selecionando Mesorregiões<a href="mapas.html#selecionando-mesorregiões" class="anchor-section" aria-label="Anchor link to header"></a></h4>
 <div class="sourceCode" id="cb603"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb603-1"><a href="mapas.html#cb603-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Selecionando as mesorregiões do estado de Minas Gerais</span></span>
 <span id="cb603-2"><a href="mapas.html#cb603-2" aria-hidden="true" tabindex="-1"></a><span class="fu">read_meso_region</span>(<span class="at">code_meso =</span> <span class="st">&quot;MG&quot;</span>,</span>
 <span id="cb603-3"><a href="mapas.html#cb603-3" aria-hidden="true" tabindex="-1"></a>                 <span class="at">year =</span> <span class="dv">2020</span>,</span>
@@ -1515,7 +1514,7 @@ MULTIPOLYGON (((-47.57461 -…
 <span id="cb603-6"><a href="mapas.html#cb603-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_sf</span>()<span class="sc">+</span></span>
 <span id="cb603-7"><a href="mapas.html#cb603-7" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_bw</span>()</span></code></pre></div>
 <pre><code>Using year 2020</code></pre>
-<p><img src="_main_files/figure-html/unnamed-chunk-304-1.png" width="672" style="display: block; margin: auto;" /></p>
+<p><img src="Apostila_files/figure-html/unnamed-chunk-304-1.png" width="672" style="display: block; margin: auto;" /></p>
 <div class="sourceCode" id="cb605"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb605-1"><a href="mapas.html#cb605-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Selecionando as mesorregiões dos estados do Rio de Janeiro e Espírito Santo</span></span>
 <span id="cb605-2"><a href="mapas.html#cb605-2" aria-hidden="true" tabindex="-1"></a><span class="fu">read_meso_region</span>(<span class="at">code_meso =</span> <span class="st">&quot;all&quot;</span>,</span>
 <span id="cb605-3"><a href="mapas.html#cb605-3" aria-hidden="true" tabindex="-1"></a>                 <span class="at">year =</span> <span class="dv">2020</span>,</span>
@@ -1525,7 +1524,7 @@ MULTIPOLYGON (((-47.57461 -…
 <span id="cb605-7"><a href="mapas.html#cb605-7" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_sf</span>(<span class="fu">aes</span>(<span class="at">fill =</span> abbrev_state))<span class="sc">+</span></span>
 <span id="cb605-8"><a href="mapas.html#cb605-8" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_bw</span>()<span class="sc">+</span></span>
 <span id="cb605-9"><a href="mapas.html#cb605-9" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(<span class="at">fill =</span> <span class="st">&quot;Estados&quot;</span>)</span></code></pre></div>
-<p><img src="_main_files/figure-html/unnamed-chunk-305-1.png" width="672" style="display: block; margin: auto;" /></p>
+<p><img src="Apostila_files/figure-html/unnamed-chunk-305-1.png" width="672" style="display: block; margin: auto;" /></p>
 <p>Para selecionar uma mesorregião específica de um estado, devemos colocar o seu código de identificação no argumento <code>code_meso =</code>. Lembrando que todos os códigos de identificação podem ser conferidos no <em>data frame</em> da respectiva função.</p>
 <div class="sourceCode" id="cb606"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb606-1"><a href="mapas.html#cb606-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Selecionando apenas uma mesorregião - Metropolitana de São Paulo</span></span>
 <span id="cb606-2"><a href="mapas.html#cb606-2" aria-hidden="true" tabindex="-1"></a><span class="fu">read_meso_region</span>(<span class="at">code_meso =</span> <span class="dv">3515</span>,</span>
@@ -1534,11 +1533,11 @@ MULTIPOLYGON (((-47.57461 -…
 <span id="cb606-5"><a href="mapas.html#cb606-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ggplot</span>()<span class="sc">+</span></span>
 <span id="cb606-6"><a href="mapas.html#cb606-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_sf</span>()<span class="sc">+</span></span>
 <span id="cb606-7"><a href="mapas.html#cb606-7" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_bw</span>()</span></code></pre></div>
-<p><img src="_main_files/figure-html/unnamed-chunk-306-1.png" width="672" style="display: block; margin: auto;" /></p>
+<p><img src="Apostila_files/figure-html/unnamed-chunk-306-1.png" width="672" style="display: block; margin: auto;" /></p>
 <p><br></p>
 </div>
-<div id="regiões-geográficas-intermediárias" class="section level4" number="8.5.1.2">
-<h4><span class="header-section-number">8.5.1.2</span> Regiões geográficas intermediárias</h4>
+<div id="regiões-geográficas-intermediárias" class="section level4 hasAnchor" number="8.5.1.2">
+<h4><span class="header-section-number">8.5.1.2</span> Regiões geográficas intermediárias<a href="mapas.html#regiões-geográficas-intermediárias" class="anchor-section" aria-label="Anchor link to header"></a></h4>
 <p>As regiões geográficas intermediárias são parte de uma nova divisão geográfica, criada em 2017, pelo IBGE. Foram concebidas para substituir as mesorregiões. No <code>geobr</code>, utilizamos a função <code>read_intermediate_region()</code> para representá-las. Essa função segue a mesma lógica exposta para as mesorregiões.</p>
 <div class="sourceCode" id="cb607"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb607-1"><a href="mapas.html#cb607-1" aria-hidden="true" tabindex="-1"></a><span class="fu">read_intermediate_region</span>(<span class="at">code_intermediate =</span> <span class="st">&quot;all&quot;</span>,</span>
 <span id="cb607-2"><a href="mapas.html#cb607-2" aria-hidden="true" tabindex="-1"></a>                         <span class="at">year =</span> <span class="dv">2020</span>,</span>
@@ -1546,22 +1545,22 @@ MULTIPOLYGON (((-47.57461 -…
 <span id="cb607-4"><a href="mapas.html#cb607-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ggplot</span>()<span class="sc">+</span></span>
 <span id="cb607-5"><a href="mapas.html#cb607-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_sf</span>()<span class="sc">+</span></span>
 <span id="cb607-6"><a href="mapas.html#cb607-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_bw</span>()</span></code></pre></div>
-<p><img src="_main_files/figure-html/unnamed-chunk-307-1.png" width="672" style="display: block; margin: auto;" /></p>
+<p><img src="Apostila_files/figure-html/unnamed-chunk-307-1.png" width="672" style="display: block; margin: auto;" /></p>
 <p><br></p>
 </div>
 </div>
-<div id="microrregiões" class="section level3" number="8.5.2">
-<h3><span class="header-section-number">8.5.2</span> Microrregiões</h3>
+<div id="microrregiões" class="section level3 hasAnchor" number="8.5.2">
+<h3><span class="header-section-number">8.5.2</span> Microrregiões<a href="mapas.html#microrregiões" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <div class="sourceCode" id="cb608"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb608-1"><a href="mapas.html#cb608-1" aria-hidden="true" tabindex="-1"></a><span class="fu">read_micro_region</span>(<span class="at">code_micro =</span> <span class="st">&quot;all&quot;</span>,</span>
 <span id="cb608-2"><a href="mapas.html#cb608-2" aria-hidden="true" tabindex="-1"></a>                  <span class="at">year =</span> <span class="dv">2020</span>,</span>
 <span id="cb608-3"><a href="mapas.html#cb608-3" aria-hidden="true" tabindex="-1"></a>                  <span class="at">showProgress =</span> <span class="cn">FALSE</span>) <span class="sc">%&gt;%</span> </span>
 <span id="cb608-4"><a href="mapas.html#cb608-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ggplot</span>() <span class="sc">+</span></span>
 <span id="cb608-5"><a href="mapas.html#cb608-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_sf</span>()<span class="sc">+</span></span>
 <span id="cb608-6"><a href="mapas.html#cb608-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_bw</span>()</span></code></pre></div>
-<p><img src="_main_files/figure-html/unnamed-chunk-308-1.png" width="672" style="display: block; margin: auto;" /></p>
+<p><img src="Apostila_files/figure-html/unnamed-chunk-308-1.png" width="672" style="display: block; margin: auto;" /></p>
 <p><br></p>
-<div id="selecionando-microrregiões" class="section level4" number="8.5.2.1">
-<h4><span class="header-section-number">8.5.2.1</span> Selecionando Microrregiões</h4>
+<div id="selecionando-microrregiões" class="section level4 hasAnchor" number="8.5.2.1">
+<h4><span class="header-section-number">8.5.2.1</span> Selecionando Microrregiões<a href="mapas.html#selecionando-microrregiões" class="anchor-section" aria-label="Anchor link to header"></a></h4>
 <div class="sourceCode" id="cb609"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb609-1"><a href="mapas.html#cb609-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Selecionando as microrregiões do estado do Rio Grande do Sul</span></span>
 <span id="cb609-2"><a href="mapas.html#cb609-2" aria-hidden="true" tabindex="-1"></a><span class="fu">read_micro_region</span>(<span class="at">code_micro =</span> <span class="st">&quot;RS&quot;</span>,</span>
 <span id="cb609-3"><a href="mapas.html#cb609-3" aria-hidden="true" tabindex="-1"></a>                  <span class="at">year =</span> <span class="dv">2020</span>,</span>
@@ -1570,7 +1569,7 @@ MULTIPOLYGON (((-47.57461 -…
 <span id="cb609-6"><a href="mapas.html#cb609-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_sf</span>()<span class="sc">+</span></span>
 <span id="cb609-7"><a href="mapas.html#cb609-7" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_bw</span>()</span></code></pre></div>
 <pre><code>Using year 2020</code></pre>
-<p><img src="_main_files/figure-html/unnamed-chunk-310-1.png" width="672" style="display: block; margin: auto;" /></p>
+<p><img src="Apostila_files/figure-html/unnamed-chunk-310-1.png" width="672" style="display: block; margin: auto;" /></p>
 <div class="sourceCode" id="cb611"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb611-1"><a href="mapas.html#cb611-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Selecionando as microrregiões dos estados de Santa Catarina e Paraná</span></span>
 <span id="cb611-2"><a href="mapas.html#cb611-2" aria-hidden="true" tabindex="-1"></a><span class="fu">read_micro_region</span>(<span class="at">code_micro =</span> <span class="st">&quot;all&quot;</span>,</span>
 <span id="cb611-3"><a href="mapas.html#cb611-3" aria-hidden="true" tabindex="-1"></a>                  <span class="at">year =</span> <span class="dv">2020</span>,</span>
@@ -1580,7 +1579,7 @@ MULTIPOLYGON (((-47.57461 -…
 <span id="cb611-7"><a href="mapas.html#cb611-7" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_sf</span>(<span class="fu">aes</span>(<span class="at">fill =</span> abbrev_state))<span class="sc">+</span></span>
 <span id="cb611-8"><a href="mapas.html#cb611-8" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_bw</span>()<span class="sc">+</span></span>
 <span id="cb611-9"><a href="mapas.html#cb611-9" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(<span class="at">fill =</span> <span class="st">&quot;Estados&quot;</span>)</span></code></pre></div>
-<p><img src="_main_files/figure-html/unnamed-chunk-311-1.png" width="672" style="display: block; margin: auto;" /></p>
+<p><img src="Apostila_files/figure-html/unnamed-chunk-311-1.png" width="672" style="display: block; margin: auto;" /></p>
 <div class="sourceCode" id="cb612"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb612-1"><a href="mapas.html#cb612-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Selecionando apenas uma microrregião - Chapecó/SC</span></span>
 <span id="cb612-2"><a href="mapas.html#cb612-2" aria-hidden="true" tabindex="-1"></a><span class="fu">read_micro_region</span>(<span class="at">code_micro =</span> <span class="dv">42002</span>,</span>
 <span id="cb612-3"><a href="mapas.html#cb612-3" aria-hidden="true" tabindex="-1"></a>                  <span class="at">year =</span> <span class="dv">2020</span>,</span>
@@ -1588,11 +1587,11 @@ MULTIPOLYGON (((-47.57461 -…
 <span id="cb612-5"><a href="mapas.html#cb612-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ggplot</span>()<span class="sc">+</span></span>
 <span id="cb612-6"><a href="mapas.html#cb612-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_sf</span>()<span class="sc">+</span></span>
 <span id="cb612-7"><a href="mapas.html#cb612-7" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_bw</span>()</span></code></pre></div>
-<p><img src="_main_files/figure-html/unnamed-chunk-312-1.png" width="672" style="display: block; margin: auto;" /></p>
+<p><img src="Apostila_files/figure-html/unnamed-chunk-312-1.png" width="672" style="display: block; margin: auto;" /></p>
 <p><br></p>
 </div>
-<div id="regiões-geográficas-imediatas" class="section level4" number="8.5.2.2">
-<h4><span class="header-section-number">8.5.2.2</span> Regiões geográficas imediatas</h4>
+<div id="regiões-geográficas-imediatas" class="section level4 hasAnchor" number="8.5.2.2">
+<h4><span class="header-section-number">8.5.2.2</span> Regiões geográficas imediatas<a href="mapas.html#regiões-geográficas-imediatas" class="anchor-section" aria-label="Anchor link to header"></a></h4>
 <p>Assim como as regiões geográficas intermediárias, as regiões geográficas imediatas são parte de uma nova divisão geográfica, criada em 2017, pelo IBGE. Foram concebidas para substituir as microrregiões. No <code>geobr</code>, utilizamos a função <code>read_immediate_region()</code> para representá-las. Essa função segue a mesma lógica exposta para as microrregiões.</p>
 <div class="sourceCode" id="cb613"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb613-1"><a href="mapas.html#cb613-1" aria-hidden="true" tabindex="-1"></a><span class="fu">read_immediate_region</span>(<span class="at">code_immediate =</span> <span class="st">&quot;all&quot;</span>,</span>
 <span id="cb613-2"><a href="mapas.html#cb613-2" aria-hidden="true" tabindex="-1"></a>                      <span class="at">year =</span> <span class="dv">2020</span>,</span>
@@ -1600,13 +1599,13 @@ MULTIPOLYGON (((-47.57461 -…
 <span id="cb613-4"><a href="mapas.html#cb613-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ggplot</span>()<span class="sc">+</span></span>
 <span id="cb613-5"><a href="mapas.html#cb613-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_sf</span>()<span class="sc">+</span></span>
 <span id="cb613-6"><a href="mapas.html#cb613-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_bw</span>()</span></code></pre></div>
-<p><img src="_main_files/figure-html/unnamed-chunk-313-1.png" width="672" style="display: block; margin: auto;" /></p>
+<p><img src="Apostila_files/figure-html/unnamed-chunk-313-1.png" width="672" style="display: block; margin: auto;" /></p>
 <p><br></p>
 </div>
 </div>
 </div>
-<div id="municípios" class="section level2" number="8.6">
-<h2><span class="header-section-number">8.6</span> Municípios</h2>
+<div id="municípios" class="section level2 hasAnchor" number="8.6">
+<h2><span class="header-section-number">8.6</span> Municípios<a href="mapas.html#municípios" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <p>Para representarmos os municípios do Brasil, utilizamos a função <code>read_municipality()</code>.</p>
 <div class="sourceCode" id="cb614"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb614-1"><a href="mapas.html#cb614-1" aria-hidden="true" tabindex="-1"></a><span class="fu">read_municipality</span>(<span class="at">code_muni =</span> <span class="st">&quot;all&quot;</span>,</span>
 <span id="cb614-2"><a href="mapas.html#cb614-2" aria-hidden="true" tabindex="-1"></a>                  <span class="at">year =</span> <span class="dv">2020</span>,</span>
@@ -1614,10 +1613,10 @@ MULTIPOLYGON (((-47.57461 -…
 <span id="cb614-4"><a href="mapas.html#cb614-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ggplot</span>() <span class="sc">+</span></span>
 <span id="cb614-5"><a href="mapas.html#cb614-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_sf</span>()<span class="sc">+</span></span>
 <span id="cb614-6"><a href="mapas.html#cb614-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_bw</span>()</span></code></pre></div>
-<p><img src="_main_files/figure-html/unnamed-chunk-314-1.png" width="672" style="display: block; margin: auto;" /></p>
+<p><img src="Apostila_files/figure-html/unnamed-chunk-314-1.png" width="672" style="display: block; margin: auto;" /></p>
 <p><br></p>
-<div id="função-lookup_muni" class="section level3" number="8.6.1">
-<h3><span class="header-section-number">8.6.1</span> Função <code>lookup_muni()</code></h3>
+<div id="função-lookup_muni" class="section level3 hasAnchor" number="8.6.1">
+<h3><span class="header-section-number">8.6.1</span> Função <code>lookup_muni()</code><a href="mapas.html#função-lookup_muni" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p>A função <code>lookup_muni()</code> nos auxilia a encontrar informações referentes a códigos, nomenclaturas e classificações de um município em específico. Para isso, podemos indicar o nome de um município no argumento <code>name_muni =</code> para buscar suas informações.</p>
 <div class="sourceCode" id="cb615"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb615-1"><a href="mapas.html#cb615-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Buscando informações sobre o município de Piracicaba/SP</span></span>
 <span id="cb615-2"><a href="mapas.html#cb615-2" aria-hidden="true" tabindex="-1"></a><span class="fu">lookup_muni</span>(<span class="at">name_muni =</span> <span class="st">&quot;Piracicaba&quot;</span>)</span></code></pre></div>
@@ -1639,8 +1638,8 @@ MULTIPOLYGON (((-47.57461 -…
 <p>No exemplo acima, verificamos que o código 3509502 é respectivo ao município de Campinas/SP.</p>
 <p><br></p>
 </div>
-<div id="selecionando-municípios" class="section level3" number="8.6.2">
-<h3><span class="header-section-number">8.6.2</span> Selecionando Municípios</h3>
+<div id="selecionando-municípios" class="section level3 hasAnchor" number="8.6.2">
+<h3><span class="header-section-number">8.6.2</span> Selecionando Municípios<a href="mapas.html#selecionando-municípios" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <div class="sourceCode" id="cb619"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb619-1"><a href="mapas.html#cb619-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Selecionando os municípios do estado de São Paulo</span></span>
 <span id="cb619-2"><a href="mapas.html#cb619-2" aria-hidden="true" tabindex="-1"></a><span class="fu">read_municipality</span>(<span class="at">code_muni =</span> <span class="st">&quot;SP&quot;</span>,</span>
 <span id="cb619-3"><a href="mapas.html#cb619-3" aria-hidden="true" tabindex="-1"></a>                  <span class="at">year =</span> <span class="dv">2020</span>,</span>
@@ -1649,7 +1648,7 @@ MULTIPOLYGON (((-47.57461 -…
 <span id="cb619-6"><a href="mapas.html#cb619-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_sf</span>()<span class="sc">+</span></span>
 <span id="cb619-7"><a href="mapas.html#cb619-7" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_bw</span>()</span></code></pre></div>
 <pre><code>Using year 2020</code></pre>
-<p><img src="_main_files/figure-html/unnamed-chunk-318-1.png" width="672" style="display: block; margin: auto;" /></p>
+<p><img src="Apostila_files/figure-html/unnamed-chunk-318-1.png" width="672" style="display: block; margin: auto;" /></p>
 <div class="sourceCode" id="cb621"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb621-1"><a href="mapas.html#cb621-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Selecionando um municípios em específico - Piracicaba/SP</span></span>
 <span id="cb621-2"><a href="mapas.html#cb621-2" aria-hidden="true" tabindex="-1"></a><span class="fu">lookup_muni</span>(<span class="at">name_muni =</span> <span class="st">&quot;Piracicaba&quot;</span>)</span></code></pre></div>
 <pre><code>     code_muni  name_muni code_state name_state abbrev_state code_micro
@@ -1664,11 +1663,11 @@ MULTIPOLYGON (((-47.57461 -…
 <span id="cb623-4"><a href="mapas.html#cb623-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ggplot</span>() <span class="sc">+</span></span>
 <span id="cb623-5"><a href="mapas.html#cb623-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_sf</span>()<span class="sc">+</span></span>
 <span id="cb623-6"><a href="mapas.html#cb623-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_bw</span>()</span></code></pre></div>
-<p><img src="_main_files/figure-html/unnamed-chunk-319-1.png" width="672" style="display: block; margin: auto;" /></p>
+<p><img src="Apostila_files/figure-html/unnamed-chunk-319-1.png" width="672" style="display: block; margin: auto;" /></p>
 <p><br></p>
 </div>
-<div id="mapa-do-brasil-com-as-capitais" class="section level3" number="8.6.3">
-<h3><span class="header-section-number">8.6.3</span> Mapa do Brasil com as capitais</h3>
+<div id="mapa-do-brasil-com-as-capitais" class="section level3 hasAnchor" number="8.6.3">
+<h3><span class="header-section-number">8.6.3</span> Mapa do Brasil com as capitais<a href="mapas.html#mapa-do-brasil-com-as-capitais" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p>Podemos representar as capitais de cada estado no mapa do país. Para tanto, utilizamos as informações referentes aos municípios para construir tal mapa.</p>
 <div class="sourceCode" id="cb624"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb624-1"><a href="mapas.html#cb624-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Carregando dados dos estados</span></span>
 <span id="cb624-2"><a href="mapas.html#cb624-2" aria-hidden="true" tabindex="-1"></a>estados <span class="ot">&lt;-</span> <span class="fu">read_state</span>(<span class="at">code_state =</span> <span class="st">&quot;all&quot;</span>,</span>
@@ -1697,7 +1696,7 @@ MULTIPOLYGON (((-47.57461 -…
 <span id="cb624-25"><a href="mapas.html#cb624-25" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_sf</span>(<span class="at">data =</span> estados)<span class="sc">+</span></span>
 <span id="cb624-26"><a href="mapas.html#cb624-26" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_sf</span>(<span class="at">data =</span> capitais, <span class="at">fill =</span> <span class="st">&quot;red&quot;</span>)<span class="sc">+</span></span>
 <span id="cb624-27"><a href="mapas.html#cb624-27" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_bw</span>()</span></code></pre></div>
-<p><img src="_main_files/figure-html/unnamed-chunk-320-1.png" width="672" style="display: block; margin: auto;" /></p>
+<p><img src="Apostila_files/figure-html/unnamed-chunk-320-1.png" width="672" style="display: block; margin: auto;" /></p>
 <p>Primeiramente, para a confecção do mapa anterior, carregamos os bancos de dados dos estados e dos municípios, respectivos às funções <code>read_state()</code> e <code>read_municipality()</code>.</p>
 <p>Em seguida, criamos um <em>data frame</em> denominado <code>cap</code>, contendo as capitais de cada estado, para, posteriormente, selecionar apenas os municípios respectivos às capitais. Para isso, utilizamos a função <code>dplyr::inner_join()</code> que selecionou apenas as capitais presentes no banco de dados do objeto <code>municipios</code>, baseado na correspondência com o <em>data frame</em> <code>cap</code>.</p>
 <p>Por fim, para construir o mapa, foram utilizadas duas geometrias (<code>geom_sf()</code>). A primeira é relativa ao mapa dos estados do Brasil; já a segunda, às capitais dos estados. Portanto, para unir dois mapas distintos, devemos utilizar mais de uma geometria, cada qual correspondente à respectiva base de dados.</p>
@@ -1709,7 +1708,7 @@ MULTIPOLYGON (((-47.57461 -…
 <span id="cb625-5"><a href="mapas.html#cb625-5" aria-hidden="true" tabindex="-1"></a>             <span class="at">stat =</span> <span class="st">&quot;sf_coordinates&quot;</span>,</span>
 <span id="cb625-6"><a href="mapas.html#cb625-6" aria-hidden="true" tabindex="-1"></a>             <span class="at">color =</span> <span class="st">&quot;red&quot;</span>)<span class="sc">+</span></span>
 <span id="cb625-7"><a href="mapas.html#cb625-7" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_bw</span>()</span></code></pre></div>
-<p><img src="_main_files/figure-html/unnamed-chunk-321-1.png" width="672" style="display: block; margin: auto;" /></p>
+<p><img src="Apostila_files/figure-html/unnamed-chunk-321-1.png" width="672" style="display: block; margin: auto;" /></p>
 <p>Para isso, na geometria referente às capitais, substituimos a <code>geom_sf()</code> por <code>geom_point()</code>, declarando os argumentos <code>stat = "sf_coordinates"</code> e <code>geometry = geom</code> dentro do <code>aes()</code>, ambos para indicar que os dados considerados estão no formato <code>sf</code> e que desejamos representá-los por pontos no mapa.</p>
 <div class="sourceCode" id="cb626"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb626-1"><a href="mapas.html#cb626-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>()<span class="sc">+</span></span>
 <span id="cb626-2"><a href="mapas.html#cb626-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_sf</span>(<span class="at">data =</span> estados)<span class="sc">+</span></span>
@@ -1726,19 +1725,19 @@ MULTIPOLYGON (((-47.57461 -…
 <span id="cb626-13"><a href="mapas.html#cb626-13" aria-hidden="true" tabindex="-1"></a>               <span class="at">nudge_y =</span> <span class="fl">0.7</span>,</span>
 <span id="cb626-14"><a href="mapas.html#cb626-14" aria-hidden="true" tabindex="-1"></a>               <span class="at">nudge_x =</span> <span class="dv">1</span>)<span class="sc">+</span></span>
 <span id="cb626-15"><a href="mapas.html#cb626-15" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_bw</span>()</span></code></pre></div>
-<p><img src="_main_files/figure-html/unnamed-chunk-322-1.png" width="672" style="display: block; margin: auto;" /></p>
+<p><img src="Apostila_files/figure-html/unnamed-chunk-322-1.png" width="672" style="display: block; margin: auto;" /></p>
 <p>Para inserir legendas com o nome das capitais e as abreviações dos nomes dos estados, utilizamos a função <code>geom_sf_text()</code>, como demonstrado na subseção <a href="mapas.html#leg">8.3.2</a>. Perceba que foram utilizadas duas <code>geom_sf_text()</code>, uma respectiva às abreviações dos estados e a outra, ao nome das capitais. Os argumentos <code>nudge_y =</code> e <code>nudge_x =</code> servem para reordenar o posicionamento das legendas no mapa, cada qual referente ao eixo vertical e horizontal, respectivamente.</p>
 <p><br></p>
 </div>
-<div id="sedes-municipais" class="section level3" number="8.6.4">
-<h3><span class="header-section-number">8.6.4</span> Sedes municipais</h3>
+<div id="sedes-municipais" class="section level3 hasAnchor" number="8.6.4">
+<h3><span class="header-section-number">8.6.4</span> Sedes municipais<a href="mapas.html#sedes-municipais" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p>A função <code>read_municipal_seat()</code> nos retorna as prefeituras das cidades entre os anos de 1872 e 2010. Por definição, a prefeitura é uma sede municipal do poder executivo municipal.</p>
 <div class="sourceCode" id="cb627"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb627-1"><a href="mapas.html#cb627-1" aria-hidden="true" tabindex="-1"></a><span class="fu">read_municipal_seat</span>(<span class="at">year =</span> <span class="dv">2010</span>,</span>
 <span id="cb627-2"><a href="mapas.html#cb627-2" aria-hidden="true" tabindex="-1"></a>                    <span class="at">showProgress =</span> F) <span class="sc">%&gt;%</span></span>
 <span id="cb627-3"><a href="mapas.html#cb627-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ggplot</span>()<span class="sc">+</span></span>
 <span id="cb627-4"><a href="mapas.html#cb627-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_sf</span>()<span class="sc">+</span></span>
 <span id="cb627-5"><a href="mapas.html#cb627-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_bw</span>()</span></code></pre></div>
-<p><img src="_main_files/figure-html/unnamed-chunk-323-1.png" width="672" style="display: block; margin: auto;" /></p>
+<p><img src="Apostila_files/figure-html/unnamed-chunk-323-1.png" width="672" style="display: block; margin: auto;" /></p>
 <div class="sourceCode" id="cb628"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb628-1"><a href="mapas.html#cb628-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Selecionando as prefeituras do estado de São Paulo</span></span>
 <span id="cb628-2"><a href="mapas.html#cb628-2" aria-hidden="true" tabindex="-1"></a><span class="fu">read_municipal_seat</span>(<span class="at">year =</span> <span class="dv">2010</span>,</span>
 <span id="cb628-3"><a href="mapas.html#cb628-3" aria-hidden="true" tabindex="-1"></a>                    <span class="at">showProgress =</span> F) <span class="sc">%&gt;%</span> </span>
@@ -1746,7 +1745,7 @@ MULTIPOLYGON (((-47.57461 -…
 <span id="cb628-5"><a href="mapas.html#cb628-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ggplot</span>()<span class="sc">+</span></span>
 <span id="cb628-6"><a href="mapas.html#cb628-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_sf</span>()<span class="sc">+</span></span>
 <span id="cb628-7"><a href="mapas.html#cb628-7" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_bw</span>()</span></code></pre></div>
-<p><img src="_main_files/figure-html/unnamed-chunk-324-1.png" width="672" style="display: block; margin: auto;" /></p>
+<p><img src="Apostila_files/figure-html/unnamed-chunk-324-1.png" width="672" style="display: block; margin: auto;" /></p>
 <p>Perceba que essa função nos retorna pontos no mapa, diferentemente dos exemplos anteriores, que nos retornavam polígonos. Essa diferença pode ser percebida a partir da classe da coluna <code>geom</code>:</p>
 <div class="sourceCode" id="cb629"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb629-1"><a href="mapas.html#cb629-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Verificando a classe da coluna `geom` da função `read_municipal_seat()`</span></span>
 <span id="cb629-2"><a href="mapas.html#cb629-2" aria-hidden="true" tabindex="-1"></a>prefeituras <span class="ot">&lt;-</span> <span class="fu">read_municipal_seat</span>(<span class="at">year =</span> <span class="dv">2010</span>,</span>
@@ -1781,20 +1780,20 @@ MULTIPOLYGON (((-47.57461 -…
 <span id="cb633-17"><a href="mapas.html#cb633-17" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_bw</span>()</span></code></pre></div>
 <pre><code>Using year 2010
 Using year 2010</code></pre>
-<p><img src="_main_files/figure-html/unnamed-chunk-328-1.png" width="672" style="display: block; margin: auto;" /></p>
+<p><img src="Apostila_files/figure-html/unnamed-chunk-328-1.png" width="672" style="display: block; margin: auto;" /></p>
 <p>A primeira geometria é correspondente ao mapa dos municípios de São Paulo, que foi sobreposto pela segunda geometria, referente ao mapa das prefeituras dos municípios de São Paulo.</p>
 <p><br></p>
 </div>
 </div>
-<div id="bairrossubdistritosdistritos" class="section level2" number="8.7">
-<h2><span class="header-section-number">8.7</span> Bairros/Subdistritos/Distritos</h2>
+<div id="bairrossubdistritosdistritos" class="section level2 hasAnchor" number="8.7">
+<h2><span class="header-section-number">8.7</span> Bairros/Subdistritos/Distritos<a href="mapas.html#bairrossubdistritosdistritos" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <p>A função <code>read_neighborhood()</code> retorna os limites de bairros/subdistritos/distritos de 720 municípios brasileiros. Os dados são baseados em agregações dos setores censitários do censo brasileiro. Atualmente, apenas dados de 2010 estão disponíveis.</p>
 <div class="sourceCode" id="cb635"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb635-1"><a href="mapas.html#cb635-1" aria-hidden="true" tabindex="-1"></a><span class="fu">read_neighborhood</span>(<span class="at">year =</span> <span class="dv">2010</span>,</span>
 <span id="cb635-2"><a href="mapas.html#cb635-2" aria-hidden="true" tabindex="-1"></a>                  <span class="at">showProgress =</span> F) <span class="sc">%&gt;%</span> </span>
 <span id="cb635-3"><a href="mapas.html#cb635-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ggplot</span>()<span class="sc">+</span></span>
 <span id="cb635-4"><a href="mapas.html#cb635-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_sf</span>()<span class="sc">+</span></span>
 <span id="cb635-5"><a href="mapas.html#cb635-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_bw</span>()</span></code></pre></div>
-<p><img src="_main_files/figure-html/unnamed-chunk-329-1.png" width="672" style="display: block; margin: auto;" /></p>
+<p><img src="Apostila_files/figure-html/unnamed-chunk-329-1.png" width="672" style="display: block; margin: auto;" /></p>
 <div class="sourceCode" id="cb636"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb636-1"><a href="mapas.html#cb636-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Selecionando os limites dos bairros do município de Piracicaba/SP</span></span>
 <span id="cb636-2"><a href="mapas.html#cb636-2" aria-hidden="true" tabindex="-1"></a><span class="fu">read_neighborhood</span>(<span class="at">year =</span> <span class="dv">2010</span>,</span>
 <span id="cb636-3"><a href="mapas.html#cb636-3" aria-hidden="true" tabindex="-1"></a>                  <span class="at">showProgress =</span> F) <span class="sc">%&gt;%</span> </span>
@@ -1802,7 +1801,7 @@ Using year 2010</code></pre>
 <span id="cb636-5"><a href="mapas.html#cb636-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ggplot</span>()<span class="sc">+</span></span>
 <span id="cb636-6"><a href="mapas.html#cb636-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_sf</span>()<span class="sc">+</span></span>
 <span id="cb636-7"><a href="mapas.html#cb636-7" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_bw</span>()</span></code></pre></div>
-<p><img src="_main_files/figure-html/unnamed-chunk-330-1.png" width="672" style="display: block; margin: auto;" /></p>
+<p><img src="Apostila_files/figure-html/unnamed-chunk-330-1.png" width="672" style="display: block; margin: auto;" /></p>
 <div class="sourceCode" id="cb637"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb637-1"><a href="mapas.html#cb637-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(gghighlight)</span>
 <span id="cb637-2"><a href="mapas.html#cb637-2" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb637-3"><a href="mapas.html#cb637-3" aria-hidden="true" tabindex="-1"></a><span class="co"># Selecionando os limites dos bairros do município de Piracicaba/SP, destacando o bairro Agronomia</span></span>
@@ -1814,19 +1813,19 @@ Using year 2010</code></pre>
 <span id="cb637-9"><a href="mapas.html#cb637-9" aria-hidden="true" tabindex="-1"></a>  gghighlight<span class="sc">::</span><span class="fu">gghighlight</span>(name_neighborhood <span class="sc">==</span> <span class="st">&quot;Agronomia&quot;</span>)<span class="sc">+</span></span>
 <span id="cb637-10"><a href="mapas.html#cb637-10" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_sf_text</span>(<span class="fu">aes</span>(<span class="at">label =</span> name_neighborhood), <span class="at">nudge_y =</span> <span class="fl">0.003</span>)<span class="sc">+</span>  </span>
 <span id="cb637-11"><a href="mapas.html#cb637-11" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_bw</span>()</span></code></pre></div>
-<p><img src="_main_files/figure-html/unnamed-chunk-331-1.png" width="672" style="display: block; margin: auto;" /></p>
+<p><img src="Apostila_files/figure-html/unnamed-chunk-331-1.png" width="672" style="display: block; margin: auto;" /></p>
 <p>No mapa acima, construímos o mapa com os bairros de Piracicaba/SP, destacando o bairro Agronomia - onde se localiza a ESALQ/USP - utilizando a função <code>gghighlight::gghighlight()</code>.</p>
 <p><br></p>
 </div>
-<div id="regiões-metropolitanas" class="section level2" number="8.8">
-<h2><span class="header-section-number">8.8</span> Regiões Metropolitanas</h2>
+<div id="regiões-metropolitanas" class="section level2 hasAnchor" number="8.8">
+<h2><span class="header-section-number">8.8</span> Regiões Metropolitanas<a href="mapas.html#regiões-metropolitanas" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <p>A função <code>read_metro_area()</code> retorna as regiões metropolitanas do Brasil. Essas regiões são definidas a partir de legislações estaduais.</p>
 <div class="sourceCode" id="cb638"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb638-1"><a href="mapas.html#cb638-1" aria-hidden="true" tabindex="-1"></a><span class="fu">read_metro_area</span>(<span class="at">year =</span> <span class="dv">2018</span>,</span>
 <span id="cb638-2"><a href="mapas.html#cb638-2" aria-hidden="true" tabindex="-1"></a>                <span class="at">showProgress =</span> F) <span class="sc">%&gt;%</span> </span>
 <span id="cb638-3"><a href="mapas.html#cb638-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ggplot</span>()<span class="sc">+</span></span>
 <span id="cb638-4"><a href="mapas.html#cb638-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_sf</span>()<span class="sc">+</span></span>
 <span id="cb638-5"><a href="mapas.html#cb638-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_bw</span>()</span></code></pre></div>
-<p><img src="_main_files/figure-html/unnamed-chunk-332-1.png" width="672" style="display: block; margin: auto;" /></p>
+<p><img src="Apostila_files/figure-html/unnamed-chunk-332-1.png" width="672" style="display: block; margin: auto;" /></p>
 <div class="sourceCode" id="cb639"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb639-1"><a href="mapas.html#cb639-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Adicionando as regiões metropolitanas ao mapa do Brasil, dividido por estados</span></span>
 <span id="cb639-2"><a href="mapas.html#cb639-2" aria-hidden="true" tabindex="-1"></a>estados <span class="ot">&lt;-</span> <span class="fu">read_state</span>(<span class="at">code_state =</span> <span class="st">&quot;all&quot;</span>,</span>
 <span id="cb639-3"><a href="mapas.html#cb639-3" aria-hidden="true" tabindex="-1"></a>                      <span class="at">year =</span> <span class="dv">2019</span>,</span>
@@ -1839,7 +1838,7 @@ Using year 2010</code></pre>
 <span id="cb639-10"><a href="mapas.html#cb639-10" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_sf</span>(<span class="at">data =</span> estados)<span class="sc">+</span></span>
 <span id="cb639-11"><a href="mapas.html#cb639-11" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_sf</span>(<span class="at">data =</span> reg_metrop, <span class="at">fill =</span> <span class="st">&quot;orange&quot;</span>)<span class="sc">+</span></span>
 <span id="cb639-12"><a href="mapas.html#cb639-12" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_bw</span>()</span></code></pre></div>
-<p><img src="_main_files/figure-html/unnamed-chunk-333-1.png" width="672" style="display: block; margin: auto;" /></p>
+<p><img src="Apostila_files/figure-html/unnamed-chunk-333-1.png" width="672" style="display: block; margin: auto;" /></p>
 <div class="sourceCode" id="cb640"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb640-1"><a href="mapas.html#cb640-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Selecionando as regiões metropolitanas do Rio de Janeiro</span></span>
 <span id="cb640-2"><a href="mapas.html#cb640-2" aria-hidden="true" tabindex="-1"></a>rj <span class="ot">&lt;-</span> <span class="fu">read_state</span>(<span class="at">code_state =</span> <span class="st">&quot;RJ&quot;</span>,</span>
 <span id="cb640-3"><a href="mapas.html#cb640-3" aria-hidden="true" tabindex="-1"></a>                 <span class="at">year =</span> <span class="dv">2019</span>,</span>
@@ -1855,18 +1854,18 @@ Using year 2010</code></pre>
 <span id="cb640-13"><a href="mapas.html#cb640-13" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_bw</span>()</span></code></pre></div>
 <pre><code>Using year 2019</code></pre>
 <pre><code>Using year 2018</code></pre>
-<p><img src="_main_files/figure-html/unnamed-chunk-335-1.png" width="672" style="display: block; margin: auto;" /></p>
+<p><img src="Apostila_files/figure-html/unnamed-chunk-335-1.png" width="672" style="display: block; margin: auto;" /></p>
 <p><br></p>
 </div>
-<div id="áreas-urbanas" class="section level2" number="8.9">
-<h2><span class="header-section-number">8.9</span> Áreas urbanas</h2>
+<div id="áreas-urbanas" class="section level2 hasAnchor" number="8.9">
+<h2><span class="header-section-number">8.9</span> Áreas urbanas<a href="mapas.html#áreas-urbanas" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <p>A função <code>read_urban_area()</code> retorna as áreas urbanas do Brasil nos anos de 2005 e 2015, segundo a metodologia do IBGE. Informações adicionais sobre a metodologia utilizada estão disponíveis em: <a href="https://biblioteca.ibge.gov.br/visualizacao/livros/liv100639.pdf">https://biblioteca.ibge.gov.br/visualizacao/livros/liv100639.pdf</a>.</p>
 <div class="sourceCode" id="cb643"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb643-1"><a href="mapas.html#cb643-1" aria-hidden="true" tabindex="-1"></a><span class="fu">read_urban_area</span>(<span class="at">year =</span> <span class="dv">2015</span>,</span>
 <span id="cb643-2"><a href="mapas.html#cb643-2" aria-hidden="true" tabindex="-1"></a>                <span class="at">showProgress =</span> F) <span class="sc">%&gt;%</span> </span>
 <span id="cb643-3"><a href="mapas.html#cb643-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ggplot</span>()<span class="sc">+</span></span>
 <span id="cb643-4"><a href="mapas.html#cb643-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_sf</span>()<span class="sc">+</span></span>
 <span id="cb643-5"><a href="mapas.html#cb643-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_bw</span>()</span></code></pre></div>
-<p><img src="_main_files/figure-html/unnamed-chunk-336-1.png" width="672" style="display: block; margin: auto;" /></p>
+<p><img src="Apostila_files/figure-html/unnamed-chunk-336-1.png" width="672" style="display: block; margin: auto;" /></p>
 <div class="sourceCode" id="cb644"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb644-1"><a href="mapas.html#cb644-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Adicionando as áreas ubanas ao mapa do Brasil, dividido por estados</span></span>
 <span id="cb644-2"><a href="mapas.html#cb644-2" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb644-3"><a href="mapas.html#cb644-3" aria-hidden="true" tabindex="-1"></a><span class="do">## Estados</span></span>
@@ -1894,7 +1893,7 @@ Using year 2010</code></pre>
 <span id="cb645-8"><a href="mapas.html#cb645-8" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(<span class="at">title =</span> <span class="st">&quot;2015&quot;</span>)</span>
 <span id="cb645-9"><a href="mapas.html#cb645-9" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb645-10"><a href="mapas.html#cb645-10" aria-hidden="true" tabindex="-1"></a>urb_2015</span></code></pre></div>
-<p><img src="_main_files/figure-html/unnamed-chunk-338-1.png" width="672" style="display: block; margin: auto;" /></p>
+<p><img src="Apostila_files/figure-html/unnamed-chunk-338-1.png" width="672" style="display: block; margin: auto;" /></p>
 <div class="sourceCode" id="cb646"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb646-1"><a href="mapas.html#cb646-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Selecionando as áreas urbanas de São Paulo em 2015</span></span>
 <span id="cb646-2"><a href="mapas.html#cb646-2" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb646-3"><a href="mapas.html#cb646-3" aria-hidden="true" tabindex="-1"></a><span class="do">## Selecionando os códigos dos municípios de SP</span></span>
@@ -1922,11 +1921,11 @@ Using year 2010</code></pre>
 <pre><code>Using year 2015
 Using year 2015</code></pre>
 <pre><code>Joining, by = &quot;code_muni&quot;</code></pre>
-<p><img src="_main_files/figure-html/unnamed-chunk-340-1.png" width="672" style="display: block; margin: auto;" /></p>
+<p><img src="Apostila_files/figure-html/unnamed-chunk-340-1.png" width="672" style="display: block; margin: auto;" /></p>
 <p><br></p>
 </div>
-<div id="áreas-mínimas-comparáveis-amcs" class="section level2" number="8.10">
-<h2><span class="header-section-number">8.10</span> Áreas mínimas comparáveis (AMCs)</h2>
+<div id="áreas-mínimas-comparáveis-amcs" class="section level2 hasAnchor" number="8.10">
+<h2><span class="header-section-number">8.10</span> Áreas mínimas comparáveis (AMCs)<a href="mapas.html#áreas-mínimas-comparáveis-amcs" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <p>A função <code>read_comparable_areas()</code> traz os dados das Áreas mínimas comparáveis (AMCs) dos municípios. Estes dados são referentes a área agregada do menor número de municípios necessários para que as comparações intertemporais sejam geograficamente consistentes.</p>
 <p>Os dados estão disponíveis para qualquer combinação de anos censitários entre 1872 e 2010. Esses conjuntos de dados são gerados com base no código <em>Stata</em>, originalmente desenvolvido por <a href="https://www.scielo.br/j/ee/a/d87GfsmvZGhsjTQPLpb8hBJ/?lang=en">Philipp Ehrl (2017)</a>, sendo convertido para a linguagem R pela equipe desenvolvedora do pacote <code>geobr</code>.</p>
 <div class="sourceCode" id="cb649"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb649-1"><a href="mapas.html#cb649-1" aria-hidden="true" tabindex="-1"></a><span class="fu">read_comparable_areas</span>(<span class="at">start_year =</span> <span class="dv">1980</span>,</span>
@@ -1935,7 +1934,7 @@ Using year 2015</code></pre>
 <span id="cb649-4"><a href="mapas.html#cb649-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ggplot</span>()<span class="sc">+</span></span>
 <span id="cb649-5"><a href="mapas.html#cb649-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_sf</span>()<span class="sc">+</span></span>
 <span id="cb649-6"><a href="mapas.html#cb649-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_bw</span>()</span></code></pre></div>
-<p><img src="_main_files/figure-html/unnamed-chunk-341-1.png" width="672" style="display: block; margin: auto;" /></p>
+<p><img src="Apostila_files/figure-html/unnamed-chunk-341-1.png" width="672" style="display: block; margin: auto;" /></p>
 <p>Esta função recebe os argumentos <code>start_year =</code> e <code>end_year =</code> para indicar o ano inicial e final, respectivamente, como referência do período a ser considerado.</p>
 <p>Como resultado, obtem-se um código da área mínima comparável (<code>code_amc</code>) e uma lista com código(s) de municípios (<code>list_code_muni_2010</code>) respectivos à área mínima comparável do período em questão.</p>
 <div class="sourceCode" id="cb650"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb650-1"><a href="mapas.html#cb650-1" aria-hidden="true" tabindex="-1"></a>amc <span class="ot">&lt;-</span> <span class="fu">read_comparable_areas</span>(<span class="at">start_year =</span> <span class="dv">1980</span>,</span>
@@ -1960,16 +1959,16 @@ Using year 2015</code></pre>
 <span id="cb651-9"><a href="mapas.html#cb651-9" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(<span class="at">title =</span> <span class="st">&quot;Municípios </span><span class="sc">\n</span><span class="st">2010&quot;</span>, <span class="at">x=</span><span class="st">&quot;&quot;</span>, <span class="at">y=</span><span class="st">&quot;&quot;</span>)</span>
 <span id="cb651-10"><a href="mapas.html#cb651-10" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb651-11"><a href="mapas.html#cb651-11" aria-hidden="true" tabindex="-1"></a>muni</span></code></pre></div>
-<p><img src="_main_files/figure-html/unnamed-chunk-343-1.png" width="672" style="display: block; margin: auto;" /></p>
+<p><img src="Apostila_files/figure-html/unnamed-chunk-343-1.png" width="672" style="display: block; margin: auto;" /></p>
 <p>O mapa acima representa a área mínima comparável dos municípios de Carauari e Itamarati (AM), no período entre 1980 e 2010.</p>
 <p><br></p>
 </div>
-<div id="mapas-temáticos" class="section level2" number="8.11">
-<h2><span class="header-section-number">8.11</span> Mapas temáticos</h2>
+<div id="mapas-temáticos" class="section level2 hasAnchor" number="8.11">
+<h2><span class="header-section-number">8.11</span> Mapas temáticos<a href="mapas.html#mapas-temáticos" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <p>Depois de apresentadas algumas das funções presentes no pacote <code>geobr</code>, demonstraremos alguns exemplos aplicados utilizando mapas em conjunto à bases de dados.</p>
 <p><br></p>
-<div id="censo-agropecuário-2006-e-2017" class="section level3" number="8.11.1">
-<h3><span class="header-section-number">8.11.1</span> Censo agropecuário 2006 e 2017</h3>
+<div id="censo-agropecuário-2006-e-2017" class="section level3 hasAnchor" number="8.11.1">
+<h3><span class="header-section-number">8.11.1</span> Censo agropecuário 2006 e 2017<a href="mapas.html#censo-agropecuário-2006-e-2017" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p>Para tanto, utilizaremos os dados dos <a href="https://www.ibge.gov.br/estatisticas/economicas/agricultura-e-pecuaria/21814-2017-censo-agropecuario.html?=&amp;t=destaques">Censos Agropecuários</a> de 2006 e 2017, realizados pelo Instituto Brasileiro de Geografia e Estatística (IBGE). Dentre as diversas informações que o censo coleta, iremos utilizar a área e o número de estabelecimentos agropecuários em 2006 e 2017, para os estados brasileiros e os municípios de Mato Grosso.</p>
 <p>Os dados foram coletados do Sistema IBGE de Recuperação Automática (SIDRA), a partir de duas fontes. Para 2006, utilizou-se a <a href="https://sidra.ibge.gov.br/tabela/263">Tabela 263</a> e para 2017, a <a href="https://sidra.ibge.gov.br/tabela/6754">Tabela 6754</a>.</p>
 <p>Para fazer o <em>download</em> dos dados compilados e processados, <a href="https://github.com/gustavojy/ApostilaCD-R/blob/main/dados_zip/dados_mapa.zip?raw=true">clique aqui</a>.</p>
@@ -1978,16 +1977,16 @@ Using year 2015</code></pre>
 <span id="cb652-3"><a href="mapas.html#cb652-3" aria-hidden="true" tabindex="-1"></a><span class="fu">glimpse</span>(censo_agro_06_17)</span></code></pre></div>
 <pre><code>Rows: 195
 Columns: 6
-$ nivel         &lt;chr&gt; &quot;UF&quot;, &quot;UF&quot;, &quot;UF&quot;, &quot;UF&quot;, &quot;UF&quot;, &quot;UF&quot;, &quot;UF&quot;, &quot;UF&quot;, &quot;UF&quot;, &quot;U~
-$ cod           &lt;dbl&gt; 11, 12, 13, 14, 15, 16, 17, 21, 22, 23, 24, 25, 26, 27, ~
-$ localidade    &lt;chr&gt; &quot;Rondônia&quot;, &quot;Acre&quot;, &quot;Amazonas&quot;, &quot;Roraima&quot;, &quot;Pará&quot;, &quot;Amap~
-$ n_estab       &lt;dbl&gt; 87078, 29483, 66784, 10310, 222029, 3527, 56567, 287039,~
-$ area_estab_ha &lt;dbl&gt; 8433868, 3528543, 3668753, 1717532, 22925331, 873789, 14~
-$ ano           &lt;dbl&gt; 2006, 2006, 2006, 2006, 2006, 2006, 2006, 2006, 2006, 20~</code></pre>
+$ nivel         &lt;chr&gt; &quot;UF&quot;, &quot;UF&quot;, &quot;UF&quot;, &quot;UF&quot;, &quot;UF&quot;, &quot;UF&quot;, &quot;UF&quot;, &quot;UF&quot;, &quot;UF&quot;, &quot;U…
+$ cod           &lt;dbl&gt; 11, 12, 13, 14, 15, 16, 17, 21, 22, 23, 24, 25, 26, 27, …
+$ localidade    &lt;chr&gt; &quot;Rondônia&quot;, &quot;Acre&quot;, &quot;Amazonas&quot;, &quot;Roraima&quot;, &quot;Pará&quot;, &quot;Amap…
+$ n_estab       &lt;dbl&gt; 87078, 29483, 66784, 10310, 222029, 3527, 56567, 287039,…
+$ area_estab_ha &lt;dbl&gt; 8433868, 3528543, 3668753, 1717532, 22925331, 873789, 14…
+$ ano           &lt;dbl&gt; 2006, 2006, 2006, 2006, 2006, 2006, 2006, 2006, 2006, 20…</code></pre>
 <p>A base de dados apresenta 195 observações e 6 variáveis, sendo elas: o nível geográfico (<code>nivel</code>), podendo ser um estado (<code>UF</code>) ou um município (<code>MU</code>); os códigos de identificação dos locais (<code>cod</code>); a <code>localidade</code>, seja dos estados brasileiros ou dos municípios de Mato Grosso; os anos presentes, no caso, 2006 e 2017; e os valores do número de estabelecimentos (<code>n_estab</code>) e da área (<code>area_estab_ha</code>), em hectares.</p>
 <p><br></p>
-<div id="estados-1" class="section level4 unnumbered">
-<h4>Estados</h4>
+<div id="estados-1" class="section level4 unnumbered hasAnchor">
+<h4>Estados<a href="mapas.html#estados-1" class="anchor-section" aria-label="Anchor link to header"></a></h4>
 <p>Nessa etapa, iremos fazer um mapa coroplético dos estados. Um mapa coroplético é um tipo de mapa temático que representa uma superfície estatística por meio de áreas simbolizadas com cores, sombreamentos ou padrões de acordo com uma escala que representa a proporcionalidade da variável estatística. Nesse caso, iremos utilizar o número e as respectivas áreas dos estabelecimentos agropecuários, em 2006 e 2017 para criarmos o nosso mapa.</p>
 <p>Primeiramente, iremos realizar algumas mudanças na base de dados.</p>
 <div class="sourceCode" id="cb654"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb654-1"><a href="mapas.html#cb654-1" aria-hidden="true" tabindex="-1"></a>censo_estados <span class="ot">&lt;-</span> censo_agro_06_17 <span class="sc">%&gt;%</span> </span>
@@ -2005,12 +2004,12 @@ $ ano           &lt;dbl&gt; 2006, 2006, 2006, 2006, 2006, 2006, 2006, 2006, 2006
 <span id="cb655-3"><a href="mapas.html#cb655-3" aria-hidden="true" tabindex="-1"></a><span class="fu">glimpse</span>(mapa_estados)</span></code></pre></div>
 <pre><code>Rows: 27
 Columns: 6
-$ code_state   &lt;dbl&gt; 11, 12, 13, 14, 15, 16, 17, 21, 22, 23, 24, 25, 26, 27, 2~
-$ abbrev_state &lt;chr&gt; &quot;RO&quot;, &quot;AC&quot;, &quot;AM&quot;, &quot;RR&quot;, &quot;PA&quot;, &quot;AP&quot;, &quot;TO&quot;, &quot;MA&quot;, &quot;PI&quot;, &quot;CE~
-$ name_state   &lt;chr&gt; &quot;Rondônia&quot;, &quot;Acre&quot;, &quot;Amazonas&quot;, &quot;Roraima&quot;, &quot;Pará&quot;, &quot;Amapá~
-$ code_region  &lt;dbl&gt; 1, 1, 1, 1, 1, 1, 1, 2, 2, 2, 2, 2, 2, 2, 2, 2, 3, 3, 3, ~
-$ name_region  &lt;chr&gt; &quot;Norte&quot;, &quot;Norte&quot;, &quot;Norte&quot;, &quot;Norte&quot;, &quot;Norte&quot;, &quot;Norte&quot;, &quot;No~
-$ geom         &lt;MULTIPOLYGON [°]&gt; MULTIPOLYGON (((-63.32721 -..., MULTIPOLYGON~</code></pre>
+$ code_state   &lt;dbl&gt; 11, 12, 13, 14, 15, 16, 17, 21, 22, 23, 24, 25, 26, 27, 2…
+$ abbrev_state &lt;chr&gt; &quot;RO&quot;, &quot;AC&quot;, &quot;AM&quot;, &quot;RR&quot;, &quot;PA&quot;, &quot;AP&quot;, &quot;TO&quot;, &quot;MA&quot;, &quot;PI&quot;, &quot;CE…
+$ name_state   &lt;chr&gt; &quot;Rondônia&quot;, &quot;Acre&quot;, &quot;Amazonas&quot;, &quot;Roraima&quot;, &quot;Pará&quot;, &quot;Amapá…
+$ code_region  &lt;dbl&gt; 1, 1, 1, 1, 1, 1, 1, 2, 2, 2, 2, 2, 2, 2, 2, 2, 3, 3, 3, …
+$ name_region  &lt;chr&gt; &quot;Norte&quot;, &quot;Norte&quot;, &quot;Norte&quot;, &quot;Norte&quot;, &quot;Norte&quot;, &quot;Norte&quot;, &quot;No…
+$ geom         &lt;MULTIPOLYGON [°]&gt; MULTIPOLYGON (((-63.32721 -..., MULTIPOLYGON…</code></pre>
 <p>Tendo os dados do censo agropecuário, precisamos juntá-los aos dados geográficos em um único <em>data frame</em>, para criarmos o mapa temático. Para isso, utilizaremos a função <code>dplyr::full_join()</code>, tendo como base as colunas <code>name_state</code> e <code>code_state</code>.</p>
 <p>Portanto, antes de uni-las, iremos modificar os nomes das colunas do banco de dados referente ao censo, a fim padronizar as nomenclaturas e possibilitar a utilização da função de junção dos bancos de dados.</p>
 <div class="sourceCode" id="cb657"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb657-1"><a href="mapas.html#cb657-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Modificando o nome das colunas do bando de dados do censo</span></span>
@@ -2027,7 +2026,7 @@ $ geom         &lt;MULTIPOLYGON [°]&gt; MULTIPOLYGON (((-63.32721 -..., MULTIPO
 <span id="cb658-4"><a href="mapas.html#cb658-4" aria-hidden="true" tabindex="-1"></a>         var <span class="sc">==</span> <span class="st">&quot;n_estab_1000&quot;</span>) <span class="sc">%&gt;%</span> </span>
 <span id="cb658-5"><a href="mapas.html#cb658-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ggplot</span>()<span class="sc">+</span></span>
 <span id="cb658-6"><a href="mapas.html#cb658-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_sf</span>(<span class="fu">aes</span>(<span class="at">fill =</span> valores))</span></code></pre></div>
-<p><img src="_main_files/figure-html/unnamed-chunk-348-1.png" width="672" style="display: block; margin: auto;" /></p>
+<p><img src="Apostila_files/figure-html/unnamed-chunk-348-1.png" width="672" style="display: block; margin: auto;" /></p>
 <p>O mapa coroplético acima representa o número de estabelecimentos agropecuários, em 2006, de acordo com os estados. Para a sua confecção, primeiramente, filtramos o ano de 2006 e a variável relativa ao número de estabelecimentos (<code>n_estab_1000</code>). Em seguida, dentro do <code>aes()</code> de geometria <code>geom_sf()</code> definimos a coluna de <code>valores</code> como parâmetro do argumento <code>fill =</code>, ou seja, os valores relativos ao número de estabelecimentos agropecuários serão preenchidos no mapa, de acordo com o estado.</p>
 <p>Assim, de maneira bem simples, podemos confeccionar mapas coropléticos a partir do <code>geobr</code>, junto a base de dados de interesse. A seguir, demontraremos como melhorar a estética dos mapas</p>
 <div class="sourceCode" id="cb659"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb659-1"><a href="mapas.html#cb659-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Censo 2006 - Nº de estabelecimentos</span></span>
@@ -2052,7 +2051,7 @@ $ geom         &lt;MULTIPOLYGON [°]&gt; MULTIPOLYGON (((-63.32721 -..., MULTIPO
 <span id="cb659-20"><a href="mapas.html#cb659-20" aria-hidden="true" tabindex="-1"></a>        <span class="at">plot.subtitle =</span> <span class="fu">element_text</span>(<span class="at">size=</span> <span class="dv">10</span>),</span>
 <span id="cb659-21"><a href="mapas.html#cb659-21" aria-hidden="true" tabindex="-1"></a>        <span class="at">plot.caption =</span> <span class="fu">element_text</span>(<span class="at">size=</span><span class="dv">8</span>, <span class="at">hjust =</span> <span class="fl">0.5</span>, <span class="at">vjust =</span> <span class="dv">7</span>),</span>
 <span id="cb659-22"><a href="mapas.html#cb659-22" aria-hidden="true" tabindex="-1"></a>        <span class="at">legend.position =</span> <span class="fu">c</span>(<span class="fl">0.88</span>, <span class="fl">0.12</span>))</span></code></pre></div>
-<p><img src="_main_files/figure-html/unnamed-chunk-349-1.png" width="672" style="display: block; margin: auto;" /></p>
+<p><img src="Apostila_files/figure-html/unnamed-chunk-349-1.png" width="672" style="display: block; margin: auto;" /></p>
 <p>A função <code>scale_fill_distiller()</code> define a paleta de cores a serem utilizadas, bem como os parâmetros referentes à legenda. A <code>labs()</code> permite inserir rótulos ao mapa, seja o título, subtítulo, fonte, dentre outros. Também definimos a temática estética do mapa ao definir o tamanho de letras e posicionamentos no mapa.</p>
 <p>O mapa a seguir segue a mesma lógica do anterior, porém, representando a área dos estabelecimentos agropecuários e utilizando a paleta de cores da função <code>scale_fill_gradient2()</code>.</p>
 <div class="sourceCode" id="cb660"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb660-1"><a href="mapas.html#cb660-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Censo 2006 - área dos estabelecimentos</span></span>
@@ -2076,7 +2075,7 @@ $ geom         &lt;MULTIPOLYGON [°]&gt; MULTIPOLYGON (((-63.32721 -..., MULTIPO
 <span id="cb660-19"><a href="mapas.html#cb660-19" aria-hidden="true" tabindex="-1"></a>        <span class="at">plot.subtitle =</span> <span class="fu">element_text</span>(<span class="at">size=</span> <span class="dv">10</span>, <span class="at">hjust =</span> <span class="fl">0.5</span>),</span>
 <span id="cb660-20"><a href="mapas.html#cb660-20" aria-hidden="true" tabindex="-1"></a>        <span class="at">plot.caption =</span> <span class="fu">element_text</span>(<span class="at">size=</span><span class="dv">8</span>, <span class="at">hjust =</span> <span class="fl">0.5</span>, <span class="at">vjust =</span> <span class="dv">7</span>),</span>
 <span id="cb660-21"><a href="mapas.html#cb660-21" aria-hidden="true" tabindex="-1"></a>        <span class="at">legend.position =</span> <span class="fu">c</span>(<span class="fl">0.88</span>, <span class="fl">0.12</span>))</span></code></pre></div>
-<p><img src="_main_files/figure-html/unnamed-chunk-350-1.png" width="672" style="display: block; margin: auto;" /></p>
+<p><img src="Apostila_files/figure-html/unnamed-chunk-350-1.png" width="672" style="display: block; margin: auto;" /></p>
 <p>Também podemos juntar dois mapas tamáticos. No exemplo a seguir, uniremos o mapa do número de estabelecimentos com a área, de acordo com o censo agropecuário de 2006.</p>
 <div class="sourceCode" id="cb661"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb661-1"><a href="mapas.html#cb661-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Censo 2006 - Nº estabelecimentos e área</span></span>
 <span id="cb661-2"><a href="mapas.html#cb661-2" aria-hidden="true" tabindex="-1"></a>dados_mapa_estados <span class="sc">%&gt;%</span> </span>
@@ -2103,7 +2102,7 @@ $ geom         &lt;MULTIPOLYGON [°]&gt; MULTIPOLYGON (((-63.32721 -..., MULTIPO
 <span id="cb661-23"><a href="mapas.html#cb661-23" aria-hidden="true" tabindex="-1"></a>        <span class="at">plot.subtitle =</span> <span class="fu">element_text</span>(<span class="at">size=</span> <span class="dv">11</span>, <span class="at">hjust =</span> <span class="fl">0.5</span>, <span class="at">vjust =</span> <span class="fl">2.5</span>),</span>
 <span id="cb661-24"><a href="mapas.html#cb661-24" aria-hidden="true" tabindex="-1"></a>        <span class="at">plot.caption =</span> <span class="fu">element_text</span>(<span class="at">size=</span><span class="dv">8</span>, <span class="at">hjust =</span> <span class="fl">0.5</span>, <span class="at">vjust =</span> <span class="sc">-</span><span class="dv">2</span>),</span>
 <span id="cb661-25"><a href="mapas.html#cb661-25" aria-hidden="true" tabindex="-1"></a>        <span class="at">legend.position =</span> <span class="fu">c</span>(<span class="fl">0.49</span>, <span class="fl">0.06</span>))</span></code></pre></div>
-<p><img src="_main_files/figure-html/unnamed-chunk-351-1.png" width="672" style="display: block; margin: auto;" /></p>
+<p><img src="Apostila_files/figure-html/unnamed-chunk-351-1.png" width="672" style="display: block; margin: auto;" /></p>
 <p>Para isso, utilizamos a função <code>facet_wrap()</code>, definindo a variável <code>var</code> como parâmetro para dividir os mapas. Além disso, dentro dessa mesma função, utilizamos a <code>labeller = as_labeller()</code> para alterar os nomes das observações que compõem a coluna <code>var</code>, a fim de ficarem mais apresentáveis ao mapa.</p>
 <p>Podemos proceder da mesma forma para comparar o censo de 2006 com o de 2017, apenas alterando o parâmetro da função <code>facet_wrap()</code> para a coluna <code>ano</code>.</p>
 <div class="sourceCode" id="cb662"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb662-1"><a href="mapas.html#cb662-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Censos 2006 e 2017 - Nº estabelecimentos</span></span>
@@ -2128,7 +2127,7 @@ $ geom         &lt;MULTIPOLYGON [°]&gt; MULTIPOLYGON (((-63.32721 -..., MULTIPO
 <span id="cb662-20"><a href="mapas.html#cb662-20" aria-hidden="true" tabindex="-1"></a>        <span class="at">plot.subtitle =</span> <span class="fu">element_text</span>(<span class="at">size=</span> <span class="dv">11</span>, <span class="at">hjust =</span> <span class="fl">0.5</span>, <span class="at">vjust =</span> <span class="fl">2.5</span>),</span>
 <span id="cb662-21"><a href="mapas.html#cb662-21" aria-hidden="true" tabindex="-1"></a>        <span class="at">plot.caption =</span> <span class="fu">element_text</span>(<span class="at">size=</span><span class="dv">8</span>, <span class="at">hjust =</span> <span class="fl">0.5</span>, <span class="at">vjust =</span> <span class="sc">-</span><span class="dv">2</span>),</span>
 <span id="cb662-22"><a href="mapas.html#cb662-22" aria-hidden="true" tabindex="-1"></a>        <span class="at">legend.position =</span> <span class="fu">c</span>(<span class="fl">0.49</span>, <span class="fl">0.06</span>))</span></code></pre></div>
-<p><img src="_main_files/figure-html/unnamed-chunk-352-1.png" width="672" style="display: block; margin: auto;" /></p>
+<p><img src="Apostila_files/figure-html/unnamed-chunk-352-1.png" width="672" style="display: block; margin: auto;" /></p>
 <div class="sourceCode" id="cb663"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb663-1"><a href="mapas.html#cb663-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Censos 2006 e 2017 - Área</span></span>
 <span id="cb663-2"><a href="mapas.html#cb663-2" aria-hidden="true" tabindex="-1"></a>dados_mapa_estados <span class="sc">%&gt;%</span> </span>
 <span id="cb663-3"><a href="mapas.html#cb663-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(var <span class="sc">==</span> <span class="st">&quot;area_estab_100mil_ha&quot;</span>) <span class="sc">%&gt;%</span></span>
@@ -2151,11 +2150,11 @@ $ geom         &lt;MULTIPOLYGON [°]&gt; MULTIPOLYGON (((-63.32721 -..., MULTIPO
 <span id="cb663-20"><a href="mapas.html#cb663-20" aria-hidden="true" tabindex="-1"></a>        <span class="at">plot.subtitle =</span> <span class="fu">element_text</span>(<span class="at">size=</span> <span class="dv">11</span>, <span class="at">hjust =</span> <span class="fl">0.5</span>, <span class="at">vjust =</span> <span class="fl">2.5</span>),</span>
 <span id="cb663-21"><a href="mapas.html#cb663-21" aria-hidden="true" tabindex="-1"></a>        <span class="at">plot.caption =</span> <span class="fu">element_text</span>(<span class="at">size=</span><span class="dv">8</span>, <span class="at">hjust =</span> <span class="fl">0.5</span>, <span class="at">vjust =</span> <span class="sc">-</span><span class="dv">2</span>),</span>
 <span id="cb663-22"><a href="mapas.html#cb663-22" aria-hidden="true" tabindex="-1"></a>        <span class="at">legend.position =</span> <span class="fu">c</span>(<span class="fl">0.49</span>, <span class="fl">0.06</span>))</span></code></pre></div>
-<p><img src="_main_files/figure-html/unnamed-chunk-353-1.png" width="672" style="display: block; margin: auto;" /></p>
+<p><img src="Apostila_files/figure-html/unnamed-chunk-353-1.png" width="672" style="display: block; margin: auto;" /></p>
 <p><br></p>
 </div>
-<div id="municípios-de-mato-grosso" class="section level4 unnumbered">
-<h4>Municípios de Mato Grosso</h4>
+<div id="municípios-de-mato-grosso" class="section level4 unnumbered hasAnchor">
+<h4>Municípios de Mato Grosso<a href="mapas.html#municípios-de-mato-grosso" class="anchor-section" aria-label="Anchor link to header"></a></h4>
 <p>Podemos proceder da mesma maneira para criar mapas coroplético a partir de outra dimensão geográfica. Nesse caso, faremos para os municípios do estado do Mato Grosso, de acordo com os dados do censo agropecuário de 2017.</p>
 <div class="sourceCode" id="cb664"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb664-1"><a href="mapas.html#cb664-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Organizando dados do censo agropecuário 2017</span></span>
 <span id="cb664-2"><a href="mapas.html#cb664-2" aria-hidden="true" tabindex="-1"></a>censo_muni_MT <span class="ot">&lt;-</span> censo_agro_06_17 <span class="sc">%&gt;%</span> </span>
@@ -2194,7 +2193,7 @@ $ geom         &lt;MULTIPOLYGON [°]&gt; MULTIPOLYGON (((-63.32721 -..., MULTIPO
 <span id="cb666-17"><a href="mapas.html#cb666-17" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme</span>(<span class="at">plot.title =</span> <span class="fu">element_text</span>(<span class="at">size=</span> <span class="dv">13</span>, <span class="at">hjust =</span> <span class="fl">0.5</span>),</span>
 <span id="cb666-18"><a href="mapas.html#cb666-18" aria-hidden="true" tabindex="-1"></a>        <span class="at">plot.subtitle =</span> <span class="fu">element_text</span>(<span class="at">size=</span> <span class="dv">10</span>, <span class="at">hjust =</span> <span class="fl">0.5</span>),</span>
 <span id="cb666-19"><a href="mapas.html#cb666-19" aria-hidden="true" tabindex="-1"></a>        <span class="at">plot.caption =</span> <span class="fu">element_text</span>(<span class="at">size=</span><span class="dv">9</span>, <span class="at">hjust =</span> <span class="fl">0.5</span>))</span></code></pre></div>
-<p><img src="_main_files/figure-html/unnamed-chunk-356-1.png" width="672" style="display: block; margin: auto;" /></p>
+<p><img src="Apostila_files/figure-html/unnamed-chunk-356-1.png" width="672" style="display: block; margin: auto;" /></p>
 <div class="sourceCode" id="cb667"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb667-1"><a href="mapas.html#cb667-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Censo 2017 - MT - Área</span></span>
 <span id="cb667-2"><a href="mapas.html#cb667-2" aria-hidden="true" tabindex="-1"></a>dados_mapa_muni <span class="sc">%&gt;%</span> </span>
 <span id="cb667-3"><a href="mapas.html#cb667-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(var <span class="sc">==</span> <span class="st">&quot;area_estab_100mil_ha&quot;</span>) <span class="sc">%&gt;%</span></span>
@@ -2213,7 +2212,7 @@ $ geom         &lt;MULTIPOLYGON [°]&gt; MULTIPOLYGON (((-63.32721 -..., MULTIPO
 <span id="cb667-16"><a href="mapas.html#cb667-16" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme</span>(<span class="at">plot.title =</span> <span class="fu">element_text</span>(<span class="at">size=</span> <span class="dv">13</span>, <span class="at">hjust =</span> <span class="fl">0.5</span>),</span>
 <span id="cb667-17"><a href="mapas.html#cb667-17" aria-hidden="true" tabindex="-1"></a>        <span class="at">plot.subtitle =</span> <span class="fu">element_text</span>(<span class="at">size=</span> <span class="dv">10</span>, <span class="at">hjust =</span> <span class="fl">0.5</span>),</span>
 <span id="cb667-18"><a href="mapas.html#cb667-18" aria-hidden="true" tabindex="-1"></a>        <span class="at">plot.caption =</span> <span class="fu">element_text</span>(<span class="at">size=</span><span class="dv">9</span>, <span class="at">hjust =</span> <span class="fl">0.5</span>))</span></code></pre></div>
-<p><img src="_main_files/figure-html/unnamed-chunk-357-1.png" width="672" style="display: block; margin: auto;" /></p>
+<p><img src="Apostila_files/figure-html/unnamed-chunk-357-1.png" width="672" style="display: block; margin: auto;" /></p>
 <div class="sourceCode" id="cb668"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb668-1"><a href="mapas.html#cb668-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Nº estabelecimentos e área</span></span>
 <span id="cb668-2"><a href="mapas.html#cb668-2" aria-hidden="true" tabindex="-1"></a>dados_mapa_muni <span class="sc">%&gt;%</span> </span>
 <span id="cb668-3"><a href="mapas.html#cb668-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ggplot</span>()<span class="sc">+</span></span>
@@ -2236,13 +2235,13 @@ $ geom         &lt;MULTIPOLYGON [°]&gt; MULTIPOLYGON (((-63.32721 -..., MULTIPO
 <span id="cb668-20"><a href="mapas.html#cb668-20" aria-hidden="true" tabindex="-1"></a>        <span class="at">plot.subtitle =</span> <span class="fu">element_text</span>(<span class="at">size=</span> <span class="dv">10</span>, <span class="at">hjust =</span> <span class="fl">0.5</span>, <span class="at">vjust =</span> <span class="dv">2</span>),</span>
 <span id="cb668-21"><a href="mapas.html#cb668-21" aria-hidden="true" tabindex="-1"></a>        <span class="at">plot.caption =</span> <span class="fu">element_text</span>(<span class="at">size=</span><span class="dv">9</span>, <span class="at">hjust =</span> <span class="fl">0.5</span>, <span class="at">vjust =</span> <span class="sc">-</span><span class="dv">2</span>),</span>
 <span id="cb668-22"><a href="mapas.html#cb668-22" aria-hidden="true" tabindex="-1"></a>        <span class="at">legend.position =</span> <span class="fu">c</span>(<span class="fl">0.52</span>, <span class="fl">0.06</span>))</span></code></pre></div>
-<p><img src="_main_files/figure-html/unnamed-chunk-358-1.png" width="672" style="display: block; margin: auto;" /></p>
+<p><img src="Apostila_files/figure-html/unnamed-chunk-358-1.png" width="672" style="display: block; margin: auto;" /></p>
 <p><br></p>
 </div>
 </div>
 </div>
-<div id="biomas" class="section level2" number="8.12">
-<h2><span class="header-section-number">8.12</span> Biomas</h2>
+<div id="biomas" class="section level2 hasAnchor" number="8.12">
+<h2><span class="header-section-number">8.12</span> Biomas<a href="mapas.html#biomas" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <p>O pacote <code>geobr</code> também possui uma base de dados para os biomas e a zona costeira do Brasil, baseado nos dados originais do <a href="https://www.ibge.gov.br/apps/biomas/#/home">IBGE - Biomas e Sistema Costeiro-Marinho</a>. Para tanto, utilizamos a função <code>read_biomes()</code>.</p>
 <div class="sourceCode" id="cb669"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb669-1"><a href="mapas.html#cb669-1" aria-hidden="true" tabindex="-1"></a><span class="fu">read_biomes</span>(<span class="at">showProgress =</span> F) <span class="sc">%&gt;%</span> </span>
 <span id="cb669-2"><a href="mapas.html#cb669-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ggplot</span>()<span class="sc">+</span></span>
@@ -2250,7 +2249,7 @@ $ geom         &lt;MULTIPOLYGON [°]&gt; MULTIPOLYGON (((-63.32721 -..., MULTIPO
 <span id="cb669-4"><a href="mapas.html#cb669-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scale_fill_brewer</span>(<span class="at">palette =</span> <span class="st">&quot;Pastel1&quot;</span>)<span class="sc">+</span></span>
 <span id="cb669-5"><a href="mapas.html#cb669-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_bw</span>()<span class="sc">+</span></span>
 <span id="cb669-6"><a href="mapas.html#cb669-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(<span class="at">fill =</span> <span class="st">&quot;Biomas&quot;</span>)</span></code></pre></div>
-<p><img src="_main_files/figure-html/unnamed-chunk-359-1.png" width="672" style="display: block; margin: auto;" /></p>
+<p><img src="Apostila_files/figure-html/unnamed-chunk-359-1.png" width="672" style="display: block; margin: auto;" /></p>
 <div class="sourceCode" id="cb670"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb670-1"><a href="mapas.html#cb670-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Selecionando um bioma - Cerrado</span></span>
 <span id="cb670-2"><a href="mapas.html#cb670-2" aria-hidden="true" tabindex="-1"></a><span class="fu">read_biomes</span>(<span class="at">showProgress =</span> F) <span class="sc">%&gt;%</span> </span>
 <span id="cb670-3"><a href="mapas.html#cb670-3" aria-hidden="true" tabindex="-1"></a>  dplyr<span class="sc">::</span><span class="fu">filter</span>(name_biome <span class="sc">==</span> <span class="st">&quot;Cerrado&quot;</span>) <span class="sc">%&gt;%</span> </span>
@@ -2259,7 +2258,7 @@ $ geom         &lt;MULTIPOLYGON [°]&gt; MULTIPOLYGON (((-63.32721 -..., MULTIPO
 <span id="cb670-6"><a href="mapas.html#cb670-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scale_fill_brewer</span>(<span class="at">palette =</span> <span class="st">&quot;Pastel1&quot;</span>)<span class="sc">+</span></span>
 <span id="cb670-7"><a href="mapas.html#cb670-7" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_bw</span>()<span class="sc">+</span></span>
 <span id="cb670-8"><a href="mapas.html#cb670-8" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(<span class="at">fill =</span> <span class="st">&quot;&quot;</span>)</span></code></pre></div>
-<p><img src="_main_files/figure-html/unnamed-chunk-360-1.png" width="672" style="display: block; margin: auto;" /></p>
+<p><img src="Apostila_files/figure-html/unnamed-chunk-360-1.png" width="672" style="display: block; margin: auto;" /></p>
 <div class="sourceCode" id="cb671"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb671-1"><a href="mapas.html#cb671-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Adicionando um bioma ao mapa do Brasil - Sistema Costeiro</span></span>
 <span id="cb671-2"><a href="mapas.html#cb671-2" aria-hidden="true" tabindex="-1"></a>brasil <span class="ot">&lt;-</span> <span class="fu">read_country</span>(<span class="at">showProgress =</span> F)</span>
 <span id="cb671-3"><a href="mapas.html#cb671-3" aria-hidden="true" tabindex="-1"></a></span>
@@ -2271,7 +2270,7 @@ $ geom         &lt;MULTIPOLYGON [°]&gt; MULTIPOLYGON (((-63.32721 -..., MULTIPO
 <span id="cb671-9"><a href="mapas.html#cb671-9" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scale_fill_brewer</span>(<span class="at">palette =</span> <span class="st">&quot;Blues&quot;</span>)<span class="sc">+</span></span>
 <span id="cb671-10"><a href="mapas.html#cb671-10" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_bw</span>()<span class="sc">+</span></span>
 <span id="cb671-11"><a href="mapas.html#cb671-11" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(<span class="at">fill =</span> <span class="st">&quot;&quot;</span>)</span></code></pre></div>
-<p><img src="_main_files/figure-html/unnamed-chunk-361-1.png" width="672" style="display: block; margin: auto;" /></p>
+<p><img src="Apostila_files/figure-html/unnamed-chunk-361-1.png" width="672" style="display: block; margin: auto;" /></p>
 <p>No exemplo acima, a primeira geometria é correspondente ao mapa do país, sendo a outra, ao bioma costeiro. O exemplo a seguir segue a mesma lógica explicada, porém, agora, para mais de um tipo de bioma.</p>
 <div class="sourceCode" id="cb672"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb672-1"><a href="mapas.html#cb672-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Adicionando mais de um bioma ao mapa do Brasil</span></span>
 <span id="cb672-2"><a href="mapas.html#cb672-2" aria-hidden="true" tabindex="-1"></a>brasil <span class="ot">&lt;-</span> <span class="fu">read_country</span>(<span class="at">showProgress =</span> F)</span>
@@ -2284,7 +2283,7 @@ $ geom         &lt;MULTIPOLYGON [°]&gt; MULTIPOLYGON (((-63.32721 -..., MULTIPO
 <span id="cb672-9"><a href="mapas.html#cb672-9" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scale_fill_brewer</span>(<span class="at">palette =</span> <span class="st">&quot;Greens&quot;</span>)<span class="sc">+</span></span>
 <span id="cb672-10"><a href="mapas.html#cb672-10" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_bw</span>()<span class="sc">+</span></span>
 <span id="cb672-11"><a href="mapas.html#cb672-11" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(<span class="at">fill =</span> <span class="st">&quot;Biomas&quot;</span>)</span></code></pre></div>
-<p><img src="_main_files/figure-html/unnamed-chunk-362-1.png" width="672" style="display: block; margin: auto;" /></p>
+<p><img src="Apostila_files/figure-html/unnamed-chunk-362-1.png" width="672" style="display: block; margin: auto;" /></p>
 <div class="sourceCode" id="cb673"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb673-1"><a href="mapas.html#cb673-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Adicionando os biomas ao mapa do Brasil, dividido por estados</span></span>
 <span id="cb673-2"><a href="mapas.html#cb673-2" aria-hidden="true" tabindex="-1"></a>brasil <span class="ot">&lt;-</span> <span class="fu">read_country</span>(<span class="at">showProgress =</span> F)</span>
 <span id="cb673-3"><a href="mapas.html#cb673-3" aria-hidden="true" tabindex="-1"></a></span>
@@ -2302,19 +2301,19 @@ $ geom         &lt;MULTIPOLYGON [°]&gt; MULTIPOLYGON (((-63.32721 -..., MULTIPO
 <span id="cb673-15"><a href="mapas.html#cb673-15" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_bw</span>()<span class="sc">+</span></span>
 <span id="cb673-16"><a href="mapas.html#cb673-16" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_sf_text</span>(<span class="at">data =</span> estados, <span class="fu">aes</span>(<span class="at">label =</span> abbrev_state), <span class="at">size =</span> <span class="fl">1.7</span>)<span class="sc">+</span></span>
 <span id="cb673-17"><a href="mapas.html#cb673-17" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(<span class="at">fill =</span> <span class="st">&quot;Biomas&quot;</span>, <span class="at">x=</span><span class="st">&quot;&quot;</span>, <span class="at">y=</span><span class="st">&quot;&quot;</span>)</span></code></pre></div>
-<p><img src="_main_files/figure-html/unnamed-chunk-363-1.png" width="672" style="display: block; margin: auto;" /></p>
+<p><img src="Apostila_files/figure-html/unnamed-chunk-363-1.png" width="672" style="display: block; margin: auto;" /></p>
 <p>O exemplo acima juntou o mapa do país, dividido por estados, com o dos biomas. Para isso, tivemos que sobrepor os mapas para formar um único. Em cada um dos <code>geom_sf()</code>, declaramos - a partir do argumento <code>data =</code> - qual base de dados foi considerada.</p>
 <p>No caso da geometria referente aos biomas (<code>data = bioma</code>), preenchemos com os tipos de biomas (<code>fill = name_biome</code>) e retiramos as cores das bordas com o <code>color = 0</code>. Em seguida, sobrepomos ao mapa dos biomas o mapa dos estados (<code>data = estados</code>); uma vez que precisamos apenas das linhas que demarcam os estados, utilizamos o argumento <code>alpha = 0</code> para deixar o interior dos estados transparentes. Por fim, o <code>data = brasil</code> foi utilizado para realçar as bordas que delimitam o país, sendo necessário utilizar novamente o <code>alpha = 0</code> para manter apenas as bordas e deixar transparente o interior do mapa do Brasil.</p>
 <p><br></p>
 </div>
-<div id="amazônia-legal" class="section level2" number="8.13">
-<h2><span class="header-section-number">8.13</span> Amazônia Legal</h2>
+<div id="amazônia-legal" class="section level2 hasAnchor" number="8.13">
+<h2><span class="header-section-number">8.13</span> Amazônia Legal<a href="mapas.html#amazônia-legal" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <p>A função <code>read_amazon()</code> nos retorna a área da Amazônia Legal Brasileira, definida pela lei n.12.651/2012. Os presentes dados são do Ministério do Meio Ambiente (MMA) e podem ser acessados em: <a href="http://mapas.mma.gov.br/i3geo/datadownload.htm">http://mapas.mma.gov.br/i3geo/datadownload.htm</a>.</p>
 <div class="sourceCode" id="cb674"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb674-1"><a href="mapas.html#cb674-1" aria-hidden="true" tabindex="-1"></a><span class="fu">read_amazon</span>(<span class="at">showProgress =</span> F) <span class="sc">%&gt;%</span></span>
 <span id="cb674-2"><a href="mapas.html#cb674-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ggplot</span>()<span class="sc">+</span></span>
 <span id="cb674-3"><a href="mapas.html#cb674-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_sf</span>()<span class="sc">+</span></span>
 <span id="cb674-4"><a href="mapas.html#cb674-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_bw</span>()</span></code></pre></div>
-<p><img src="_main_files/figure-html/unnamed-chunk-364-1.png" width="672" style="display: block; margin: auto;" /></p>
+<p><img src="Apostila_files/figure-html/unnamed-chunk-364-1.png" width="672" style="display: block; margin: auto;" /></p>
 <div class="sourceCode" id="cb675"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb675-1"><a href="mapas.html#cb675-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Inserindo a área da Amazônia Legal Brasileira no mapa do Brasil, delimitado por estados</span></span>
 <span id="cb675-2"><a href="mapas.html#cb675-2" aria-hidden="true" tabindex="-1"></a>estados <span class="ot">&lt;-</span> <span class="fu">read_state</span>(<span class="at">code_state =</span> <span class="st">&quot;all&quot;</span>,</span>
 <span id="cb675-3"><a href="mapas.html#cb675-3" aria-hidden="true" tabindex="-1"></a>                      <span class="at">year =</span> <span class="dv">2019</span>,</span>
@@ -2327,18 +2326,18 @@ $ geom         &lt;MULTIPOLYGON [°]&gt; MULTIPOLYGON (((-63.32721 -..., MULTIPO
 <span id="cb675-10"><a href="mapas.html#cb675-10" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_sf_text</span>(<span class="at">data =</span> estados, <span class="fu">aes</span>(<span class="at">label =</span> abbrev_state), <span class="at">size =</span> <span class="fl">1.7</span>)<span class="sc">+</span></span>
 <span id="cb675-11"><a href="mapas.html#cb675-11" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_bw</span>()<span class="sc">+</span></span>
 <span id="cb675-12"><a href="mapas.html#cb675-12" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(<span class="at">x=</span><span class="st">&quot;&quot;</span>, <span class="at">y=</span><span class="st">&quot;&quot;</span>)</span></code></pre></div>
-<p><img src="_main_files/figure-html/unnamed-chunk-365-1.png" width="672" style="display: block; margin: auto;" /></p>
+<p><img src="Apostila_files/figure-html/unnamed-chunk-365-1.png" width="672" style="display: block; margin: auto;" /></p>
 <p><br></p>
 </div>
-<div id="semiárido" class="section level2" number="8.14">
-<h2><span class="header-section-number">8.14</span> Semiárido</h2>
+<div id="semiárido" class="section level2 hasAnchor" number="8.14">
+<h2><span class="header-section-number">8.14</span> Semiárido<a href="mapas.html#semiárido" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <p>A função <code>read_semiarid()</code> retorna os municípios que compunham o semiárido brasileiro nos anos de 2005 e 2017, baseado nos dados do <a href="https://www.ibge.gov.br/geociencias/cartas-e-mapas/mapas-regionais/15974-semiarido-brasileiro.html?=&amp;t=downloads">IBGE - Semiárido Brasileiro</a>.</p>
 <div class="sourceCode" id="cb676"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb676-1"><a href="mapas.html#cb676-1" aria-hidden="true" tabindex="-1"></a><span class="fu">read_semiarid</span>(<span class="at">year =</span> <span class="dv">2005</span>,</span>
 <span id="cb676-2"><a href="mapas.html#cb676-2" aria-hidden="true" tabindex="-1"></a>              <span class="at">showProgress =</span> F) <span class="sc">%&gt;%</span> </span>
 <span id="cb676-3"><a href="mapas.html#cb676-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ggplot</span>()<span class="sc">+</span></span>
 <span id="cb676-4"><a href="mapas.html#cb676-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_sf</span>()<span class="sc">+</span></span>
 <span id="cb676-5"><a href="mapas.html#cb676-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_bw</span>()</span></code></pre></div>
-<p><img src="_main_files/figure-html/unnamed-chunk-366-1.png" width="672" style="display: block; margin: auto;" /></p>
+<p><img src="Apostila_files/figure-html/unnamed-chunk-366-1.png" width="672" style="display: block; margin: auto;" /></p>
 <div class="sourceCode" id="cb677"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb677-1"><a href="mapas.html#cb677-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Inserindo os municípios do semiárido no mapa do Brasil, dividido por estados, no ano de 2017</span></span>
 <span id="cb677-2"><a href="mapas.html#cb677-2" aria-hidden="true" tabindex="-1"></a>estados <span class="ot">&lt;-</span> <span class="fu">read_state</span>(<span class="at">code_state =</span> <span class="st">&quot;all&quot;</span>,</span>
 <span id="cb677-3"><a href="mapas.html#cb677-3" aria-hidden="true" tabindex="-1"></a>                      <span class="at">year =</span> <span class="dv">2019</span>,</span>
@@ -2350,7 +2349,7 @@ $ geom         &lt;MULTIPOLYGON [°]&gt; MULTIPOLYGON (((-63.32721 -..., MULTIPO
 <span id="cb677-9"><a href="mapas.html#cb677-9" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_sf</span>(<span class="at">fill =</span> <span class="st">&quot;#F8766D&quot;</span>)<span class="sc">+</span></span>
 <span id="cb677-10"><a href="mapas.html#cb677-10" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_sf</span>(<span class="at">data =</span> estados, <span class="at">alpha =</span> <span class="dv">0</span>)<span class="sc">+</span></span>
 <span id="cb677-11"><a href="mapas.html#cb677-11" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_bw</span>()</span></code></pre></div>
-<p><img src="_main_files/figure-html/unnamed-chunk-367-1.png" width="672" style="display: block; margin: auto;" /></p>
+<p><img src="Apostila_files/figure-html/unnamed-chunk-367-1.png" width="672" style="display: block; margin: auto;" /></p>
 <p>No exemplo acima, podemos retirar as linhas dos municípios e colocar apenas a mancha dos municípios do semiário no mapa do Brasil, inserindo o argumento <code>color = 0</code> dentro do primeiro <code>geom_sf()</code>, esse referente à geometria dos municípios do semiárido.</p>
 <div class="sourceCode" id="cb678"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb678-1"><a href="mapas.html#cb678-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Inserindo o semiárido no mapa do Brasil, dividido por estados, no ano de 2017</span></span>
 <span id="cb678-2"><a href="mapas.html#cb678-2" aria-hidden="true" tabindex="-1"></a>estados <span class="ot">&lt;-</span> <span class="fu">read_state</span>(<span class="at">code_state =</span> <span class="st">&quot;all&quot;</span>,</span>
@@ -2363,7 +2362,7 @@ $ geom         &lt;MULTIPOLYGON [°]&gt; MULTIPOLYGON (((-63.32721 -..., MULTIPO
 <span id="cb678-9"><a href="mapas.html#cb678-9" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_sf</span>(<span class="at">fill =</span> <span class="st">&quot;#F8766D&quot;</span>, <span class="at">color =</span> <span class="dv">0</span>)<span class="sc">+</span></span>
 <span id="cb678-10"><a href="mapas.html#cb678-10" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_sf</span>(<span class="at">data =</span> estados, <span class="at">alpha =</span> <span class="dv">0</span>)<span class="sc">+</span></span>
 <span id="cb678-11"><a href="mapas.html#cb678-11" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_bw</span>()</span></code></pre></div>
-<p><img src="_main_files/figure-html/unnamed-chunk-368-1.png" width="672" style="display: block; margin: auto;" /></p>
+<p><img src="Apostila_files/figure-html/unnamed-chunk-368-1.png" width="672" style="display: block; margin: auto;" /></p>
 <div class="sourceCode" id="cb679"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb679-1"><a href="mapas.html#cb679-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Comparando o semiárido entre 2005 e 2017</span></span>
 <span id="cb679-2"><a href="mapas.html#cb679-2" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb679-3"><a href="mapas.html#cb679-3" aria-hidden="true" tabindex="-1"></a>estados <span class="ot">&lt;-</span> <span class="fu">read_state</span>(<span class="at">code_state =</span> <span class="st">&quot;all&quot;</span>,</span>
@@ -2396,7 +2395,7 @@ $ geom         &lt;MULTIPOLYGON [°]&gt; MULTIPOLYGON (((-63.32721 -..., MULTIPO
 <span id="cb680-11"><a href="mapas.html#cb680-11" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(<span class="at">title =</span> <span class="st">&quot;2017&quot;</span>)</span>
 <span id="cb680-12"><a href="mapas.html#cb680-12" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb680-13"><a href="mapas.html#cb680-13" aria-hidden="true" tabindex="-1"></a>semiarido_17</span></code></pre></div>
-<p><img src="_main_files/figure-html/unnamed-chunk-370-1.png" width="672" style="display: block; margin: auto;" /></p>
+<p><img src="Apostila_files/figure-html/unnamed-chunk-370-1.png" width="672" style="display: block; margin: auto;" /></p>
 <div class="sourceCode" id="cb681"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb681-1"><a href="mapas.html#cb681-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Fazendo um mapa com somente os estados do semiárido</span></span>
 <span id="cb681-2"><a href="mapas.html#cb681-2" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb681-3"><a href="mapas.html#cb681-3" aria-hidden="true" tabindex="-1"></a><span class="do">## Semiárido em 2005</span></span>
@@ -2441,11 +2440,11 @@ $ geom         &lt;MULTIPOLYGON [°]&gt; MULTIPOLYGON (((-63.32721 -..., MULTIPO
 <span id="cb682-19"><a href="mapas.html#cb682-19" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_sf_text</span>(<span class="fu">aes</span>(<span class="at">label =</span> abbrev_state), <span class="at">size =</span> <span class="fl">2.3</span>)</span>
 <span id="cb682-20"><a href="mapas.html#cb682-20" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb682-21"><a href="mapas.html#cb682-21" aria-hidden="true" tabindex="-1"></a>estados_semiarido_17</span></code></pre></div>
-<p><img src="_main_files/figure-html/unnamed-chunk-372-1.png" width="672" style="display: block; margin: auto;" /></p>
+<p><img src="Apostila_files/figure-html/unnamed-chunk-372-1.png" width="672" style="display: block; margin: auto;" /></p>
 <p><br></p>
 </div>
-<div id="áreas-de-conservação" class="section level2" number="8.15">
-<h2><span class="header-section-number">8.15</span> Áreas de conservação</h2>
+<div id="áreas-de-conservação" class="section level2 hasAnchor" number="8.15">
+<h2><span class="header-section-number">8.15</span> Áreas de conservação<a href="mapas.html#áreas-de-conservação" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <p>Para trabalharmos com as áreas de conservação do Brasil, utilizamos a função <code>read_conservation_units()</code>. A última atualização foi feita em setembro de 2019, sendo baseada nos dados do Ministério do Meio Ambiente (MMA), podendo ser acessados em: <a href="http://mapas.mma.gov.br/i3geo/datadownload.htm">http://mapas.mma.gov.br/i3geo/datadownload.htm</a>.</p>
 <div class="sourceCode" id="cb683"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb683-1"><a href="mapas.html#cb683-1" aria-hidden="true" tabindex="-1"></a>areas_conservacao <span class="ot">&lt;-</span> <span class="fu">read_conservation_units</span>(<span class="at">date =</span> <span class="dv">201909</span>,</span>
 <span id="cb683-2"><a href="mapas.html#cb683-2" aria-hidden="true" tabindex="-1"></a>                                             <span class="at">showProgress =</span> F)</span>
@@ -2464,7 +2463,7 @@ $ geom         &lt;MULTIPOLYGON [°]&gt; MULTIPOLYGON (((-63.32721 -..., MULTIPO
 <span id="cb687-3"><a href="mapas.html#cb687-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ggplot</span>()<span class="sc">+</span></span>
 <span id="cb687-4"><a href="mapas.html#cb687-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_sf</span>()<span class="sc">+</span></span>
 <span id="cb687-5"><a href="mapas.html#cb687-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_bw</span>()</span></code></pre></div>
-<p><img src="_main_files/figure-html/unnamed-chunk-374-1.png" width="672" style="display: block; margin: auto;" /></p>
+<p><img src="Apostila_files/figure-html/unnamed-chunk-374-1.png" width="672" style="display: block; margin: auto;" /></p>
 <div class="sourceCode" id="cb688"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb688-1"><a href="mapas.html#cb688-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Áreas de conservação no mapa do Brasil</span></span>
 <span id="cb688-2"><a href="mapas.html#cb688-2" aria-hidden="true" tabindex="-1"></a>estados <span class="ot">&lt;-</span> <span class="fu">read_state</span>(<span class="at">code_state =</span> <span class="st">&quot;all&quot;</span>,</span>
 <span id="cb688-3"><a href="mapas.html#cb688-3" aria-hidden="true" tabindex="-1"></a>                      <span class="at">year =</span> <span class="dv">2019</span>,</span>
@@ -2476,18 +2475,18 @@ $ geom         &lt;MULTIPOLYGON [°]&gt; MULTIPOLYGON (((-63.32721 -..., MULTIPO
 <span id="cb688-9"><a href="mapas.html#cb688-9" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_sf</span>(<span class="at">fill =</span> <span class="st">&quot;lightgreen&quot;</span>)<span class="sc">+</span></span>
 <span id="cb688-10"><a href="mapas.html#cb688-10" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_sf</span>(<span class="at">data =</span> estados, <span class="at">alpha =</span> <span class="dv">0</span>)<span class="sc">+</span></span>
 <span id="cb688-11"><a href="mapas.html#cb688-11" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_bw</span>()</span></code></pre></div>
-<p><img src="_main_files/figure-html/unnamed-chunk-375-1.png" width="672" style="display: block; margin: auto;" /></p>
+<p><img src="Apostila_files/figure-html/unnamed-chunk-375-1.png" width="672" style="display: block; margin: auto;" /></p>
 <p><br></p>
 </div>
-<div id="terras-indígenas" class="section level2" number="8.16">
-<h2><span class="header-section-number">8.16</span> Terras indígenas</h2>
+<div id="terras-indígenas" class="section level2 hasAnchor" number="8.16">
+<h2><span class="header-section-number">8.16</span> Terras indígenas<a href="mapas.html#terras-indígenas" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <p>Para trabalharmos com áreas de terras indígenas, utilizamos a função <code>read_indigenous_land()</code>. O respectivo conjunto de dados abrange todas as terras indígenas, de todas as etnias e em diferentes estágios de demarcação. Os dados são de setembro de 2019 e março de 2021, oriundos da <a href="https://www.gov.br/funai/pt-br">Fundação Nacional do Índio (FUNAI)</a>.</p>
 <div class="sourceCode" id="cb689"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb689-1"><a href="mapas.html#cb689-1" aria-hidden="true" tabindex="-1"></a><span class="fu">read_indigenous_land</span>(<span class="at">date =</span> <span class="dv">201907</span>,</span>
 <span id="cb689-2"><a href="mapas.html#cb689-2" aria-hidden="true" tabindex="-1"></a>                     <span class="at">showProgress =</span> F) <span class="sc">%&gt;%</span> </span>
 <span id="cb689-3"><a href="mapas.html#cb689-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ggplot</span>()<span class="sc">+</span></span>
 <span id="cb689-4"><a href="mapas.html#cb689-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_sf</span>()<span class="sc">+</span></span>
 <span id="cb689-5"><a href="mapas.html#cb689-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_bw</span>()</span></code></pre></div>
-<p><img src="_main_files/figure-html/unnamed-chunk-376-1.png" width="672" style="display: block; margin: auto;" /></p>
+<p><img src="Apostila_files/figure-html/unnamed-chunk-376-1.png" width="672" style="display: block; margin: auto;" /></p>
 <div class="sourceCode" id="cb690"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb690-1"><a href="mapas.html#cb690-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Áreas de terras indígenas no mapa do Brasil, dividido por estados</span></span>
 <span id="cb690-2"><a href="mapas.html#cb690-2" aria-hidden="true" tabindex="-1"></a>estados <span class="ot">&lt;-</span> <span class="fu">read_state</span>(<span class="at">code_state =</span> <span class="st">&quot;all&quot;</span>,</span>
 <span id="cb690-3"><a href="mapas.html#cb690-3" aria-hidden="true" tabindex="-1"></a>                      <span class="at">year =</span> <span class="dv">2019</span>,</span>
@@ -2500,7 +2499,7 @@ $ geom         &lt;MULTIPOLYGON [°]&gt; MULTIPOLYGON (((-63.32721 -..., MULTIPO
 <span id="cb690-10"><a href="mapas.html#cb690-10" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_sf</span>(<span class="at">fill =</span> <span class="st">&quot;#ED8141&quot;</span>)<span class="sc">+</span></span>
 <span id="cb690-11"><a href="mapas.html#cb690-11" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_sf</span>(<span class="at">data =</span> estados, <span class="at">alpha =</span> <span class="dv">0</span>)<span class="sc">+</span></span>
 <span id="cb690-12"><a href="mapas.html#cb690-12" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_bw</span>()</span></code></pre></div>
-<p><img src="_main_files/figure-html/unnamed-chunk-377-1.png" width="672" style="display: block; margin: auto;" /></p>
+<p><img src="Apostila_files/figure-html/unnamed-chunk-377-1.png" width="672" style="display: block; margin: auto;" /></p>
 <div class="sourceCode" id="cb691"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb691-1"><a href="mapas.html#cb691-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Selecionando terras indígenas de um estado - Acre</span></span>
 <span id="cb691-2"><a href="mapas.html#cb691-2" aria-hidden="true" tabindex="-1"></a>acre <span class="ot">&lt;-</span> <span class="fu">read_municipality</span>(<span class="at">code_muni =</span> <span class="st">&quot;all&quot;</span>,</span>
 <span id="cb691-3"><a href="mapas.html#cb691-3" aria-hidden="true" tabindex="-1"></a>                          <span class="at">year =</span> <span class="dv">2019</span>,</span>
@@ -2514,7 +2513,7 @@ $ geom         &lt;MULTIPOLYGON [°]&gt; MULTIPOLYGON (((-63.32721 -..., MULTIPO
 <span id="cb691-11"><a href="mapas.html#cb691-11" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_sf</span>(<span class="at">data =</span> acre)<span class="sc">+</span></span>
 <span id="cb691-12"><a href="mapas.html#cb691-12" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_sf</span>(<span class="at">fill =</span> <span class="st">&quot;#ED8141&quot;</span>)<span class="sc">+</span></span>
 <span id="cb691-13"><a href="mapas.html#cb691-13" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_bw</span>()</span></code></pre></div>
-<p><img src="_main_files/figure-html/unnamed-chunk-378-1.png" width="672" style="display: block; margin: auto;" /></p>
+<p><img src="Apostila_files/figure-html/unnamed-chunk-378-1.png" width="672" style="display: block; margin: auto;" /></p>
 <div class="sourceCode" id="cb692"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb692-1"><a href="mapas.html#cb692-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Separando as terras indígenas por etnia</span></span>
 <span id="cb692-2"><a href="mapas.html#cb692-2" aria-hidden="true" tabindex="-1"></a>acre <span class="ot">&lt;-</span> <span class="fu">read_municipality</span>(<span class="at">code_muni =</span> <span class="st">&quot;all&quot;</span>,</span>
 <span id="cb692-3"><a href="mapas.html#cb692-3" aria-hidden="true" tabindex="-1"></a>                          <span class="at">year =</span> <span class="dv">2019</span>,</span>
@@ -2529,7 +2528,7 @@ $ geom         &lt;MULTIPOLYGON [°]&gt; MULTIPOLYGON (((-63.32721 -..., MULTIPO
 <span id="cb692-12"><a href="mapas.html#cb692-12" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_sf</span>(<span class="fu">aes</span>(<span class="at">fill =</span> etnia_nome))<span class="sc">+</span></span>
 <span id="cb692-13"><a href="mapas.html#cb692-13" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_bw</span>()<span class="sc">+</span></span>
 <span id="cb692-14"><a href="mapas.html#cb692-14" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(<span class="at">fill =</span> <span class="st">&quot;Etnia&quot;</span>)</span></code></pre></div>
-<p><img src="_main_files/figure-html/unnamed-chunk-379-1.png" width="672" style="display: block; margin: auto;" /></p>
+<p><img src="Apostila_files/figure-html/unnamed-chunk-379-1.png" width="672" style="display: block; margin: auto;" /></p>
 <div class="sourceCode" id="cb693"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb693-1"><a href="mapas.html#cb693-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Separando as terras indígenas por estágio de demarcação - Amazonas</span></span>
 <span id="cb693-2"><a href="mapas.html#cb693-2" aria-hidden="true" tabindex="-1"></a>amazonia <span class="ot">&lt;-</span> <span class="fu">read_municipality</span>(<span class="at">code_muni =</span> <span class="st">&quot;all&quot;</span>,</span>
 <span id="cb693-3"><a href="mapas.html#cb693-3" aria-hidden="true" tabindex="-1"></a>                              <span class="at">year =</span> <span class="dv">2019</span>,</span>
@@ -2544,11 +2543,11 @@ $ geom         &lt;MULTIPOLYGON [°]&gt; MULTIPOLYGON (((-63.32721 -..., MULTIPO
 <span id="cb693-12"><a href="mapas.html#cb693-12" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_sf</span>(<span class="fu">aes</span>(<span class="at">fill =</span> fase_ti))<span class="sc">+</span></span>
 <span id="cb693-13"><a href="mapas.html#cb693-13" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_bw</span>()<span class="sc">+</span></span>
 <span id="cb693-14"><a href="mapas.html#cb693-14" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(<span class="at">fill =</span> <span class="st">&quot;Estágio de</span><span class="sc">\n</span><span class="st">demarcação&quot;</span>)</span></code></pre></div>
-<p><img src="_main_files/figure-html/unnamed-chunk-380-1.png" width="672" style="display: block; margin: auto;" /></p>
+<p><img src="Apostila_files/figure-html/unnamed-chunk-380-1.png" width="672" style="display: block; margin: auto;" /></p>
 <p><br></p>
 </div>
-<div id="áreas-de-risco-de-desastres-naturais" class="section level2" number="8.17">
-<h2><span class="header-section-number">8.17</span> Áreas de risco de desastres naturais</h2>
+<div id="áreas-de-risco-de-desastres-naturais" class="section level2 hasAnchor" number="8.17">
+<h2><span class="header-section-number">8.17</span> Áreas de risco de desastres naturais<a href="mapas.html#áreas-de-risco-de-desastres-naturais" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <p>A função <code>read_disaster_risk_area()</code> retorna dados oficiais de áreas de risco de desastres naturais no Brasil, para o ano de 2010, baseado na metodologia do <a href="https://www.ibge.gov.br/geociencias/organizacao-do-territorio/tipologias-do-territorio/21538-populacao-em-areas-de-risco-no-brasil.html">IBGE e CEMADEN</a>. As informações se concentram em desastres geodinâmicos e hidrometeorológicos capazes de desencadear deslizamentos de terra e inundações.</p>
 <p>Cada polígono de área de risco (conhecido como “BATER”) possui um código de identificação (coluna <code>geo_bater</code>). O conjunto de dados traz informações sobre o quanto os polígonos das áreas de risco se sobrepõem aos setores censitários e faces do bloco (coluna <code>acuracia</code>) e número de áreas dentro de cada área de risco (coluna <code>num</code>).</p>
 <div class="sourceCode" id="cb694"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb694-1"><a href="mapas.html#cb694-1" aria-hidden="true" tabindex="-1"></a><span class="fu">read_disaster_risk_area</span>(<span class="at">year =</span> <span class="dv">2010</span>,</span>
@@ -2556,7 +2555,7 @@ $ geom         &lt;MULTIPOLYGON [°]&gt; MULTIPOLYGON (((-63.32721 -..., MULTIPO
 <span id="cb694-3"><a href="mapas.html#cb694-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ggplot</span>()<span class="sc">+</span></span>
 <span id="cb694-4"><a href="mapas.html#cb694-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_sf</span>()<span class="sc">+</span></span>
 <span id="cb694-5"><a href="mapas.html#cb694-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_bw</span>()</span></code></pre></div>
-<p><img src="_main_files/figure-html/unnamed-chunk-381-1.png" width="672" style="display: block; margin: auto;" /></p>
+<p><img src="Apostila_files/figure-html/unnamed-chunk-381-1.png" width="672" style="display: block; margin: auto;" /></p>
 <div class="sourceCode" id="cb695"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb695-1"><a href="mapas.html#cb695-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Áreas de risco no mapa do Brasil, dividido por estados</span></span>
 <span id="cb695-2"><a href="mapas.html#cb695-2" aria-hidden="true" tabindex="-1"></a>estados <span class="ot">&lt;-</span> <span class="fu">read_state</span>(<span class="at">code_state =</span> <span class="st">&quot;all&quot;</span>,</span>
 <span id="cb695-3"><a href="mapas.html#cb695-3" aria-hidden="true" tabindex="-1"></a>                      <span class="at">year =</span> <span class="dv">2019</span>,</span>
@@ -2568,7 +2567,7 @@ $ geom         &lt;MULTIPOLYGON [°]&gt; MULTIPOLYGON (((-63.32721 -..., MULTIPO
 <span id="cb695-9"><a href="mapas.html#cb695-9" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_sf</span>(<span class="at">data =</span> estados, <span class="at">fill =</span> <span class="st">&quot;white&quot;</span>)<span class="sc">+</span></span>
 <span id="cb695-10"><a href="mapas.html#cb695-10" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_sf</span>(<span class="at">fill =</span> <span class="st">&quot;#2D3E50&quot;</span>, <span class="at">color =</span> <span class="st">&quot;#FEBF57&quot;</span>, <span class="at">size =</span> .<span class="dv">15</span>)<span class="sc">+</span></span>
 <span id="cb695-11"><a href="mapas.html#cb695-11" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_bw</span>()</span></code></pre></div>
-<p><img src="_main_files/figure-html/unnamed-chunk-382-1.png" width="672" style="display: block; margin: auto;" /></p>
+<p><img src="Apostila_files/figure-html/unnamed-chunk-382-1.png" width="672" style="display: block; margin: auto;" /></p>
 <div class="sourceCode" id="cb696"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb696-1"><a href="mapas.html#cb696-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Áreas de risco no estado do RJ</span></span>
 <span id="cb696-2"><a href="mapas.html#cb696-2" aria-hidden="true" tabindex="-1"></a>rj <span class="ot">&lt;-</span> <span class="fu">read_state</span>(<span class="at">code_state =</span> <span class="st">&quot;RJ&quot;</span>,</span>
 <span id="cb696-3"><a href="mapas.html#cb696-3" aria-hidden="true" tabindex="-1"></a>                 <span class="at">year =</span> <span class="dv">2019</span>,</span>
@@ -2583,7 +2582,7 @@ $ geom         &lt;MULTIPOLYGON [°]&gt; MULTIPOLYGON (((-63.32721 -..., MULTIPO
 <span id="cb696-12"><a href="mapas.html#cb696-12" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_bw</span>()</span></code></pre></div>
 <pre><code>Using year 2019</code></pre>
 <pre><code>Using year 2010</code></pre>
-<p><img src="_main_files/figure-html/unnamed-chunk-384-1.png" width="672" style="display: block; margin: auto;" /></p>
+<p><img src="Apostila_files/figure-html/unnamed-chunk-384-1.png" width="672" style="display: block; margin: auto;" /></p>
 <div class="sourceCode" id="cb699"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb699-1"><a href="mapas.html#cb699-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Áreas de risco no município de Petrópolis/RJ</span></span>
 <span id="cb699-2"><a href="mapas.html#cb699-2" aria-hidden="true" tabindex="-1"></a><span class="fu">lookup_muni</span>(<span class="at">name_muni =</span> <span class="st">&quot;Petrópolis&quot;</span>)</span></code></pre></div>
 <pre><code>     code_muni  name_muni code_state     name_state abbrev_state code_micro
@@ -2602,11 +2601,11 @@ $ geom         &lt;MULTIPOLYGON [°]&gt; MULTIPOLYGON (((-63.32721 -..., MULTIPO
 <span id="cb701-8"><a href="mapas.html#cb701-8" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_sf</span>(<span class="at">data =</span> petropolis, <span class="at">alpha =</span> <span class="dv">0</span>)<span class="sc">+</span></span>
 <span id="cb701-9"><a href="mapas.html#cb701-9" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_sf</span>(<span class="at">fill =</span> <span class="st">&quot;#2D3E50&quot;</span>, <span class="at">color =</span> <span class="st">&quot;#FEBF57&quot;</span>, <span class="at">size =</span> .<span class="dv">15</span>)<span class="sc">+</span></span>
 <span id="cb701-10"><a href="mapas.html#cb701-10" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_bw</span>()</span></code></pre></div>
-<p><img src="_main_files/figure-html/unnamed-chunk-385-1.png" width="672" style="display: block; margin: auto;" /></p>
+<p><img src="Apostila_files/figure-html/unnamed-chunk-385-1.png" width="672" style="display: block; margin: auto;" /></p>
 <p><br></p>
 </div>
-<div id="estabelecimentos-de-saúde" class="section level2" number="8.18">
-<h2><span class="header-section-number">8.18</span> Estabelecimentos de saúde</h2>
+<div id="estabelecimentos-de-saúde" class="section level2 hasAnchor" number="8.18">
+<h2><span class="header-section-number">8.18</span> Estabelecimentos de saúde<a href="mapas.html#estabelecimentos-de-saúde" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <p>A função <code>read_health_facilities()</code> nos retorna os estabelecimentos de saúde presentes nos municípios brasileiros. Os dados são provenientes do Cadastro Nacional de Estabelecimentos de Saúde (CNES), originalmente coletados pelo Ministério da Saúde do Brasil.</p>
 <p>Segundo o Ministério da Saúde, as coordenadas de cada unidade foram obtidas pelo CNES e validadas por meio de operações espaciais. Essas operações verificam se o ponto está no município, considerando um raio de 5.000 metros. Quando a coordenada não está correta, outras buscas são feitas em outros sistemas do Ministério da Saúde, como o <em>DataSUS</em>, e em serviços web, como o <em>Google Maps</em>. Por fim, se as coordenadas foram obtidas corretamente neste processo, são utilizadas as coordenadas da sede municipal.</p>
 <p>A fonte do geocódigo utilizada está presente na coluna <code>data_source</code> do banco de dados. A data da última atualização dos dados é registrada nas colunas <code>date_update</code> e <code>year_update</code>. Além disso, cada estabelecimento de saúde apresenta um código de identificação, presente na coluna <code>code_cnes</code>.</p>
@@ -2617,7 +2616,7 @@ $ geom         &lt;MULTIPOLYGON [°]&gt; MULTIPOLYGON (((-63.32721 -..., MULTIPO
 <span id="cb702-4"><a href="mapas.html#cb702-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ggplot</span>()<span class="sc">+</span></span>
 <span id="cb702-5"><a href="mapas.html#cb702-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_sf</span>()<span class="sc">+</span></span>
 <span id="cb702-6"><a href="mapas.html#cb702-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_bw</span>()</span></code></pre></div>
-<p><img src="_main_files/figure-html/unnamed-chunk-386-1.png" width="672" style="display: block; margin: auto;" /></p>
+<p><img src="Apostila_files/figure-html/unnamed-chunk-386-1.png" width="672" style="display: block; margin: auto;" /></p>
 <div class="sourceCode" id="cb703"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb703-1"><a href="mapas.html#cb703-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Selecionando os estabelecimentos de saúde do município de Piracicaba/SP</span></span>
 <span id="cb703-2"><a href="mapas.html#cb703-2" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb703-3"><a href="mapas.html#cb703-3" aria-hidden="true" tabindex="-1"></a><span class="fu">lookup_muni</span>(<span class="at">name_muni =</span> <span class="st">&quot;Piracicaba&quot;</span>)</span></code></pre></div>
@@ -2641,12 +2640,12 @@ $ geom         &lt;MULTIPOLYGON [°]&gt; MULTIPOLYGON (((-63.32721 -..., MULTIPO
 <span id="cb705-12"><a href="mapas.html#cb705-12" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_sf</span>(<span class="at">data =</span> piracicaba)<span class="sc">+</span></span>
 <span id="cb705-13"><a href="mapas.html#cb705-13" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_sf</span>(<span class="at">data =</span> pira_estab_saude)<span class="sc">+</span></span>
 <span id="cb705-14"><a href="mapas.html#cb705-14" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_bw</span>()</span></code></pre></div>
-<p><img src="_main_files/figure-html/unnamed-chunk-387-1.png" width="672" style="display: block; margin: auto;" /></p>
+<p><img src="Apostila_files/figure-html/unnamed-chunk-387-1.png" width="672" style="display: block; margin: auto;" /></p>
 <p>Vale destacar que na função <code>read_health_facilities()</code>, os códigos de identificação dos municípios (<code>code_muni</code>) estão representados pelos 6 primeiros dígitos dos 7 dígitos que compõe o código original. Por tanto, quando utilizar os códigos do municípios na função <code>read_health_facilities()</code>, use apenas os 6 primeiros dígitos.</p>
 <p><br></p>
 </div>
-<div id="regiões-de-saúde" class="section level2" number="8.19">
-<h2><span class="header-section-number">8.19</span> Regiões de saúde</h2>
+<div id="regiões-de-saúde" class="section level2 hasAnchor" number="8.19">
+<h2><span class="header-section-number">8.19</span> Regiões de saúde<a href="mapas.html#regiões-de-saúde" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <p>A função <code>read_health_region()</code> contém o banco de dados das regiões de saúde no Brasil para os anos de 1991, 1994, 1997, 2001, 2005 e 2013.</p>
 <p>Estes dados são utilizados para orientar o planejamento regional e estadual dos serviços de saúde. Dentro disso, temos as macrorregiões de saúde que, em particular, são utilizadas para orientar o planejamento dos serviços de saúde de alta complexidade, serviços estes que envolvem maior economia de escala e estão concentrados em poucos municípios, pois geralmente são mais intensivos em tecnologia, onerosos e enfrentam escassez de profissionais especializados. Uma macrorregião compreende uma ou mais regiões de saúde.</p>
 <div class="sourceCode" id="cb706"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb706-1"><a href="mapas.html#cb706-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Regiões de saúde</span></span>
@@ -2669,7 +2668,7 @@ $ geom         &lt;MULTIPOLYGON [°]&gt; MULTIPOLYGON (((-63.32721 -..., MULTIPO
 <span id="cb707-8"><a href="mapas.html#cb707-8" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(<span class="at">title =</span> <span class="st">&quot;Macrorregiões de saúde&quot;</span>)</span>
 <span id="cb707-9"><a href="mapas.html#cb707-9" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb707-10"><a href="mapas.html#cb707-10" aria-hidden="true" tabindex="-1"></a>macroreg_saude</span></code></pre></div>
-<p><img src="_main_files/figure-html/unnamed-chunk-389-1.png" width="672" style="display: block; margin: auto;" /></p>
+<p><img src="Apostila_files/figure-html/unnamed-chunk-389-1.png" width="672" style="display: block; margin: auto;" /></p>
 <p>O argumento <code>macro =</code> da função <code>read_health_region()</code> aceita valores lógicos para representar as macrorregiões de saúde (<code>macro = TRUE</code>) ou representar apenas as regiões de saúde (<code>macro = FALSE</code>). Por padrão, caso não seja especificado o argumento, <code>macro = FALSE</code>.</p>
 <div class="sourceCode" id="cb708"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb708-1"><a href="mapas.html#cb708-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Selecionando as regiões e macrorregiões de saúde do estado de Goiás</span></span>
 <span id="cb708-2"><a href="mapas.html#cb708-2" aria-hidden="true" tabindex="-1"></a><span class="do">## Regiões de saúde</span></span>
@@ -2696,11 +2695,11 @@ $ geom         &lt;MULTIPOLYGON [°]&gt; MULTIPOLYGON (((-63.32721 -..., MULTIPO
 <span id="cb709-10"><a href="mapas.html#cb709-10" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_sf_text</span>(<span class="fu">aes</span>(<span class="at">label =</span> name_health_macroregion), <span class="at">size =</span> <span class="fl">1.8</span>)</span>
 <span id="cb709-11"><a href="mapas.html#cb709-11" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb709-12"><a href="mapas.html#cb709-12" aria-hidden="true" tabindex="-1"></a>GO_macroreg_saude</span></code></pre></div>
-<p><img src="_main_files/figure-html/unnamed-chunk-391-1.png" width="672" style="display: block; margin: auto;" /></p>
+<p><img src="Apostila_files/figure-html/unnamed-chunk-391-1.png" width="672" style="display: block; margin: auto;" /></p>
 <p><br></p>
 </div>
-<div id="escolas" class="section level2" number="8.20">
-<h2><span class="header-section-number">8.20</span> Escolas</h2>
+<div id="escolas" class="section level2 hasAnchor" number="8.20">
+<h2><span class="header-section-number">8.20</span> Escolas<a href="mapas.html#escolas" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <p>A função <code>read_schools()</code> contém os dados do Censo Escolar coletados pelo Instituto Nacional de Estudos e Pesquisas Educacionais Anísio Teixeira (INEP), para o ano de 2020. Para mais informações, acesse: <a href="https://www.gov.br/inep/pt-br/acesso-a-informacao/dados-abertos/inep-data/catalogo-de-escolas/">https://www.gov.br/inep/pt-br/acesso-a-informacao/dados-abertos/inep-data/catalogo-de-escolas/</a>.</p>
 <div class="sourceCode" id="cb710"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb710-1"><a href="mapas.html#cb710-1" aria-hidden="true" tabindex="-1"></a><span class="fu">read_schools</span>(<span class="at">year =</span> <span class="dv">2020</span>,</span>
 <span id="cb710-2"><a href="mapas.html#cb710-2" aria-hidden="true" tabindex="-1"></a>             <span class="at">showProgress =</span> F) <span class="sc">%&gt;%</span> <span class="fu">names</span>()</span></code></pre></div>
@@ -2720,7 +2719,7 @@ $ geom         &lt;MULTIPOLYGON [°]&gt; MULTIPOLYGON (((-63.32721 -..., MULTIPO
 <span id="cb712-3"><a href="mapas.html#cb712-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ggplot</span>()<span class="sc">+</span></span>
 <span id="cb712-4"><a href="mapas.html#cb712-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_sf</span>()<span class="sc">+</span></span>
 <span id="cb712-5"><a href="mapas.html#cb712-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_bw</span>()</span></code></pre></div>
-<p><img src="_main_files/figure-html/unnamed-chunk-393-1.png" width="672" style="display: block; margin: auto;" /></p>
+<p><img src="Apostila_files/figure-html/unnamed-chunk-393-1.png" width="672" style="display: block; margin: auto;" /></p>
 <div class="sourceCode" id="cb713"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb713-1"><a href="mapas.html#cb713-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Selecionando as escolas de Piracicaba/SP, categorizadas por tipo de administração</span></span>
 <span id="cb713-2"><a href="mapas.html#cb713-2" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb713-3"><a href="mapas.html#cb713-3" aria-hidden="true" tabindex="-1"></a>piracicaba <span class="ot">&lt;-</span> <span class="fu">read_municipality</span>(<span class="at">code_muni =</span> <span class="dv">3538709</span>,</span>
@@ -2735,11 +2734,11 @@ $ geom         &lt;MULTIPOLYGON [°]&gt; MULTIPOLYGON (((-63.32721 -..., MULTIPO
 <span id="cb713-12"><a href="mapas.html#cb713-12" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_sf</span>(<span class="fu">aes</span>(<span class="at">color =</span> government_level), <span class="at">size =</span> <span class="fl">1.2</span>)<span class="sc">+</span></span>
 <span id="cb713-13"><a href="mapas.html#cb713-13" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_bw</span>()<span class="sc">+</span></span>
 <span id="cb713-14"><a href="mapas.html#cb713-14" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(<span class="at">color =</span> <span class="st">&quot;Tipo administrativo&quot;</span>)</span></code></pre></div>
-<p><img src="_main_files/figure-html/unnamed-chunk-394-1.png" width="672" style="display: block; margin: auto;" /></p>
+<p><img src="Apostila_files/figure-html/unnamed-chunk-394-1.png" width="672" style="display: block; margin: auto;" /></p>
 <p><br></p>
 </div>
-<div id="áreas-de-concentração-de-população" class="section level2" number="8.21">
-<h2><span class="header-section-number">8.21</span> Áreas de Concentração de População</h2>
+<div id="áreas-de-concentração-de-população" class="section level2 hasAnchor" number="8.21">
+<h2><span class="header-section-number">8.21</span> Áreas de Concentração de População<a href="mapas.html#áreas-de-concentração-de-população" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <p>A função <code>read_urban_concentrations()</code> lê os dados oficiais das áreas de concentração urbana (Áreas de Concentração de População) do Brasil, que representa um município que se encaixa nessa classificação. Os dados originais foram gerados pelo IBGE, cuja metodologia detalhada pode ser acessada em: <a href="https://www.ibge.gov.br/apps/arranjos_populacionais/2015/pdf/publicacao.pdf">https://www.ibge.gov.br/apps/arranjos_populacionais/2015/pdf/publicacao.pdf</a>.</p>
 <div class="sourceCode" id="cb714"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb714-1"><a href="mapas.html#cb714-1" aria-hidden="true" tabindex="-1"></a><span class="fu">read_urban_concentrations</span>(<span class="at">year =</span> <span class="dv">2015</span>, <span class="at">showProgress =</span> F) <span class="sc">%&gt;%</span> <span class="fu">names</span>()</span></code></pre></div>
 <pre><code> [1] &quot;code_urban_concentration&quot; &quot;name_urban_concentration&quot;
@@ -2754,7 +2753,7 @@ $ geom         &lt;MULTIPOLYGON [°]&gt; MULTIPOLYGON (((-63.32721 -..., MULTIPO
 <span id="cb716-3"><a href="mapas.html#cb716-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ggplot</span>()<span class="sc">+</span></span>
 <span id="cb716-4"><a href="mapas.html#cb716-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_sf</span>()<span class="sc">+</span></span>
 <span id="cb716-5"><a href="mapas.html#cb716-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_bw</span>()</span></code></pre></div>
-<p><img src="_main_files/figure-html/unnamed-chunk-396-1.png" width="672" style="display: block; margin: auto;" /></p>
+<p><img src="Apostila_files/figure-html/unnamed-chunk-396-1.png" width="672" style="display: block; margin: auto;" /></p>
 <div class="sourceCode" id="cb717"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb717-1"><a href="mapas.html#cb717-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Inserindo as áreas de concentração urbana ao mapa do Brasil, dividido por estados</span></span>
 <span id="cb717-2"><a href="mapas.html#cb717-2" aria-hidden="true" tabindex="-1"></a>estados <span class="ot">&lt;-</span> <span class="fu">read_state</span>(<span class="at">code_state =</span> <span class="st">&quot;all&quot;</span>,</span>
 <span id="cb717-3"><a href="mapas.html#cb717-3" aria-hidden="true" tabindex="-1"></a>                      <span class="at">year =</span> <span class="dv">2019</span>,</span>
@@ -2767,7 +2766,7 @@ $ geom         &lt;MULTIPOLYGON [°]&gt; MULTIPOLYGON (((-63.32721 -..., MULTIPO
 <span id="cb717-10"><a href="mapas.html#cb717-10" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_sf</span>(<span class="at">data =</span> estados, <span class="at">alpha =</span> <span class="dv">0</span>)<span class="sc">+</span></span>
 <span id="cb717-11"><a href="mapas.html#cb717-11" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_sf</span>(<span class="at">fill =</span> <span class="st">&quot;orange&quot;</span>)<span class="sc">+</span></span>
 <span id="cb717-12"><a href="mapas.html#cb717-12" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_bw</span>()</span></code></pre></div>
-<p><img src="_main_files/figure-html/unnamed-chunk-397-1.png" width="672" style="display: block; margin: auto;" /></p>
+<p><img src="Apostila_files/figure-html/unnamed-chunk-397-1.png" width="672" style="display: block; margin: auto;" /></p>
 <div class="sourceCode" id="cb718"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb718-1"><a href="mapas.html#cb718-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Áreas de concentração urbana de São Paulo</span></span>
 <span id="cb718-2"><a href="mapas.html#cb718-2" aria-hidden="true" tabindex="-1"></a>municipios_sp <span class="ot">&lt;-</span> <span class="fu">read_municipality</span>(<span class="at">code_muni =</span> <span class="st">&quot;SP&quot;</span>,</span>
 <span id="cb718-3"><a href="mapas.html#cb718-3" aria-hidden="true" tabindex="-1"></a>                                   <span class="at">year =</span> <span class="dv">2010</span>,</span>
@@ -2782,7 +2781,7 @@ $ geom         &lt;MULTIPOLYGON [°]&gt; MULTIPOLYGON (((-63.32721 -..., MULTIPO
 <span id="cb718-12"><a href="mapas.html#cb718-12" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_bw</span>()</span></code></pre></div>
 <pre><code>Using year 2010</code></pre>
 <pre><code>Using year 2015</code></pre>
-<p><img src="_main_files/figure-html/unnamed-chunk-399-1.png" width="672" style="display: block; margin: auto;" /></p>
+<p><img src="Apostila_files/figure-html/unnamed-chunk-399-1.png" width="672" style="display: block; margin: auto;" /></p>
 <div class="sourceCode" id="cb721"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb721-1"><a href="mapas.html#cb721-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Mapa de calor com a população urbana das áreas de concentração urbana do Paraná</span></span>
 <span id="cb721-2"><a href="mapas.html#cb721-2" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb721-3"><a href="mapas.html#cb721-3" aria-hidden="true" tabindex="-1"></a>municipios_pr <span class="ot">&lt;-</span> <span class="fu">read_municipality</span>(<span class="at">code_muni =</span> <span class="st">&quot;PR&quot;</span>,</span>
@@ -2800,12 +2799,12 @@ $ geom         &lt;MULTIPOLYGON [°]&gt; MULTIPOLYGON (((-63.32721 -..., MULTIPO
 <span id="cb721-15"><a href="mapas.html#cb721-15" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(<span class="at">fill =</span> <span class="st">&quot;População urbana </span><span class="sc">\n</span><span class="st">Censo 2010&quot;</span>)</span></code></pre></div>
 <pre><code>Using year 2010</code></pre>
 <pre><code>Using year 2015</code></pre>
-<p><img src="_main_files/figure-html/unnamed-chunk-401-1.png" width="672" style="display: block; margin: auto;" /></p>
+<p><img src="Apostila_files/figure-html/unnamed-chunk-401-1.png" width="672" style="display: block; margin: auto;" /></p>
 <p>Para confeccionar um mapa de calor de acordo com a população urbana das áreas de concentração urbana do Paraná, definimos o número de habitantes urbanos (<code>pop_urban_2010</code>) como parâmetro do argumento <code>fill =</code>, dentro da <code>aes()</code> respectiva ao banco de dados das áreas de concentração urbana. Além disso, com a função <code>scale_fill_viridis_c()</code> definimos os limites de escala a serem considerados no mapa de calor, tendo valor mínimo de 3.000 e máximo de 1.750.000 habitantes.</p>
 <p><br></p>
 </div>
-<div id="arranjos-populacionais" class="section level2" number="8.22">
-<h2><span class="header-section-number">8.22</span> Arranjos populacionais</h2>
+<div id="arranjos-populacionais" class="section level2 hasAnchor" number="8.22">
+<h2><span class="header-section-number">8.22</span> Arranjos populacionais<a href="mapas.html#arranjos-populacionais" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <p>A função <code>read_pop_arrangements()</code> retorna os dados oficiais sobre arranjos populacionais, que são agrupamentos de dois ou mais municípios com forte integração populacional, devido aos movimentos pendulares para trabalho ou estudo, ou à contiguidade entre manchas urbanas.</p>
 <p>Os dados originais foram gerados pelo Instituto Brasileiro de Geografia e Estatística (IBGE), cuja metodologia detalhada pode ser acessada em: <a href="https://www.ibge.gov.br/apps/arranjos_populacionais/2015/pdf/publicacao.pdf">https://www.ibge.gov.br/apps/arranjos_populacionais/2015/pdf/publicacao.pdf</a>.</p>
 <div class="sourceCode" id="cb724"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb724-1"><a href="mapas.html#cb724-1" aria-hidden="true" tabindex="-1"></a><span class="fu">read_pop_arrangements</span>(<span class="at">year =</span> <span class="dv">2015</span>, <span class="at">showProgress =</span> F) <span class="sc">%&gt;%</span> <span class="fu">names</span>()</span></code></pre></div>
@@ -2819,7 +2818,7 @@ $ geom         &lt;MULTIPOLYGON [°]&gt; MULTIPOLYGON (((-63.32721 -..., MULTIPO
 <span id="cb726-3"><a href="mapas.html#cb726-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ggplot</span>()<span class="sc">+</span></span>
 <span id="cb726-4"><a href="mapas.html#cb726-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_sf</span>()<span class="sc">+</span></span>
 <span id="cb726-5"><a href="mapas.html#cb726-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_bw</span>()</span></code></pre></div>
-<p><img src="_main_files/figure-html/unnamed-chunk-403-1.png" width="672" style="display: block; margin: auto;" /></p>
+<p><img src="Apostila_files/figure-html/unnamed-chunk-403-1.png" width="672" style="display: block; margin: auto;" /></p>
 <div class="sourceCode" id="cb727"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb727-1"><a href="mapas.html#cb727-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Selecionando os arranjos populacionais do RJ</span></span>
 <span id="cb727-2"><a href="mapas.html#cb727-2" aria-hidden="true" tabindex="-1"></a>municipios_rj <span class="ot">&lt;-</span> <span class="fu">read_municipality</span>(<span class="at">code_muni =</span> <span class="st">&quot;RJ&quot;</span>,<span class="at">showProgress =</span> F)</span>
 <span id="cb727-3"><a href="mapas.html#cb727-3" aria-hidden="true" tabindex="-1"></a></span>
@@ -2832,7 +2831,7 @@ $ geom         &lt;MULTIPOLYGON [°]&gt; MULTIPOLYGON (((-63.32721 -..., MULTIPO
 <span id="cb727-10"><a href="mapas.html#cb727-10" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_bw</span>()</span></code></pre></div>
 <pre><code>Using year 2010</code></pre>
 <pre><code>Using year 2015</code></pre>
-<p><img src="_main_files/figure-html/unnamed-chunk-405-1.png" width="672" style="display: block; margin: auto;" /></p>
+<p><img src="Apostila_files/figure-html/unnamed-chunk-405-1.png" width="672" style="display: block; margin: auto;" /></p>
 <div class="sourceCode" id="cb730"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb730-1"><a href="mapas.html#cb730-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Mapa de calor com a população total dos arranjos populacionais do RJ</span></span>
 <span id="cb730-2"><a href="mapas.html#cb730-2" aria-hidden="true" tabindex="-1"></a>municipios_rj <span class="ot">&lt;-</span> <span class="fu">read_municipality</span>(<span class="at">code_muni =</span> <span class="st">&quot;RJ&quot;</span>,<span class="at">showProgress =</span> F)</span>
 <span id="cb730-3"><a href="mapas.html#cb730-3" aria-hidden="true" tabindex="-1"></a></span>
@@ -2846,11 +2845,11 @@ $ geom         &lt;MULTIPOLYGON [°]&gt; MULTIPOLYGON (((-63.32721 -..., MULTIPO
 <span id="cb730-11"><a href="mapas.html#cb730-11" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_bw</span>()</span></code></pre></div>
 <pre><code>Using year 2010</code></pre>
 <pre><code>Using year 2015</code></pre>
-<p><img src="_main_files/figure-html/unnamed-chunk-407-1.png" width="672" style="display: block; margin: auto;" /></p>
+<p><img src="Apostila_files/figure-html/unnamed-chunk-407-1.png" width="672" style="display: block; margin: auto;" /></p>
 <p><br></p>
 </div>
-<div id="setor-censitário" class="section level2" number="8.23">
-<h2><span class="header-section-number">8.23</span> Setor censitário</h2>
+<div id="setor-censitário" class="section level2 hasAnchor" number="8.23">
+<h2><span class="header-section-number">8.23</span> Setor censitário<a href="mapas.html#setor-censitário" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <p>O setor censitário é a unidade territorial estabelecida pelo IBGE para planejar e realizar levantamentos de dados do Censo e Pesquisas Estatísticas. É formado por uma área contínua, considerando a Divisão Político-Administrativa, situada em um único quadro urbano ou rural, com dimensão e número de domicílios que permitam o levantamento das informações por um recenseador dentro do prazo determinado para a coleta. Assim sendo, cada recenseador procederá à coleta de informações tendo como meta a cobertura do setor censitário que lhe é designado.</p>
 <p>Informações complementares estão disponíveis em: <a href="https://www.ibge.gov.br/geociencias/organizacao-do-territorio/malhas-territoriais/26565-malhas-de-setores-censitarios-divisoes-intramunicipais.html?=&amp;t=downloads">https://www.ibge.gov.br/geociencias/organizacao-do-territorio/malhas-territoriais/26565-malhas-de-setores-censitarios-divisoes-intramunicipais.html?=&amp;t=downloads</a></p>
 <p>A função <code>read_census_tract()</code> nos retorna os dados do setor censitário para os anos de 2000, 2010, 2017, 2019 e 2020.</p>
@@ -2867,7 +2866,7 @@ $ geom         &lt;MULTIPOLYGON [°]&gt; MULTIPOLYGON (((-63.32721 -..., MULTIPO
 <span id="cb734-7"><a href="mapas.html#cb734-7" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_bw</span>()<span class="sc">+</span></span>
 <span id="cb734-8"><a href="mapas.html#cb734-8" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(<span class="at">fill =</span> <span class="st">&quot;Zona&quot;</span>)</span></code></pre></div>
 <pre><code>Using year 2010</code></pre>
-<p><img src="_main_files/figure-html/unnamed-chunk-410-1.png" width="672" style="display: block; margin: auto;" /></p>
+<p><img src="Apostila_files/figure-html/unnamed-chunk-410-1.png" width="672" style="display: block; margin: auto;" /></p>
 <div class="sourceCode" id="cb736"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb736-1"><a href="mapas.html#cb736-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Selecionando os setores censitários de Sergipe, divididos por zona, em 2000</span></span>
 <span id="cb736-2"><a href="mapas.html#cb736-2" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb736-3"><a href="mapas.html#cb736-3" aria-hidden="true" tabindex="-1"></a><span class="do">## Zona Rural</span></span>
@@ -2898,12 +2897,12 @@ $ geom         &lt;MULTIPOLYGON [°]&gt; MULTIPOLYGON (((-63.32721 -..., MULTIPO
 <pre><code>Using data of Rural census tracts</code></pre>
 <pre><code>Using year 2000</code></pre>
 <pre><code>Using data of Urban census tracts</code></pre>
-<p><img src="_main_files/figure-html/unnamed-chunk-413-1.png" width="672" style="display: block; margin: auto;" /></p>
+<p><img src="Apostila_files/figure-html/unnamed-chunk-413-1.png" width="672" style="display: block; margin: auto;" /></p>
 <p>No caso dos setores censitários do ano de 2000, as zonas rural e urbana estão em banco de dados separados. Para isso, precisamos utilizar o argumento <code>zone =</code> para especificar a zona rural (<code>zone = "rural"</code>) ou urbana (<code>zone = "urban"</code>). Caso o argumento não seja declarado, por padrão, adota-se a zona urbana.</p>
 <p><br></p>
 </div>
-<div id="áreas-de-ponderação" class="section level2" number="8.24">
-<h2><span class="header-section-number">8.24</span> Áreas de ponderação</h2>
+<div id="áreas-de-ponderação" class="section level2 hasAnchor" number="8.24">
+<h2><span class="header-section-number">8.24</span> Áreas de ponderação<a href="mapas.html#áreas-de-ponderação" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <p>Define-se área de ponderação como sendo uma unidade geográfica, formada por um agrupamento mutuamente exclusivo de setores censitários contíguos, para a aplicação dos procedimentos de calibração dos pesos de forma a produzir estimativas compatíveis com algumas das informações conhecidas para a população como um todo <a href="https://www.ibge.gov.br/estatisticas/sociais/populacao/9662-censo-demografico-2010.html?edicao=9754&amp;t=sobre">(IBGE, 2010)</a>.</p>
 <p>A função <code>read_weighting_area()</code> nos retorna as áreas de ponderação para o ano de 2010.</p>
 <div class="sourceCode" id="cb741"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb741-1"><a href="mapas.html#cb741-1" aria-hidden="true" tabindex="-1"></a><span class="fu">read_weighting_area</span>(<span class="at">code_weighting =</span> <span class="st">&quot;all&quot;</span>,</span>
@@ -2912,7 +2911,7 @@ $ geom         &lt;MULTIPOLYGON [°]&gt; MULTIPOLYGON (((-63.32721 -..., MULTIPO
 <span id="cb741-4"><a href="mapas.html#cb741-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ggplot</span>()<span class="sc">+</span></span>
 <span id="cb741-5"><a href="mapas.html#cb741-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_sf</span>()<span class="sc">+</span></span>
 <span id="cb741-6"><a href="mapas.html#cb741-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_bw</span>()</span></code></pre></div>
-<p><img src="_main_files/figure-html/unnamed-chunk-414-1.png" width="672" style="display: block; margin: auto;" /></p>
+<p><img src="Apostila_files/figure-html/unnamed-chunk-414-1.png" width="672" style="display: block; margin: auto;" /></p>
 <div class="sourceCode" id="cb742"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb742-1"><a href="mapas.html#cb742-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Selecionando as áreas de ponderação do Distrito Federal</span></span>
 <span id="cb742-2"><a href="mapas.html#cb742-2" aria-hidden="true" tabindex="-1"></a><span class="fu">read_weighting_area</span>(<span class="at">code_weighting =</span> <span class="st">&quot;DF&quot;</span>,</span>
 <span id="cb742-3"><a href="mapas.html#cb742-3" aria-hidden="true" tabindex="-1"></a>                    <span class="at">year =</span> <span class="dv">2010</span>,</span>
@@ -2921,7 +2920,7 @@ $ geom         &lt;MULTIPOLYGON [°]&gt; MULTIPOLYGON (((-63.32721 -..., MULTIPO
 <span id="cb742-6"><a href="mapas.html#cb742-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_sf</span>()<span class="sc">+</span></span>
 <span id="cb742-7"><a href="mapas.html#cb742-7" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_bw</span>()</span></code></pre></div>
 <pre><code>Using year 2010</code></pre>
-<p><img src="_main_files/figure-html/unnamed-chunk-416-1.png" width="672" style="display: block; margin: auto;" /></p>
+<p><img src="Apostila_files/figure-html/unnamed-chunk-416-1.png" width="672" style="display: block; margin: auto;" /></p>
 <div class="sourceCode" id="cb744"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb744-1"><a href="mapas.html#cb744-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Selecionando as áreas de ponderação do município de Presidente Prudente/SP</span></span>
 <span id="cb744-2"><a href="mapas.html#cb744-2" aria-hidden="true" tabindex="-1"></a><span class="fu">lookup_muni</span>(<span class="at">name_muni =</span> <span class="st">&quot;Presidente Prudente&quot;</span>)</span></code></pre></div>
 <pre><code>     code_muni           name_muni code_state name_state abbrev_state
@@ -2936,11 +2935,11 @@ $ geom         &lt;MULTIPOLYGON [°]&gt; MULTIPOLYGON (((-63.32721 -..., MULTIPO
 <span id="cb746-4"><a href="mapas.html#cb746-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ggplot</span>()<span class="sc">+</span></span>
 <span id="cb746-5"><a href="mapas.html#cb746-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_sf</span>()<span class="sc">+</span></span>
 <span id="cb746-6"><a href="mapas.html#cb746-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_bw</span>()</span></code></pre></div>
-<p><img src="_main_files/figure-html/unnamed-chunk-417-1.png" width="672" style="display: block; margin: auto;" /></p>
+<p><img src="Apostila_files/figure-html/unnamed-chunk-417-1.png" width="672" style="display: block; margin: auto;" /></p>
 <p><br></p>
 </div>
-<div id="grade-estatística-do-ibge" class="section level2" number="8.25">
-<h2><span class="header-section-number">8.25</span> Grade estatística do IBGE</h2>
+<div id="grade-estatística-do-ibge" class="section level2 hasAnchor" number="8.25">
+<h2><span class="header-section-number">8.25</span> Grade estatística do IBGE<a href="mapas.html#grade-estatística-do-ibge" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <p>As grades estatísticas se constituem em uma forma de disseminação de dados que
 permite análises detalhadas e independentes das divisões territoriais, visando
 atender, principalmente, a necessidade de se ter dados em unidades geográficas
@@ -2952,8 +2951,8 @@ particularmente nas regiões rurais, em comparação com metodologias anteriores
 <span id="cb747-2"><a href="mapas.html#cb747-2" aria-hidden="true" tabindex="-1"></a>                      <span class="at">year =</span> <span class="dv">2010</span>,</span>
 <span id="cb747-3"><a href="mapas.html#cb747-3" aria-hidden="true" tabindex="-1"></a>                      <span class="at">showProgress =</span> F)</span></code></pre></div>
 <p><br></p>
-<div id="tabela-de-correspondência" class="section level3" number="8.25.1">
-<h3><span class="header-section-number">8.25.1</span> Tabela de correspondência</h3>
+<div id="tabela-de-correspondência" class="section level3 hasAnchor" number="8.25.1">
+<h3><span class="header-section-number">8.25.1</span> Tabela de correspondência<a href="mapas.html#tabela-de-correspondência" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p>A <code>grid_state_correspondence_table</code> carrega uma tabela de correspondência indicando quais quadrantes da grade estatística do IBGE se cruzam com cada estado.</p>
 <div class="sourceCode" id="cb748"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb748-1"><a href="mapas.html#cb748-1" aria-hidden="true" tabindex="-1"></a>grid_state_correspondence_table <span class="sc">%&gt;%</span> <span class="fu">head</span>(<span class="dv">10</span>)</span></code></pre></div>
 <pre><code>   name_state abbrev_state code_grid
@@ -3016,7 +3015,7 @@ gitbook.start({
 "link": null,
 "text": null
 },
-"download": ["_main.pdf", "_main.epub"],
+"download": ["Apostila.pdf", "Apostila.epub"],
 "search": {
 "engine": "fuse",
 "options": null

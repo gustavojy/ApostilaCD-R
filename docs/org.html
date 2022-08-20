@@ -6,11 +6,10 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
   <title>Capítulo5 Organização | Introdução à Ciência de Dados em R</title>
   <meta name="description" content="Capítulo5 Organização | Introdução à Ciência de Dados em R" />
-  <meta name="generator" content="bookdown 0.24 and GitBook 2.6.7" />
+  <meta name="generator" content="bookdown 0.28 and GitBook 2.6.7" />
 
   <meta property="og:title" content="Capítulo5 Organização | Introdução à Ciência de Dados em R" />
   <meta property="og:type" content="book" />
-  
   
   
   <meta name="github-repo" content="rstudio/bookdown-demo" />
@@ -32,7 +31,6 @@
   
 <link rel="prev" href="import.html"/>
 <link rel="next" href="trans.html"/>
-<script src="libs/header-attrs-2.11/header-attrs.js"></script>
 <script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/fuse.js@6.4.6/dist/fuse.min.js"></script>
 <link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
@@ -50,8 +48,9 @@
 
 
 
-<link href="libs/anchor-sections-1.0.1/anchor-sections.css" rel="stylesheet" />
-<script src="libs/anchor-sections-1.0.1/anchor-sections.js"></script>
+<link href="libs/anchor-sections-1.1.0/anchor-sections.css" rel="stylesheet" />
+<link href="libs/anchor-sections-1.1.0/anchor-sections-hash.css" rel="stylesheet" />
+<script src="libs/anchor-sections-1.1.0/anchor-sections.js"></script>
 <script src="libs/kePrint-0.0.1/kePrint.js"></script>
 <link href="libs/lightable-0.0.1/lightable.css" rel="stylesheet" />
 
@@ -138,7 +137,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li><a href="./">Introdução à Ciência de Dados em R</a></li>
 
 <li class="divider"></li>
-<li class="chapter" data-level="1" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i><b>1</b> Introdução</a></li>
+<li class="chapter" data-level="1" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i><b>1</b> Introdução </a></li>
 <li class="chapter" data-level="2" data-path="ciência-de-dados-e-r.html"><a href="ciência-de-dados-e-r.html"><i class="fa fa-check"></i><b>2</b> Ciência de dados e R</a>
 <ul>
 <li class="chapter" data-level="2.1" data-path="ciência-de-dados-e-r.html"><a href="ciência-de-dados-e-r.html#o-que-é-ciência-de-dados"><i class="fa fa-check"></i><b>2.1</b> O que é Ciência de Dados?</a></li>
@@ -239,8 +238,8 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </ul></li>
 <li class="chapter" data-level="7.2" data-path="graf.html"><a href="graf.html#gráfico-de-barras"><i class="fa fa-check"></i><b>7.2</b> Gráfico de Barras</a>
 <ul>
-<li><a href="graf.html#geom_col"><code>geom_col()</code></a></li>
-<li><a href="graf.html#geom_bar"><code>geom_bar()</code></a></li>
+<li class="chapter" data-level="" data-path="graf.html"><a href="graf.html#geom_col"><i class="fa fa-check"></i><code>geom_col()</code></a></li>
+<li class="chapter" data-level="" data-path="graf.html"><a href="graf.html#geom_bar"><i class="fa fa-check"></i><code>geom_bar()</code></a></li>
 </ul></li>
 <li class="chapter" data-level="7.3" data-path="graf.html"><a href="graf.html#gráfico-de-setores-pizza"><i class="fa fa-check"></i><b>7.3</b> Gráfico de Setores (Pizza)</a></li>
 <li class="chapter" data-level="7.4" data-path="graf.html"><a href="graf.html#gráfico-de-linhas"><i class="fa fa-check"></i><b>7.4</b> Gráfico de Linhas</a>
@@ -333,8 +332,8 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
           <div class="page-inner">
 
             <section class="normal" id="section-">
-<div id="org" class="section level1" number="5">
-<h1><span class="header-section-number">Capítulo5</span> Organização</h1>
+<div id="org" class="section level1 hasAnchor" number="5">
+<h1><span class="header-section-number">Capítulo5</span> Organização<a href="org.html#org" class="anchor-section" aria-label="Anchor link to header"></a></h1>
 <p>Neste capítulo, trataremos sobre a manipulação dos dados. Esse processo tem como base o conceito de <em>tidy data</em>, no qual devemos ajustar os nossos dados em uma estrutura consistente e padronizada. Isso nos permite visualizar, analisar e modelar os dados de maneira mais fácil e rápida. Normalmente, costuma ser trabalhoso o processo de organizar a base de dados, mas, com o auxílio das ferramentas presentes no <code>tidyverse</code>, conseguimos obter bons resultados que, em longo prazo, faz o esforço valer a pena.</p>
 <p>Como o próprio nome do pacote sugere, o <code>tidyverse</code> é baseado nos princípios de uma <em>tidy data</em>. Por isso, seus pacotes foram desenvolvidos para funcionarem seguindo tal princípio e serem complementares entre si.</p>
 <p>No capítulo <a href="import.html#import">4</a>, demos início ao processo de manipulação dos dados quando alteramos a classe das variáveis, renomeamos as colunas, corrigimos problemas de <em>encoding</em>, além de outras ações demonstradas a partir das diversas funções e argumentos.</p>
@@ -342,17 +341,17 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <p>Para mais detalhes sobre <em>tidy data</em>, recomendo dois documentos que abordam o tema. Ambos são da autoria de Hadley Wickham, o idealizador do pacote <code>tidyverse</code>. O primeiro é o <a href="https://cran.r-project.org/web/packages/tidyverse/vignettes/manifesto.html"><em>The tidy tools manifesto</em></a>, que aborda os princípios que norteiam o <em>tidyverse</em>. O outro documento é o artigo <a href="https://www.jstatsoft.org/article/view/v059i10"><em>Tidy Data</em></a>, que trata de maneira teórica os conceitos de dados arrumados.</p>
 <p>Assim sendo, vamos começar a organizar os nossos dados. A seguir, apresentaremos os pacotes <code>tibble</code> e <code>tidyr</code>.</p>
 <p><br></p>
-<div id="tibbles" class="section level2" number="5.1">
-<h2><span class="header-section-number">5.1</span> Tibbles</h2>
+<div id="tibbles" class="section level2 hasAnchor" number="5.1">
+<h2><span class="header-section-number">5.1</span> Tibbles<a href="org.html#tibbles" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <p>Nesta seção, veremos o que são as <em>tibbles</em> e suas funcionalidades. No capítulo <a href="import.html#import">4</a> vimos que o pacote <code>readr</code> apresenta funções que convertem diretamente os arquivos importados para o formato <em>tibble</em>. Isso se deve ao fato de que os pacotes presentes no <code>tidyverse</code> utilizam como padrão esse formato, ao invés do formato tradicional de <em>data frame</em>. Porém, a maioria dos outros pacotes que não estão no <code>tidyverse</code> ainda utilizam o formato de <em>data frame</em>.</p>
 <p><em>Tibbles</em> nada mais são do que uma versão mais atualizada dos <em>data frames</em>, apresentando ajustes importantes que facilitam o trabalho do cientista de dados. Dessa forma, os conceitos que vimos nas seções <a href="noções-básicas-em-r.html#dataf">3.8</a> e <a href="noções-básicas-em-r.html#df">3.13.1</a> são válidos para as <em>tibbles</em>. Elas fazem parte do pacote <code>tibble</code>, assim, devemos carregar o seu pacote.</p>
 <div class="sourceCode" id="cb313"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb313-1"><a href="org.html#cb313-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(tibble)</span></code></pre></div>
 <p><br></p>
-<div id="criando-tibbles" class="section level3" number="5.1.1">
-<h3><span class="header-section-number">5.1.1</span> Criando <em>Tibbles</em></h3>
+<div id="criando-tibbles" class="section level3 hasAnchor" number="5.1.1">
+<h3><span class="header-section-number">5.1.1</span> Criando <em>Tibbles</em><a href="org.html#criando-tibbles" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p>Para converter <em>data frames</em> em <em>tibbles</em>, utilizamos a função <code>as_tibble()</code>. Como exemplo, transformaremos a base de dados nativa do R <code>iris</code> para o formato <em>tibble</em>.</p>
 <div class="sourceCode" id="cb314"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb314-1"><a href="org.html#cb314-1" aria-hidden="true" tabindex="-1"></a><span class="fu">as_tibble</span>(iris)</span></code></pre></div>
-<pre><code># A tibble: 150 x 5
+<pre><code># A tibble: 150 × 5
    Sepal.Length Sepal.Width Petal.Length Petal.Width Species
           &lt;dbl&gt;       &lt;dbl&gt;        &lt;dbl&gt;       &lt;dbl&gt; &lt;fct&gt;  
  1          5.1         3.5          1.4         0.2 setosa 
@@ -365,7 +364,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
  8          5           3.4          1.5         0.2 setosa 
  9          4.4         2.9          1.4         0.2 setosa 
 10          4.9         3.1          1.5         0.1 setosa 
-# ... with 140 more rows</code></pre>
+# … with 140 more rows</code></pre>
 <p>Perceba que, por padrão, apenas as 10 primeiras linhas são apresentadas. Caso o número de colunas não couber na largura da tela, essas serão ocultadas da apresentação. Além disso, as <em>tibbles</em> mostram as dimensões da tabela (no caso, <code>150 x 5</code>) e a classe de todas as colunas (entre <code>&lt; &gt;</code>).</p>
 <p>Já os <em>data frames</em>, não apresentam as dimensões da tabela e nem as respectivas classes das colunas. Além disso, sua saída não é a muito boa quando trabalhamos com bases de dados extensas, como podemos ver e comparar a seguir.</p>
 <div class="sourceCode" id="cb316"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb316-1"><a href="org.html#cb316-1" aria-hidden="true" tabindex="-1"></a><span class="fu">class</span>(iris)</span></code></pre></div>
@@ -531,7 +530,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <span id="cb321-4"><a href="org.html#cb321-4" aria-hidden="true" tabindex="-1"></a>  <span class="at">idade =</span> <span class="dv">21</span><span class="sc">:</span><span class="dv">24</span>,</span>
 <span id="cb321-5"><a href="org.html#cb321-5" aria-hidden="true" tabindex="-1"></a>  <span class="at">idade_ao_quadrado =</span> idade <span class="sc">^</span> <span class="dv">2</span>,</span>
 <span id="cb321-6"><a href="org.html#cb321-6" aria-hidden="true" tabindex="-1"></a>  <span class="at">filhos =</span> <span class="dv">0</span>)</span></code></pre></div>
-<pre><code># A tibble: 4 x 5
+<pre><code># A tibble: 4 × 5
   nomes sexo  idade idade_ao_quadrado filhos
   &lt;chr&gt; &lt;chr&gt; &lt;int&gt;             &lt;dbl&gt;  &lt;dbl&gt;
 1 José  M        21               441      0
@@ -547,13 +546,13 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <span id="cb323-4"><a href="org.html#cb323-4" aria-hidden="true" tabindex="-1"></a>  <span class="st">`</span><span class="at">:)idade</span><span class="st">`</span> <span class="ot">=</span> <span class="dv">21</span><span class="sc">:</span><span class="dv">24</span>,</span>
 <span id="cb323-5"><a href="org.html#cb323-5" aria-hidden="true" tabindex="-1"></a>  <span class="st">`</span><span class="at">idade²</span><span class="st">`</span> <span class="ot">=</span> <span class="st">`</span><span class="at">:)idade</span><span class="st">`</span> <span class="sc">^</span> <span class="dv">2</span>,</span>
 <span id="cb323-6"><a href="org.html#cb323-6" aria-hidden="true" tabindex="-1"></a>  <span class="st">`</span><span class="at">nº filhos</span><span class="st">`</span> <span class="ot">=</span> <span class="dv">0</span>)</span></code></pre></div>
-<pre><code># A tibble: 4 x 5
-  `nomes dos estudantes` `2sexo` `:)idade` idade² `nº filhos`
-  &lt;chr&gt;                  &lt;chr&gt;       &lt;int&gt;  &lt;dbl&gt;       &lt;dbl&gt;
-1 José                   M              21    441           0
-2 João                   M              22    484           0
-3 Maria                  F              23    529           0
-4 Ana                    F              24    576           0</code></pre>
+<pre><code># A tibble: 4 × 5
+  `nomes dos estudantes` `2sexo` `:)idade` `idade²` `nº filhos`
+  &lt;chr&gt;                  &lt;chr&gt;       &lt;int&gt;    &lt;dbl&gt;       &lt;dbl&gt;
+1 José                   M              21      441           0
+2 João                   M              22      484           0
+3 Maria                  F              23      529           0
+4 Ana                    F              24      576           0</code></pre>
 <p>Por consequência, quando trabalharmos com as variáveis nomeadas dessa forma, precisaremos colocá-las sempre entre acentos graves, como foi o caso da construção da coluna <code>idade²</code>, em que tivemos que colocar a coluna <code>:)idade</code> entre acentos graves para que conseguíssemos elevar seus valores ao quadrado.</p>
 <p>Por último, podemos criar <em>tibbles</em> com a função <code>tribble()</code>. A <code>tribble()</code> é construída definindo os nomes das colunas por fórmulas (começando com <code>~</code>), cujos valores são separados por vírgulas, sendo uma forma mais visual e intuitiva para construir pequenas <em>tibbles</em>.</p>
 <div class="sourceCode" id="cb325"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb325-1"><a href="org.html#cb325-1" aria-hidden="true" tabindex="-1"></a><span class="fu">tribble</span>(</span>
@@ -563,7 +562,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <span id="cb325-5"><a href="org.html#cb325-5" aria-hidden="true" tabindex="-1"></a>  <span class="st">&quot;José&quot;</span>, <span class="dv">30</span>, <span class="st">&quot;M&quot;</span>,</span>
 <span id="cb325-6"><a href="org.html#cb325-6" aria-hidden="true" tabindex="-1"></a>  <span class="st">&quot;Ana&quot;</span>, <span class="dv">23</span>, <span class="st">&quot;F&quot;</span></span>
 <span id="cb325-7"><a href="org.html#cb325-7" aria-hidden="true" tabindex="-1"></a>)</span></code></pre></div>
-<pre><code># A tibble: 3 x 3
+<pre><code># A tibble: 3 × 3
   nome     id sexo 
   &lt;chr&gt; &lt;dbl&gt; &lt;chr&gt;
 1 João     25 M    
@@ -572,8 +571,8 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <p>Veja que é possível até mesmo adicionar um comentário (<code>#</code>) para criar uma delimitação entre o cabeçalho e os valores, tornando o código ainda mais visual.</p>
 <p><br></p>
 </div>
-<div id="outras-funções" class="section level3" number="5.1.2">
-<h3><span class="header-section-number">5.1.2</span> Outras funções</h3>
+<div id="outras-funções" class="section level3 hasAnchor" number="5.1.2">
+<h3><span class="header-section-number">5.1.2</span> Outras funções<a href="org.html#outras-funções" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p>Podemos adicionar novas linhas e colunas à <em>tibble</em> com as funções <code>add_row()</code> e <code>add_column()</code>, respectivamente.</p>
 <div class="sourceCode" id="cb327"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb327-1"><a href="org.html#cb327-1" aria-hidden="true" tabindex="-1"></a>tib <span class="ot">&lt;-</span> <span class="fu">tibble</span>(</span>
 <span id="cb327-2"><a href="org.html#cb327-2" aria-hidden="true" tabindex="-1"></a>  <span class="at">nomes =</span> <span class="fu">c</span>(<span class="st">&quot;José&quot;</span>, <span class="st">&quot;João&quot;</span>, <span class="st">&quot;Maria&quot;</span>),</span>
@@ -583,7 +582,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <span id="cb327-6"><a href="org.html#cb327-6" aria-hidden="true" tabindex="-1"></a>tib_col <span class="ot">&lt;-</span> <span class="fu">add_column</span>(tib, <span class="at">idade =</span> <span class="fu">c</span>(<span class="dv">26</span>, <span class="dv">30</span>, <span class="dv">19</span>))</span>
 <span id="cb327-7"><a href="org.html#cb327-7" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb327-8"><a href="org.html#cb327-8" aria-hidden="true" tabindex="-1"></a>tib_col</span></code></pre></div>
-<pre><code># A tibble: 3 x 3
+<pre><code># A tibble: 3 × 3
   nomes sexo  idade
   &lt;chr&gt; &lt;chr&gt; &lt;dbl&gt;
 1 José  M        26
@@ -595,7 +594,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <span id="cb329-4"><a href="org.html#cb329-4" aria-hidden="true" tabindex="-1"></a>                   <span class="at">idade =</span> <span class="fu">c</span>(<span class="dv">20</span>, <span class="dv">23</span>))</span>
 <span id="cb329-5"><a href="org.html#cb329-5" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb329-6"><a href="org.html#cb329-6" aria-hidden="true" tabindex="-1"></a>tib_row</span></code></pre></div>
-<pre><code># A tibble: 5 x 3
+<pre><code># A tibble: 5 × 3
   nomes   sexo  idade
   &lt;chr&gt;   &lt;chr&gt; &lt;dbl&gt;
 1 José    M        26
@@ -606,14 +605,14 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <p><br></p>
 </div>
 </div>
-<div id="pacote-tidyr" class="section level2" number="5.2">
-<h2><span class="header-section-number">5.2</span> Pacote <code>tidyr</code></h2>
+<div id="pacote-tidyr" class="section level2 hasAnchor" number="5.2">
+<h2><span class="header-section-number">5.2</span> Pacote <code>tidyr</code><a href="org.html#pacote-tidyr" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <p>Nesta seção, abordaremos as principais ferramentas de organização de dados presentes no pacote <code>tidyr</code>. Portanto, precisamos rodá-lo no R.</p>
 <div class="sourceCode" id="cb331"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb331-1"><a href="org.html#cb331-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(tidyr)</span></code></pre></div>
-<p>A seguir, aplicaremos as ferramentas do <code>tidyr</code> em uma mesma base de dados, porém em diversas versões desarrumadas<a href="#fn4" class="footnote-ref" id="fnref4"><sup>4</sup></a> . Os dados são referentes a produção (em toneladas) e a área colhida (em hectares) da cultura do milho, no Brasil, China e Índia, nos anos de 2000 e 2019. Para fazer o <em>download</em> da pasta contendo as bases de dados, <a href="https://github.com/gustavojy/ApostilaCD-R/blob/main/dados_zip/dados_tidy.zip?raw=true">clique aqui</a>.</p>
+<p>A seguir, aplicaremos as ferramentas do <code>tidyr</code> em uma mesma base de dados, porém em diversas versões desarrumadas <a href="#fn4" class="footnote-ref" id="fnref4"><sup>4</sup></a> . Os dados são referentes a produção (em toneladas) e a área colhida (em hectares) da cultura do milho, no Brasil, China e Índia, nos anos de 2000 e 2019. Para fazer o <em>download</em> da pasta contendo as bases de dados, <a href="https://github.com/gustavojy/ApostilaCD-R/blob/main/dados_zip/dados_tidy.zip?raw=true">clique aqui</a>.</p>
 <p><br></p>
-<div id="base-de-dados-tidy" class="section level3" number="5.2.1">
-<h3><span class="header-section-number">5.2.1</span> Base de dados <em>tidy</em></h3>
+<div id="base-de-dados-tidy" class="section level3 hasAnchor" number="5.2.1">
+<h3><span class="header-section-number">5.2.1</span> Base de dados <em>tidy</em><a href="org.html#base-de-dados-tidy" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p>Antes de abordarmos as bases desarrumadas, vamos tratar da base de dados arrumadas.</p>
 <p>Para alcançarmos a tão desejada base de dados arrumada, devemos ter em mente as três principais propriedades de uma <em>tidy data</em>:</p>
 <ul>
@@ -630,7 +629,7 @@ Figure 5.1: Seguindo os princípios da tidy data, cada variável possui uma colu
 <p>Como citamos em capítulos anteriores, cada coluna de um <em>data frame</em> (ou <em>tibble</em>) é um vetor. Ao designar uma variável à uma única coluna, podemos trabalhar com as informações a partir de vetores individualizados. Portanto, os conceitos vistos na seção <a href="noções-básicas-em-r.html#vetor">3.9</a>, referente aos vetores, são aplicáveis a cada uma das colunas de uma base de dados organizada. E é dessa maneira que os pacotes do <code>tidyverse</code> trabalham.</p>
 <div class="sourceCode" id="cb332"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb332-1"><a href="org.html#cb332-1" aria-hidden="true" tabindex="-1"></a>tidy <span class="ot">&lt;-</span> <span class="fu">read_csv</span>(<span class="st">&quot;dados_tidy/tidy.csv&quot;</span>)</span></code></pre></div>
 <div class="sourceCode" id="cb333"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb333-1"><a href="org.html#cb333-1" aria-hidden="true" tabindex="-1"></a>tidy</span></code></pre></div>
-<pre><code># A tibble: 6 x 4
+<pre><code># A tibble: 6 × 4
   pais     ano colheita  producao
   &lt;chr&gt;  &lt;dbl&gt;    &lt;dbl&gt;     &lt;dbl&gt;
 1 Brasil  2000 11890376  32321000
@@ -643,16 +642,16 @@ Figure 5.1: Seguindo os princípios da tidy data, cada variável possui uma colu
 <p>Nos próximos capítulos, veremos como utilizar uma <em>tidy data</em> para realizar transformações e gráficos. Mas antes, temos que tratar dos dados desarrumados.</p>
 <p><br></p>
 </div>
-<div id="pivotagem" class="section level3" number="5.2.2">
-<h3><span class="header-section-number">5.2.2</span> Pivotagem</h3>
+<div id="pivotagem" class="section level3 hasAnchor" number="5.2.2">
+<h3><span class="header-section-number">5.2.2</span> Pivotagem<a href="org.html#pivotagem" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p>Uma forma de organizarmos os nossos dados é realizando a pivotagem. Este método converte as observações que estão como nome de colunas, para linhas; e variáveis que estão em linhas, para as colunas.</p>
-<div id="pivot-longer" class="section level4 unnumbered">
-<h4>Pivot longer</h4>
+<div id="pivot-longer" class="section level4 unnumbered hasAnchor">
+<h4>Pivot longer<a href="org.html#pivot-longer" class="anchor-section" aria-label="Anchor link to header"></a></h4>
 <p>A função <code>pivot_longer()</code> converte as observações que estão como nome das colunas, para linhas. Aplicaremos sua função no arquivo <code>tidy1a_prod.csv</code>.</p>
 <div class="sourceCode" id="cb335"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb335-1"><a href="org.html#cb335-1" aria-hidden="true" tabindex="-1"></a>plonger1 <span class="ot">&lt;-</span> <span class="fu">read_csv</span>(<span class="st">&quot;dados_tidy/tidy1a_prod.csv&quot;</span>)</span>
 <span id="cb335-2"><a href="org.html#cb335-2" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb335-3"><a href="org.html#cb335-3" aria-hidden="true" tabindex="-1"></a>plonger1</span></code></pre></div>
-<pre><code># A tibble: 3 x 3
+<pre><code># A tibble: 3 × 3
   pais      `2000`    `2019`
   &lt;chr&gt;      &lt;dbl&gt;     &lt;dbl&gt;
 1 Brasil  32321000 101138617
@@ -664,7 +663,7 @@ Figure 5.1: Seguindo os princípios da tidy data, cada variável possui uma colu
 <span id="cb337-3"><a href="org.html#cb337-3" aria-hidden="true" tabindex="-1"></a>                              <span class="at">names_to =</span> <span class="st">&quot;ano&quot;</span>, </span>
 <span id="cb337-4"><a href="org.html#cb337-4" aria-hidden="true" tabindex="-1"></a>                              <span class="at">values_to =</span> <span class="st">&quot;producao&quot;</span>)</span>
 <span id="cb337-5"><a href="org.html#cb337-5" aria-hidden="true" tabindex="-1"></a>plonger1_tidy</span></code></pre></div>
-<pre><code># A tibble: 6 x 3
+<pre><code># A tibble: 6 × 3
   pais   ano    producao
   &lt;chr&gt;  &lt;chr&gt;     &lt;dbl&gt;
 1 Brasil 2000   32321000
@@ -679,7 +678,7 @@ Figure 5.1: Seguindo os princípios da tidy data, cada variável possui uma colu
 <div class="sourceCode" id="cb339"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb339-1"><a href="org.html#cb339-1" aria-hidden="true" tabindex="-1"></a>plonger2 <span class="ot">&lt;-</span> <span class="fu">read_csv</span>(<span class="st">&quot;dados_tidy/tidy1b_col.csv&quot;</span>)</span>
 <span id="cb339-2"><a href="org.html#cb339-2" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb339-3"><a href="org.html#cb339-3" aria-hidden="true" tabindex="-1"></a>plonger2</span></code></pre></div>
-<pre><code># A tibble: 3 x 3
+<pre><code># A tibble: 3 × 3
   pais     `2000`   `2019`
   &lt;chr&gt;     &lt;dbl&gt;    &lt;dbl&gt;
 1 Brasil 11890376 17518054
@@ -690,7 +689,7 @@ Figure 5.1: Seguindo os princípios da tidy data, cada variável possui uma colu
 <span id="cb341-3"><a href="org.html#cb341-3" aria-hidden="true" tabindex="-1"></a>                              <span class="at">names_to =</span> <span class="st">&quot;ano&quot;</span>, </span>
 <span id="cb341-4"><a href="org.html#cb341-4" aria-hidden="true" tabindex="-1"></a>                              <span class="at">values_to =</span> <span class="st">&quot;colheita&quot;</span>)</span>
 <span id="cb341-5"><a href="org.html#cb341-5" aria-hidden="true" tabindex="-1"></a>plonger2_tidy</span></code></pre></div>
-<pre><code># A tibble: 6 x 3
+<pre><code># A tibble: 6 × 3
   pais   ano   colheita
   &lt;chr&gt;  &lt;chr&gt;    &lt;dbl&gt;
 1 Brasil 2000  11890376
@@ -703,7 +702,7 @@ Figure 5.1: Seguindo os princípios da tidy data, cada variável possui uma colu
 <div class="sourceCode" id="cb343"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb343-1"><a href="org.html#cb343-1" aria-hidden="true" tabindex="-1"></a>plonger <span class="ot">&lt;-</span> <span class="fu">full_join</span>(plonger1_tidy, plonger2_tidy)</span>
 <span id="cb343-2"><a href="org.html#cb343-2" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb343-3"><a href="org.html#cb343-3" aria-hidden="true" tabindex="-1"></a>plonger</span></code></pre></div>
-<pre><code># A tibble: 6 x 4
+<pre><code># A tibble: 6 × 4
   pais   ano    producao colheita
   &lt;chr&gt;  &lt;chr&gt;     &lt;dbl&gt;    &lt;dbl&gt;
 1 Brasil 2000   32321000 11890376
@@ -713,13 +712,13 @@ Figure 5.1: Seguindo os princípios da tidy data, cada variável possui uma colu
 5 India  2000   12043200  6611300
 6 India  2019   27715100  9027130</code></pre>
 </div>
-<div id="pivot-wider" class="section level4 unnumbered">
-<h4>Pivot wider</h4>
+<div id="pivot-wider" class="section level4 unnumbered hasAnchor">
+<h4>Pivot wider<a href="org.html#pivot-wider" class="anchor-section" aria-label="Anchor link to header"></a></h4>
 <p>A função <code>pivot_wider()</code> é a oposta da <code>pivot_longer()</code>. Ela é usada para converter as variáveis que estão nas linhas, para o nome das colunas. Como exemplo, utilizaremos o arquivo <code>tidy2.csv</code>.</p>
 <div class="sourceCode" id="cb345"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb345-1"><a href="org.html#cb345-1" aria-hidden="true" tabindex="-1"></a>pwider <span class="ot">&lt;-</span> <span class="fu">read_csv</span>(<span class="at">file =</span> <span class="st">&quot;dados_tidy/tidy2.csv&quot;</span>)</span>
 <span id="cb345-2"><a href="org.html#cb345-2" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb345-3"><a href="org.html#cb345-3" aria-hidden="true" tabindex="-1"></a>pwider</span></code></pre></div>
-<pre><code># A tibble: 12 x 4
+<pre><code># A tibble: 12 × 4
    pais     ano tipo         valor
    &lt;chr&gt;  &lt;dbl&gt; &lt;chr&gt;        &lt;dbl&gt;
  1 Brasil  2000 colheita  11890376
@@ -739,7 +738,7 @@ Figure 5.1: Seguindo os princípios da tidy data, cada variável possui uma colu
 <span id="cb347-2"><a href="org.html#cb347-2" aria-hidden="true" tabindex="-1"></a>                           <span class="at">names_from =</span> tipo,</span>
 <span id="cb347-3"><a href="org.html#cb347-3" aria-hidden="true" tabindex="-1"></a>                           <span class="at">values_from =</span> valor)</span>
 <span id="cb347-4"><a href="org.html#cb347-4" aria-hidden="true" tabindex="-1"></a>pwider_tidy</span></code></pre></div>
-<pre><code># A tibble: 6 x 4
+<pre><code># A tibble: 6 × 4
   pais     ano colheita  producao
   &lt;chr&gt;  &lt;dbl&gt;    &lt;dbl&gt;     &lt;dbl&gt;
 1 Brasil  2000 11890376  32321000
@@ -755,13 +754,13 @@ Figure 5.1: Seguindo os princípios da tidy data, cada variável possui uma colu
 <p><br></p>
 </div>
 </div>
-<div id="separar-e-unir" class="section level3" number="5.2.3">
-<h3><span class="header-section-number">5.2.3</span> Separar e Unir</h3>
+<div id="separar-e-unir" class="section level3 hasAnchor" number="5.2.3">
+<h3><span class="header-section-number">5.2.3</span> Separar e Unir<a href="org.html#separar-e-unir" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p>Para tratar das funções de separar e unir, exemplificaremos com os dados do arquivo <code>tidy3.csv</code>.</p>
 <div class="sourceCode" id="cb349"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb349-1"><a href="org.html#cb349-1" aria-hidden="true" tabindex="-1"></a>sep_unir <span class="ot">&lt;-</span> <span class="fu">read_csv</span>(<span class="at">file =</span> <span class="st">&quot;dados_tidy/tidy3.csv&quot;</span>)</span>
 <span id="cb349-2"><a href="org.html#cb349-2" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb349-3"><a href="org.html#cb349-3" aria-hidden="true" tabindex="-1"></a>sep_unir</span></code></pre></div>
-<pre><code># A tibble: 6 x 3
+<pre><code># A tibble: 6 × 3
   pais     ano produtividade     
   &lt;chr&gt;  &lt;dbl&gt; &lt;chr&gt;             
 1 Brasil  2000 32321000/11890376 
@@ -770,14 +769,14 @@ Figure 5.1: Seguindo os princípios da tidy data, cada variável possui uma colu
 4 China   2019 260957662/41309740
 5 India   2000 12043200/6611300  
 6 India   2019 27715100/9027130  </code></pre>
-<div id="separar" class="section level4 unnumbered">
-<h4>Separar</h4>
+<div id="separar" class="section level4 unnumbered hasAnchor">
+<h4>Separar<a href="org.html#separar" class="anchor-section" aria-label="Anchor link to header"></a></h4>
 <p>O banco de dados apresentado acima apresenta a coluna <code>produtividade</code>, cujos valores são representados como <code>produção/área colhida</code>. Portanto, precisamos separá-los em duas colunas, pois temos duas variáveis em uma mesma coluna e dois valores em uma mesma célula. Para isso utilizaremos a função <code>separate()</code>.</p>
 <div class="sourceCode" id="cb351"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb351-1"><a href="org.html#cb351-1" aria-hidden="true" tabindex="-1"></a>sep_unir_tidy <span class="ot">&lt;-</span> <span class="fu">separate</span>(<span class="at">data =</span> sep_unir,</span>
 <span id="cb351-2"><a href="org.html#cb351-2" aria-hidden="true" tabindex="-1"></a>                          <span class="at">col =</span> produtividade,</span>
 <span id="cb351-3"><a href="org.html#cb351-3" aria-hidden="true" tabindex="-1"></a>                          <span class="at">into =</span> <span class="fu">c</span>(<span class="st">&quot;producao&quot;</span>, <span class="st">&quot;colheita&quot;</span>))</span>
 <span id="cb351-4"><a href="org.html#cb351-4" aria-hidden="true" tabindex="-1"></a>sep_unir_tidy</span></code></pre></div>
-<pre><code># A tibble: 6 x 4
+<pre><code># A tibble: 6 × 4
   pais     ano producao  colheita
   &lt;chr&gt;  &lt;dbl&gt; &lt;chr&gt;     &lt;chr&gt;   
 1 Brasil  2000 32321000  11890376
@@ -793,7 +792,7 @@ Figure 5.1: Seguindo os princípios da tidy data, cada variável possui uma colu
 <span id="cb353-3"><a href="org.html#cb353-3" aria-hidden="true" tabindex="-1"></a>                          <span class="at">into =</span> <span class="fu">c</span>(<span class="st">&quot;producao&quot;</span>, <span class="st">&quot;colheita&quot;</span>),</span>
 <span id="cb353-4"><a href="org.html#cb353-4" aria-hidden="true" tabindex="-1"></a>                          <span class="at">sep =</span> <span class="st">&quot;/&quot;</span>)</span>
 <span id="cb353-5"><a href="org.html#cb353-5" aria-hidden="true" tabindex="-1"></a>sep_unir_tidy</span></code></pre></div>
-<pre><code># A tibble: 6 x 4
+<pre><code># A tibble: 6 × 4
   pais     ano producao  colheita
   &lt;chr&gt;  &lt;dbl&gt; &lt;chr&gt;     &lt;chr&gt;   
 1 Brasil  2000 32321000  11890376
@@ -809,7 +808,7 @@ Figure 5.1: Seguindo os princípios da tidy data, cada variável possui uma colu
 <span id="cb355-4"><a href="org.html#cb355-4" aria-hidden="true" tabindex="-1"></a>                          <span class="at">sep =</span> <span class="st">&quot;/&quot;</span>,</span>
 <span id="cb355-5"><a href="org.html#cb355-5" aria-hidden="true" tabindex="-1"></a>                          <span class="at">convert =</span> <span class="cn">TRUE</span>)</span>
 <span id="cb355-6"><a href="org.html#cb355-6" aria-hidden="true" tabindex="-1"></a>sep_unir_tidy</span></code></pre></div>
-<pre><code># A tibble: 6 x 4
+<pre><code># A tibble: 6 × 4
   pais     ano  producao colheita
   &lt;chr&gt;  &lt;dbl&gt;     &lt;int&gt;    &lt;int&gt;
 1 Brasil  2000  32321000 11890376
@@ -826,7 +825,7 @@ Figure 5.1: Seguindo os princípios da tidy data, cada variável possui uma colu
 <span id="cb357-4"><a href="org.html#cb357-4" aria-hidden="true" tabindex="-1"></a>                   <span class="at">sep =</span> <span class="dv">2</span>)</span>
 <span id="cb357-5"><a href="org.html#cb357-5" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb357-6"><a href="org.html#cb357-6" aria-hidden="true" tabindex="-1"></a>separar</span></code></pre></div>
-<pre><code># A tibble: 6 x 5
+<pre><code># A tibble: 6 × 5
   pais   seculo decada  producao colheita
   &lt;chr&gt;  &lt;chr&gt;  &lt;chr&gt;      &lt;int&gt;    &lt;int&gt;
 1 Brasil 20     00      32321000 11890376
@@ -837,8 +836,8 @@ Figure 5.1: Seguindo os princípios da tidy data, cada variável possui uma colu
 6 India  20     19      27715100  9027130</code></pre>
 <p>Nesse caso, o argumento <code>sep = 2</code> pegou os dois primneiros número e os separou dos demais. Caso houver um número negativo, o argumento considera o sinal de negativo como o primeiro caractere informado no argumento.</p>
 </div>
-<div id="unir" class="section level4 unnumbered">
-<h4>Unir</h4>
+<div id="unir" class="section level4 unnumbered hasAnchor">
+<h4>Unir<a href="org.html#unir" class="anchor-section" aria-label="Anchor link to header"></a></h4>
 <p>A função <code>unite()</code> é a inversa de <code>separate()</code>. Portanto, combina múltiplas colunas em uma única. Usaremos a <code>unite()</code> para juntar novamente as colunas <code>seculo</code> e <code>decada</code> para apenas a coluna <code>novamente_ano</code>.</p>
 <div class="sourceCode" id="cb359"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb359-1"><a href="org.html#cb359-1" aria-hidden="true" tabindex="-1"></a>unir <span class="ot">&lt;-</span> <span class="fu">unite</span>(<span class="at">data =</span> separar,</span>
 <span id="cb359-2"><a href="org.html#cb359-2" aria-hidden="true" tabindex="-1"></a>              <span class="at">col =</span> <span class="st">&quot;novamente_ano&quot;</span>,</span>
@@ -846,7 +845,7 @@ Figure 5.1: Seguindo os princípios da tidy data, cada variável possui uma colu
 <span id="cb359-4"><a href="org.html#cb359-4" aria-hidden="true" tabindex="-1"></a>              <span class="at">sep =</span> <span class="st">&quot;&quot;</span>)</span>
 <span id="cb359-5"><a href="org.html#cb359-5" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb359-6"><a href="org.html#cb359-6" aria-hidden="true" tabindex="-1"></a>unir</span></code></pre></div>
-<pre><code># A tibble: 6 x 4
+<pre><code># A tibble: 6 × 4
   pais   novamente_ano  producao colheita
   &lt;chr&gt;  &lt;chr&gt;             &lt;int&gt;    &lt;int&gt;
 1 Brasil 2000           32321000 11890376
@@ -915,7 +914,7 @@ gitbook.start({
 "link": null,
 "text": null
 },
-"download": ["_main.pdf", "_main.epub"],
+"download": ["Apostila.pdf", "Apostila.epub"],
 "search": {
 "engine": "fuse",
 "options": null

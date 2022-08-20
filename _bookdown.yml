@@ -4,3 +4,4 @@ language:
   ui:
     chapter_name: "Capítulo"
     graph_name: "Figura"
+book_filename: "Apostila"

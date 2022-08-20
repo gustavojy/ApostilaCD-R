@@ -6,11 +6,10 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
   <title>Capítulo3 Noções básicas em R | Introdução à Ciência de Dados em R</title>
   <meta name="description" content="Capítulo3 Noções básicas em R | Introdução à Ciência de Dados em R" />
-  <meta name="generator" content="bookdown 0.24 and GitBook 2.6.7" />
+  <meta name="generator" content="bookdown 0.28 and GitBook 2.6.7" />
 
   <meta property="og:title" content="Capítulo3 Noções básicas em R | Introdução à Ciência de Dados em R" />
   <meta property="og:type" content="book" />
-  
   
   
   <meta name="github-repo" content="rstudio/bookdown-demo" />
@@ -32,7 +31,6 @@
   
 <link rel="prev" href="ciência-de-dados-e-r.html"/>
 <link rel="next" href="import.html"/>
-<script src="libs/header-attrs-2.11/header-attrs.js"></script>
 <script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/fuse.js@6.4.6/dist/fuse.min.js"></script>
 <link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
@@ -50,8 +48,9 @@
 
 
 
-<link href="libs/anchor-sections-1.0.1/anchor-sections.css" rel="stylesheet" />
-<script src="libs/anchor-sections-1.0.1/anchor-sections.js"></script>
+<link href="libs/anchor-sections-1.1.0/anchor-sections.css" rel="stylesheet" />
+<link href="libs/anchor-sections-1.1.0/anchor-sections-hash.css" rel="stylesheet" />
+<script src="libs/anchor-sections-1.1.0/anchor-sections.js"></script>
 <script src="libs/kePrint-0.0.1/kePrint.js"></script>
 <link href="libs/lightable-0.0.1/lightable.css" rel="stylesheet" />
 
@@ -138,7 +137,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li><a href="./">Introdução à Ciência de Dados em R</a></li>
 
 <li class="divider"></li>
-<li class="chapter" data-level="1" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i><b>1</b> Introdução</a></li>
+<li class="chapter" data-level="1" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i><b>1</b> Introdução </a></li>
 <li class="chapter" data-level="2" data-path="ciência-de-dados-e-r.html"><a href="ciência-de-dados-e-r.html"><i class="fa fa-check"></i><b>2</b> Ciência de dados e R</a>
 <ul>
 <li class="chapter" data-level="2.1" data-path="ciência-de-dados-e-r.html"><a href="ciência-de-dados-e-r.html#o-que-é-ciência-de-dados"><i class="fa fa-check"></i><b>2.1</b> O que é Ciência de Dados?</a></li>
@@ -239,8 +238,8 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </ul></li>
 <li class="chapter" data-level="7.2" data-path="graf.html"><a href="graf.html#gráfico-de-barras"><i class="fa fa-check"></i><b>7.2</b> Gráfico de Barras</a>
 <ul>
-<li><a href="graf.html#geom_col"><code>geom_col()</code></a></li>
-<li><a href="graf.html#geom_bar"><code>geom_bar()</code></a></li>
+<li class="chapter" data-level="" data-path="graf.html"><a href="graf.html#geom_col"><i class="fa fa-check"></i><code>geom_col()</code></a></li>
+<li class="chapter" data-level="" data-path="graf.html"><a href="graf.html#geom_bar"><i class="fa fa-check"></i><code>geom_bar()</code></a></li>
 </ul></li>
 <li class="chapter" data-level="7.3" data-path="graf.html"><a href="graf.html#gráfico-de-setores-pizza"><i class="fa fa-check"></i><b>7.3</b> Gráfico de Setores (Pizza)</a></li>
 <li class="chapter" data-level="7.4" data-path="graf.html"><a href="graf.html#gráfico-de-linhas"><i class="fa fa-check"></i><b>7.4</b> Gráfico de Linhas</a>
@@ -333,11 +332,11 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
           <div class="page-inner">
 
             <section class="normal" id="section-">
-<div id="noções-básicas-em-r" class="section level1" number="3">
-<h1><span class="header-section-number">Capítulo3</span> Noções básicas em R</h1>
+<div id="noções-básicas-em-r" class="section level1 hasAnchor" number="3">
+<h1><span class="header-section-number">Capítulo3</span> Noções básicas em R<a href="noções-básicas-em-r.html#noções-básicas-em-r" class="anchor-section" aria-label="Anchor link to header"></a></h1>
 <p>Para trabalhar com ciência de dados em R, devemos ter algumas noções básicas de programação nessa linguagem. Os conceitos discutidos neste capítulo serão a base para aplicarmos as demais ferramentas ao longo da apostila.</p>
-<div id="proj" class="section level2" number="3.1">
-<h2><span class="header-section-number">3.1</span> Projetos</h2>
+<div id="proj" class="section level2 hasAnchor" number="3.1">
+<h2><span class="header-section-number">3.1</span> Projetos<a href="noções-básicas-em-r.html#proj" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <p>Uma funcionalidade importante do RStudio são os projetos. Ao criar um projeto, uma nova pasta é criada em seu computador. Nela, podemos (e devemos) direcionar os arquivos a serem utiilizados para o projeto, além de abrigar os novos arquivos criados para a análise.</p>
 <p>Com isso, a criação de projetos nos proporciona uma melhor organização dos arquivos, separando-os de acordo com o projeto realizado no R. Além disso, facilita a importação de dados para dentro do R, como veremos no capítulo <a href="import.html#import">4</a>, referente à importação de dados.</p>
 <p>Para criar um projeto, clique em <code>File</code>, presente no menu superior, depois em <code>New Project...</code>. Então, abrirá uma janela como o da imagem a seguir:</p>
@@ -348,8 +347,8 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <p>Clicando no mesmo ícone o qual aparece o nome do projeto, podemos criar um novo projeto e abrir um projeto já existente. Por tanto, atente-se a qual projeto se encontra ativo.</p>
 <p><br></p>
 </div>
-<div id="ajuda" class="section level2" number="3.2">
-<h2><span class="header-section-number">3.2</span> Ajuda</h2>
+<div id="ajuda" class="section level2 hasAnchor" number="3.2">
+<h2><span class="header-section-number">3.2</span> Ajuda<a href="noções-básicas-em-r.html#ajuda" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <p>Cada ferramenta presente no R contém uma documentação que explica a sua utilização. Para acessarmos tais documentos, podemos prosseguir das seguintes maneiras:</p>
 <div class="sourceCode" id="cb4"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb4-1"><a href="noções-básicas-em-r.html#cb4-1" aria-hidden="true" tabindex="-1"></a>?mean</span>
 <span id="cb4-2"><a href="noções-básicas-em-r.html#cb4-2" aria-hidden="true" tabindex="-1"></a></span>
@@ -366,8 +365,8 @@ Figure 3.1: Cheetsheet do RStudio. Nela podemos verificar, de maneira geral, as 
 <p>Caso ainda tenha dúvidas, não exite em fazer uma busca no Google, encontrar tutoriais explicativos - seja no YouTube ou no próprio site do <a href="https://www.rstudio.com/resources/webinars/">RStudio</a> -, acessar fóruns de perguntas e respostas - como o <a href="https://stackoverflow.com/">Stack Overflow</a> e acessar o <a href="https://rseek.org/">Rseek</a> ou o <a href="https://search.r-project.org/">Search R-project</a>, que são buscadores específicos para assuntos relacionados ao R.</p>
 <p><br></p>
 </div>
-<div id="comentários" class="section level2" number="3.3">
-<h2><span class="header-section-number">3.3</span> Comentários</h2>
+<div id="comentários" class="section level2 hasAnchor" number="3.3">
+<h2><span class="header-section-number">3.3</span> Comentários<a href="noções-básicas-em-r.html#comentários" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <p>Podemos inserir comentários dentro do <em>script</em>, sem que estes interfiram na execução dos códigos. Fazer comentários ao longo do <em>script</em> é muito importante para quem está começando, pois assim permite fazer registros para, posteriormente, revisar a utilizadade de certas funcionalidades ou realizar alguma manutenção no código. Além disso é muito relevante para que se possa compartilhar um código inteligível com outras pessoas.</p>
 <p>Para inserir um comentário, basta colocar o símbolo <code>#</code> antes da parte comentada.</p>
 <div class="figure" style="text-align: center"><span style="display:block;" id="fig:coment"></span>
@@ -379,8 +378,8 @@ Figure 3.2: Perceba que os comentários apresentam uma coloração diferenciada 
 <p>Como visto na figura <a href="noções-básicas-em-r.html#fig:coment">3.2</a>, além da possibilidade de comentar no início de uma linha, também podemos realizar comentários após um comando, desde que não interfira no fluxo dos códigos.</p>
 <p><br></p>
 </div>
-<div id="operações-matemáticas" class="section level2" number="3.4">
-<h2><span class="header-section-number">3.4</span> Operações matemáticas</h2>
+<div id="operações-matemáticas" class="section level2 hasAnchor" number="3.4">
+<h2><span class="header-section-number">3.4</span> Operações matemáticas<a href="noções-básicas-em-r.html#operações-matemáticas" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <p>A seguir, listaremos as principais operações matemáticas presentes no R. Digite os seguintes comandos no <em>script</em> e rode-os. Perceba que os resultados aparecem no <em>console</em>.</p>
 <div class="sourceCode" id="cb5"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb5-1"><a href="noções-básicas-em-r.html#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Adição</span></span>
 <span id="cb5-2"><a href="noções-básicas-em-r.html#cb5-2" aria-hidden="true" tabindex="-1"></a><span class="dv">1</span> <span class="sc">+</span> <span class="fl">1.2</span></span></code></pre></div>
@@ -421,8 +420,8 @@ Figure 3.2: Perceba que os comentários apresentam uma coloração diferenciada 
 <pre><code>[1] 3.14</code></pre>
 <p><br></p>
 </div>
-<div id="obj" class="section level2" number="3.5">
-<h2><span class="header-section-number">3.5</span> Objetos</h2>
+<div id="obj" class="section level2 hasAnchor" number="3.5">
+<h2><span class="header-section-number">3.5</span> Objetos<a href="noções-básicas-em-r.html#obj" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <p>Objetos são nomes que recebem um determinado valor. Para criar um objeto, utilizamos o operador <code>&lt;-</code>, cujo atalho no teclado é <code>Alt</code> + <code>-</code> (tecla Alt, junto com o sinal de menos).</p>
 <p>No exemplo a seguir, salvaremos o valor <code>10</code> dentro do nome <code>a</code>. Ao rodar o objeto <code>a</code>, o R retorna o valor 10.</p>
 <div class="sourceCode" id="cb29"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb29-1"><a href="noções-básicas-em-r.html#cb29-1" aria-hidden="true" tabindex="-1"></a><span class="co"># O número &#39;10&#39; será armazenado em &#39;a&#39;</span></span>
@@ -456,8 +455,8 @@ Figure 3.2: Perceba que os comentários apresentam uma coloração diferenciada 
 <p>Neste primeiro momento, criamos objetos que recebem um único valor. Ao longo da apostila, criaremos objetos mais complexos, cada qual apresentando tipos diferentes, como os vetores, <em>data frames</em> e listas.</p>
 <p><br></p>
 </div>
-<div id="funções" class="section level2" number="3.6">
-<h2><span class="header-section-number">3.6</span> Funções</h2>
+<div id="funções" class="section level2 hasAnchor" number="3.6">
+<h2><span class="header-section-number">3.6</span> Funções<a href="noções-básicas-em-r.html#funções" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <p>As funções são nomes que guardam um código em R. Portanto, cada função apresenta certas ferramentas específicas que nos trazem alguma resposta.</p>
 <p>Dentro dos parênteses de uma função estão os <strong>argumentos</strong>. Estes argumentos são separados por vírgulas e não há um limite de argumentos que uma função pode receber. Por tanto, uma função executa determinado comando, em resposta aos argumentos especificados dentro dela.</p>
 <div class="sourceCode" id="cb37"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb37-1"><a href="noções-básicas-em-r.html#cb37-1" aria-hidden="true" tabindex="-1"></a><span class="fu">sum</span>(<span class="dv">1</span>, <span class="dv">2</span>, <span class="dv">10</span>)</span></code></pre></div>
@@ -486,8 +485,8 @@ NULL</code></pre>
 <p>As funções serão a base para realizarmos cada etapa do fluxograma da ciência de dados, assim, nos depararemos com diversas funções e argumentos específicos, cada qual presente em um pacote ou sendo nativo do R.</p>
 <p><br></p>
 </div>
-<div id="classes" class="section level2" number="3.7">
-<h2><span class="header-section-number">3.7</span> Classes</h2>
+<div id="classes" class="section level2 hasAnchor" number="3.7">
+<h2><span class="header-section-number">3.7</span> Classes<a href="noções-básicas-em-r.html#classes" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <p>As classes de objetos nos indicam qual o <strong>tipo</strong> de valor que está armazenado em um determinado objeto. São divididas em quatro principais tipos:</p>
 <ul>
 <li><p><em>numeric</em>: apresenta valores numéricos, sejam inteiros (<em>integer</em>) ou decimais (<em>double</em>);</p></li>
@@ -518,8 +517,8 @@ NULL</code></pre>
 <p>No último exemplo, perceba que os números <code>1</code> foram escritos entre aspas, logo deixam de ser um tipo numérico para se apresentar como um tipo caractere. Por este motivo não conseguimos realizar a soma desses.</p>
 <p><br></p>
 </div>
-<div id="dataf" class="section level2" number="3.8">
-<h2><span class="header-section-number">3.8</span> Data frames</h2>
+<div id="dataf" class="section level2 hasAnchor" number="3.8">
+<h2><span class="header-section-number">3.8</span> Data frames<a href="noções-básicas-em-r.html#dataf" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <p>O <em>data frame</em> é o objeto que armazena os dados importados para dentro do R. São estruturados a partir de linhas e colunas, sendo que cada coluna representa uma variável e cada linha, uma observação, estrutura muito semelhante a uma planilha Excel.</p>
 <div class="sourceCode" id="cb59"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb59-1"><a href="noções-básicas-em-r.html#cb59-1" aria-hidden="true" tabindex="-1"></a>PlantGrowth</span></code></pre></div>
 <pre><code>   weight group
@@ -597,8 +596,8 @@ NULL</code></pre>
 <p>Os <em>data frames</em> serão o nosso principal objeto de estudo para aplicarmos ciência de dados, uma vez que guardam os dados a serem analisados. Estudaremos os <em>data frames</em> com mais detalhes na subseção <a href="noções-básicas-em-r.html#df">3.13.1</a>. Mas antes, devemos conhecer alguns outros conceitos importantes, como é o caso dos <strong>vetores</strong>, assunto do tópico a seguir.</p>
 <p><br></p>
 </div>
-<div id="vetor" class="section level2" number="3.9">
-<h2><span class="header-section-number">3.9</span> Vetores</h2>
+<div id="vetor" class="section level2 hasAnchor" number="3.9">
+<h2><span class="header-section-number">3.9</span> Vetores<a href="noções-básicas-em-r.html#vetor" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <p>Os vetores nada mais são do que um conjunto de valores unidos em um só objeto. Em um linguajar mais técnicos, vetor é um conjunto de valores indexados. Para criarmos um vetor, devemos utilizar a função <code>c()</code>, cujos argumentos devem estar separados por vírgulas.</p>
 <div class="sourceCode" id="cb73"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb73-1"><a href="noções-básicas-em-r.html#cb73-1" aria-hidden="true" tabindex="-1"></a>vetor_numerico <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="dv">2</span>, <span class="dv">6</span>, <span class="sc">-</span><span class="dv">10</span>, <span class="dv">14</span>, <span class="dv">18</span>, <span class="dv">22</span>)</span>
 <span id="cb73-2"><a href="noções-básicas-em-r.html#cb73-2" aria-hidden="true" tabindex="-1"></a>vetor_numerico</span></code></pre></div>
@@ -684,8 +683,8 @@ comprimento do objeto menor</code></pre>
 <p>Guarde com carinho os conceitos explicados nesta seção, pois os utilizaremos com muita frequência nos próximos capítulos para trabalharmos com os <em>data frame</em>, uma vez que cada coluna de um <em>data frame</em> é um vetor.</p>
 <p><br></p>
 </div>
-<div id="fator" class="section level2" number="3.10">
-<h2><span class="header-section-number">3.10</span> Fatores</h2>
+<div id="fator" class="section level2 hasAnchor" number="3.10">
+<h2><span class="header-section-number">3.10</span> Fatores<a href="noções-básicas-em-r.html#fator" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <p>As variáveis do tipo <strong>fator</strong> são um caso especial de classe de objetos que representam variáveis qualitativas possíveis de serem agrupadas em <strong>categorias</strong>, como, por exemplo, o sexo e grau de escolaridade. As possíveis categorias presentes em um fator são indicadas pelo atributo <code>levels</code>, como os <code>levels</code> masculino e feminino, no caso do sexo, e ensino fundamental, médio e superior, no caso do grau de escolaridade.</p>
 <p>Normalmente, este tipo de variável é criada ou importada como texto, sendo necessário transformá-la em fator, utilizando a função <code>as.factor()</code>.</p>
 <div class="sourceCode" id="cb116"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb116-1"><a href="noções-básicas-em-r.html#cb116-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Classe do tipo caractere</span></span>
@@ -708,8 +707,8 @@ Levels: F M</code></pre>
 <span id="cb124-2"><a href="noções-básicas-em-r.html#cb124-2" aria-hidden="true" tabindex="-1"></a><span class="fu">levels</span>(sexo_fator)</span></code></pre></div>
 <pre><code>[1] &quot;M&quot; &quot;F&quot;</code></pre>
 <p><br></p>
-<div id="diferenças-entre-fatores-e-caracteres" class="section level3" number="3.10.1">
-<h3><span class="header-section-number">3.10.1</span> Diferenças entre fatores e caracteres</h3>
+<div id="diferenças-entre-fatores-e-caracteres" class="section level3 hasAnchor" number="3.10.1">
+<h3><span class="header-section-number">3.10.1</span> Diferenças entre fatores e caracteres<a href="noções-básicas-em-r.html#diferenças-entre-fatores-e-caracteres" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p>Apesar dos objetos do tipo fator serem representados por letras ou palavras, o R os enxerga como números inteiros, diferentemente dos objetos da classe caractere, que são puramente textos. Podemos notar essas diferenças ao tentar convertê-las em classe numérica.</p>
 <div class="sourceCode" id="cb126"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb126-1"><a href="noções-básicas-em-r.html#cb126-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Classe caractere</span></span>
 <span id="cb126-2"><a href="noções-básicas-em-r.html#cb126-2" aria-hidden="true" tabindex="-1"></a>sexo <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="st">&quot;F&quot;</span>, <span class="st">&quot;F&quot;</span>, <span class="st">&quot;M&quot;</span>, <span class="st">&quot;F&quot;</span>, <span class="st">&quot;M&quot;</span>, <span class="st">&quot;M&quot;</span>)</span>
@@ -728,8 +727,8 @@ Levels: F M</code></pre>
 <p><br></p>
 </div>
 </div>
-<div id="logica" class="section level2" number="3.11">
-<h2><span class="header-section-number">3.11</span> Operações lógicas</h2>
+<div id="logica" class="section level2 hasAnchor" number="3.11">
+<h2><span class="header-section-number">3.11</span> Operações lógicas<a href="noções-básicas-em-r.html#logica" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <p>As operações lógicas nos retornam valores do tipo verdadeiro ou falso, representados no R por <code>TRUE</code> e <code>FALSE</code> (em letras maiúsculas), respectivamente. Portanto, a classe atribuida a estes tipos de valores é a <code>logical</code> - como vimos na seção <a href="noções-básicas-em-r.html#classes">3.7</a> - aceitando somente estes dois valores.</p>
 <div class="sourceCode" id="cb134"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb134-1"><a href="noções-básicas-em-r.html#cb134-1" aria-hidden="true" tabindex="-1"></a><span class="fu">class</span>(<span class="cn">TRUE</span>)</span></code></pre></div>
 <pre><code>[1] &quot;logical&quot;</code></pre>
@@ -797,11 +796,11 @@ Levels: F M</code></pre>
 <p>Toda essa explicação embasa a operação lógica <code>vet[vet &gt; 3]</code>, que nos retorna apenas os valores do vetor que são maiores que 3, ou seja, todos os valores iguais a <code>TRUE</code>. Esse tipo de operação será muito utilizada nos capítulos seguintes, mais especificamente no capítulo <a href="trans.html#trans">6</a> ao utilizarmos a função <code>filter</code>, essa muito mais simples de operar do que em relação ao apresentado anteriormente, porém seguindo a mesma lógica.</p>
 <p><br></p>
 </div>
-<div id="especial" class="section level2" number="3.12">
-<h2><span class="header-section-number">3.12</span> Valores especiais</h2>
+<div id="especial" class="section level2 hasAnchor" number="3.12">
+<h2><span class="header-section-number">3.12</span> Valores especiais<a href="noções-básicas-em-r.html#especial" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <p>Nesta seção, explicaremos alguns valores particulares presentes no R.</p>
-<div id="na" class="section level3" number="3.12.1">
-<h3><span class="header-section-number">3.12.1</span> NA</h3>
+<div id="na" class="section level3 hasAnchor" number="3.12.1">
+<h3><span class="header-section-number">3.12.1</span> NA<a href="noções-básicas-em-r.html#na" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p>O <code>NA</code> representa a <strong>ausência de informação</strong>, ou seja, a informação existe, porém não se sabe qual é. Em bases de dados, é comum que algumas informações não tenham registro, sendo assim, representados pelo valor <code>NA</code>. Com isso, devemos saber interpretar e tratar estes valores.</p>
 <p>Reforçando o significado de <code>NA</code>, podemos exemplificar com uma coleta de dados em que certos indivíduos não informaram suas idades. Isso não significa que os entrevistados não possuem idade, mas simplesmente que o registro de algumas idades é uma informação ausente na pesquisa.</p>
 <p>Sabendo do significado de <code>NA</code>, podemos aprofundar sua utilização em testes lógicos, como representa o exemplo a seguir:</p>
@@ -817,8 +816,8 @@ Levels: F M</code></pre>
 <p>Dito isso, temos que nos atentar aos valores <code>NA</code> presentes nos nossos <em>data frames</em>, pois em algumas operações, como a média (<code>mean()</code>), não conseguimos executá-la na presença desses valores. No caso da função <code>mean()</code>, ela possui o argumento <code>na.rm = TRUE</code> para excluir os <code>NA</code> da operação matemática. Todavia, algumas outras funções não possuem um argumento semelhante, sendo necessário realizar outras manipulações de dados, as quais veremos nos capítulos mais adiantes.</p>
 <p><br></p>
 </div>
-<div id="nan" class="section level3" number="3.12.2">
-<h3><span class="header-section-number">3.12.2</span> NaN</h3>
+<div id="nan" class="section level3 hasAnchor" number="3.12.2">
+<h3><span class="header-section-number">3.12.2</span> NaN<a href="noções-básicas-em-r.html#nan" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p>O <code>NaN</code> (<em>not a number</em>) representa indeterminações matemáticas.</p>
 <div class="sourceCode" id="cb182"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb182-1"><a href="noções-básicas-em-r.html#cb182-1" aria-hidden="true" tabindex="-1"></a><span class="dv">0</span><span class="sc">/</span><span class="dv">0</span></span></code></pre></div>
 <pre><code>[1] NaN</code></pre>
@@ -830,8 +829,8 @@ Levels: F M</code></pre>
 <pre><code>[1] TRUE</code></pre>
 <p><br></p>
 </div>
-<div id="inf" class="section level3" number="3.12.3">
-<h3><span class="header-section-number">3.12.3</span> Inf</h3>
+<div id="inf" class="section level3 hasAnchor" number="3.12.3">
+<h3><span class="header-section-number">3.12.3</span> Inf<a href="noções-básicas-em-r.html#inf" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p>O <code>Inf</code> (infinito) representa um valor muito grande, o qual o R não consegue retratar. Também pode representar um limite matemático.</p>
 <div class="sourceCode" id="cb188"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb188-1"><a href="noções-básicas-em-r.html#cb188-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Valor grande</span></span>
 <span id="cb188-2"><a href="noções-básicas-em-r.html#cb188-2" aria-hidden="true" tabindex="-1"></a><span class="dv">100</span> <span class="sc">^</span> <span class="dv">200</span></span></code></pre></div>
@@ -847,8 +846,8 @@ Levels: F M</code></pre>
 <pre><code>[1] TRUE</code></pre>
 <p><br></p>
 </div>
-<div id="null" class="section level3" number="3.12.4">
-<h3><span class="header-section-number">3.12.4</span> NULL</h3>
+<div id="null" class="section level3 hasAnchor" number="3.12.4">
+<h3><span class="header-section-number">3.12.4</span> NULL<a href="noções-básicas-em-r.html#null" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p>O <code>NULL</code> representa a ausência de um objeto. Seu significado está mais atrelado a lógica de programação, quando não queremos atribuir valor à um objeto. Portanto, diferentemente do <code>NA</code>, o <code>NULL</code> indica a inexistência de um parâmetro qualquer.</p>
 <div class="sourceCode" id="cb196"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb196-1"><a href="noções-básicas-em-r.html#cb196-1" aria-hidden="true" tabindex="-1"></a>valor_nulo <span class="ot">&lt;-</span> <span class="cn">NULL</span></span>
 <span id="cb196-2"><a href="noções-básicas-em-r.html#cb196-2" aria-hidden="true" tabindex="-1"></a>valor_nulo</span></code></pre></div>
@@ -859,8 +858,8 @@ Levels: F M</code></pre>
 <p><br></p>
 </div>
 </div>
-<div id="list" class="section level2" number="3.13">
-<h2><span class="header-section-number">3.13</span> Listas</h2>
+<div id="list" class="section level2 hasAnchor" number="3.13">
+<h2><span class="header-section-number">3.13</span> Listas<a href="noções-básicas-em-r.html#list" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <p>As listas são objetos semelhantes a um vetor, porém, com algumas diferenças. Como citado na seção <a href="noções-básicas-em-r.html#vetor">3.9</a>, não podemos misturar objetos de classes distintas em um único vetor, contudo, nas <strong>listas</strong> podemos realizar essa mescla de classes.</p>
 <p>Para criarmos uma lista, utilizamos a função <code>list()</code>, tendo como argumentos os valores desejados.</p>
 <div class="sourceCode" id="cb200"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb200-1"><a href="noções-básicas-em-r.html#cb200-1" aria-hidden="true" tabindex="-1"></a>lista <span class="ot">&lt;-</span> <span class="fu">list</span>(<span class="dv">5</span>, <span class="st">&quot;x&quot;</span>, <span class="cn">FALSE</span>)</span>
@@ -928,8 +927,8 @@ $idade
 <span id="cb224-2"><a href="noções-básicas-em-r.html#cb224-2" aria-hidden="true" tabindex="-1"></a>dados_estudantes<span class="sc">$</span>idade</span></code></pre></div>
 <pre><code>[1] 26 19 20</code></pre>
 <p><br></p>
-<div id="df" class="section level3" number="3.13.1">
-<h3><span class="header-section-number">3.13.1</span> Data frames e listas</h3>
+<div id="df" class="section level3 hasAnchor" number="3.13.1">
+<h3><span class="header-section-number">3.13.1</span> Data frames e listas<a href="noções-básicas-em-r.html#df" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p>Depois de apresentarmos o que são listas (além dos demais conceitos presentes nas seções anteriores), vamos aprofundar os nossos conhecimentos sobre os <em>data frames</em>.</p>
 <p>A relação entre listas e <em>data frames</em> é que, basicamente, os <em>data frames</em> são um tipo de lista. Assim, as propriedades expostas sobre as listas se aplicam aos <em>data frames</em>.</p>
 <p>No capítulo <a href="noções-básicas-em-r.html#dataf">3.8</a>, apresentamos o básico sobre os <em>data frames</em>, exemplificado com o <code>PlantGrowth</code>. Assim, para entendermos a equivalência entre listas e <em>data frames</em>, converteremos o <code>PlantGrowth</code> em uma lista.</p>
@@ -1076,7 +1075,7 @@ gitbook.start({
 "link": null,
 "text": null
 },
-"download": ["_main.pdf", "_main.epub"],
+"download": ["Apostila.pdf", "Apostila.epub"],
 "search": {
 "engine": "fuse",
 "options": null
@@ -1088,20 +1087,6 @@ gitbook.start({
 });
 </script>
 
-<!-- dynamically load mathjax for compatibility with self-contained -->
-<script>
-  (function () {
-    var script = document.createElement("script");
-    script.type = "text/javascript";
-    var src = "true";
-    if (src === "" || src === "true") src = "https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-MML-AM_CHTML";
-    if (location.protocol !== "file:")
-      if (/^https?:/.test(src))
-        src = src.replace(/^https?:/, '');
-    script.src = src;
-    document.getElementsByTagName("head")[0].appendChild(script);
-  })();
-</script>
 </body>
 
 </html>
