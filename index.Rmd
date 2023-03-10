@@ -1,6 +1,6 @@
 --- 
 title: "Introdução à Ciência de Dados em R"
-author: Gustavo Jun Yakushiji^[Graduando em Engenharia Agronômica - ESALQ/USP]; Cristian Marcelo Villegas Lobos^[Professor Doutor do Departamento de Ciências Exatas - ESALQ/USP]
+author: Gustavo Jun Yakushiji^[Graduado em Engenharia Agronômica - ESALQ/USP]; Cristian Marcelo Villegas Lobos^[Professor Doutor do Departamento de Ciências Exatas - ESALQ/USP]
 date: "Agosto, 2022"
 output: pdf_document
 site: bookdown::bookdown_site
