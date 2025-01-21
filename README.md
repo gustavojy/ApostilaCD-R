@@ -14,3 +14,6 @@ Download da apostila em PDF disponível em: https://github.com/gustavojy/Apostil
 
 ## GitHub Pages
 Acesso online à apostila: https://gustavojy.github.io/ApostilaCD-R/
+
+## 2ª edição
+Acesse a 2ª edição da apostila em https://gustavojy.github.io/apostila-icdr/
