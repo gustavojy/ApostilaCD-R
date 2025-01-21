@@ -46,6 +46,10 @@ knitr::write_bib(x = c("knitr", "kableExtra", "float", "tidyverse", "readxl", "w
                  file = "packages.bib")
 ```
 
+::: {.callout-note}
+Para ler a versão mais recente deste material, acesse: <https://gustavojy.github.io/apostila-icdr/>
+:::
+
 # Introdução ^[Esta apostila foi confeccionada a partir do *Bookdown*. Todos os arquivos e códigos utilizados estão disponíveis em: https://github.com/gustavojy/ApostilaCD-R.]  
 
 A proposta desta apostila é compartilhar experiências sobre ciência de dados na linguagem de programação R, visando auxiliar àqueles que estão iniciando sua jornada nesta empreitada.  
