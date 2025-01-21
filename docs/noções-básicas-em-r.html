@@ -6,7 +6,7 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
   <title>Capítulo3 Noções básicas em R | Introdução à Ciência de Dados em R</title>
   <meta name="description" content="Capítulo3 Noções básicas em R | Introdução à Ciência de Dados em R" />
-  <meta name="generator" content="bookdown 0.28 and GitBook 2.6.7" />
+  <meta name="generator" content="bookdown 0.42 and GitBook 2.6.7" />
 
   <meta property="og:title" content="Capítulo3 Noções básicas em R | Introdução à Ciência de Dados em R" />
   <meta property="og:type" content="book" />
@@ -57,7 +57,7 @@
 
 <style type="text/css">
 pre > code.sourceCode { white-space: pre; position: relative; }
-pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span { line-height: 1.25; }
 pre > code.sourceCode > span:empty { height: 1.2em; }
 .sourceCode { overflow: visible; }
 code.sourceCode > span { color: inherit; text-decoration: inherit; }
@@ -67,7 +67,7 @@ div.sourceCode { overflow: auto; }
 }
 @media print {
 pre > code.sourceCode { white-space: pre-wrap; }
-pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+pre > code.sourceCode > span { display: inline-block; text-indent: -5em; padding-left: 5em; }
 }
 pre.numberSource code
   { counter-reset: source-line 0; }
@@ -93,7 +93,7 @@ code span.al { color: #ff0000; font-weight: bold; } /* Alert */
 code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
 code span.at { color: #7d9029; } /* Attribute */
 code span.bn { color: #40a070; } /* BaseN */
-code span.bu { } /* BuiltIn */
+code span.bu { color: #008000; } /* BuiltIn */
 code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
 code span.ch { color: #4070a0; } /* Char */
 code span.cn { color: #880000; } /* Constant */
@@ -106,7 +106,7 @@ code span.er { color: #ff0000; font-weight: bold; } /* Error */
 code span.ex { } /* Extension */
 code span.fl { color: #40a070; } /* Float */
 code span.fu { color: #06287e; } /* Function */
-code span.im { } /* Import */
+code span.im { color: #008000; font-weight: bold; } /* Import */
 code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
 code span.kw { color: #007020; font-weight: bold; } /* Keyword */
 code span.op { color: #666666; } /* Operator */
@@ -120,6 +120,10 @@ code span.vs { color: #4070a0; } /* VerbatimString */
 code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
 </style>
 
+<style type="text/css">
+  
+  div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+</style>
 
 <link rel="stylesheet" href="style.css" type="text/css" />
 </head>
@@ -334,6 +338,9 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
             <section class="normal" id="section-">
 <div id="noções-básicas-em-r" class="section level1 hasAnchor" number="3">
 <h1><span class="header-section-number">Capítulo3</span> Noções básicas em R<a href="noções-básicas-em-r.html#noções-básicas-em-r" class="anchor-section" aria-label="Anchor link to header"></a></h1>
+<div class="callout-box">
+<p><strong>Aviso:</strong> Para ler a versão mais recente deste material, acesse: <a href="https://gustavojy.github.io/apostila-icdr/" class="uri">https://gustavojy.github.io/apostila-icdr/</a></p>
+</div>
 <p>Para trabalhar com ciência de dados em R, devemos ter algumas noções básicas de programação nessa linguagem. Os conceitos discutidos neste capítulo serão a base para aplicarmos as demais ferramentas ao longo da apostila.</p>
 <div id="proj" class="section level2 hasAnchor" number="3.1">
 <h2><span class="header-section-number">3.1</span> Projetos<a href="noções-básicas-em-r.html#proj" class="anchor-section" aria-label="Anchor link to header"></a></h2>
@@ -350,9 +357,9 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <div id="ajuda" class="section level2 hasAnchor" number="3.2">
 <h2><span class="header-section-number">3.2</span> Ajuda<a href="noções-básicas-em-r.html#ajuda" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <p>Cada ferramenta presente no R contém uma documentação que explica a sua utilização. Para acessarmos tais documentos, podemos prosseguir das seguintes maneiras:</p>
-<div class="sourceCode" id="cb4"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb4-1"><a href="noções-básicas-em-r.html#cb4-1" aria-hidden="true" tabindex="-1"></a>?mean</span>
-<span id="cb4-2"><a href="noções-básicas-em-r.html#cb4-2" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb4-3"><a href="noções-básicas-em-r.html#cb4-3" aria-hidden="true" tabindex="-1"></a><span class="fu">help</span>(mean)</span></code></pre></div>
+<div class="sourceCode" id="cb4"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb4-1"><a href="noções-básicas-em-r.html#cb4-1" tabindex="-1"></a>?mean</span>
+<span id="cb4-2"><a href="noções-básicas-em-r.html#cb4-2" tabindex="-1"></a></span>
+<span id="cb4-3"><a href="noções-básicas-em-r.html#cb4-3" tabindex="-1"></a><span class="fu">help</span>(mean)</span></code></pre></div>
 <p>Neste exemplo, queremos saber mais sobre a função <code>mean</code>, ou seja, função que calcula a média aritmética. Ao rodar um destes comandos, a documentação referente à função será aberta na aba <code>Help</code>. Nela conterá algumas descrições importantes, como a noção geral de uso da função, os argumentos aceitos e exemplos de utilização.</p>
 <p>Portanto, caso tenha dúvidas sobre qualquer outra ferramenta - seja funções, <em>data frames</em>, listas ou pacotes -, utilize o <code>help(nome_da_ferramenta)</code> ou o <code>?nome_da_ferramenta</code>. Ainda, pode-se utilizar o atalho <code>F1</code> do teclado, selecionando uma ferramenta presente no <em>script</em> e clicar em <code>F1</code>.</p>
 <p>Outra via de auxílio são as <em>folhas de cola</em>, ou <strong>Cheatsheets</strong>. Basicamente, trazem resumos sobre as principais funções contidas em determinados pacotes. Seu acesso pode ser realizado em: <a href="https://www.rstudio.com/resources/cheatsheets/" class="uri">https://www.rstudio.com/resources/cheatsheets/</a> ou clicando na página inicial da aba <em>Help</em>.</p>
@@ -381,42 +388,42 @@ Figure 3.2: Perceba que os comentários apresentam uma coloração diferenciada 
 <div id="operações-matemáticas" class="section level2 hasAnchor" number="3.4">
 <h2><span class="header-section-number">3.4</span> Operações matemáticas<a href="noções-básicas-em-r.html#operações-matemáticas" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <p>A seguir, listaremos as principais operações matemáticas presentes no R. Digite os seguintes comandos no <em>script</em> e rode-os. Perceba que os resultados aparecem no <em>console</em>.</p>
-<div class="sourceCode" id="cb5"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb5-1"><a href="noções-básicas-em-r.html#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Adição</span></span>
-<span id="cb5-2"><a href="noções-básicas-em-r.html#cb5-2" aria-hidden="true" tabindex="-1"></a><span class="dv">1</span> <span class="sc">+</span> <span class="fl">1.2</span></span></code></pre></div>
+<div class="sourceCode" id="cb5"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb5-1"><a href="noções-básicas-em-r.html#cb5-1" tabindex="-1"></a><span class="co"># Adição</span></span>
+<span id="cb5-2"><a href="noções-básicas-em-r.html#cb5-2" tabindex="-1"></a><span class="dv">1</span> <span class="sc">+</span> <span class="fl">1.2</span></span></code></pre></div>
 <pre><code>[1] 2.2</code></pre>
-<div class="sourceCode" id="cb7"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb7-1"><a href="noções-básicas-em-r.html#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Subtração</span></span>
-<span id="cb7-2"><a href="noções-básicas-em-r.html#cb7-2" aria-hidden="true" tabindex="-1"></a><span class="dv">2</span> <span class="sc">-</span> <span class="dv">1</span></span></code></pre></div>
+<div class="sourceCode" id="cb7"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb7-1"><a href="noções-básicas-em-r.html#cb7-1" tabindex="-1"></a><span class="co"># Subtração</span></span>
+<span id="cb7-2"><a href="noções-básicas-em-r.html#cb7-2" tabindex="-1"></a><span class="dv">2</span> <span class="sc">-</span> <span class="dv">1</span></span></code></pre></div>
 <pre><code>[1] 1</code></pre>
-<div class="sourceCode" id="cb9"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb9-1"><a href="noções-básicas-em-r.html#cb9-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Multiplicação</span></span>
-<span id="cb9-2"><a href="noções-básicas-em-r.html#cb9-2" aria-hidden="true" tabindex="-1"></a><span class="dv">5</span> <span class="sc">*</span> <span class="dv">5</span></span></code></pre></div>
+<div class="sourceCode" id="cb9"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb9-1"><a href="noções-básicas-em-r.html#cb9-1" tabindex="-1"></a><span class="co"># Multiplicação</span></span>
+<span id="cb9-2"><a href="noções-básicas-em-r.html#cb9-2" tabindex="-1"></a><span class="dv">5</span> <span class="sc">*</span> <span class="dv">5</span></span></code></pre></div>
 <pre><code>[1] 25</code></pre>
-<div class="sourceCode" id="cb11"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb11-1"><a href="noções-básicas-em-r.html#cb11-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Divisão</span></span>
-<span id="cb11-2"><a href="noções-básicas-em-r.html#cb11-2" aria-hidden="true" tabindex="-1"></a><span class="dv">6</span> <span class="sc">/</span> <span class="dv">4</span></span></code></pre></div>
+<div class="sourceCode" id="cb11"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb11-1"><a href="noções-básicas-em-r.html#cb11-1" tabindex="-1"></a><span class="co"># Divisão</span></span>
+<span id="cb11-2"><a href="noções-básicas-em-r.html#cb11-2" tabindex="-1"></a><span class="dv">6</span> <span class="sc">/</span> <span class="dv">4</span></span></code></pre></div>
 <pre><code>[1] 1.5</code></pre>
-<div class="sourceCode" id="cb13"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb13-1"><a href="noções-básicas-em-r.html#cb13-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Potência (possibilidade 1)</span></span>
-<span id="cb13-2"><a href="noções-básicas-em-r.html#cb13-2" aria-hidden="true" tabindex="-1"></a><span class="dv">2</span> <span class="sc">^</span> <span class="dv">3</span></span></code></pre></div>
+<div class="sourceCode" id="cb13"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb13-1"><a href="noções-básicas-em-r.html#cb13-1" tabindex="-1"></a><span class="co"># Potência (possibilidade 1)</span></span>
+<span id="cb13-2"><a href="noções-básicas-em-r.html#cb13-2" tabindex="-1"></a><span class="dv">2</span> <span class="sc">^</span> <span class="dv">3</span></span></code></pre></div>
 <pre><code>[1] 8</code></pre>
-<div class="sourceCode" id="cb15"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb15-1"><a href="noções-básicas-em-r.html#cb15-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Potência (possibilidade 2)</span></span>
-<span id="cb15-2"><a href="noções-básicas-em-r.html#cb15-2" aria-hidden="true" tabindex="-1"></a><span class="dv">2</span> <span class="sc">**</span> <span class="dv">3</span></span></code></pre></div>
+<div class="sourceCode" id="cb15"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb15-1"><a href="noções-básicas-em-r.html#cb15-1" tabindex="-1"></a><span class="co"># Potência (possibilidade 2)</span></span>
+<span id="cb15-2"><a href="noções-básicas-em-r.html#cb15-2" tabindex="-1"></a><span class="dv">2</span> <span class="sc">**</span> <span class="dv">3</span></span></code></pre></div>
 <pre><code>[1] 8</code></pre>
-<div class="sourceCode" id="cb17"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb17-1"><a href="noções-básicas-em-r.html#cb17-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Raiz quadrada</span></span>
-<span id="cb17-2"><a href="noções-básicas-em-r.html#cb17-2" aria-hidden="true" tabindex="-1"></a><span class="dv">4</span> <span class="sc">^</span> (<span class="dv">1</span><span class="sc">/</span><span class="dv">2</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb17"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb17-1"><a href="noções-básicas-em-r.html#cb17-1" tabindex="-1"></a><span class="co"># Raiz quadrada</span></span>
+<span id="cb17-2"><a href="noções-básicas-em-r.html#cb17-2" tabindex="-1"></a><span class="dv">4</span> <span class="sc">^</span> (<span class="dv">1</span><span class="sc">/</span><span class="dv">2</span>)</span></code></pre></div>
 <pre><code>[1] 2</code></pre>
-<div class="sourceCode" id="cb19"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb19-1"><a href="noções-básicas-em-r.html#cb19-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Resto da divisão</span></span>
-<span id="cb19-2"><a href="noções-básicas-em-r.html#cb19-2" aria-hidden="true" tabindex="-1"></a><span class="dv">7</span> <span class="sc">%%</span> <span class="dv">3</span></span></code></pre></div>
+<div class="sourceCode" id="cb19"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb19-1"><a href="noções-básicas-em-r.html#cb19-1" tabindex="-1"></a><span class="co"># Resto da divisão</span></span>
+<span id="cb19-2"><a href="noções-básicas-em-r.html#cb19-2" tabindex="-1"></a><span class="dv">7</span> <span class="sc">%%</span> <span class="dv">3</span></span></code></pre></div>
 <pre><code>[1] 1</code></pre>
-<div class="sourceCode" id="cb21"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb21-1"><a href="noções-básicas-em-r.html#cb21-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Parte inteira de uma divisão</span></span>
-<span id="cb21-2"><a href="noções-básicas-em-r.html#cb21-2" aria-hidden="true" tabindex="-1"></a><span class="dv">7</span> <span class="sc">%/%</span> <span class="dv">3</span></span></code></pre></div>
+<div class="sourceCode" id="cb21"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb21-1"><a href="noções-básicas-em-r.html#cb21-1" tabindex="-1"></a><span class="co"># Parte inteira de uma divisão</span></span>
+<span id="cb21-2"><a href="noções-básicas-em-r.html#cb21-2" tabindex="-1"></a><span class="dv">7</span> <span class="sc">%/%</span> <span class="dv">3</span></span></code></pre></div>
 <pre><code>[1] 2</code></pre>
-<div class="sourceCode" id="cb23"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb23-1"><a href="noções-básicas-em-r.html#cb23-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Ordem de precedência</span></span>
-<span id="cb23-2"><a href="noções-básicas-em-r.html#cb23-2" aria-hidden="true" tabindex="-1"></a><span class="dv">1</span> <span class="sc">+</span> <span class="dv">2</span> <span class="sc">*</span> <span class="dv">5</span> <span class="sc">-</span> (<span class="dv">4</span> <span class="sc">-</span> <span class="dv">2</span>) <span class="sc">/</span> <span class="dv">2</span></span></code></pre></div>
+<div class="sourceCode" id="cb23"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb23-1"><a href="noções-básicas-em-r.html#cb23-1" tabindex="-1"></a><span class="co"># Ordem de precedência</span></span>
+<span id="cb23-2"><a href="noções-básicas-em-r.html#cb23-2" tabindex="-1"></a><span class="dv">1</span> <span class="sc">+</span> <span class="dv">2</span> <span class="sc">*</span> <span class="dv">5</span> <span class="sc">-</span> (<span class="dv">4</span> <span class="sc">-</span> <span class="dv">2</span>) <span class="sc">/</span> <span class="dv">2</span></span></code></pre></div>
 <pre><code>[1] 10</code></pre>
 <p>No caso do exemplo da ordem de precedência, assim como na matemática, o R calcula primeiro a multiplicação e divisão, além dos valores entre parênteses, para, posteriormente, calcular a adição e a subtração.</p>
 <p>Outra informação relevante a ser dita quando tratamos de números no R é que os decimais são delimitados por pontos e não por vírgulas, portanto, diferente do padrão adotado no Brasil. Essa informação é importante para que possamos escrever números decimais da maneira a qual o R aceita.</p>
 <p>Uma função útil para tratar de números decimais é a <code>round()</code>. Ela arredonda números decimais de acordo com o número de casas decimais informadas no argumento <code>digits</code>.</p>
-<div class="sourceCode" id="cb25"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb25-1"><a href="noções-básicas-em-r.html#cb25-1" aria-hidden="true" tabindex="-1"></a><span class="fu">round</span>(<span class="fl">10.456783452</span>, <span class="at">digits =</span> <span class="dv">3</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb25"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb25-1"><a href="noções-básicas-em-r.html#cb25-1" tabindex="-1"></a><span class="fu">round</span>(<span class="fl">10.456783452</span>, <span class="at">digits =</span> <span class="dv">3</span>)</span></code></pre></div>
 <pre><code>[1] 10.457</code></pre>
-<div class="sourceCode" id="cb27"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb27-1"><a href="noções-básicas-em-r.html#cb27-1" aria-hidden="true" tabindex="-1"></a><span class="fu">round</span>(pi, <span class="at">digits =</span> <span class="dv">2</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb27"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb27-1"><a href="noções-básicas-em-r.html#cb27-1" tabindex="-1"></a><span class="fu">round</span>(pi, <span class="at">digits =</span> <span class="dv">2</span>)</span></code></pre></div>
 <pre><code>[1] 3.14</code></pre>
 <p><br></p>
 </div>
@@ -424,34 +431,34 @@ Figure 3.2: Perceba que os comentários apresentam uma coloração diferenciada 
 <h2><span class="header-section-number">3.5</span> Objetos<a href="noções-básicas-em-r.html#obj" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <p>Objetos são nomes que recebem um determinado valor. Para criar um objeto, utilizamos o operador <code>&lt;-</code>, cujo atalho no teclado é <code>Alt</code> + <code>-</code> (tecla Alt, junto com o sinal de menos).</p>
 <p>No exemplo a seguir, salvaremos o valor <code>10</code> dentro do nome <code>a</code>. Ao rodar o objeto <code>a</code>, o R retorna o valor 10.</p>
-<div class="sourceCode" id="cb29"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb29-1"><a href="noções-básicas-em-r.html#cb29-1" aria-hidden="true" tabindex="-1"></a><span class="co"># O número &#39;10&#39; será armazenado em &#39;a&#39;</span></span>
-<span id="cb29-2"><a href="noções-básicas-em-r.html#cb29-2" aria-hidden="true" tabindex="-1"></a>a <span class="ot">&lt;-</span> <span class="dv">10</span></span>
-<span id="cb29-3"><a href="noções-básicas-em-r.html#cb29-3" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb29-4"><a href="noções-básicas-em-r.html#cb29-4" aria-hidden="true" tabindex="-1"></a><span class="co"># Rodando o objeto &#39;a&#39;, retorna o valor &#39;10&#39;</span></span>
-<span id="cb29-5"><a href="noções-básicas-em-r.html#cb29-5" aria-hidden="true" tabindex="-1"></a>a</span></code></pre></div>
+<div class="sourceCode" id="cb29"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb29-1"><a href="noções-básicas-em-r.html#cb29-1" tabindex="-1"></a><span class="co"># O número &#39;10&#39; será armazenado em &#39;a&#39;</span></span>
+<span id="cb29-2"><a href="noções-básicas-em-r.html#cb29-2" tabindex="-1"></a>a <span class="ot">&lt;-</span> <span class="dv">10</span></span>
+<span id="cb29-3"><a href="noções-básicas-em-r.html#cb29-3" tabindex="-1"></a></span>
+<span id="cb29-4"><a href="noções-básicas-em-r.html#cb29-4" tabindex="-1"></a><span class="co"># Rodando o objeto &#39;a&#39;, retorna o valor &#39;10&#39;</span></span>
+<span id="cb29-5"><a href="noções-básicas-em-r.html#cb29-5" tabindex="-1"></a>a</span></code></pre></div>
 <pre><code>[1] 10</code></pre>
 <p>Perceba que ao criar um objeto, esse será armazenado na janela <code>Enviroment</code>. Para excluir objetos, selecione os que deseja excluir e clique no ícone da vassoura.</p>
 <p><img src="imagens/objeto.png" width="80%" style="display: block; margin: auto;" /></p>
 <p>Devemos nos atentar a alguns outros detalhes ao criarmos um objeto. Primeiramente, o R diferencia letras maiúsculas e minúsculas:</p>
-<div class="sourceCode" id="cb31"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb31-1"><a href="noções-básicas-em-r.html#cb31-1" aria-hidden="true" tabindex="-1"></a>A <span class="ot">&lt;-</span> <span class="dv">10</span></span>
-<span id="cb31-2"><a href="noções-básicas-em-r.html#cb31-2" aria-hidden="true" tabindex="-1"></a>a <span class="ot">&lt;-</span> <span class="dv">50</span></span>
-<span id="cb31-3"><a href="noções-básicas-em-r.html#cb31-3" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb31-4"><a href="noções-básicas-em-r.html#cb31-4" aria-hidden="true" tabindex="-1"></a>A</span></code></pre></div>
+<div class="sourceCode" id="cb31"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb31-1"><a href="noções-básicas-em-r.html#cb31-1" tabindex="-1"></a>A <span class="ot">&lt;-</span> <span class="dv">10</span></span>
+<span id="cb31-2"><a href="noções-básicas-em-r.html#cb31-2" tabindex="-1"></a>a <span class="ot">&lt;-</span> <span class="dv">50</span></span>
+<span id="cb31-3"><a href="noções-básicas-em-r.html#cb31-3" tabindex="-1"></a></span>
+<span id="cb31-4"><a href="noções-básicas-em-r.html#cb31-4" tabindex="-1"></a>A</span></code></pre></div>
 <pre><code>[1] 10</code></pre>
-<div class="sourceCode" id="cb33"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb33-1"><a href="noções-básicas-em-r.html#cb33-1" aria-hidden="true" tabindex="-1"></a>a</span></code></pre></div>
+<div class="sourceCode" id="cb33"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb33-1"><a href="noções-básicas-em-r.html#cb33-1" tabindex="-1"></a>a</span></code></pre></div>
 <pre><code>[1] 50</code></pre>
 <p>Além disso, não podemos nomear um objeto começando por números, <em>underline</em> (_), ponto (.) e traço (-), sendo esses, <strong>nomes de sintaxe inválida</strong>.</p>
-<div class="sourceCode" id="cb35"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb35-1"><a href="noções-básicas-em-r.html#cb35-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Nomes não permitidos!</span></span>
-<span id="cb35-2"><a href="noções-básicas-em-r.html#cb35-2" aria-hidden="true" tabindex="-1"></a>13v <span class="ot">&lt;-</span> <span class="dv">1</span></span>
-<span id="cb35-3"><a href="noções-básicas-em-r.html#cb35-3" aria-hidden="true" tabindex="-1"></a>_objeto <span class="ot">&lt;-</span> <span class="dv">2</span></span>
-<span id="cb35-4"><a href="noções-básicas-em-r.html#cb35-4" aria-hidden="true" tabindex="-1"></a><span class="sc">-</span>objeto <span class="ot">&lt;-</span> <span class="dv">3</span></span>
-<span id="cb35-5"><a href="noções-básicas-em-r.html#cb35-5" aria-hidden="true" tabindex="-1"></a>nomear<span class="sc">-</span>objeto <span class="ot">&lt;-</span> <span class="dv">4</span></span>
-<span id="cb35-6"><a href="noções-básicas-em-r.html#cb35-6" aria-hidden="true" tabindex="-1"></a>.objeto <span class="ot">&lt;-</span> <span class="dv">5</span></span></code></pre></div>
+<div class="sourceCode" id="cb35"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb35-1"><a href="noções-básicas-em-r.html#cb35-1" tabindex="-1"></a><span class="co"># Nomes não permitidos!</span></span>
+<span id="cb35-2"><a href="noções-básicas-em-r.html#cb35-2" tabindex="-1"></a><span class="dv">13</span>v <span class="ot">&lt;-</span> <span class="dv">1</span></span>
+<span id="cb35-3"><a href="noções-básicas-em-r.html#cb35-3" tabindex="-1"></a>_objeto <span class="ot">&lt;-</span> <span class="dv">2</span></span>
+<span id="cb35-4"><a href="noções-básicas-em-r.html#cb35-4" tabindex="-1"></a><span class="sc">-</span>objeto <span class="ot">&lt;-</span> <span class="dv">3</span></span>
+<span id="cb35-5"><a href="noções-básicas-em-r.html#cb35-5" tabindex="-1"></a>nomear<span class="sc">-</span>objeto <span class="ot">&lt;-</span> <span class="dv">4</span></span>
+<span id="cb35-6"><a href="noções-básicas-em-r.html#cb35-6" tabindex="-1"></a>.objeto <span class="ot">&lt;-</span> <span class="dv">5</span></span></code></pre></div>
 <p>Contudo, podemos utilizar números, <em>underline</em> e pontos, desde que não estejam no início do nome.</p>
-<div class="sourceCode" id="cb36"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb36-1"><a href="noções-básicas-em-r.html#cb36-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Permitido</span></span>
-<span id="cb36-2"><a href="noções-básicas-em-r.html#cb36-2" aria-hidden="true" tabindex="-1"></a>x1 <span class="ot">&lt;-</span> <span class="dv">7</span></span>
-<span id="cb36-3"><a href="noções-básicas-em-r.html#cb36-3" aria-hidden="true" tabindex="-1"></a>nomear_objeto <span class="ot">&lt;-</span> <span class="dv">25</span></span>
-<span id="cb36-4"><a href="noções-básicas-em-r.html#cb36-4" aria-hidden="true" tabindex="-1"></a>nomear.objeto <span class="ot">&lt;-</span> <span class="dv">52</span></span></code></pre></div>
+<div class="sourceCode" id="cb36"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb36-1"><a href="noções-básicas-em-r.html#cb36-1" tabindex="-1"></a><span class="co"># Permitido</span></span>
+<span id="cb36-2"><a href="noções-básicas-em-r.html#cb36-2" tabindex="-1"></a>x1 <span class="ot">&lt;-</span> <span class="dv">7</span></span>
+<span id="cb36-3"><a href="noções-básicas-em-r.html#cb36-3" tabindex="-1"></a>nomear_objeto <span class="ot">&lt;-</span> <span class="dv">25</span></span>
+<span id="cb36-4"><a href="noções-básicas-em-r.html#cb36-4" tabindex="-1"></a>nomear.objeto <span class="ot">&lt;-</span> <span class="dv">52</span></span></code></pre></div>
 <p>Neste primeiro momento, criamos objetos que recebem um único valor. Ao longo da apostila, criaremos objetos mais complexos, cada qual apresentando tipos diferentes, como os vetores, <em>data frames</em> e listas.</p>
 <p><br></p>
 </div>
@@ -459,25 +466,25 @@ Figure 3.2: Perceba que os comentários apresentam uma coloração diferenciada 
 <h2><span class="header-section-number">3.6</span> Funções<a href="noções-básicas-em-r.html#funções" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <p>As funções são nomes que guardam um código em R. Portanto, cada função apresenta certas ferramentas específicas que nos trazem alguma resposta.</p>
 <p>Dentro dos parênteses de uma função estão os <strong>argumentos</strong>. Estes argumentos são separados por vírgulas e não há um limite de argumentos que uma função pode receber. Por tanto, uma função executa determinado comando, em resposta aos argumentos especificados dentro dela.</p>
-<div class="sourceCode" id="cb37"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb37-1"><a href="noções-básicas-em-r.html#cb37-1" aria-hidden="true" tabindex="-1"></a><span class="fu">sum</span>(<span class="dv">1</span>, <span class="dv">2</span>, <span class="dv">10</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb37"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb37-1"><a href="noções-básicas-em-r.html#cb37-1" tabindex="-1"></a><span class="fu">sum</span>(<span class="dv">1</span>, <span class="dv">2</span>, <span class="dv">10</span>)</span></code></pre></div>
 <pre><code>[1] 13</code></pre>
 <p>No exemplo, <code>1</code>, <code>2</code> e <code>10</code> são argumentos da função <code>sum</code> (ou seja, função soma). Portanto, a função realizou a operação de soma dos argumentos especificados dentro da função, retornando o resultado da operação, igual a <code>13</code>.</p>
 <p>Alguns argumentos de funções possuem nomes, que podemos ou não explicitar em uma função. Utilizaremos como exemplo a função <code>seq()</code>.</p>
-<div class="sourceCode" id="cb39"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb39-1"><a href="noções-básicas-em-r.html#cb39-1" aria-hidden="true" tabindex="-1"></a><span class="fu">seq</span>(<span class="at">from =</span> <span class="dv">2</span>, <span class="at">to =</span> <span class="dv">10</span>, <span class="at">by =</span> <span class="dv">2</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb39"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb39-1"><a href="noções-básicas-em-r.html#cb39-1" tabindex="-1"></a><span class="fu">seq</span>(<span class="at">from =</span> <span class="dv">2</span>, <span class="at">to =</span> <span class="dv">10</span>, <span class="at">by =</span> <span class="dv">2</span>)</span></code></pre></div>
 <pre><code>[1]  2  4  6  8 10</code></pre>
 <p>A função <code>seq()</code> cria uma sequência numérica de acordo com os argumentos. O <code>from</code> indica por qual número se inicia a sequência, o <code>to</code>, em qual número termina e o <code>by</code>, de quanto em quanto a sequência será construída. Assim, no exemplo, criamos uma sequência que começa do 2, termina no 10 e que vai de 2 em 2.</p>
 <p>Temos a possibilidade de não explicitar os nomes dos argumentos, desde que se respeite a ordem em que os argumentos aparecem.</p>
-<div class="sourceCode" id="cb41"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb41-1"><a href="noções-básicas-em-r.html#cb41-1" aria-hidden="true" tabindex="-1"></a><span class="fu">seq</span>(<span class="dv">2</span>, <span class="dv">10</span>, <span class="dv">2</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb41"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb41-1"><a href="noções-básicas-em-r.html#cb41-1" tabindex="-1"></a><span class="fu">seq</span>(<span class="dv">2</span>, <span class="dv">10</span>, <span class="dv">2</span>)</span></code></pre></div>
 <pre><code>[1]  2  4  6  8 10</code></pre>
 <p>Para saber qual a ordem dos argumentos da função <code>seq()</code>, acessamos a sua documentação com o comando <code>?seq</code>.</p>
 <p>Caso seja explicitado o nome dos argumentos, a ordem não interfere no resultado final.</p>
-<div class="sourceCode" id="cb43"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb43-1"><a href="noções-básicas-em-r.html#cb43-1" aria-hidden="true" tabindex="-1"></a><span class="fu">seq</span>(<span class="at">by =</span> <span class="dv">2</span>, <span class="at">from =</span> <span class="dv">2</span>, <span class="at">to =</span> <span class="dv">10</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb43"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb43-1"><a href="noções-básicas-em-r.html#cb43-1" tabindex="-1"></a><span class="fu">seq</span>(<span class="at">by =</span> <span class="dv">2</span>, <span class="at">from =</span> <span class="dv">2</span>, <span class="at">to =</span> <span class="dv">10</span>)</span></code></pre></div>
 <pre><code>[1]  2  4  6  8 10</code></pre>
 <p>Mas caso os nomes não sejam explicitados, a ordem incorreta acarreta em outro resultado.</p>
-<div class="sourceCode" id="cb45"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb45-1"><a href="noções-básicas-em-r.html#cb45-1" aria-hidden="true" tabindex="-1"></a><span class="fu">seq</span>(<span class="dv">2</span>, <span class="dv">2</span>, <span class="dv">10</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb45"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb45-1"><a href="noções-básicas-em-r.html#cb45-1" tabindex="-1"></a><span class="fu">seq</span>(<span class="dv">2</span>, <span class="dv">2</span>, <span class="dv">10</span>)</span></code></pre></div>
 <pre><code>[1] 2</code></pre>
 <p>Além de conferir as documentações referentes às funções, podemos utilizar a função <code>args(nome_da_função)</code> para verificar todos os argumentos presentes em uma função específica.</p>
-<div class="sourceCode" id="cb47"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb47-1"><a href="noções-básicas-em-r.html#cb47-1" aria-hidden="true" tabindex="-1"></a><span class="fu">args</span>(lm)</span></code></pre></div>
+<div class="sourceCode" id="cb47"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb47-1"><a href="noções-básicas-em-r.html#cb47-1" tabindex="-1"></a><span class="fu">args</span>(lm)</span></code></pre></div>
 <pre><code>function (formula, data, subset, weights, na.action, method = &quot;qr&quot;, 
     model = TRUE, x = FALSE, y = FALSE, qr = TRUE, singular.ok = TRUE, 
     contrasts = NULL, offset, ...) 
@@ -495,24 +502,24 @@ NULL</code></pre>
 <li><p><em>logical</em>: valores lógicos do tipo verdadeiro ou falso (TRUE/FALSE). Também são conhecidos como valores booleanos. Abordaremos mais detalhadamente esta classe na seção <a href="noções-básicas-em-r.html#logica">3.11</a>.</p></li>
 </ul>
 <p>Para verificarmos a classe de um objeto, utilizamos a função <code>class()</code>, tendo como argumento o nome do objeto. Vejamos alguns exemplos:</p>
-<div class="sourceCode" id="cb49"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb49-1"><a href="noções-básicas-em-r.html#cb49-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Classe numérica</span></span>
-<span id="cb49-2"><a href="noções-básicas-em-r.html#cb49-2" aria-hidden="true" tabindex="-1"></a>a <span class="ot">&lt;-</span> <span class="dv">10</span></span>
-<span id="cb49-3"><a href="noções-básicas-em-r.html#cb49-3" aria-hidden="true" tabindex="-1"></a><span class="fu">class</span>(a)</span></code></pre></div>
+<div class="sourceCode" id="cb49"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb49-1"><a href="noções-básicas-em-r.html#cb49-1" tabindex="-1"></a><span class="co"># Classe numérica</span></span>
+<span id="cb49-2"><a href="noções-básicas-em-r.html#cb49-2" tabindex="-1"></a>a <span class="ot">&lt;-</span> <span class="dv">10</span></span>
+<span id="cb49-3"><a href="noções-básicas-em-r.html#cb49-3" tabindex="-1"></a><span class="fu">class</span>(a)</span></code></pre></div>
 <pre><code>[1] &quot;numeric&quot;</code></pre>
-<div class="sourceCode" id="cb51"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb51-1"><a href="noções-básicas-em-r.html#cb51-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Classe caractere</span></span>
-<span id="cb51-2"><a href="noções-básicas-em-r.html#cb51-2" aria-hidden="true" tabindex="-1"></a>b <span class="ot">&lt;-</span> <span class="st">&quot;a&quot;</span></span>
-<span id="cb51-3"><a href="noções-básicas-em-r.html#cb51-3" aria-hidden="true" tabindex="-1"></a><span class="fu">class</span>(b)</span></code></pre></div>
+<div class="sourceCode" id="cb51"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb51-1"><a href="noções-básicas-em-r.html#cb51-1" tabindex="-1"></a><span class="co"># Classe caractere</span></span>
+<span id="cb51-2"><a href="noções-básicas-em-r.html#cb51-2" tabindex="-1"></a>b <span class="ot">&lt;-</span> <span class="st">&quot;a&quot;</span></span>
+<span id="cb51-3"><a href="noções-básicas-em-r.html#cb51-3" tabindex="-1"></a><span class="fu">class</span>(b)</span></code></pre></div>
 <pre><code>[1] &quot;character&quot;</code></pre>
 <p>Para criarmos um objeto com a classe do tipo caractere, devemos escrevê-lo entre aspas <code>""</code>. As aspas servem para diferenciar <strong>nomes</strong> (objetos, funções e pacotes) de <strong>textos</strong> (letras e palavras). No exemplo anterior, perceba que na classe numérica criamos um <strong>objeto</strong> de <strong>nome</strong> <code>a</code> que recebe o valor <code>10</code>, enquanto que na classe caractere, criamos um objeto de nome <code>b</code> que recebe o <strong>texto</strong> <code>"a"</code>.</p>
 <p>Portanto, resumindo: no primeiro caso, criamos um objeto chamado <code>a</code>, enquanto no outro exemplo, criamos um objeto que contém o caractere <code>"a"</code>.</p>
 <p>Conhecer a classe de objetos e valores é importante para definirmos os procedimentos e operações possíveis de serem realizadas. Por exemplo, podemos realizar uma operação matemática com números, porém não podemos com caracteres.</p>
-<div class="sourceCode" id="cb53"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb53-1"><a href="noções-básicas-em-r.html#cb53-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Números</span></span>
-<span id="cb53-2"><a href="noções-básicas-em-r.html#cb53-2" aria-hidden="true" tabindex="-1"></a><span class="dv">10</span><span class="sc">^</span><span class="dv">2</span></span></code></pre></div>
+<div class="sourceCode" id="cb53"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb53-1"><a href="noções-básicas-em-r.html#cb53-1" tabindex="-1"></a><span class="co"># Números</span></span>
+<span id="cb53-2"><a href="noções-básicas-em-r.html#cb53-2" tabindex="-1"></a><span class="dv">10</span><span class="sc">^</span><span class="dv">2</span></span></code></pre></div>
 <pre><code>[1] 100</code></pre>
-<div class="sourceCode" id="cb55"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb55-1"><a href="noções-básicas-em-r.html#cb55-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Caracteres</span></span>
-<span id="cb55-2"><a href="noções-básicas-em-r.html#cb55-2" aria-hidden="true" tabindex="-1"></a><span class="st">&quot;a&quot;</span> <span class="sc">+</span> <span class="st">&quot;b&quot;</span></span></code></pre></div>
+<div class="sourceCode" id="cb55"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb55-1"><a href="noções-básicas-em-r.html#cb55-1" tabindex="-1"></a><span class="co"># Caracteres</span></span>
+<span id="cb55-2"><a href="noções-básicas-em-r.html#cb55-2" tabindex="-1"></a><span class="st">&quot;a&quot;</span> <span class="sc">+</span> <span class="st">&quot;b&quot;</span></span></code></pre></div>
 <pre><code>Error in &quot;a&quot; + &quot;b&quot;: argumento não-numérico para operador binário</code></pre>
-<div class="sourceCode" id="cb57"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb57-1"><a href="noções-básicas-em-r.html#cb57-1" aria-hidden="true" tabindex="-1"></a><span class="st">&quot;1&quot;</span> <span class="sc">+</span> <span class="st">&quot;1&quot;</span></span></code></pre></div>
+<div class="sourceCode" id="cb57"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb57-1"><a href="noções-básicas-em-r.html#cb57-1" tabindex="-1"></a><span class="st">&quot;1&quot;</span> <span class="sc">+</span> <span class="st">&quot;1&quot;</span></span></code></pre></div>
 <pre><code>Error in &quot;1&quot; + &quot;1&quot;: argumento não-numérico para operador binário</code></pre>
 <p>No último exemplo, perceba que os números <code>1</code> foram escritos entre aspas, logo deixam de ser um tipo numérico para se apresentar como um tipo caractere. Por este motivo não conseguimos realizar a soma desses.</p>
 <p><br></p>
@@ -520,7 +527,7 @@ NULL</code></pre>
 <div id="dataf" class="section level2 hasAnchor" number="3.8">
 <h2><span class="header-section-number">3.8</span> Data frames<a href="noções-básicas-em-r.html#dataf" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <p>O <em>data frame</em> é o objeto que armazena os dados importados para dentro do R. São estruturados a partir de linhas e colunas, sendo que cada coluna representa uma variável e cada linha, uma observação, estrutura muito semelhante a uma planilha Excel.</p>
-<div class="sourceCode" id="cb59"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb59-1"><a href="noções-básicas-em-r.html#cb59-1" aria-hidden="true" tabindex="-1"></a>PlantGrowth</span></code></pre></div>
+<div class="sourceCode" id="cb59"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb59-1"><a href="noções-básicas-em-r.html#cb59-1" tabindex="-1"></a>PlantGrowth</span></code></pre></div>
 <pre><code>   weight group
 1    4.17  ctrl
 2    5.58  ctrl
@@ -555,8 +562,8 @@ NULL</code></pre>
 <p>O <em>data frame</em> <code>PlantGrowth</code> é nativo do R e contém dados sobre o crescimento de plantas sob 2 tipos diferentes de tratamentos (para mais informações, consulte a documentação do <em>data frame</em>, rodando <code>?PlantGrowth</code>). Possui 30 linhas (observações) e 2 colunas (variáveis).</p>
 <p>Portanto, podemos dizer que o objeto de nome <code>PlantGrowth</code> guarda um <em>data frame</em> com 30 linhas e 2 colunas.</p>
 <p>Podemos aplicar algumas funções em <em>data frames</em>, a fim de visualizarmos melhor sua estrutura e elementos presentes. A seguir, demonstraremos algumas delas aplicadas no <em>data frame</em> <code>PlantGrowth</code>.</p>
-<div class="sourceCode" id="cb61"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb61-1"><a href="noções-básicas-em-r.html#cb61-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Mostra as 6 primeira linhas</span></span>
-<span id="cb61-2"><a href="noções-básicas-em-r.html#cb61-2" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span>(PlantGrowth)</span></code></pre></div>
+<div class="sourceCode" id="cb61"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb61-1"><a href="noções-básicas-em-r.html#cb61-1" tabindex="-1"></a><span class="co"># Mostra as 6 primeira linhas</span></span>
+<span id="cb61-2"><a href="noções-básicas-em-r.html#cb61-2" tabindex="-1"></a><span class="fu">head</span>(PlantGrowth)</span></code></pre></div>
 <pre><code>  weight group
 1   4.17  ctrl
 2   5.58  ctrl
@@ -564,8 +571,8 @@ NULL</code></pre>
 4   6.11  ctrl
 5   4.50  ctrl
 6   4.61  ctrl</code></pre>
-<div class="sourceCode" id="cb63"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb63-1"><a href="noções-básicas-em-r.html#cb63-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Mostra as 6 últimas linhas</span></span>
-<span id="cb63-2"><a href="noções-básicas-em-r.html#cb63-2" aria-hidden="true" tabindex="-1"></a><span class="fu">tail</span>(PlantGrowth)</span></code></pre></div>
+<div class="sourceCode" id="cb63"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb63-1"><a href="noções-básicas-em-r.html#cb63-1" tabindex="-1"></a><span class="co"># Mostra as 6 últimas linhas</span></span>
+<span id="cb63-2"><a href="noções-básicas-em-r.html#cb63-2" tabindex="-1"></a><span class="fu">tail</span>(PlantGrowth)</span></code></pre></div>
 <pre><code>   weight group
 25   5.37  trt2
 26   5.29  trt2
@@ -573,19 +580,19 @@ NULL</code></pre>
 28   6.15  trt2
 29   5.80  trt2
 30   5.26  trt2</code></pre>
-<div class="sourceCode" id="cb65"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb65-1"><a href="noções-básicas-em-r.html#cb65-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Mostra as dimensões (nº de linhas x nº de coluna)</span></span>
-<span id="cb65-2"><a href="noções-básicas-em-r.html#cb65-2" aria-hidden="true" tabindex="-1"></a><span class="fu">dim</span>(PlantGrowth)</span></code></pre></div>
+<div class="sourceCode" id="cb65"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb65-1"><a href="noções-básicas-em-r.html#cb65-1" tabindex="-1"></a><span class="co"># Mostra as dimensões (nº de linhas x nº de coluna)</span></span>
+<span id="cb65-2"><a href="noções-básicas-em-r.html#cb65-2" tabindex="-1"></a><span class="fu">dim</span>(PlantGrowth)</span></code></pre></div>
 <pre><code>[1] 30  2</code></pre>
-<div class="sourceCode" id="cb67"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb67-1"><a href="noções-básicas-em-r.html#cb67-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Nomes das colunas (variáveis)</span></span>
-<span id="cb67-2"><a href="noções-básicas-em-r.html#cb67-2" aria-hidden="true" tabindex="-1"></a><span class="fu">names</span>(PlantGrowth)</span></code></pre></div>
+<div class="sourceCode" id="cb67"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb67-1"><a href="noções-básicas-em-r.html#cb67-1" tabindex="-1"></a><span class="co"># Nomes das colunas (variáveis)</span></span>
+<span id="cb67-2"><a href="noções-básicas-em-r.html#cb67-2" tabindex="-1"></a><span class="fu">names</span>(PlantGrowth)</span></code></pre></div>
 <pre><code>[1] &quot;weight&quot; &quot;group&quot; </code></pre>
-<div class="sourceCode" id="cb69"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb69-1"><a href="noções-básicas-em-r.html#cb69-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Estrutura do data frame com informações como o tipo, dimensão e classes</span></span>
-<span id="cb69-2"><a href="noções-básicas-em-r.html#cb69-2" aria-hidden="true" tabindex="-1"></a><span class="fu">str</span>(PlantGrowth)</span></code></pre></div>
+<div class="sourceCode" id="cb69"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb69-1"><a href="noções-básicas-em-r.html#cb69-1" tabindex="-1"></a><span class="co"># Estrutura do data frame com informações como o tipo, dimensão e classes</span></span>
+<span id="cb69-2"><a href="noções-básicas-em-r.html#cb69-2" tabindex="-1"></a><span class="fu">str</span>(PlantGrowth)</span></code></pre></div>
 <pre><code>&#39;data.frame&#39;:   30 obs. of  2 variables:
  $ weight: num  4.17 5.58 5.18 6.11 4.5 4.61 5.17 4.53 5.33 5.14 ...
  $ group : Factor w/ 3 levels &quot;ctrl&quot;,&quot;trt1&quot;,..: 1 1 1 1 1 1 1 1 1 1 ...</code></pre>
-<div class="sourceCode" id="cb71"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb71-1"><a href="noções-básicas-em-r.html#cb71-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Retorna algumas medidas-resumo</span></span>
-<span id="cb71-2"><a href="noções-básicas-em-r.html#cb71-2" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(PlantGrowth)</span></code></pre></div>
+<div class="sourceCode" id="cb71"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb71-1"><a href="noções-básicas-em-r.html#cb71-1" tabindex="-1"></a><span class="co"># Retorna algumas medidas-resumo</span></span>
+<span id="cb71-2"><a href="noções-básicas-em-r.html#cb71-2" tabindex="-1"></a><span class="fu">summary</span>(PlantGrowth)</span></code></pre></div>
 <pre><code>     weight       group   
  Min.   :3.590   ctrl:10  
  1st Qu.:4.550   trt1:10  
@@ -599,83 +606,83 @@ NULL</code></pre>
 <div id="vetor" class="section level2 hasAnchor" number="3.9">
 <h2><span class="header-section-number">3.9</span> Vetores<a href="noções-básicas-em-r.html#vetor" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <p>Os vetores nada mais são do que um conjunto de valores unidos em um só objeto. Em um linguajar mais técnicos, vetor é um conjunto de valores indexados. Para criarmos um vetor, devemos utilizar a função <code>c()</code>, cujos argumentos devem estar separados por vírgulas.</p>
-<div class="sourceCode" id="cb73"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb73-1"><a href="noções-básicas-em-r.html#cb73-1" aria-hidden="true" tabindex="-1"></a>vetor_numerico <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="dv">2</span>, <span class="dv">6</span>, <span class="sc">-</span><span class="dv">10</span>, <span class="dv">14</span>, <span class="dv">18</span>, <span class="dv">22</span>)</span>
-<span id="cb73-2"><a href="noções-básicas-em-r.html#cb73-2" aria-hidden="true" tabindex="-1"></a>vetor_numerico</span></code></pre></div>
+<div class="sourceCode" id="cb73"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb73-1"><a href="noções-básicas-em-r.html#cb73-1" tabindex="-1"></a>vetor_numerico <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="dv">2</span>, <span class="dv">6</span>, <span class="sc">-</span><span class="dv">10</span>, <span class="dv">14</span>, <span class="dv">18</span>, <span class="dv">22</span>)</span>
+<span id="cb73-2"><a href="noções-básicas-em-r.html#cb73-2" tabindex="-1"></a>vetor_numerico</span></code></pre></div>
 <pre><code>[1]   2   6 -10  14  18  22</code></pre>
-<div class="sourceCode" id="cb75"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb75-1"><a href="noções-básicas-em-r.html#cb75-1" aria-hidden="true" tabindex="-1"></a><span class="fu">class</span>(vetor_numerico)</span></code></pre></div>
+<div class="sourceCode" id="cb75"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb75-1"><a href="noções-básicas-em-r.html#cb75-1" tabindex="-1"></a><span class="fu">class</span>(vetor_numerico)</span></code></pre></div>
 <pre><code>[1] &quot;numeric&quot;</code></pre>
-<div class="sourceCode" id="cb77"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb77-1"><a href="noções-básicas-em-r.html#cb77-1" aria-hidden="true" tabindex="-1"></a>vetor_texto <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="st">&quot;g&quot;</span>, <span class="st">&quot;j&quot;</span>, <span class="st">&quot;y&quot;</span>)</span>
-<span id="cb77-2"><a href="noções-básicas-em-r.html#cb77-2" aria-hidden="true" tabindex="-1"></a>vetor_texto</span></code></pre></div>
+<div class="sourceCode" id="cb77"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb77-1"><a href="noções-básicas-em-r.html#cb77-1" tabindex="-1"></a>vetor_texto <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="st">&quot;g&quot;</span>, <span class="st">&quot;j&quot;</span>, <span class="st">&quot;y&quot;</span>)</span>
+<span id="cb77-2"><a href="noções-básicas-em-r.html#cb77-2" tabindex="-1"></a>vetor_texto</span></code></pre></div>
 <pre><code>[1] &quot;g&quot; &quot;j&quot; &quot;y&quot;</code></pre>
-<div class="sourceCode" id="cb79"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb79-1"><a href="noções-básicas-em-r.html#cb79-1" aria-hidden="true" tabindex="-1"></a><span class="fu">class</span>(vetor_texto)</span></code></pre></div>
+<div class="sourceCode" id="cb79"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb79-1"><a href="noções-básicas-em-r.html#cb79-1" tabindex="-1"></a><span class="fu">class</span>(vetor_texto)</span></code></pre></div>
 <pre><code>[1] &quot;character&quot;</code></pre>
 <p>Perceba que a função <code>class()</code> nos retorna o tipo de classe que um vetor apresenta. Um vetor só pode guardar um tipo de classe. Caso misturemos um vetor com números e caracteres, os números serão convertidos para texto. Esse comportamento é conhecido como <strong>coerção</strong>.</p>
-<div class="sourceCode" id="cb81"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb81-1"><a href="noções-básicas-em-r.html#cb81-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Vetor misto</span></span>
-<span id="cb81-2"><a href="noções-básicas-em-r.html#cb81-2" aria-hidden="true" tabindex="-1"></a>vetor_misto <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="dv">1</span>, <span class="dv">5</span>, <span class="st">&quot;a&quot;</span>)</span>
-<span id="cb81-3"><a href="noções-básicas-em-r.html#cb81-3" aria-hidden="true" tabindex="-1"></a>vetor_misto</span></code></pre></div>
+<div class="sourceCode" id="cb81"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb81-1"><a href="noções-básicas-em-r.html#cb81-1" tabindex="-1"></a><span class="co"># Vetor misto</span></span>
+<span id="cb81-2"><a href="noções-básicas-em-r.html#cb81-2" tabindex="-1"></a>vetor_misto <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="dv">1</span>, <span class="dv">5</span>, <span class="st">&quot;a&quot;</span>)</span>
+<span id="cb81-3"><a href="noções-básicas-em-r.html#cb81-3" tabindex="-1"></a>vetor_misto</span></code></pre></div>
 <pre><code>[1] &quot;1&quot; &quot;5&quot; &quot;a&quot;</code></pre>
-<div class="sourceCode" id="cb83"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb83-1"><a href="noções-básicas-em-r.html#cb83-1" aria-hidden="true" tabindex="-1"></a><span class="fu">class</span>(vetor_misto)</span></code></pre></div>
+<div class="sourceCode" id="cb83"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb83-1"><a href="noções-básicas-em-r.html#cb83-1" tabindex="-1"></a><span class="fu">class</span>(vetor_misto)</span></code></pre></div>
 <pre><code>[1] &quot;character&quot;</code></pre>
 <p>Os números <code>1</code> e <code>5</code>, dentro de um vetor que contém o caractere <code>"a"</code>, são convertidos para texto, resultando em um vetor com os textos <code>"1"</code>, <code>"5"</code> e <code>"a"</code>, como constatado ao utilizar a função <code>class()</code>, que nos retorna uma classe do tipo caractere.</p>
 <p>Portanto, devemos ter em mente que, para vetores com valores de classes diferentes, os caracteres serão dominantes em relação aos números. Para criar um conjunto de valores com classes diferentes, devemos criar uma <strong>lista</strong>, assunto que veremos mais adiante na seção <a href="noções-básicas-em-r.html#list">3.13</a>.</p>
 <p>Podemos criar um vetor com uma sequência numérica utilizando o operador <code>:</code>.</p>
-<div class="sourceCode" id="cb85"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb85-1"><a href="noções-básicas-em-r.html#cb85-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Vetor de 1 a 15</span></span>
-<span id="cb85-2"><a href="noções-básicas-em-r.html#cb85-2" aria-hidden="true" tabindex="-1"></a>sequencia_numerica <span class="ot">&lt;-</span> <span class="dv">1</span><span class="sc">:</span><span class="dv">15</span></span>
-<span id="cb85-3"><a href="noções-básicas-em-r.html#cb85-3" aria-hidden="true" tabindex="-1"></a>sequencia_numerica</span></code></pre></div>
+<div class="sourceCode" id="cb85"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb85-1"><a href="noções-básicas-em-r.html#cb85-1" tabindex="-1"></a><span class="co"># Vetor de 1 a 15</span></span>
+<span id="cb85-2"><a href="noções-básicas-em-r.html#cb85-2" tabindex="-1"></a>sequencia_numerica <span class="ot">&lt;-</span> <span class="dv">1</span><span class="sc">:</span><span class="dv">15</span></span>
+<span id="cb85-3"><a href="noções-básicas-em-r.html#cb85-3" tabindex="-1"></a>sequencia_numerica</span></code></pre></div>
 <pre><code> [1]  1  2  3  4  5  6  7  8  9 10 11 12 13 14 15</code></pre>
 <p>Ao criarmos um vetor, cada valor ocupa uma posição dentro do vetor. A posição é dada pela ordem em que estão no vetor. Portanto, podemos encontrar determinados valores de acordo com a posição em que estão localizados no vetor. Essa operação é conhecida como <em>subsetting</em>. Para isso, colocamos o número da posição que desejamos acessar dentro de colchetes <code>[]</code>, associado ao objeto que desejamos analisar.</p>
-<div class="sourceCode" id="cb87"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb87-1"><a href="noções-básicas-em-r.html#cb87-1" aria-hidden="true" tabindex="-1"></a>posicao_vetor <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="dv">11</span>, <span class="dv">22</span>, <span class="dv">33</span>, <span class="dv">44</span>)</span>
-<span id="cb87-2"><a href="noções-básicas-em-r.html#cb87-2" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb87-3"><a href="noções-básicas-em-r.html#cb87-3" aria-hidden="true" tabindex="-1"></a>posicao_vetor[<span class="dv">1</span>]</span></code></pre></div>
+<div class="sourceCode" id="cb87"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb87-1"><a href="noções-básicas-em-r.html#cb87-1" tabindex="-1"></a>posicao_vetor <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="dv">11</span>, <span class="dv">22</span>, <span class="dv">33</span>, <span class="dv">44</span>)</span>
+<span id="cb87-2"><a href="noções-básicas-em-r.html#cb87-2" tabindex="-1"></a></span>
+<span id="cb87-3"><a href="noções-básicas-em-r.html#cb87-3" tabindex="-1"></a>posicao_vetor[<span class="dv">1</span>]</span></code></pre></div>
 <pre><code>[1] 11</code></pre>
-<div class="sourceCode" id="cb89"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb89-1"><a href="noções-básicas-em-r.html#cb89-1" aria-hidden="true" tabindex="-1"></a>posicao_vetor[<span class="dv">2</span>]</span></code></pre></div>
+<div class="sourceCode" id="cb89"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb89-1"><a href="noções-básicas-em-r.html#cb89-1" tabindex="-1"></a>posicao_vetor[<span class="dv">2</span>]</span></code></pre></div>
 <pre><code>[1] 22</code></pre>
-<div class="sourceCode" id="cb91"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb91-1"><a href="noções-básicas-em-r.html#cb91-1" aria-hidden="true" tabindex="-1"></a>posicao_vetor[<span class="dv">3</span>]</span></code></pre></div>
+<div class="sourceCode" id="cb91"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb91-1"><a href="noções-básicas-em-r.html#cb91-1" tabindex="-1"></a>posicao_vetor[<span class="dv">3</span>]</span></code></pre></div>
 <pre><code>[1] 33</code></pre>
-<div class="sourceCode" id="cb93"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb93-1"><a href="noções-básicas-em-r.html#cb93-1" aria-hidden="true" tabindex="-1"></a>posicao_vetor[<span class="dv">4</span>]</span></code></pre></div>
+<div class="sourceCode" id="cb93"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb93-1"><a href="noções-básicas-em-r.html#cb93-1" tabindex="-1"></a>posicao_vetor[<span class="dv">4</span>]</span></code></pre></div>
 <pre><code>[1] 44</code></pre>
-<div class="sourceCode" id="cb95"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb95-1"><a href="noções-básicas-em-r.html#cb95-1" aria-hidden="true" tabindex="-1"></a>posicao_vetor[<span class="dv">5</span>]</span></code></pre></div>
+<div class="sourceCode" id="cb95"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb95-1"><a href="noções-básicas-em-r.html#cb95-1" tabindex="-1"></a>posicao_vetor[<span class="dv">5</span>]</span></code></pre></div>
 <pre><code>[1] NA</code></pre>
 <p>O objeto de nome <code>posicao_vetor</code> é um vetor com 4 valores (ou 4 argumentos). Com o comando <code>posicao_vetor[1]</code>, temos o valor <code>11</code>, contido na primeira posição do vetor, seguindo a mesma lógica para as demais posições. Perceba que o comando <code>posicao_vetor[5]</code> nos retorna o valor <code>NA</code>, pois não existe esta posição dentro do vetor. Mais adiante, na seção <a href="noções-básicas-em-r.html#especial">3.12</a>, trataremos sobre o valor <code>NA</code>.</p>
 <p>Também podemos inserir um conjunto de posições dentro dos colchetes, o que nos retorna um subconjunto de valores dentro de um vetor. Para isso, utilizamos a função <code>c()</code>, tendo como argumentos as posições que se deseja acessar.</p>
-<div class="sourceCode" id="cb97"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb97-1"><a href="noções-básicas-em-r.html#cb97-1" aria-hidden="true" tabindex="-1"></a>v <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="st">&quot;w&quot;</span>, <span class="st">&quot;x&quot;</span>, <span class="st">&quot;y&quot;</span>, <span class="st">&quot;z&quot;</span>)</span>
-<span id="cb97-2"><a href="noções-básicas-em-r.html#cb97-2" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb97-3"><a href="noções-básicas-em-r.html#cb97-3" aria-hidden="true" tabindex="-1"></a>v[<span class="fu">c</span>(<span class="dv">2</span>, <span class="dv">4</span>)]</span></code></pre></div>
+<div class="sourceCode" id="cb97"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb97-1"><a href="noções-básicas-em-r.html#cb97-1" tabindex="-1"></a>v <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="st">&quot;w&quot;</span>, <span class="st">&quot;x&quot;</span>, <span class="st">&quot;y&quot;</span>, <span class="st">&quot;z&quot;</span>)</span>
+<span id="cb97-2"><a href="noções-básicas-em-r.html#cb97-2" tabindex="-1"></a></span>
+<span id="cb97-3"><a href="noções-básicas-em-r.html#cb97-3" tabindex="-1"></a>v[<span class="fu">c</span>(<span class="dv">2</span>, <span class="dv">4</span>)]</span></code></pre></div>
 <pre><code>[1] &quot;x&quot; &quot;z&quot;</code></pre>
 <p>Ainda, podemos realizar operações matemáticas com vetores de classe numérica:</p>
-<div class="sourceCode" id="cb99"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb99-1"><a href="noções-básicas-em-r.html#cb99-1" aria-hidden="true" tabindex="-1"></a>vetor <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="dv">8</span>, <span class="dv">19</span>, <span class="dv">24</span>, <span class="dv">25</span>)</span>
-<span id="cb99-2"><a href="noções-básicas-em-r.html#cb99-2" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb99-3"><a href="noções-básicas-em-r.html#cb99-3" aria-hidden="true" tabindex="-1"></a>vetor <span class="sc">+</span> <span class="dv">1</span></span></code></pre></div>
+<div class="sourceCode" id="cb99"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb99-1"><a href="noções-básicas-em-r.html#cb99-1" tabindex="-1"></a>vetor <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="dv">8</span>, <span class="dv">19</span>, <span class="dv">24</span>, <span class="dv">25</span>)</span>
+<span id="cb99-2"><a href="noções-básicas-em-r.html#cb99-2" tabindex="-1"></a></span>
+<span id="cb99-3"><a href="noções-básicas-em-r.html#cb99-3" tabindex="-1"></a>vetor <span class="sc">+</span> <span class="dv">1</span></span></code></pre></div>
 <pre><code>[1]  9 20 25 26</code></pre>
-<div class="sourceCode" id="cb101"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb101-1"><a href="noções-básicas-em-r.html#cb101-1" aria-hidden="true" tabindex="-1"></a>vetor <span class="sc">-</span> <span class="dv">1</span></span></code></pre></div>
+<div class="sourceCode" id="cb101"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb101-1"><a href="noções-básicas-em-r.html#cb101-1" tabindex="-1"></a>vetor <span class="sc">-</span> <span class="dv">1</span></span></code></pre></div>
 <pre><code>[1]  7 18 23 24</code></pre>
-<div class="sourceCode" id="cb103"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb103-1"><a href="noções-básicas-em-r.html#cb103-1" aria-hidden="true" tabindex="-1"></a>vetor <span class="sc">/</span> <span class="dv">2</span></span></code></pre></div>
+<div class="sourceCode" id="cb103"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb103-1"><a href="noções-básicas-em-r.html#cb103-1" tabindex="-1"></a>vetor <span class="sc">/</span> <span class="dv">2</span></span></code></pre></div>
 <pre><code>[1]  4.0  9.5 12.0 12.5</code></pre>
-<div class="sourceCode" id="cb105"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb105-1"><a href="noções-básicas-em-r.html#cb105-1" aria-hidden="true" tabindex="-1"></a>vetor <span class="sc">*</span> <span class="dv">2</span></span></code></pre></div>
+<div class="sourceCode" id="cb105"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb105-1"><a href="noções-básicas-em-r.html#cb105-1" tabindex="-1"></a>vetor <span class="sc">*</span> <span class="dv">2</span></span></code></pre></div>
 <pre><code>[1] 16 38 48 50</code></pre>
-<div class="sourceCode" id="cb107"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb107-1"><a href="noções-básicas-em-r.html#cb107-1" aria-hidden="true" tabindex="-1"></a>vetor <span class="sc">^</span> <span class="dv">2</span></span></code></pre></div>
+<div class="sourceCode" id="cb107"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb107-1"><a href="noções-básicas-em-r.html#cb107-1" tabindex="-1"></a>vetor <span class="sc">^</span> <span class="dv">2</span></span></code></pre></div>
 <pre><code>[1]  64 361 576 625</code></pre>
 <p>Perceba que as operações matemáticas são executadas para cada um dos elementos do vetor.</p>
 <p>Também podemos fazer operações entre vetores:</p>
-<div class="sourceCode" id="cb109"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb109-1"><a href="noções-básicas-em-r.html#cb109-1" aria-hidden="true" tabindex="-1"></a>vetor1 <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="dv">1</span>, <span class="dv">2</span>, <span class="dv">3</span>, <span class="dv">4</span>)</span>
-<span id="cb109-2"><a href="noções-básicas-em-r.html#cb109-2" aria-hidden="true" tabindex="-1"></a>vetor2 <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="dv">5</span>, <span class="dv">6</span>, <span class="dv">7</span>, <span class="dv">8</span>)</span>
-<span id="cb109-3"><a href="noções-básicas-em-r.html#cb109-3" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb109-4"><a href="noções-básicas-em-r.html#cb109-4" aria-hidden="true" tabindex="-1"></a>vetor1 <span class="sc">+</span> vetor2</span></code></pre></div>
+<div class="sourceCode" id="cb109"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb109-1"><a href="noções-básicas-em-r.html#cb109-1" tabindex="-1"></a>vetor1 <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="dv">1</span>, <span class="dv">2</span>, <span class="dv">3</span>, <span class="dv">4</span>)</span>
+<span id="cb109-2"><a href="noções-básicas-em-r.html#cb109-2" tabindex="-1"></a>vetor2 <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="dv">5</span>, <span class="dv">6</span>, <span class="dv">7</span>, <span class="dv">8</span>)</span>
+<span id="cb109-3"><a href="noções-básicas-em-r.html#cb109-3" tabindex="-1"></a></span>
+<span id="cb109-4"><a href="noções-básicas-em-r.html#cb109-4" tabindex="-1"></a>vetor1 <span class="sc">+</span> vetor2</span></code></pre></div>
 <pre><code>[1]  6  8 10 12</code></pre>
 <p>Para realizar a operação, ambos os vetores são alinhados, sendo somados os valores de acordo com a posição correlata entre os elementos dos vetores. Portanto, o elemento que oculpa a primeira posição no <code>vetor1</code> é somado com o primeiro elemento do <code>vetor2</code>, seguindo a mesma lógica para os demais elementos.</p>
 <p>No caso de vetores com tamanhos diferentes, ocorre o processo de <strong>reciclagem</strong>.</p>
-<div class="sourceCode" id="cb111"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb111-1"><a href="noções-básicas-em-r.html#cb111-1" aria-hidden="true" tabindex="-1"></a>vetor3 <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="dv">1</span>, <span class="dv">3</span>)</span>
-<span id="cb111-2"><a href="noções-básicas-em-r.html#cb111-2" aria-hidden="true" tabindex="-1"></a>vetor4 <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="dv">11</span>, <span class="dv">22</span>, <span class="dv">33</span>, <span class="dv">44</span>)</span>
-<span id="cb111-3"><a href="noções-básicas-em-r.html#cb111-3" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb111-4"><a href="noções-básicas-em-r.html#cb111-4" aria-hidden="true" tabindex="-1"></a>vetor3 <span class="sc">+</span> vetor4</span></code></pre></div>
+<div class="sourceCode" id="cb111"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb111-1"><a href="noções-básicas-em-r.html#cb111-1" tabindex="-1"></a>vetor3 <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="dv">1</span>, <span class="dv">3</span>)</span>
+<span id="cb111-2"><a href="noções-básicas-em-r.html#cb111-2" tabindex="-1"></a>vetor4 <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="dv">11</span>, <span class="dv">22</span>, <span class="dv">33</span>, <span class="dv">44</span>)</span>
+<span id="cb111-3"><a href="noções-básicas-em-r.html#cb111-3" tabindex="-1"></a></span>
+<span id="cb111-4"><a href="noções-básicas-em-r.html#cb111-4" tabindex="-1"></a>vetor3 <span class="sc">+</span> vetor4</span></code></pre></div>
 <pre><code>[1] 12 25 34 47</code></pre>
 <p>A operação entre vetores de tamanhos diferentes segue a mesma lógica citada anteriormente: ambos os vetores são alinhados, porém, por apresentarem diferentes dimensões, é realizada uma repetição (<em>reciclagem</em>) do <code>vetor3</code> para que esse fique com o mesmo tamanho do <code>vetor4</code>, assim, possibilitando a operação matemática. Portanto, é como se o <code>vetor3</code> tivesse a dimensão de <code>c(1, 3, 1, 3)</code>.</p>
 <p>Vale destacar que o comportamento de reciclagem foi aplicado quando fizemos as operações matemáticas em um só vetor. Por exemplo, quando somamos <code>1</code> ao vetor de dimensão <code>c(8, 19, 24, 25)</code>, o R reciclou o número <code>1</code> - que nada mais é do que um vetor de tamanho 1, igual a <code>c(1)</code> - formando um vetor <code>c(1, 1, 1, 1)</code> para que fosse possível realizar a soma.</p>
 <p>Até então, fizemos operações entre vetores com comprimentos múltiplos entre si. Ao realizar operações entre vetores cujos tamanhos não são múltiplos, a reciclagem atua da seguinte maneira:</p>
-<div class="sourceCode" id="cb113"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb113-1"><a href="noções-básicas-em-r.html#cb113-1" aria-hidden="true" tabindex="-1"></a>vetor5 <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="dv">1</span>, <span class="dv">2</span>, <span class="dv">3</span>)</span>
-<span id="cb113-2"><a href="noções-básicas-em-r.html#cb113-2" aria-hidden="true" tabindex="-1"></a>vetor6 <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="dv">10</span>, <span class="dv">20</span>, <span class="dv">30</span>, <span class="dv">40</span>, <span class="dv">50</span>)</span>
-<span id="cb113-3"><a href="noções-básicas-em-r.html#cb113-3" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb113-4"><a href="noções-básicas-em-r.html#cb113-4" aria-hidden="true" tabindex="-1"></a>vetor5 <span class="sc">+</span> vetor6</span></code></pre></div>
+<div class="sourceCode" id="cb113"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb113-1"><a href="noções-básicas-em-r.html#cb113-1" tabindex="-1"></a>vetor5 <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="dv">1</span>, <span class="dv">2</span>, <span class="dv">3</span>)</span>
+<span id="cb113-2"><a href="noções-básicas-em-r.html#cb113-2" tabindex="-1"></a>vetor6 <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="dv">10</span>, <span class="dv">20</span>, <span class="dv">30</span>, <span class="dv">40</span>, <span class="dv">50</span>)</span>
+<span id="cb113-3"><a href="noções-básicas-em-r.html#cb113-3" tabindex="-1"></a></span>
+<span id="cb113-4"><a href="noções-básicas-em-r.html#cb113-4" tabindex="-1"></a>vetor5 <span class="sc">+</span> vetor6</span></code></pre></div>
 <pre><code>Warning in vetor5 + vetor6: comprimento do objeto maior não é múltiplo do
 comprimento do objeto menor</code></pre>
 <pre><code>[1] 11 22 33 41 52</code></pre>
@@ -687,40 +694,40 @@ comprimento do objeto menor</code></pre>
 <h2><span class="header-section-number">3.10</span> Fatores<a href="noções-básicas-em-r.html#fator" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <p>As variáveis do tipo <strong>fator</strong> são um caso especial de classe de objetos que representam variáveis qualitativas possíveis de serem agrupadas em <strong>categorias</strong>, como, por exemplo, o sexo e grau de escolaridade. As possíveis categorias presentes em um fator são indicadas pelo atributo <code>levels</code>, como os <code>levels</code> masculino e feminino, no caso do sexo, e ensino fundamental, médio e superior, no caso do grau de escolaridade.</p>
 <p>Normalmente, este tipo de variável é criada ou importada como texto, sendo necessário transformá-la em fator, utilizando a função <code>as.factor()</code>.</p>
-<div class="sourceCode" id="cb116"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb116-1"><a href="noções-básicas-em-r.html#cb116-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Classe do tipo caractere</span></span>
-<span id="cb116-2"><a href="noções-básicas-em-r.html#cb116-2" aria-hidden="true" tabindex="-1"></a>sexo <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="st">&quot;F&quot;</span>, <span class="st">&quot;F&quot;</span>, <span class="st">&quot;M&quot;</span>, <span class="st">&quot;F&quot;</span>, <span class="st">&quot;M&quot;</span>, <span class="st">&quot;M&quot;</span>)</span>
-<span id="cb116-3"><a href="noções-básicas-em-r.html#cb116-3" aria-hidden="true" tabindex="-1"></a><span class="fu">class</span>(sexo)</span></code></pre></div>
+<div class="sourceCode" id="cb116"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb116-1"><a href="noções-básicas-em-r.html#cb116-1" tabindex="-1"></a><span class="co"># Classe do tipo caractere</span></span>
+<span id="cb116-2"><a href="noções-básicas-em-r.html#cb116-2" tabindex="-1"></a>sexo <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="st">&quot;F&quot;</span>, <span class="st">&quot;F&quot;</span>, <span class="st">&quot;M&quot;</span>, <span class="st">&quot;F&quot;</span>, <span class="st">&quot;M&quot;</span>, <span class="st">&quot;M&quot;</span>)</span>
+<span id="cb116-3"><a href="noções-básicas-em-r.html#cb116-3" tabindex="-1"></a><span class="fu">class</span>(sexo)</span></code></pre></div>
 <pre><code>[1] &quot;character&quot;</code></pre>
-<div class="sourceCode" id="cb118"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb118-1"><a href="noções-básicas-em-r.html#cb118-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Classe do tipo fator</span></span>
-<span id="cb118-2"><a href="noções-básicas-em-r.html#cb118-2" aria-hidden="true" tabindex="-1"></a><span class="fu">as.factor</span>(sexo)</span></code></pre></div>
+<div class="sourceCode" id="cb118"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb118-1"><a href="noções-básicas-em-r.html#cb118-1" tabindex="-1"></a><span class="co"># Classe do tipo fator</span></span>
+<span id="cb118-2"><a href="noções-básicas-em-r.html#cb118-2" tabindex="-1"></a><span class="fu">as.factor</span>(sexo)</span></code></pre></div>
 <pre><code>[1] F F M F M M
 Levels: F M</code></pre>
 <p>Criando o objeto <code>sexo</code>, sendo os argumentos <code>F</code> para o sexo feminino e <code>M</code> para o masculino, temos um vetor de classe do tipo caractere. Como o sexo é uma variável possível de ser categorizada, transformamos essa variável para a classe fator, a partir da função <code>as.factor()</code>. Perceba que na classe do tipo fator, o R nos retorna os <code>levels</code>, ou seja, o conjunto de categorias presentes no objeto <code>sexo</code>, no caso, <code>F</code> e <code>M</code>.</p>
 <p>Ainda, podemos criar um vetor do tipo fator utilizando a função <code>factor()</code>. A função <code>class()</code> mostra o tipo de classe do objeto <code>sexo_fator</code> e a <code>levels()</code>, indica quais são as categorias presentes no objeto de classe do tipo fator.</p>
-<div class="sourceCode" id="cb120"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb120-1"><a href="noções-básicas-em-r.html#cb120-1" aria-hidden="true" tabindex="-1"></a>sexo_fator <span class="ot">&lt;-</span> <span class="fu">factor</span>(<span class="fu">c</span>(<span class="st">&quot;F&quot;</span>, <span class="st">&quot;F&quot;</span>, <span class="st">&quot;M&quot;</span>, <span class="st">&quot;F&quot;</span>, <span class="st">&quot;M&quot;</span>, <span class="st">&quot;M&quot;</span>))</span>
-<span id="cb120-2"><a href="noções-básicas-em-r.html#cb120-2" aria-hidden="true" tabindex="-1"></a><span class="fu">class</span>(sexo_fator)</span></code></pre></div>
+<div class="sourceCode" id="cb120"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb120-1"><a href="noções-básicas-em-r.html#cb120-1" tabindex="-1"></a>sexo_fator <span class="ot">&lt;-</span> <span class="fu">factor</span>(<span class="fu">c</span>(<span class="st">&quot;F&quot;</span>, <span class="st">&quot;F&quot;</span>, <span class="st">&quot;M&quot;</span>, <span class="st">&quot;F&quot;</span>, <span class="st">&quot;M&quot;</span>, <span class="st">&quot;M&quot;</span>))</span>
+<span id="cb120-2"><a href="noções-básicas-em-r.html#cb120-2" tabindex="-1"></a><span class="fu">class</span>(sexo_fator)</span></code></pre></div>
 <pre><code>[1] &quot;factor&quot;</code></pre>
-<div class="sourceCode" id="cb122"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb122-1"><a href="noções-básicas-em-r.html#cb122-1" aria-hidden="true" tabindex="-1"></a><span class="fu">levels</span>(sexo_fator)</span></code></pre></div>
+<div class="sourceCode" id="cb122"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb122-1"><a href="noções-básicas-em-r.html#cb122-1" tabindex="-1"></a><span class="fu">levels</span>(sexo_fator)</span></code></pre></div>
 <pre><code>[1] &quot;F&quot; &quot;M&quot;</code></pre>
 <p>Por padrão, os <code>levels</code> são ordenados por ordem alfabética. No exemplo anterior, a categoria <code>F</code> vem antes da <code>M</code>. Para reordená-las, utilizamos o argumento <code>levels</code> na função <code>factor()</code>, ordenando as categorias de acordo com sua posição no vetor.</p>
-<div class="sourceCode" id="cb124"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb124-1"><a href="noções-básicas-em-r.html#cb124-1" aria-hidden="true" tabindex="-1"></a>sexo_fator <span class="ot">&lt;-</span> <span class="fu">factor</span>(sexo_fator, <span class="at">levels =</span> <span class="fu">c</span>(<span class="st">&quot;M&quot;</span>, <span class="st">&quot;F&quot;</span>))</span>
-<span id="cb124-2"><a href="noções-básicas-em-r.html#cb124-2" aria-hidden="true" tabindex="-1"></a><span class="fu">levels</span>(sexo_fator)</span></code></pre></div>
+<div class="sourceCode" id="cb124"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb124-1"><a href="noções-básicas-em-r.html#cb124-1" tabindex="-1"></a>sexo_fator <span class="ot">&lt;-</span> <span class="fu">factor</span>(sexo_fator, <span class="at">levels =</span> <span class="fu">c</span>(<span class="st">&quot;M&quot;</span>, <span class="st">&quot;F&quot;</span>))</span>
+<span id="cb124-2"><a href="noções-básicas-em-r.html#cb124-2" tabindex="-1"></a><span class="fu">levels</span>(sexo_fator)</span></code></pre></div>
 <pre><code>[1] &quot;M&quot; &quot;F&quot;</code></pre>
 <p><br></p>
 <div id="diferenças-entre-fatores-e-caracteres" class="section level3 hasAnchor" number="3.10.1">
 <h3><span class="header-section-number">3.10.1</span> Diferenças entre fatores e caracteres<a href="noções-básicas-em-r.html#diferenças-entre-fatores-e-caracteres" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p>Apesar dos objetos do tipo fator serem representados por letras ou palavras, o R os enxerga como números inteiros, diferentemente dos objetos da classe caractere, que são puramente textos. Podemos notar essas diferenças ao tentar convertê-las em classe numérica.</p>
-<div class="sourceCode" id="cb126"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb126-1"><a href="noções-básicas-em-r.html#cb126-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Classe caractere</span></span>
-<span id="cb126-2"><a href="noções-básicas-em-r.html#cb126-2" aria-hidden="true" tabindex="-1"></a>sexo <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="st">&quot;F&quot;</span>, <span class="st">&quot;F&quot;</span>, <span class="st">&quot;M&quot;</span>, <span class="st">&quot;F&quot;</span>, <span class="st">&quot;M&quot;</span>, <span class="st">&quot;M&quot;</span>)</span>
-<span id="cb126-3"><a href="noções-básicas-em-r.html#cb126-3" aria-hidden="true" tabindex="-1"></a><span class="fu">class</span>(sexo)</span></code></pre></div>
+<div class="sourceCode" id="cb126"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb126-1"><a href="noções-básicas-em-r.html#cb126-1" tabindex="-1"></a><span class="co"># Classe caractere</span></span>
+<span id="cb126-2"><a href="noções-básicas-em-r.html#cb126-2" tabindex="-1"></a>sexo <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="st">&quot;F&quot;</span>, <span class="st">&quot;F&quot;</span>, <span class="st">&quot;M&quot;</span>, <span class="st">&quot;F&quot;</span>, <span class="st">&quot;M&quot;</span>, <span class="st">&quot;M&quot;</span>)</span>
+<span id="cb126-3"><a href="noções-básicas-em-r.html#cb126-3" tabindex="-1"></a><span class="fu">class</span>(sexo)</span></code></pre></div>
 <pre><code>[1] &quot;character&quot;</code></pre>
-<div class="sourceCode" id="cb128"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb128-1"><a href="noções-básicas-em-r.html#cb128-1" aria-hidden="true" tabindex="-1"></a><span class="fu">as.numeric</span>(sexo)</span></code></pre></div>
+<div class="sourceCode" id="cb128"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb128-1"><a href="noções-básicas-em-r.html#cb128-1" tabindex="-1"></a><span class="fu">as.numeric</span>(sexo)</span></code></pre></div>
 <pre><code>[1] NA NA NA NA NA NA</code></pre>
-<div class="sourceCode" id="cb130"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb130-1"><a href="noções-básicas-em-r.html#cb130-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Classe fator</span></span>
-<span id="cb130-2"><a href="noções-básicas-em-r.html#cb130-2" aria-hidden="true" tabindex="-1"></a>sexo_fator <span class="ot">&lt;-</span> <span class="fu">factor</span>(<span class="fu">c</span>(<span class="st">&quot;F&quot;</span>, <span class="st">&quot;F&quot;</span>, <span class="st">&quot;M&quot;</span>, <span class="st">&quot;F&quot;</span>, <span class="st">&quot;M&quot;</span>, <span class="st">&quot;M&quot;</span>))</span>
-<span id="cb130-3"><a href="noções-básicas-em-r.html#cb130-3" aria-hidden="true" tabindex="-1"></a><span class="fu">class</span>(sexo_fator)</span></code></pre></div>
+<div class="sourceCode" id="cb130"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb130-1"><a href="noções-básicas-em-r.html#cb130-1" tabindex="-1"></a><span class="co"># Classe fator</span></span>
+<span id="cb130-2"><a href="noções-básicas-em-r.html#cb130-2" tabindex="-1"></a>sexo_fator <span class="ot">&lt;-</span> <span class="fu">factor</span>(<span class="fu">c</span>(<span class="st">&quot;F&quot;</span>, <span class="st">&quot;F&quot;</span>, <span class="st">&quot;M&quot;</span>, <span class="st">&quot;F&quot;</span>, <span class="st">&quot;M&quot;</span>, <span class="st">&quot;M&quot;</span>))</span>
+<span id="cb130-3"><a href="noções-básicas-em-r.html#cb130-3" tabindex="-1"></a><span class="fu">class</span>(sexo_fator)</span></code></pre></div>
 <pre><code>[1] &quot;factor&quot;</code></pre>
-<div class="sourceCode" id="cb132"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb132-1"><a href="noções-básicas-em-r.html#cb132-1" aria-hidden="true" tabindex="-1"></a><span class="fu">as.numeric</span>(sexo_fator)</span></code></pre></div>
+<div class="sourceCode" id="cb132"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb132-1"><a href="noções-básicas-em-r.html#cb132-1" tabindex="-1"></a><span class="fu">as.numeric</span>(sexo_fator)</span></code></pre></div>
 <pre><code>[1] 1 1 2 1 2 2</code></pre>
 <p>Podemos notar que não foi possível converter o vetor do tipo caractere para um vetor numérico, pois o R não consegue atribuir uma classificação numérica para textos. Porém, no caso do vetor tipo fator, foi possível transformá-lo para um tipo numérico, sendo representado como <code>1</code> o nível <code>F</code> e como <code>2</code>, o <code>M</code>.</p>
 <p>Portanto, para o R, os <code>levels</code> dos fatores são números inteiros sequenciais, começando do <code>1</code>, atribuídos conforme a ordem alfabética dos argumentos no vetor.</p>
@@ -730,28 +737,28 @@ Levels: F M</code></pre>
 <div id="logica" class="section level2 hasAnchor" number="3.11">
 <h2><span class="header-section-number">3.11</span> Operações lógicas<a href="noções-básicas-em-r.html#logica" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <p>As operações lógicas nos retornam valores do tipo verdadeiro ou falso, representados no R por <code>TRUE</code> e <code>FALSE</code> (em letras maiúsculas), respectivamente. Portanto, a classe atribuida a estes tipos de valores é a <code>logical</code> - como vimos na seção <a href="noções-básicas-em-r.html#classes">3.7</a> - aceitando somente estes dois valores.</p>
-<div class="sourceCode" id="cb134"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb134-1"><a href="noções-básicas-em-r.html#cb134-1" aria-hidden="true" tabindex="-1"></a><span class="fu">class</span>(<span class="cn">TRUE</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb134"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb134-1"><a href="noções-básicas-em-r.html#cb134-1" tabindex="-1"></a><span class="fu">class</span>(<span class="cn">TRUE</span>)</span></code></pre></div>
 <pre><code>[1] &quot;logical&quot;</code></pre>
-<div class="sourceCode" id="cb136"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb136-1"><a href="noções-básicas-em-r.html#cb136-1" aria-hidden="true" tabindex="-1"></a><span class="fu">class</span>(<span class="cn">FALSE</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb136"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb136-1"><a href="noções-básicas-em-r.html#cb136-1" tabindex="-1"></a><span class="fu">class</span>(<span class="cn">FALSE</span>)</span></code></pre></div>
 <pre><code>[1] &quot;logical&quot;</code></pre>
 <p>Para aplicarmos testes lógicos, podemos utilizar o operador <code>==</code> (duas vezes o sinal de igual) para verificar se dois valores são iguais, ou o operador <code>!=</code> (exclamação + igual) para ver se os valores são diferentes.</p>
-<div class="sourceCode" id="cb138"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb138-1"><a href="noções-básicas-em-r.html#cb138-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Resultados verdadeiros</span></span>
-<span id="cb138-2"><a href="noções-básicas-em-r.html#cb138-2" aria-hidden="true" tabindex="-1"></a><span class="dv">52</span> <span class="sc">==</span> <span class="dv">52</span></span></code></pre></div>
+<div class="sourceCode" id="cb138"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb138-1"><a href="noções-básicas-em-r.html#cb138-1" tabindex="-1"></a><span class="co"># Resultados verdadeiros</span></span>
+<span id="cb138-2"><a href="noções-básicas-em-r.html#cb138-2" tabindex="-1"></a><span class="dv">52</span> <span class="sc">==</span> <span class="dv">52</span></span></code></pre></div>
 <pre><code>[1] TRUE</code></pre>
-<div class="sourceCode" id="cb140"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb140-1"><a href="noções-básicas-em-r.html#cb140-1" aria-hidden="true" tabindex="-1"></a><span class="st">&quot;x&quot;</span> <span class="sc">==</span> <span class="st">&quot;x&quot;</span></span></code></pre></div>
+<div class="sourceCode" id="cb140"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb140-1"><a href="noções-básicas-em-r.html#cb140-1" tabindex="-1"></a><span class="st">&quot;x&quot;</span> <span class="sc">==</span> <span class="st">&quot;x&quot;</span></span></code></pre></div>
 <pre><code>[1] TRUE</code></pre>
-<div class="sourceCode" id="cb142"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb142-1"><a href="noções-básicas-em-r.html#cb142-1" aria-hidden="true" tabindex="-1"></a><span class="st">&quot;a&quot;</span> <span class="sc">!=</span> <span class="st">&quot;b&quot;</span></span></code></pre></div>
+<div class="sourceCode" id="cb142"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb142-1"><a href="noções-básicas-em-r.html#cb142-1" tabindex="-1"></a><span class="st">&quot;a&quot;</span> <span class="sc">!=</span> <span class="st">&quot;b&quot;</span></span></code></pre></div>
 <pre><code>[1] TRUE</code></pre>
-<div class="sourceCode" id="cb144"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb144-1"><a href="noções-básicas-em-r.html#cb144-1" aria-hidden="true" tabindex="-1"></a><span class="dv">1</span> <span class="sc">!=</span> <span class="dv">2</span></span></code></pre></div>
+<div class="sourceCode" id="cb144"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb144-1"><a href="noções-básicas-em-r.html#cb144-1" tabindex="-1"></a><span class="dv">1</span> <span class="sc">!=</span> <span class="dv">2</span></span></code></pre></div>
 <pre><code>[1] TRUE</code></pre>
-<div class="sourceCode" id="cb146"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb146-1"><a href="noções-básicas-em-r.html#cb146-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Resultados falsos</span></span>
-<span id="cb146-2"><a href="noções-básicas-em-r.html#cb146-2" aria-hidden="true" tabindex="-1"></a><span class="dv">52</span> <span class="sc">!=</span> <span class="dv">52</span></span></code></pre></div>
+<div class="sourceCode" id="cb146"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb146-1"><a href="noções-básicas-em-r.html#cb146-1" tabindex="-1"></a><span class="co"># Resultados falsos</span></span>
+<span id="cb146-2"><a href="noções-básicas-em-r.html#cb146-2" tabindex="-1"></a><span class="dv">52</span> <span class="sc">!=</span> <span class="dv">52</span></span></code></pre></div>
 <pre><code>[1] FALSE</code></pre>
-<div class="sourceCode" id="cb148"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb148-1"><a href="noções-básicas-em-r.html#cb148-1" aria-hidden="true" tabindex="-1"></a><span class="st">&quot;x&quot;</span> <span class="sc">!=</span> <span class="st">&quot;x&quot;</span></span></code></pre></div>
+<div class="sourceCode" id="cb148"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb148-1"><a href="noções-básicas-em-r.html#cb148-1" tabindex="-1"></a><span class="st">&quot;x&quot;</span> <span class="sc">!=</span> <span class="st">&quot;x&quot;</span></span></code></pre></div>
 <pre><code>[1] FALSE</code></pre>
-<div class="sourceCode" id="cb150"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb150-1"><a href="noções-básicas-em-r.html#cb150-1" aria-hidden="true" tabindex="-1"></a><span class="st">&quot;a&quot;</span> <span class="sc">==</span> <span class="st">&quot;b&quot;</span></span></code></pre></div>
+<div class="sourceCode" id="cb150"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb150-1"><a href="noções-básicas-em-r.html#cb150-1" tabindex="-1"></a><span class="st">&quot;a&quot;</span> <span class="sc">==</span> <span class="st">&quot;b&quot;</span></span></code></pre></div>
 <pre><code>[1] FALSE</code></pre>
-<div class="sourceCode" id="cb152"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb152-1"><a href="noções-básicas-em-r.html#cb152-1" aria-hidden="true" tabindex="-1"></a><span class="dv">1</span> <span class="sc">==</span> <span class="dv">2</span></span></code></pre></div>
+<div class="sourceCode" id="cb152"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb152-1"><a href="noções-básicas-em-r.html#cb152-1" tabindex="-1"></a><span class="dv">1</span> <span class="sc">==</span> <span class="dv">2</span></span></code></pre></div>
 <pre><code>[1] FALSE</code></pre>
 <p>Além disso, podemos utilizar outros operadores lógicos, como por exemplo:</p>
 <ul>
@@ -760,37 +767,37 @@ Levels: F M</code></pre>
 <li><p><code>&lt;=</code> se um valor é <strong>menor ou igual</strong> ao outro;</p></li>
 <li><p><code>&gt;=</code> se um valor é <strong>maior ou igual</strong> ao outro.</p></li>
 </ul>
-<div class="sourceCode" id="cb154"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb154-1"><a href="noções-básicas-em-r.html#cb154-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Menor</span></span>
-<span id="cb154-2"><a href="noções-básicas-em-r.html#cb154-2" aria-hidden="true" tabindex="-1"></a><span class="dv">3</span> <span class="sc">&lt;</span> <span class="dv">5</span></span></code></pre></div>
+<div class="sourceCode" id="cb154"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb154-1"><a href="noções-básicas-em-r.html#cb154-1" tabindex="-1"></a><span class="co"># Menor</span></span>
+<span id="cb154-2"><a href="noções-básicas-em-r.html#cb154-2" tabindex="-1"></a><span class="dv">3</span> <span class="sc">&lt;</span> <span class="dv">5</span></span></code></pre></div>
 <pre><code>[1] TRUE</code></pre>
-<div class="sourceCode" id="cb156"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb156-1"><a href="noções-básicas-em-r.html#cb156-1" aria-hidden="true" tabindex="-1"></a><span class="dv">3</span> <span class="sc">&lt;</span> <span class="dv">2</span></span></code></pre></div>
+<div class="sourceCode" id="cb156"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb156-1"><a href="noções-básicas-em-r.html#cb156-1" tabindex="-1"></a><span class="dv">3</span> <span class="sc">&lt;</span> <span class="dv">2</span></span></code></pre></div>
 <pre><code>[1] FALSE</code></pre>
-<div class="sourceCode" id="cb158"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb158-1"><a href="noções-básicas-em-r.html#cb158-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Maior</span></span>
-<span id="cb158-2"><a href="noções-básicas-em-r.html#cb158-2" aria-hidden="true" tabindex="-1"></a><span class="dv">3</span> <span class="sc">&gt;</span> <span class="dv">1</span></span></code></pre></div>
+<div class="sourceCode" id="cb158"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb158-1"><a href="noções-básicas-em-r.html#cb158-1" tabindex="-1"></a><span class="co"># Maior</span></span>
+<span id="cb158-2"><a href="noções-básicas-em-r.html#cb158-2" tabindex="-1"></a><span class="dv">3</span> <span class="sc">&gt;</span> <span class="dv">1</span></span></code></pre></div>
 <pre><code>[1] TRUE</code></pre>
-<div class="sourceCode" id="cb160"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb160-1"><a href="noções-básicas-em-r.html#cb160-1" aria-hidden="true" tabindex="-1"></a><span class="dv">4</span> <span class="sc">&gt;</span> <span class="dv">7</span></span></code></pre></div>
+<div class="sourceCode" id="cb160"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb160-1"><a href="noções-básicas-em-r.html#cb160-1" tabindex="-1"></a><span class="dv">4</span> <span class="sc">&gt;</span> <span class="dv">7</span></span></code></pre></div>
 <pre><code>[1] FALSE</code></pre>
-<div class="sourceCode" id="cb162"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb162-1"><a href="noções-básicas-em-r.html#cb162-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Menor ou igual</span></span>
-<span id="cb162-2"><a href="noções-básicas-em-r.html#cb162-2" aria-hidden="true" tabindex="-1"></a><span class="dv">3</span> <span class="sc">&lt;=</span> <span class="dv">3</span></span></code></pre></div>
+<div class="sourceCode" id="cb162"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb162-1"><a href="noções-básicas-em-r.html#cb162-1" tabindex="-1"></a><span class="co"># Menor ou igual</span></span>
+<span id="cb162-2"><a href="noções-básicas-em-r.html#cb162-2" tabindex="-1"></a><span class="dv">3</span> <span class="sc">&lt;=</span> <span class="dv">3</span></span></code></pre></div>
 <pre><code>[1] TRUE</code></pre>
-<div class="sourceCode" id="cb164"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb164-1"><a href="noções-básicas-em-r.html#cb164-1" aria-hidden="true" tabindex="-1"></a><span class="dv">2</span> <span class="sc">&lt;=</span> <span class="dv">1</span></span></code></pre></div>
+<div class="sourceCode" id="cb164"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb164-1"><a href="noções-básicas-em-r.html#cb164-1" tabindex="-1"></a><span class="dv">2</span> <span class="sc">&lt;=</span> <span class="dv">1</span></span></code></pre></div>
 <pre><code>[1] FALSE</code></pre>
-<div class="sourceCode" id="cb166"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb166-1"><a href="noções-básicas-em-r.html#cb166-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Maior ou igual</span></span>
-<span id="cb166-2"><a href="noções-básicas-em-r.html#cb166-2" aria-hidden="true" tabindex="-1"></a><span class="dv">10</span> <span class="sc">&gt;=</span> <span class="dv">5</span></span></code></pre></div>
+<div class="sourceCode" id="cb166"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb166-1"><a href="noções-básicas-em-r.html#cb166-1" tabindex="-1"></a><span class="co"># Maior ou igual</span></span>
+<span id="cb166-2"><a href="noções-básicas-em-r.html#cb166-2" tabindex="-1"></a><span class="dv">10</span> <span class="sc">&gt;=</span> <span class="dv">5</span></span></code></pre></div>
 <pre><code>[1] TRUE</code></pre>
-<div class="sourceCode" id="cb168"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb168-1"><a href="noções-básicas-em-r.html#cb168-1" aria-hidden="true" tabindex="-1"></a><span class="dv">1</span> <span class="sc">&gt;=</span> <span class="dv">6</span></span></code></pre></div>
+<div class="sourceCode" id="cb168"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb168-1"><a href="noções-básicas-em-r.html#cb168-1" tabindex="-1"></a><span class="dv">1</span> <span class="sc">&gt;=</span> <span class="dv">6</span></span></code></pre></div>
 <pre><code>[1] FALSE</code></pre>
 <p>O operador <code>%in%</code> verifica se um dado valor pertence a um vetor, ou seja, se um valor está contido dentro de um conjunto de valores.</p>
-<div class="sourceCode" id="cb170"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb170-1"><a href="noções-básicas-em-r.html#cb170-1" aria-hidden="true" tabindex="-1"></a><span class="dv">3</span> <span class="sc">%in%</span> <span class="fu">c</span>(<span class="dv">1</span>, <span class="dv">2</span>, <span class="dv">3</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb170"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb170-1"><a href="noções-básicas-em-r.html#cb170-1" tabindex="-1"></a><span class="dv">3</span> <span class="sc">%in%</span> <span class="fu">c</span>(<span class="dv">1</span>, <span class="dv">2</span>, <span class="dv">3</span>)</span></code></pre></div>
 <pre><code>[1] TRUE</code></pre>
-<div class="sourceCode" id="cb172"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb172-1"><a href="noções-básicas-em-r.html#cb172-1" aria-hidden="true" tabindex="-1"></a><span class="st">&quot;a&quot;</span> <span class="sc">%in%</span> <span class="fu">c</span>(<span class="st">&quot;x&quot;</span>, <span class="st">&quot;y&quot;</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb172"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb172-1"><a href="noções-básicas-em-r.html#cb172-1" tabindex="-1"></a><span class="st">&quot;a&quot;</span> <span class="sc">%in%</span> <span class="fu">c</span>(<span class="st">&quot;x&quot;</span>, <span class="st">&quot;y&quot;</span>)</span></code></pre></div>
 <pre><code>[1] FALSE</code></pre>
 <p>Ainda tratando dos vetores, observe o seguinte exemplo:</p>
-<div class="sourceCode" id="cb174"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb174-1"><a href="noções-básicas-em-r.html#cb174-1" aria-hidden="true" tabindex="-1"></a>vet <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="dv">1</span>, <span class="dv">0</span>, <span class="dv">6</span>, <span class="sc">-</span><span class="dv">9</span>, <span class="dv">10</span>, <span class="dv">52</span>, <span class="dv">3</span>)</span>
-<span id="cb174-2"><a href="noções-básicas-em-r.html#cb174-2" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb174-3"><a href="noções-básicas-em-r.html#cb174-3" aria-hidden="true" tabindex="-1"></a>vet <span class="sc">&gt;</span> <span class="dv">3</span></span></code></pre></div>
+<div class="sourceCode" id="cb174"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb174-1"><a href="noções-básicas-em-r.html#cb174-1" tabindex="-1"></a>vet <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="dv">1</span>, <span class="dv">0</span>, <span class="dv">6</span>, <span class="sc">-</span><span class="dv">9</span>, <span class="dv">10</span>, <span class="dv">52</span>, <span class="dv">3</span>)</span>
+<span id="cb174-2"><a href="noções-básicas-em-r.html#cb174-2" tabindex="-1"></a></span>
+<span id="cb174-3"><a href="noções-básicas-em-r.html#cb174-3" tabindex="-1"></a>vet <span class="sc">&gt;</span> <span class="dv">3</span></span></code></pre></div>
 <pre><code>[1] FALSE FALSE  TRUE FALSE  TRUE  TRUE FALSE</code></pre>
-<div class="sourceCode" id="cb176"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb176-1"><a href="noções-básicas-em-r.html#cb176-1" aria-hidden="true" tabindex="-1"></a>vet[vet <span class="sc">&gt;</span> <span class="dv">3</span>]</span></code></pre></div>
+<div class="sourceCode" id="cb176"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb176-1"><a href="noções-básicas-em-r.html#cb176-1" tabindex="-1"></a>vet[vet <span class="sc">&gt;</span> <span class="dv">3</span>]</span></code></pre></div>
 <pre><code>[1]  6 10 52</code></pre>
 <p>Aqui teremos que relembrar alguns conceitos expostos anteriormente. Primeiramente, criamos um vetor de nome <code>vet</code>, que recebe 7 valores. Posteriormente, utilizamos um teste lógico para verificar quais valores de <code>vet</code> são maiores que 3, cuja resposta é dada por <code>TRUE</code> ou <code>FALSE</code>. Nessa situação, ocorre uma <strong>reciclagem</strong> (conceito visto na seção <a href="noções-básicas-em-r.html#vetor">3.9</a>) do valor <code>3</code>, portanto, resultando em um vetor igual a <code>c(3, 3, 3, 3, 3, 3, 3)</code>. A partir disso, o R alinha o vetor <code>c(1, 0, 6, -9, 10, 52, 3)</code> com o vetor <code>c(3, 3, 3, 3, 3, 3, 3)</code> e testa a lógica proposta elemento por elemento (<code>1 &gt; 3</code>, <code>0 &gt; 3</code>, <code>6 &gt; 3</code>, <code>-9 &gt; 3</code>, <code>10 &gt; 3</code>, <code>52 &gt; 3</code> e <code>3 &gt; 3</code>), formando um vetor de verdadeiros e falsos.</p>
 <p>Toda essa explicação embasa a operação lógica <code>vet[vet &gt; 3]</code>, que nos retorna apenas os valores do vetor que são maiores que 3, ou seja, todos os valores iguais a <code>TRUE</code>. Esse tipo de operação será muito utilizada nos capítulos seguintes, mais especificamente no capítulo <a href="trans.html#trans">6</a> ao utilizarmos a função <code>filter</code>, essa muito mais simples de operar do que em relação ao apresentado anteriormente, porém seguindo a mesma lógica.</p>
@@ -804,13 +811,13 @@ Levels: F M</code></pre>
 <p>O <code>NA</code> representa a <strong>ausência de informação</strong>, ou seja, a informação existe, porém não se sabe qual é. Em bases de dados, é comum que algumas informações não tenham registro, sendo assim, representados pelo valor <code>NA</code>. Com isso, devemos saber interpretar e tratar estes valores.</p>
 <p>Reforçando o significado de <code>NA</code>, podemos exemplificar com uma coleta de dados em que certos indivíduos não informaram suas idades. Isso não significa que os entrevistados não possuem idade, mas simplesmente que o registro de algumas idades é uma informação ausente na pesquisa.</p>
 <p>Sabendo do significado de <code>NA</code>, podemos aprofundar sua utilização em testes lógicos, como representa o exemplo a seguir:</p>
-<div class="sourceCode" id="cb178"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb178-1"><a href="noções-básicas-em-r.html#cb178-1" aria-hidden="true" tabindex="-1"></a>idade_jose <span class="ot">&lt;-</span> <span class="dv">24</span></span>
-<span id="cb178-2"><a href="noções-básicas-em-r.html#cb178-2" aria-hidden="true" tabindex="-1"></a>idade_joao <span class="ot">&lt;-</span> <span class="cn">NA</span></span>
-<span id="cb178-3"><a href="noções-básicas-em-r.html#cb178-3" aria-hidden="true" tabindex="-1"></a>idade_maria <span class="ot">&lt;-</span> <span class="cn">NA</span></span>
-<span id="cb178-4"><a href="noções-básicas-em-r.html#cb178-4" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb178-5"><a href="noções-básicas-em-r.html#cb178-5" aria-hidden="true" tabindex="-1"></a>idade_jose <span class="sc">==</span> idade_joao</span></code></pre></div>
+<div class="sourceCode" id="cb178"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb178-1"><a href="noções-básicas-em-r.html#cb178-1" tabindex="-1"></a>idade_jose <span class="ot">&lt;-</span> <span class="dv">24</span></span>
+<span id="cb178-2"><a href="noções-básicas-em-r.html#cb178-2" tabindex="-1"></a>idade_joao <span class="ot">&lt;-</span> <span class="cn">NA</span></span>
+<span id="cb178-3"><a href="noções-básicas-em-r.html#cb178-3" tabindex="-1"></a>idade_maria <span class="ot">&lt;-</span> <span class="cn">NA</span></span>
+<span id="cb178-4"><a href="noções-básicas-em-r.html#cb178-4" tabindex="-1"></a></span>
+<span id="cb178-5"><a href="noções-básicas-em-r.html#cb178-5" tabindex="-1"></a>idade_jose <span class="sc">==</span> idade_joao</span></code></pre></div>
 <pre><code>[1] NA</code></pre>
-<div class="sourceCode" id="cb180"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb180-1"><a href="noções-básicas-em-r.html#cb180-1" aria-hidden="true" tabindex="-1"></a>idade_joao <span class="sc">==</span> idade_maria</span></code></pre></div>
+<div class="sourceCode" id="cb180"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb180-1"><a href="noções-básicas-em-r.html#cb180-1" tabindex="-1"></a>idade_joao <span class="sc">==</span> idade_maria</span></code></pre></div>
 <pre><code>[1] NA</code></pre>
 <p>Conhecemos apenas a idade do José, mas não sabemos a idade do João e da Maria, logo, a idade dos dois últimos são representados pelo valor <code>NA</code>. Ao aplicar o teste lógico <code>idade_jose == idade_joao</code>, o retorno é o valor <code>NA</code>, ou seja, o R não sabe responder se a idade do José é a mesma de João, uma vez que a idade do João não foi informada. No teste <code>idade_joao == idade_maria</code>, também nos é retornado o valor <code>NA</code>, pois ambas as idades não foram informadas, logo tanto a idade do João pode ser a mesma da Maria, como pode ser distinta. Portanto, o R não “chutará” uma resposta e simplesmente responderá: <code>NA</code> (<em>não sei</em>).</p>
 <p>Dito isso, temos que nos atentar aos valores <code>NA</code> presentes nos nossos <em>data frames</em>, pois em algumas operações, como a média (<code>mean()</code>), não conseguimos executá-la na presença desses valores. No caso da função <code>mean()</code>, ela possui o argumento <code>na.rm = TRUE</code> para excluir os <code>NA</code> da operação matemática. Todavia, algumas outras funções não possuem um argumento semelhante, sendo necessário realizar outras manipulações de dados, as quais veremos nos capítulos mais adiantes.</p>
@@ -819,41 +826,41 @@ Levels: F M</code></pre>
 <div id="nan" class="section level3 hasAnchor" number="3.12.2">
 <h3><span class="header-section-number">3.12.2</span> NaN<a href="noções-básicas-em-r.html#nan" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p>O <code>NaN</code> (<em>not a number</em>) representa indeterminações matemáticas.</p>
-<div class="sourceCode" id="cb182"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb182-1"><a href="noções-básicas-em-r.html#cb182-1" aria-hidden="true" tabindex="-1"></a><span class="dv">0</span><span class="sc">/</span><span class="dv">0</span></span></code></pre></div>
+<div class="sourceCode" id="cb182"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb182-1"><a href="noções-básicas-em-r.html#cb182-1" tabindex="-1"></a><span class="dv">0</span><span class="sc">/</span><span class="dv">0</span></span></code></pre></div>
 <pre><code>[1] NaN</code></pre>
-<div class="sourceCode" id="cb184"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb184-1"><a href="noções-básicas-em-r.html#cb184-1" aria-hidden="true" tabindex="-1"></a><span class="fu">log</span>(<span class="sc">-</span><span class="dv">1</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb184"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb184-1"><a href="noções-básicas-em-r.html#cb184-1" tabindex="-1"></a><span class="fu">log</span>(<span class="sc">-</span><span class="dv">1</span>)</span></code></pre></div>
 <pre><code>[1] NaN</code></pre>
 <p>Também podemos utilizar testes lógicos com a função <code>is.nan()</code>.</p>
-<div class="sourceCode" id="cb186"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb186-1"><a href="noções-básicas-em-r.html#cb186-1" aria-hidden="true" tabindex="-1"></a>nao_numero <span class="ot">&lt;-</span> <span class="dv">0</span><span class="sc">/</span><span class="dv">0</span></span>
-<span id="cb186-2"><a href="noções-básicas-em-r.html#cb186-2" aria-hidden="true" tabindex="-1"></a><span class="fu">is.nan</span>(nao_numero)</span></code></pre></div>
+<div class="sourceCode" id="cb186"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb186-1"><a href="noções-básicas-em-r.html#cb186-1" tabindex="-1"></a>nao_numero <span class="ot">&lt;-</span> <span class="dv">0</span><span class="sc">/</span><span class="dv">0</span></span>
+<span id="cb186-2"><a href="noções-básicas-em-r.html#cb186-2" tabindex="-1"></a><span class="fu">is.nan</span>(nao_numero)</span></code></pre></div>
 <pre><code>[1] TRUE</code></pre>
 <p><br></p>
 </div>
 <div id="inf" class="section level3 hasAnchor" number="3.12.3">
 <h3><span class="header-section-number">3.12.3</span> Inf<a href="noções-básicas-em-r.html#inf" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p>O <code>Inf</code> (infinito) representa um valor muito grande, o qual o R não consegue retratar. Também pode representar um limite matemático.</p>
-<div class="sourceCode" id="cb188"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb188-1"><a href="noções-básicas-em-r.html#cb188-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Valor grande</span></span>
-<span id="cb188-2"><a href="noções-básicas-em-r.html#cb188-2" aria-hidden="true" tabindex="-1"></a><span class="dv">100</span> <span class="sc">^</span> <span class="dv">200</span></span></code></pre></div>
+<div class="sourceCode" id="cb188"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb188-1"><a href="noções-básicas-em-r.html#cb188-1" tabindex="-1"></a><span class="co"># Valor grande</span></span>
+<span id="cb188-2"><a href="noções-básicas-em-r.html#cb188-2" tabindex="-1"></a><span class="dv">100</span> <span class="sc">^</span> <span class="dv">200</span></span></code></pre></div>
 <pre><code>[1] Inf</code></pre>
-<div class="sourceCode" id="cb190"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb190-1"><a href="noções-básicas-em-r.html#cb190-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Limite matemático</span></span>
-<span id="cb190-2"><a href="noções-básicas-em-r.html#cb190-2" aria-hidden="true" tabindex="-1"></a><span class="dv">1</span> <span class="sc">/</span> <span class="dv">0</span></span></code></pre></div>
+<div class="sourceCode" id="cb190"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb190-1"><a href="noções-básicas-em-r.html#cb190-1" tabindex="-1"></a><span class="co"># Limite matemático</span></span>
+<span id="cb190-2"><a href="noções-básicas-em-r.html#cb190-2" tabindex="-1"></a><span class="dv">1</span> <span class="sc">/</span> <span class="dv">0</span></span></code></pre></div>
 <pre><code>[1] Inf</code></pre>
-<div class="sourceCode" id="cb192"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb192-1"><a href="noções-básicas-em-r.html#cb192-1" aria-hidden="true" tabindex="-1"></a><span class="sc">-</span><span class="dv">1</span> <span class="sc">/</span> <span class="dv">0</span></span></code></pre></div>
+<div class="sourceCode" id="cb192"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb192-1"><a href="noções-básicas-em-r.html#cb192-1" tabindex="-1"></a><span class="sc">-</span><span class="dv">1</span> <span class="sc">/</span> <span class="dv">0</span></span></code></pre></div>
 <pre><code>[1] -Inf</code></pre>
 <p>Novamente, podemos utilizar testes lógicos para identificar se um objeto apresenta valor infinito. Para isso, utilizamos a função <code>is.infinite()</code>.</p>
-<div class="sourceCode" id="cb194"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb194-1"><a href="noções-básicas-em-r.html#cb194-1" aria-hidden="true" tabindex="-1"></a>valor_infinito <span class="ot">&lt;-</span> <span class="dv">1</span> <span class="sc">/</span> <span class="dv">0</span></span>
-<span id="cb194-2"><a href="noções-básicas-em-r.html#cb194-2" aria-hidden="true" tabindex="-1"></a><span class="fu">is.infinite</span>(valor_infinito)</span></code></pre></div>
+<div class="sourceCode" id="cb194"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb194-1"><a href="noções-básicas-em-r.html#cb194-1" tabindex="-1"></a>valor_infinito <span class="ot">&lt;-</span> <span class="dv">1</span> <span class="sc">/</span> <span class="dv">0</span></span>
+<span id="cb194-2"><a href="noções-básicas-em-r.html#cb194-2" tabindex="-1"></a><span class="fu">is.infinite</span>(valor_infinito)</span></code></pre></div>
 <pre><code>[1] TRUE</code></pre>
 <p><br></p>
 </div>
 <div id="null" class="section level3 hasAnchor" number="3.12.4">
 <h3><span class="header-section-number">3.12.4</span> NULL<a href="noções-básicas-em-r.html#null" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p>O <code>NULL</code> representa a ausência de um objeto. Seu significado está mais atrelado a lógica de programação, quando não queremos atribuir valor à um objeto. Portanto, diferentemente do <code>NA</code>, o <code>NULL</code> indica a inexistência de um parâmetro qualquer.</p>
-<div class="sourceCode" id="cb196"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb196-1"><a href="noções-básicas-em-r.html#cb196-1" aria-hidden="true" tabindex="-1"></a>valor_nulo <span class="ot">&lt;-</span> <span class="cn">NULL</span></span>
-<span id="cb196-2"><a href="noções-básicas-em-r.html#cb196-2" aria-hidden="true" tabindex="-1"></a>valor_nulo</span></code></pre></div>
+<div class="sourceCode" id="cb196"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb196-1"><a href="noções-básicas-em-r.html#cb196-1" tabindex="-1"></a>valor_nulo <span class="ot">&lt;-</span> <span class="cn">NULL</span></span>
+<span id="cb196-2"><a href="noções-básicas-em-r.html#cb196-2" tabindex="-1"></a>valor_nulo</span></code></pre></div>
 <pre><code>NULL</code></pre>
 <p>Para utilizar teste lógico à valores nulos, utilizamos a função <code>is.null()</code>.</p>
-<div class="sourceCode" id="cb198"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb198-1"><a href="noções-básicas-em-r.html#cb198-1" aria-hidden="true" tabindex="-1"></a><span class="fu">is.null</span>(valor_nulo)</span></code></pre></div>
+<div class="sourceCode" id="cb198"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb198-1"><a href="noções-básicas-em-r.html#cb198-1" tabindex="-1"></a><span class="fu">is.null</span>(valor_nulo)</span></code></pre></div>
 <pre><code>[1] TRUE</code></pre>
 <p><br></p>
 </div>
@@ -862,8 +869,8 @@ Levels: F M</code></pre>
 <h2><span class="header-section-number">3.13</span> Listas<a href="noções-básicas-em-r.html#list" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <p>As listas são objetos semelhantes a um vetor, porém, com algumas diferenças. Como citado na seção <a href="noções-básicas-em-r.html#vetor">3.9</a>, não podemos misturar objetos de classes distintas em um único vetor, contudo, nas <strong>listas</strong> podemos realizar essa mescla de classes.</p>
 <p>Para criarmos uma lista, utilizamos a função <code>list()</code>, tendo como argumentos os valores desejados.</p>
-<div class="sourceCode" id="cb200"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb200-1"><a href="noções-básicas-em-r.html#cb200-1" aria-hidden="true" tabindex="-1"></a>lista <span class="ot">&lt;-</span> <span class="fu">list</span>(<span class="dv">5</span>, <span class="st">&quot;x&quot;</span>, <span class="cn">FALSE</span>)</span>
-<span id="cb200-2"><a href="noções-básicas-em-r.html#cb200-2" aria-hidden="true" tabindex="-1"></a>lista</span></code></pre></div>
+<div class="sourceCode" id="cb200"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb200-1"><a href="noções-básicas-em-r.html#cb200-1" tabindex="-1"></a>lista <span class="ot">&lt;-</span> <span class="fu">list</span>(<span class="dv">5</span>, <span class="st">&quot;x&quot;</span>, <span class="cn">FALSE</span>)</span>
+<span id="cb200-2"><a href="noções-básicas-em-r.html#cb200-2" tabindex="-1"></a>lista</span></code></pre></div>
 <pre><code>[[1]]
 [1] 5
 
@@ -872,42 +879,42 @@ Levels: F M</code></pre>
 
 [[3]]
 [1] FALSE</code></pre>
-<div class="sourceCode" id="cb202"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb202-1"><a href="noções-básicas-em-r.html#cb202-1" aria-hidden="true" tabindex="-1"></a><span class="fu">class</span>(lista)</span></code></pre></div>
+<div class="sourceCode" id="cb202"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb202-1"><a href="noções-básicas-em-r.html#cb202-1" tabindex="-1"></a><span class="fu">class</span>(lista)</span></code></pre></div>
 <pre><code>[1] &quot;list&quot;</code></pre>
 <p>Nesse caso, criamos uma lista com elementos de classes numérica, caractere e lógica, sem que ocorresse coerção, ou seja, não houve a conversão do objeto para uma única classe, como vimos ocorrer com os vetores (seção <a href="noções-básicas-em-r.html#vetor">3.9</a>). Assim, as listas nos permite unir classes distintas em um mesmo objeto.</p>
 <p>Outro diferencial é o fato de que <strong>cada elemento de uma lista também é uma lista</strong>. Portanto, para acessarmos um elemento de uma lista, devemos utilizar dois colchetes <code>[[]]</code>.</p>
-<div class="sourceCode" id="cb204"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb204-1"><a href="noções-básicas-em-r.html#cb204-1" aria-hidden="true" tabindex="-1"></a>lista <span class="ot">&lt;-</span> <span class="fu">list</span>(<span class="dv">5</span>, <span class="st">&quot;x&quot;</span>, <span class="cn">FALSE</span>)</span>
-<span id="cb204-2"><a href="noções-básicas-em-r.html#cb204-2" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb204-3"><a href="noções-básicas-em-r.html#cb204-3" aria-hidden="true" tabindex="-1"></a><span class="co"># Utilizando 1 colchete, nos retorna uma classe do tipo lista</span></span>
-<span id="cb204-4"><a href="noções-básicas-em-r.html#cb204-4" aria-hidden="true" tabindex="-1"></a>lista[<span class="dv">2</span>]</span></code></pre></div>
+<div class="sourceCode" id="cb204"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb204-1"><a href="noções-básicas-em-r.html#cb204-1" tabindex="-1"></a>lista <span class="ot">&lt;-</span> <span class="fu">list</span>(<span class="dv">5</span>, <span class="st">&quot;x&quot;</span>, <span class="cn">FALSE</span>)</span>
+<span id="cb204-2"><a href="noções-básicas-em-r.html#cb204-2" tabindex="-1"></a></span>
+<span id="cb204-3"><a href="noções-básicas-em-r.html#cb204-3" tabindex="-1"></a><span class="co"># Utilizando 1 colchete, nos retorna uma classe do tipo lista</span></span>
+<span id="cb204-4"><a href="noções-básicas-em-r.html#cb204-4" tabindex="-1"></a>lista[<span class="dv">2</span>]</span></code></pre></div>
 <pre><code>[[1]]
 [1] &quot;x&quot;</code></pre>
-<div class="sourceCode" id="cb206"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb206-1"><a href="noções-básicas-em-r.html#cb206-1" aria-hidden="true" tabindex="-1"></a><span class="fu">class</span>(lista[<span class="dv">2</span>])</span></code></pre></div>
+<div class="sourceCode" id="cb206"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb206-1"><a href="noções-básicas-em-r.html#cb206-1" tabindex="-1"></a><span class="fu">class</span>(lista[<span class="dv">2</span>])</span></code></pre></div>
 <pre><code>[1] &quot;list&quot;</code></pre>
-<div class="sourceCode" id="cb208"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb208-1"><a href="noções-básicas-em-r.html#cb208-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Utilizando 2 colchetes, nos retorna a classe do elemento</span></span>
-<span id="cb208-2"><a href="noções-básicas-em-r.html#cb208-2" aria-hidden="true" tabindex="-1"></a>lista[[<span class="dv">2</span>]]</span></code></pre></div>
+<div class="sourceCode" id="cb208"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb208-1"><a href="noções-básicas-em-r.html#cb208-1" tabindex="-1"></a><span class="co"># Utilizando 2 colchetes, nos retorna a classe do elemento</span></span>
+<span id="cb208-2"><a href="noções-básicas-em-r.html#cb208-2" tabindex="-1"></a>lista[[<span class="dv">2</span>]]</span></code></pre></div>
 <pre><code>[1] &quot;x&quot;</code></pre>
-<div class="sourceCode" id="cb210"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb210-1"><a href="noções-básicas-em-r.html#cb210-1" aria-hidden="true" tabindex="-1"></a><span class="fu">class</span>(lista[[<span class="dv">2</span>]])</span></code></pre></div>
+<div class="sourceCode" id="cb210"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb210-1"><a href="noções-básicas-em-r.html#cb210-1" tabindex="-1"></a><span class="fu">class</span>(lista[[<span class="dv">2</span>]])</span></code></pre></div>
 <pre><code>[1] &quot;character&quot;</code></pre>
 <p>Assim, utilizando um colchete, é retornado a classe da lista que contém um único elemento. Já com dois colchetes, nos é retornado a classe do elemento que está na lista, no caso do exemplo, a classe do <code>x</code>.</p>
 <p>O fato de cada elemento ser uma lista dentro de uma lista é importante para podermos colocar vetores de tamanhos diferentes em cada posição. Isso faz das listas objetos muito flexíveis para armazenar dados.</p>
-<div class="sourceCode" id="cb212"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb212-1"><a href="noções-básicas-em-r.html#cb212-1" aria-hidden="true" tabindex="-1"></a>listas_sao_flexiveis <span class="ot">&lt;-</span> <span class="fu">list</span>(<span class="dv">1</span><span class="sc">:</span><span class="dv">5</span>, <span class="fu">c</span>(<span class="st">&quot;a&quot;</span>, <span class="st">&quot;b&quot;</span>, <span class="st">&quot;c&quot;</span>), <span class="fu">c</span>(<span class="cn">TRUE</span>, <span class="cn">FALSE</span>, <span class="cn">TRUE</span>, <span class="cn">FALSE</span>))</span>
-<span id="cb212-2"><a href="noções-básicas-em-r.html#cb212-2" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb212-3"><a href="noções-básicas-em-r.html#cb212-3" aria-hidden="true" tabindex="-1"></a>listas_sao_flexiveis[<span class="dv">1</span>]</span></code></pre></div>
+<div class="sourceCode" id="cb212"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb212-1"><a href="noções-básicas-em-r.html#cb212-1" tabindex="-1"></a>listas_sao_flexiveis <span class="ot">&lt;-</span> <span class="fu">list</span>(<span class="dv">1</span><span class="sc">:</span><span class="dv">5</span>, <span class="fu">c</span>(<span class="st">&quot;a&quot;</span>, <span class="st">&quot;b&quot;</span>, <span class="st">&quot;c&quot;</span>), <span class="fu">c</span>(<span class="cn">TRUE</span>, <span class="cn">FALSE</span>, <span class="cn">TRUE</span>, <span class="cn">FALSE</span>))</span>
+<span id="cb212-2"><a href="noções-básicas-em-r.html#cb212-2" tabindex="-1"></a></span>
+<span id="cb212-3"><a href="noções-básicas-em-r.html#cb212-3" tabindex="-1"></a>listas_sao_flexiveis[<span class="dv">1</span>]</span></code></pre></div>
 <pre><code>[[1]]
 [1] 1 2 3 4 5</code></pre>
-<div class="sourceCode" id="cb214"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb214-1"><a href="noções-básicas-em-r.html#cb214-1" aria-hidden="true" tabindex="-1"></a>listas_sao_flexiveis[<span class="dv">2</span>]</span></code></pre></div>
+<div class="sourceCode" id="cb214"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb214-1"><a href="noções-básicas-em-r.html#cb214-1" tabindex="-1"></a>listas_sao_flexiveis[<span class="dv">2</span>]</span></code></pre></div>
 <pre><code>[[1]]
 [1] &quot;a&quot; &quot;b&quot; &quot;c&quot;</code></pre>
-<div class="sourceCode" id="cb216"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb216-1"><a href="noções-básicas-em-r.html#cb216-1" aria-hidden="true" tabindex="-1"></a>listas_sao_flexiveis[<span class="dv">3</span>]</span></code></pre></div>
+<div class="sourceCode" id="cb216"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb216-1"><a href="noções-básicas-em-r.html#cb216-1" tabindex="-1"></a>listas_sao_flexiveis[<span class="dv">3</span>]</span></code></pre></div>
 <pre><code>[[1]]
 [1]  TRUE FALSE  TRUE FALSE</code></pre>
 <p>Podemos nomear cada posição de uma lista. Para isso, colocamos dentro da função <code>list()</code> os argumentos com as respectivas denominações e valores.</p>
-<div class="sourceCode" id="cb218"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb218-1"><a href="noções-básicas-em-r.html#cb218-1" aria-hidden="true" tabindex="-1"></a>dados_estudantes <span class="ot">&lt;-</span> <span class="fu">list</span>(<span class="at">nome =</span> <span class="fu">c</span>(<span class="st">&quot;José&quot;</span>, <span class="st">&quot;Joao&quot;</span>, <span class="st">&quot;Maria&quot;</span>),</span>
-<span id="cb218-2"><a href="noções-básicas-em-r.html#cb218-2" aria-hidden="true" tabindex="-1"></a>                         <span class="at">sexo =</span> <span class="fu">c</span>(<span class="st">&quot;M&quot;</span>, <span class="st">&quot;M&quot;</span>, <span class="st">&quot;F&quot;</span>),</span>
-<span id="cb218-3"><a href="noções-básicas-em-r.html#cb218-3" aria-hidden="true" tabindex="-1"></a>                         <span class="at">idade =</span> <span class="fu">c</span>(<span class="dv">26</span>, <span class="dv">19</span>, <span class="dv">20</span>))</span>
-<span id="cb218-4"><a href="noções-básicas-em-r.html#cb218-4" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb218-5"><a href="noções-básicas-em-r.html#cb218-5" aria-hidden="true" tabindex="-1"></a>dados_estudantes</span></code></pre></div>
+<div class="sourceCode" id="cb218"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb218-1"><a href="noções-básicas-em-r.html#cb218-1" tabindex="-1"></a>dados_estudantes <span class="ot">&lt;-</span> <span class="fu">list</span>(<span class="at">nome =</span> <span class="fu">c</span>(<span class="st">&quot;José&quot;</span>, <span class="st">&quot;Joao&quot;</span>, <span class="st">&quot;Maria&quot;</span>),</span>
+<span id="cb218-2"><a href="noções-básicas-em-r.html#cb218-2" tabindex="-1"></a>                         <span class="at">sexo =</span> <span class="fu">c</span>(<span class="st">&quot;M&quot;</span>, <span class="st">&quot;M&quot;</span>, <span class="st">&quot;F&quot;</span>),</span>
+<span id="cb218-3"><a href="noções-básicas-em-r.html#cb218-3" tabindex="-1"></a>                         <span class="at">idade =</span> <span class="fu">c</span>(<span class="dv">26</span>, <span class="dv">19</span>, <span class="dv">20</span>))</span>
+<span id="cb218-4"><a href="noções-básicas-em-r.html#cb218-4" tabindex="-1"></a></span>
+<span id="cb218-5"><a href="noções-básicas-em-r.html#cb218-5" tabindex="-1"></a>dados_estudantes</span></code></pre></div>
 <pre><code>$nome
 [1] &quot;José&quot;  &quot;Joao&quot;  &quot;Maria&quot;
 
@@ -917,14 +924,14 @@ $sexo
 $idade
 [1] 26 19 20</code></pre>
 <p>Quando a posição de uma lista possui um nome, podemos acessar seus valores com o operador <code>$</code>. Esse operador é equivalente a <code>dados_alunos[[]]</code>.</p>
-<div class="sourceCode" id="cb220"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb220-1"><a href="noções-básicas-em-r.html#cb220-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Equivalente a dados_estudantes[[1]]</span></span>
-<span id="cb220-2"><a href="noções-básicas-em-r.html#cb220-2" aria-hidden="true" tabindex="-1"></a>dados_estudantes<span class="sc">$</span>nome</span></code></pre></div>
+<div class="sourceCode" id="cb220"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb220-1"><a href="noções-básicas-em-r.html#cb220-1" tabindex="-1"></a><span class="co"># Equivalente a dados_estudantes[[1]]</span></span>
+<span id="cb220-2"><a href="noções-básicas-em-r.html#cb220-2" tabindex="-1"></a>dados_estudantes<span class="sc">$</span>nome</span></code></pre></div>
 <pre><code>[1] &quot;José&quot;  &quot;Joao&quot;  &quot;Maria&quot;</code></pre>
-<div class="sourceCode" id="cb222"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb222-1"><a href="noções-básicas-em-r.html#cb222-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Equivalente a dados_estudantes[[2]]</span></span>
-<span id="cb222-2"><a href="noções-básicas-em-r.html#cb222-2" aria-hidden="true" tabindex="-1"></a>dados_estudantes<span class="sc">$</span>sexo</span></code></pre></div>
+<div class="sourceCode" id="cb222"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb222-1"><a href="noções-básicas-em-r.html#cb222-1" tabindex="-1"></a><span class="co"># Equivalente a dados_estudantes[[2]]</span></span>
+<span id="cb222-2"><a href="noções-básicas-em-r.html#cb222-2" tabindex="-1"></a>dados_estudantes<span class="sc">$</span>sexo</span></code></pre></div>
 <pre><code>[1] &quot;M&quot; &quot;M&quot; &quot;F&quot;</code></pre>
-<div class="sourceCode" id="cb224"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb224-1"><a href="noções-básicas-em-r.html#cb224-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Equivalente a dados_estudantes[[3]]</span></span>
-<span id="cb224-2"><a href="noções-básicas-em-r.html#cb224-2" aria-hidden="true" tabindex="-1"></a>dados_estudantes<span class="sc">$</span>idade</span></code></pre></div>
+<div class="sourceCode" id="cb224"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb224-1"><a href="noções-básicas-em-r.html#cb224-1" tabindex="-1"></a><span class="co"># Equivalente a dados_estudantes[[3]]</span></span>
+<span id="cb224-2"><a href="noções-básicas-em-r.html#cb224-2" tabindex="-1"></a>dados_estudantes<span class="sc">$</span>idade</span></code></pre></div>
 <pre><code>[1] 26 19 20</code></pre>
 <p><br></p>
 <div id="df" class="section level3 hasAnchor" number="3.13.1">
@@ -932,8 +939,8 @@ $idade
 <p>Depois de apresentarmos o que são listas (além dos demais conceitos presentes nas seções anteriores), vamos aprofundar os nossos conhecimentos sobre os <em>data frames</em>.</p>
 <p>A relação entre listas e <em>data frames</em> é que, basicamente, os <em>data frames</em> são um tipo de lista. Assim, as propriedades expostas sobre as listas se aplicam aos <em>data frames</em>.</p>
 <p>No capítulo <a href="noções-básicas-em-r.html#dataf">3.8</a>, apresentamos o básico sobre os <em>data frames</em>, exemplificado com o <code>PlantGrowth</code>. Assim, para entendermos a equivalência entre listas e <em>data frames</em>, converteremos o <code>PlantGrowth</code> em uma lista.</p>
-<div class="sourceCode" id="cb226"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb226-1"><a href="noções-básicas-em-r.html#cb226-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Data frame</span></span>
-<span id="cb226-2"><a href="noções-básicas-em-r.html#cb226-2" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span>(PlantGrowth)</span></code></pre></div>
+<div class="sourceCode" id="cb226"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb226-1"><a href="noções-básicas-em-r.html#cb226-1" tabindex="-1"></a><span class="co"># Data frame</span></span>
+<span id="cb226-2"><a href="noções-básicas-em-r.html#cb226-2" tabindex="-1"></a><span class="fu">head</span>(PlantGrowth)</span></code></pre></div>
 <pre><code>  weight group
 1   4.17  ctrl
 2   5.58  ctrl
@@ -941,8 +948,8 @@ $idade
 4   6.11  ctrl
 5   4.50  ctrl
 6   4.61  ctrl</code></pre>
-<div class="sourceCode" id="cb228"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb228-1"><a href="noções-básicas-em-r.html#cb228-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Lista</span></span>
-<span id="cb228-2"><a href="noções-básicas-em-r.html#cb228-2" aria-hidden="true" tabindex="-1"></a><span class="fu">as.list</span>(PlantGrowth)</span></code></pre></div>
+<div class="sourceCode" id="cb228"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb228-1"><a href="noções-básicas-em-r.html#cb228-1" tabindex="-1"></a><span class="co"># Lista</span></span>
+<span id="cb228-2"><a href="noções-básicas-em-r.html#cb228-2" tabindex="-1"></a><span class="fu">as.list</span>(PlantGrowth)</span></code></pre></div>
 <pre><code>$weight
  [1] 4.17 5.58 5.18 6.11 4.50 4.61 5.17 4.53 5.33 5.14 4.81 4.17 4.41 3.59 5.87
 [16] 3.83 6.03 4.89 4.32 4.69 6.31 5.12 5.54 5.50 5.37 5.29 4.92 6.15 5.80 5.26
@@ -953,17 +960,17 @@ $group
 Levels: ctrl trt1 trt2</code></pre>
 <p>Perceba que os nomes das colunas do <em>data frame</em> se tornam o nome das posições de uma lista (<code>$weight</code> e <code>$group</code>) e cada valor das colunas são convertidos em elementos da respectiva lista.</p>
 <p>Portanto, podemos dizer que cada coluna de um <em>data frame</em> também é um <em>data frame</em>, assim como no caso das listas.</p>
-<div class="sourceCode" id="cb230"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb230-1"><a href="noções-básicas-em-r.html#cb230-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Classe do data frame PlantGrowth</span></span>
-<span id="cb230-2"><a href="noções-básicas-em-r.html#cb230-2" aria-hidden="true" tabindex="-1"></a><span class="fu">class</span>(PlantGrowth)</span></code></pre></div>
+<div class="sourceCode" id="cb230"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb230-1"><a href="noções-básicas-em-r.html#cb230-1" tabindex="-1"></a><span class="co"># Classe do data frame PlantGrowth</span></span>
+<span id="cb230-2"><a href="noções-básicas-em-r.html#cb230-2" tabindex="-1"></a><span class="fu">class</span>(PlantGrowth)</span></code></pre></div>
 <pre><code>[1] &quot;data.frame&quot;</code></pre>
-<div class="sourceCode" id="cb232"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb232-1"><a href="noções-básicas-em-r.html#cb232-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Classe da primeira coluna (weight)</span></span>
-<span id="cb232-2"><a href="noções-básicas-em-r.html#cb232-2" aria-hidden="true" tabindex="-1"></a><span class="fu">class</span>(PlantGrowth[<span class="dv">1</span>])</span></code></pre></div>
+<div class="sourceCode" id="cb232"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb232-1"><a href="noções-básicas-em-r.html#cb232-1" tabindex="-1"></a><span class="co"># Classe da primeira coluna (weight)</span></span>
+<span id="cb232-2"><a href="noções-básicas-em-r.html#cb232-2" tabindex="-1"></a><span class="fu">class</span>(PlantGrowth[<span class="dv">1</span>])</span></code></pre></div>
 <pre><code>[1] &quot;data.frame&quot;</code></pre>
 <p>Além disso, podemos utilizar o operador <code>$</code> para acessar os elementos de uma coluna (ou lista).</p>
-<div class="sourceCode" id="cb234"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb234-1"><a href="noções-básicas-em-r.html#cb234-1" aria-hidden="true" tabindex="-1"></a>PlantGrowth<span class="sc">$</span>weight</span></code></pre></div>
+<div class="sourceCode" id="cb234"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb234-1"><a href="noções-básicas-em-r.html#cb234-1" tabindex="-1"></a>PlantGrowth<span class="sc">$</span>weight</span></code></pre></div>
 <pre><code> [1] 4.17 5.58 5.18 6.11 4.50 4.61 5.17 4.53 5.33 5.14 4.81 4.17 4.41 3.59 5.87
 [16] 3.83 6.03 4.89 4.32 4.69 6.31 5.12 5.54 5.50 5.37 5.29 4.92 6.15 5.80 5.26</code></pre>
-<div class="sourceCode" id="cb236"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb236-1"><a href="noções-básicas-em-r.html#cb236-1" aria-hidden="true" tabindex="-1"></a>PlantGrowth<span class="sc">$</span>group</span></code></pre></div>
+<div class="sourceCode" id="cb236"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb236-1"><a href="noções-básicas-em-r.html#cb236-1" tabindex="-1"></a>PlantGrowth<span class="sc">$</span>group</span></code></pre></div>
 <pre><code> [1] ctrl ctrl ctrl ctrl ctrl ctrl ctrl ctrl ctrl ctrl trt1 trt1 trt1 trt1 trt1
 [16] trt1 trt1 trt1 trt1 trt1 trt2 trt2 trt2 trt2 trt2 trt2 trt2 trt2 trt2 trt2
 Levels: ctrl trt1 trt2</code></pre>
@@ -975,44 +982,44 @@ Levels: ctrl trt1 trt2</code></pre>
 </ul>
 <p>Essas propriedades nos indicam que um <em>data frame</em> tem que receber uma base de dados em formato retangular (análoga a uma planilha Excel), com o mesmo número de linhas (observações) em cada coluna (variável), sendo necessário a presença um nome específico para cada uma das colunas.</p>
 <p>Um exemplo da propriedade <em>Todas as colunas precisam ter a mesma dimensão</em> é a tentativa (falha) de converter uma lista com vetores de comprimentos diferentes em um <em>data frame</em>.</p>
-<div class="sourceCode" id="cb238"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb238-1"><a href="noções-básicas-em-r.html#cb238-1" aria-hidden="true" tabindex="-1"></a>listas <span class="ot">&lt;-</span> <span class="fu">list</span>(<span class="dv">1</span><span class="sc">:</span><span class="dv">5</span>, <span class="fu">c</span>(<span class="st">&quot;a&quot;</span>, <span class="st">&quot;b&quot;</span>, <span class="st">&quot;c&quot;</span>), <span class="fu">c</span>(<span class="cn">TRUE</span>, <span class="cn">FALSE</span>, <span class="cn">TRUE</span>, <span class="cn">FALSE</span>))</span>
-<span id="cb238-2"><a href="noções-básicas-em-r.html#cb238-2" aria-hidden="true" tabindex="-1"></a><span class="fu">as.data.frame</span>(listas)</span></code></pre></div>
+<div class="sourceCode" id="cb238"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb238-1"><a href="noções-básicas-em-r.html#cb238-1" tabindex="-1"></a>listas <span class="ot">&lt;-</span> <span class="fu">list</span>(<span class="dv">1</span><span class="sc">:</span><span class="dv">5</span>, <span class="fu">c</span>(<span class="st">&quot;a&quot;</span>, <span class="st">&quot;b&quot;</span>, <span class="st">&quot;c&quot;</span>), <span class="fu">c</span>(<span class="cn">TRUE</span>, <span class="cn">FALSE</span>, <span class="cn">TRUE</span>, <span class="cn">FALSE</span>))</span>
+<span id="cb238-2"><a href="noções-básicas-em-r.html#cb238-2" tabindex="-1"></a><span class="fu">as.data.frame</span>(listas)</span></code></pre></div>
 <pre><code>Error in (function (..., row.names = NULL, check.rows = FALSE, check.names = TRUE, : arguments imply differing number of rows: 5, 3, 4</code></pre>
 <p>A propriedade <em>Todas as colunas precisam ser nomeadas</em> não é um impeditivo para se criar um <em>data frame</em>, porém, não se obtém um bom resultado ao ignorar esta propriedade, pois é necessário ter um nome para cada coluna e o R trata de criá-los de uma maneira pouco agradável.</p>
-<div class="sourceCode" id="cb240"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb240-1"><a href="noções-básicas-em-r.html#cb240-1" aria-hidden="true" tabindex="-1"></a>dados_estudantes <span class="ot">&lt;-</span> <span class="fu">list</span>(<span class="fu">c</span>(<span class="st">&quot;José&quot;</span>, <span class="st">&quot;Joao&quot;</span>, <span class="st">&quot;Maria&quot;</span>),</span>
-<span id="cb240-2"><a href="noções-básicas-em-r.html#cb240-2" aria-hidden="true" tabindex="-1"></a>                         <span class="fu">c</span>(<span class="st">&quot;M&quot;</span>, <span class="st">&quot;M&quot;</span>, <span class="st">&quot;F&quot;</span>),</span>
-<span id="cb240-3"><a href="noções-básicas-em-r.html#cb240-3" aria-hidden="true" tabindex="-1"></a>                         <span class="fu">c</span>(<span class="dv">45</span>, <span class="dv">19</span>, <span class="dv">26</span>))</span>
-<span id="cb240-4"><a href="noções-básicas-em-r.html#cb240-4" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb240-5"><a href="noções-básicas-em-r.html#cb240-5" aria-hidden="true" tabindex="-1"></a><span class="fu">as.data.frame</span>(dados_estudantes)</span></code></pre></div>
+<div class="sourceCode" id="cb240"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb240-1"><a href="noções-básicas-em-r.html#cb240-1" tabindex="-1"></a>dados_estudantes <span class="ot">&lt;-</span> <span class="fu">list</span>(<span class="fu">c</span>(<span class="st">&quot;José&quot;</span>, <span class="st">&quot;Joao&quot;</span>, <span class="st">&quot;Maria&quot;</span>),</span>
+<span id="cb240-2"><a href="noções-básicas-em-r.html#cb240-2" tabindex="-1"></a>                         <span class="fu">c</span>(<span class="st">&quot;M&quot;</span>, <span class="st">&quot;M&quot;</span>, <span class="st">&quot;F&quot;</span>),</span>
+<span id="cb240-3"><a href="noções-básicas-em-r.html#cb240-3" tabindex="-1"></a>                         <span class="fu">c</span>(<span class="dv">45</span>, <span class="dv">19</span>, <span class="dv">26</span>))</span>
+<span id="cb240-4"><a href="noções-básicas-em-r.html#cb240-4" tabindex="-1"></a></span>
+<span id="cb240-5"><a href="noções-básicas-em-r.html#cb240-5" tabindex="-1"></a><span class="fu">as.data.frame</span>(dados_estudantes)</span></code></pre></div>
 <pre><code>  c..José....Joao....Maria.. c..M....M....F.. c.45..19..26.
 1                       José                M            45
 2                       Joao                M            19
 3                      Maria                F            26</code></pre>
 <p>Já a propriedade <em>Possuir 2 dimensões</em> indica que o <em>data frame</em> possui linhas e colunas, o que os diferencia das listas, uma vez que essas não possuem dimensão. A função <code>dim()</code> retorna as dimensões de um objeto e comprova que as listas não possuem dimensão.</p>
-<div class="sourceCode" id="cb242"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb242-1"><a href="noções-básicas-em-r.html#cb242-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Data frame</span></span>
-<span id="cb242-2"><a href="noções-básicas-em-r.html#cb242-2" aria-hidden="true" tabindex="-1"></a><span class="fu">dim</span>(PlantGrowth)</span></code></pre></div>
+<div class="sourceCode" id="cb242"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb242-1"><a href="noções-básicas-em-r.html#cb242-1" tabindex="-1"></a><span class="co"># Data frame</span></span>
+<span id="cb242-2"><a href="noções-básicas-em-r.html#cb242-2" tabindex="-1"></a><span class="fu">dim</span>(PlantGrowth)</span></code></pre></div>
 <pre><code>[1] 30  2</code></pre>
-<div class="sourceCode" id="cb244"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb244-1"><a href="noções-básicas-em-r.html#cb244-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Lista</span></span>
-<span id="cb244-2"><a href="noções-básicas-em-r.html#cb244-2" aria-hidden="true" tabindex="-1"></a><span class="fu">dim</span>(<span class="fu">as.list</span>(PlantGrowth))</span></code></pre></div>
+<div class="sourceCode" id="cb244"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb244-1"><a href="noções-básicas-em-r.html#cb244-1" tabindex="-1"></a><span class="co"># Lista</span></span>
+<span id="cb244-2"><a href="noções-básicas-em-r.html#cb244-2" tabindex="-1"></a><span class="fu">dim</span>(<span class="fu">as.list</span>(PlantGrowth))</span></code></pre></div>
 <pre><code>NULL</code></pre>
 <p>Assim, a função <code>dim()</code> nos indica que o <em>data frame</em> <code>PlantGrowth</code> apresenta 30 linhas e 2 colunas. Por outro lado, ao convertermos o <em>data frame</em> <code>PlantGrowth</code> em uma lista, a mesma função nos diz que o objeto é ausente de dimensão (<code>NULL</code>).</p>
 <p>Além disso, caso haja valores faltantes na base de dados (como, por exemplo, células vazias no Excel), esses serão representados por <code>NA</code>, sendo preservada a estrutura do <em>data frame</em>.</p>
 <p>Por possuir duas dimensões, para acessarmos valores em um <em>data frame</em>, devemos especificar as linhas e colunas dentro de colchetes, na seguinte ordem: <code>[numero_linha, numero_coluna]</code>.</p>
-<div class="sourceCode" id="cb246"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb246-1"><a href="noções-básicas-em-r.html#cb246-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Acessa o elemento posicionado na 10ª linha da 1ª coluna</span></span>
-<span id="cb246-2"><a href="noções-básicas-em-r.html#cb246-2" aria-hidden="true" tabindex="-1"></a>PlantGrowth[<span class="dv">10</span>, <span class="dv">1</span>]</span></code></pre></div>
+<div class="sourceCode" id="cb246"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb246-1"><a href="noções-básicas-em-r.html#cb246-1" tabindex="-1"></a><span class="co"># Acessa o elemento posicionado na 10ª linha da 1ª coluna</span></span>
+<span id="cb246-2"><a href="noções-básicas-em-r.html#cb246-2" tabindex="-1"></a>PlantGrowth[<span class="dv">10</span>, <span class="dv">1</span>]</span></code></pre></div>
 <pre><code>[1] 5.14</code></pre>
 <p>Podemos pegar todas as linhas de uma coluna ou todas as colunas de uma linha deixando um dos argumentos vazios:</p>
-<div class="sourceCode" id="cb248"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb248-1"><a href="noções-básicas-em-r.html#cb248-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Todas as linhas da 2ª coluna</span></span>
-<span id="cb248-2"><a href="noções-básicas-em-r.html#cb248-2" aria-hidden="true" tabindex="-1"></a>PlantGrowth[,<span class="dv">2</span>]</span></code></pre></div>
+<div class="sourceCode" id="cb248"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb248-1"><a href="noções-básicas-em-r.html#cb248-1" tabindex="-1"></a><span class="co"># Todas as linhas da 2ª coluna</span></span>
+<span id="cb248-2"><a href="noções-básicas-em-r.html#cb248-2" tabindex="-1"></a>PlantGrowth[,<span class="dv">2</span>]</span></code></pre></div>
 <pre><code> [1] ctrl ctrl ctrl ctrl ctrl ctrl ctrl ctrl ctrl ctrl trt1 trt1 trt1 trt1 trt1
 [16] trt1 trt1 trt1 trt1 trt1 trt2 trt2 trt2 trt2 trt2 trt2 trt2 trt2 trt2 trt2
 Levels: ctrl trt1 trt2</code></pre>
-<div class="sourceCode" id="cb250"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb250-1"><a href="noções-básicas-em-r.html#cb250-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Todas as colunas da 2ª linhas</span></span>
-<span id="cb250-2"><a href="noções-básicas-em-r.html#cb250-2" aria-hidden="true" tabindex="-1"></a>PlantGrowth[<span class="dv">2</span>,]</span></code></pre></div>
+<div class="sourceCode" id="cb250"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb250-1"><a href="noções-básicas-em-r.html#cb250-1" tabindex="-1"></a><span class="co"># Todas as colunas da 2ª linhas</span></span>
+<span id="cb250-2"><a href="noções-básicas-em-r.html#cb250-2" tabindex="-1"></a>PlantGrowth[<span class="dv">2</span>,]</span></code></pre></div>
 <pre><code>  weight group
 2   5.58  ctrl</code></pre>
 <p>E, devido ao fato de que cada coluna do <em>data frame</em> é um vetor, podemos aplicar testes lógicos para filtrar linhas, assim como fizemos na seção <a href="noções-básicas-em-r.html#logica">3.11</a>.</p>
-<div class="sourceCode" id="cb252"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb252-1"><a href="noções-básicas-em-r.html#cb252-1" aria-hidden="true" tabindex="-1"></a>PlantGrowth[PlantGrowth<span class="sc">$</span>weight <span class="sc">&gt;</span> <span class="fl">5.5</span>, ]</span></code></pre></div>
+<div class="sourceCode" id="cb252"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb252-1"><a href="noções-básicas-em-r.html#cb252-1" tabindex="-1"></a>PlantGrowth[PlantGrowth<span class="sc">$</span>weight <span class="sc">&gt;</span> <span class="fl">5.5</span>, ]</span></code></pre></div>
 <pre><code>   weight group
 2    5.58  ctrl
 4    6.11  ctrl

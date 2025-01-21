@@ -12,3 +12,10 @@ pre {
 pre code {
   white-space: pre-wrap;
 }
+
+.callout-box {
+  border: 3px solid #CA0020;
+  padding: 15px;
+  margin: 15px 0;
+  background-color: #fff5f5;
+}

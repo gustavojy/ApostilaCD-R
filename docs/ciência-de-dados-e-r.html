@@ -6,7 +6,7 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
   <title>Capítulo2 Ciência de dados e R | Introdução à Ciência de Dados em R</title>
   <meta name="description" content="Capítulo2 Ciência de dados e R | Introdução à Ciência de Dados em R" />
-  <meta name="generator" content="bookdown 0.28 and GitBook 2.6.7" />
+  <meta name="generator" content="bookdown 0.42 and GitBook 2.6.7" />
 
   <meta property="og:title" content="Capítulo2 Ciência de dados e R | Introdução à Ciência de Dados em R" />
   <meta property="og:type" content="book" />
@@ -57,7 +57,7 @@
 
 <style type="text/css">
 pre > code.sourceCode { white-space: pre; position: relative; }
-pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span { line-height: 1.25; }
 pre > code.sourceCode > span:empty { height: 1.2em; }
 .sourceCode { overflow: visible; }
 code.sourceCode > span { color: inherit; text-decoration: inherit; }
@@ -67,7 +67,7 @@ div.sourceCode { overflow: auto; }
 }
 @media print {
 pre > code.sourceCode { white-space: pre-wrap; }
-pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+pre > code.sourceCode > span { display: inline-block; text-indent: -5em; padding-left: 5em; }
 }
 pre.numberSource code
   { counter-reset: source-line 0; }
@@ -93,7 +93,7 @@ code span.al { color: #ff0000; font-weight: bold; } /* Alert */
 code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
 code span.at { color: #7d9029; } /* Attribute */
 code span.bn { color: #40a070; } /* BaseN */
-code span.bu { } /* BuiltIn */
+code span.bu { color: #008000; } /* BuiltIn */
 code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
 code span.ch { color: #4070a0; } /* Char */
 code span.cn { color: #880000; } /* Constant */
@@ -106,7 +106,7 @@ code span.er { color: #ff0000; font-weight: bold; } /* Error */
 code span.ex { } /* Extension */
 code span.fl { color: #40a070; } /* Float */
 code span.fu { color: #06287e; } /* Function */
-code span.im { } /* Import */
+code span.im { color: #008000; font-weight: bold; } /* Import */
 code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
 code span.kw { color: #007020; font-weight: bold; } /* Keyword */
 code span.op { color: #666666; } /* Operator */
@@ -120,6 +120,10 @@ code span.vs { color: #4070a0; } /* VerbatimString */
 code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
 </style>
 
+<style type="text/css">
+  
+  div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+</style>
 
 <link rel="stylesheet" href="style.css" type="text/css" />
 </head>
@@ -334,6 +338,9 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
             <section class="normal" id="section-">
 <div id="ciência-de-dados-e-r" class="section level1 hasAnchor" number="2">
 <h1><span class="header-section-number">Capítulo2</span> Ciência de dados e R<a href="ciência-de-dados-e-r.html#ciência-de-dados-e-r" class="anchor-section" aria-label="Anchor link to header"></a></h1>
+<div class="callout-box">
+<p><strong>Aviso:</strong> Para ler a versão mais recente deste material, acesse: <a href="https://gustavojy.github.io/apostila-icdr/" class="uri">https://gustavojy.github.io/apostila-icdr/</a></p>
+</div>
 <div id="o-que-é-ciência-de-dados" class="section level2 hasAnchor" number="2.1">
 <h2><span class="header-section-number">2.1</span> O que é Ciência de Dados?<a href="ciência-de-dados-e-r.html#o-que-é-ciência-de-dados" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <p>A ciência de dados, como o próprio termo sugere, consiste no estudo e análise de dados, com o objetivo de extrair informações relevantes, utilizando técnicas e conhecimentos multidisciplinares. Por mais que o termo tenha se popularizado fortemente nos últimos anos devido à massiva geração de dados em elevadas quantidades, diversidades e velocidades, sua concepção se origina no século passado, seja por nomes notáveis como o do matemático e estatístico <a href="http://www.ru.ac.bd/wp-content/uploads/sites/25/2019/03/102_05_01_Tukey-Exploratory-Data-Analysis-1977.pdf">John W. Tukey</a>, mas também por aqueles que atuavam nas áreas de negócios e de pesquisa que, sem a pretensão de nomear ou organizar uma nova área do conhecimento, poderiam ser considerados cientistas de dados.</p>
@@ -492,14 +499,14 @@ Figure 2.9: Para cada etapa do fluxograma de trabalho da ciência de dados, exis
 <p><br></p>
 <p>Nesta apostila, focaremos no pacote <code>tidyverse</code> aplicado às etapas de <strong>Importar</strong>, <strong>Arrumar</strong>, <strong>Transformar</strong> e <strong>Visualizar</strong>, apresentando as principais ferramentas a serem utilizadas. Apenas os pacotes relacionados às etapas de <strong>Modelar</strong> e <strong>Comunicar</strong> não estão presentes no <code>tidyverse</code>.</p>
 <p>Assim sendo, vamos instalar o nosso primeiro pacote, o <code>tidyverse</code>:</p>
-<div class="sourceCode" id="cb1"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1-1"><a href="ciência-de-dados-e-r.html#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="fu">install.packages</span>(<span class="st">&quot;tidyverse&quot;</span>)</span>
-<span id="cb1-2"><a href="ciência-de-dados-e-r.html#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(tidyverse)</span></code></pre></div>
+<div class="sourceCode" id="cb1"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1-1"><a href="ciência-de-dados-e-r.html#cb1-1" tabindex="-1"></a><span class="fu">install.packages</span>(<span class="st">&quot;tidyverse&quot;</span>)</span>
+<span id="cb1-2"><a href="ciência-de-dados-e-r.html#cb1-2" tabindex="-1"></a><span class="fu">library</span>(tidyverse)</span></code></pre></div>
 <p>A função <code>install.packages("nome_do_pacote")</code> instala o requerido pacote. Atente-se ao fato que o nome do pacote deve estar entre aspas.</p>
 <p>Uma vez instalado, devemos carregar o pacote com a função <code>library()</code>, para que possamos utilizar as suas funcionalidades. Agora, o nome do pacote não precisa estar entre aspas. Esta função deve ser executada a cada nova seção inicializada no R.</p>
 <p>Lembrando que, para executar um comando, devemos escrever os respectivos códigos no <em>script</em> ou no <em>console</em>.</p>
 <p>Para rodar estas funções (além das demais outras que rodaremos), devemos selecionar a linha de código que se deseja executar e clicar no ícone ‘<em>Run</em>’, presente no canto superior direito da própria janela do <em>script</em>, ou utilizar o atalho <code>ctrl + Enter</code> no teclado. Perceba que temos que rodar linha por linha de código ou selecionar todas as linhas do <em>script</em> para então rodar o código de uma vez só.</p>
 <p>Para se ter uma visão geral de quais pacotes estão presentes no <code>tidyverse</code>, utilizamos a função <code>tidyverse_packages()</code>.</p>
-<div class="sourceCode" id="cb2"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb2-1"><a href="ciência-de-dados-e-r.html#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="fu">tidyverse_packages</span>()</span></code></pre></div>
+<div class="sourceCode" id="cb2"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb2-1"><a href="ciência-de-dados-e-r.html#cb2-1" tabindex="-1"></a><span class="fu">tidyverse_packages</span>()</span></code></pre></div>
 <pre><code> [1] &quot;broom&quot;         &quot;cli&quot;           &quot;crayon&quot;        &quot;dbplyr&quot;       
  [5] &quot;dplyr&quot;         &quot;dtplyr&quot;        &quot;forcats&quot;       &quot;ggplot2&quot;      
  [9] &quot;googledrive&quot;   &quot;googlesheets4&quot; &quot;haven&quot;         &quot;hms&quot;          
