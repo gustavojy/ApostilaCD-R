@@ -1,5 +1,9 @@
 # Noções básicas em R
 
+<div class="callout-box">
+<strong>Aviso:</strong> Para ler a versão mais recente deste material, acesse: <https://gustavojy.github.io/apostila-icdr/>
+</div>
+
 Para trabalhar com ciência de dados em R, devemos ter algumas noções básicas de programação nessa linguagem. Os conceitos discutidos neste capítulo serão a base para aplicarmos as demais ferramentas ao longo da apostila.  
 
 

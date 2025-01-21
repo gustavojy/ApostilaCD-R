@@ -1,5 +1,9 @@
 # Visualização {#graf}
 
+<div class="callout-box">
+<strong>Aviso:</strong> Para ler a versão mais recente deste material, acesse: <https://gustavojy.github.io/apostila-icdr/>
+</div>
+
 Nesta seção, focaremos na **Visualização de dados** (*Data Visualization*). A visualização consiste em uma etapa importante tanto para enxergar informações relevantes em nossas análises, como para apresentar os resultados obtidos. Para tanto, utilizaremos os recursos disponíveis no pacote `ggplot2`.
 
 O `ggplot2` foi idealizado por Hadley Wickham em sua tese de doutorado, em 2010, intitulada [*A Layered Grammar of Graphics*](http://vita.had.co.nz/papers/layered-grammar.pdf). Desde então, tornou-se um dos pacotes mais populares para a confecção de gráficos elegantes e versáteis, tendo como base a *gramática de gráficos*.  

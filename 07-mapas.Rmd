@@ -1,5 +1,9 @@
 # Mapas
 
+<div class="callout-box">
+<strong>Aviso:</strong> Para ler a versão mais recente deste capítulo, acesse: <https://gustavojy.github.io/mapas-brasil/>
+</div>
+
 Em complemento à visualização de dados a partir de gráficos, nesse capítulo, demonstraremos como podemos representá-los em mapas no R. Existem diversos pacotes desenvolvidos pela comunidade do R que tratam do assunto. No caso da confecção de mapas do Brasil, utilizaremos o pacote `geobr`.  
 
 O pacote `geobr` foi desenvolvido pelo Instituto de Pesquisa Econômica Aplicada (IPEA) [(PEREIRA; GONÇALVES et al., 2019)](https://github.com/ipeaGIT/geobr). Nele, encontramos uma ampla gama de dados geoespaciais oficiais do Brasil, disponíveis em várias escalas geográficas e por vários anos, com atributos, projeção e topologia harmonizados.  

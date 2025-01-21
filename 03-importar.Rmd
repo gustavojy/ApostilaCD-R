@@ -1,5 +1,9 @@
 # Importação {#import}
 
+<div class="callout-box">
+<strong>Aviso:</strong> Para ler a versão mais recente deste material, acesse: <https://gustavojy.github.io/apostila-icdr/>
+</div>
+
 Neste capítulo, iniciaremos a primeira etapa para começarmos a aplicar ciência de dados: a importação dos dados para o R. Deve-se ter em mente que um conjunto de dados pode estar em diversos formatos, seja em arquivo de texto, planilha Excel ou extensões de outros programas. Assim, para cada formato, haverá uma maneira específica de importá-los ao R. Nesta apostila, trataremos dos formatos mais usuais a serem importados: os arquivos texto e as planilhas Excel.  
 
 Como citado na seção \@ref(proj), referente à criação de projetos no RStudio, devemos criar um projeto para cada trabalho realizado, logo, direcionar os arquivos a serem importados para o respectivo diretório, a fim de manter uma organização e facilitar o nosso acesso aos documentos necessários. Portanto, caso ainda não tenha criado um projeto, confira a seção referente ao tema.  

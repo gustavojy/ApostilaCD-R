@@ -1,5 +1,9 @@
 # Ciência de dados e R  
 
+<div class="callout-box">
+<strong>Aviso:</strong> Para ler a versão mais recente deste material, acesse: <https://gustavojy.github.io/apostila-icdr/>
+</div>
+
 ## O que é Ciência de Dados?
 
 A ciência de dados, como o próprio termo sugere, consiste no estudo e análise de dados, com o objetivo de extrair informações relevantes, utilizando técnicas e conhecimentos multidisciplinares. Por mais que o termo tenha se popularizado fortemente nos últimos anos devido à massiva geração de dados em elevadas quantidades, diversidades e velocidades, sua concepção se origina no século passado, seja por nomes notáveis como o do matemático e estatístico [John W. Tukey](http://www.ru.ac.bd/wp-content/uploads/sites/25/2019/03/102_05_01_Tukey-Exploratory-Data-Analysis-1977.pdf), mas também por aqueles que atuavam nas áreas de negócios e de pesquisa que, sem a pretensão de nomear ou organizar uma nova área do conhecimento, poderiam ser considerados cientistas de dados.   

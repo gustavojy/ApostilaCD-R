@@ -1,5 +1,9 @@
 # Transformação {#trans}
 
+<div class="callout-box">
+<strong>Aviso:</strong> Para ler a versão mais recente deste material, acesse: <https://gustavojy.github.io/apostila-icdr/>
+</div>
+
 A etapa de transformação dos dados consiste em selecionar as variáveis e observações de interesse no nosso banco de dados, a fim de gerar medidas úteis para a análise. Podemos realizar operações entre colunas de acordo com determinada variável, calcular a média, mediana, contagem e porcentagens, além de selecionar, filtrar e criar novas variáveis.  
 
 Os principais pacotes relacionados ao tema, presentes no `tidyverse`, são o `dplyr`, `stringr`, `forcats` e `lubridate`, cada qual apresentando funções particulares e específicas para trabalhar com os dados. Nesta apostila, abordaremos apenas o pacote `dplyr`, cujas funções conseguem resolver a maioria dos problemas relacionados a essa etapa.  

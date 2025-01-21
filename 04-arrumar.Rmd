@@ -1,5 +1,9 @@
 # Organização {#org}
 
+<div class="callout-box">
+<strong>Aviso:</strong> Para ler a versão mais recente deste material, acesse: <https://gustavojy.github.io/apostila-icdr/>
+</div>
+
 Neste capítulo, trataremos sobre a manipulação dos dados. Esse processo tem como base o conceito de *tidy data*, no qual devemos ajustar os nossos dados em uma estrutura consistente e padronizada. Isso nos permite visualizar, analisar e modelar os dados de maneira mais fácil e rápida. Normalmente, costuma ser trabalhoso o processo de organizar a base de dados, mas, com o auxílio das ferramentas presentes no `tidyverse`, conseguimos obter bons resultados que, em longo prazo, faz o esforço valer a pena.  
 
 Como o próprio nome do pacote sugere, o `tidyverse` é baseado nos princípios de uma *tidy data*. Por isso, seus pacotes foram desenvolvidos para funcionarem seguindo tal princípio e serem complementares entre si.  

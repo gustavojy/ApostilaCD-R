@@ -1,5 +1,9 @@
 # Bibliografia consultada {-}
 
+<div class="callout-box">
+<strong>Aviso:</strong> Para ler a versão mais recente deste material, acesse: <https://gustavojy.github.io/apostila-icdr/>
+</div>
+
 Chang, Winston. 2021. R Graphics Cookbook. 2nd ed. Beijing: O’Reilly Media. https://r-graphics.org/.  
 
 Damiani, Athos; Lente, Caio; Milz, Beatriz; Falbel, Daniel; Correa, Fernando; Trecenti, Julio; Luduvice, Nicole; Amorim, William. 2021. Ciência de Dados em R. Curso-R. https://livro.curso-r.com/index.html.  
